@@ -7,14 +7,16 @@ Clip d'animation 2D d'action-comédie, direction manga shōnen inspirée de DBZ.
 - **Storyboard :** [`docs/storyboard.md`](docs/storyboard.md).
 - **MP3 :** [`audio/jeannot-slamrap.mp3`](audio/jeannot-slamrap.mp3), source [Suno](https://suno.com/s/Yp6esDOipsgZOeGw).
 - **Référence Jeannot + 4L fournie par l'utilisateur :** [`assets/references/jeannot-4l-reference.png`](assets/references/jeannot-4l-reference.png).
-- **Première image de recherche de style :** [`assets/art/jeannot-4l-style-frame.png`](assets/art/jeannot-4l-style-frame.png) — image-clé de test, pas une animation finale.
+- **Image-clé Jeannot/4L mise à jour :** [`assets/art/jeannot-4l-style-frame-v2.png`](assets/art/jeannot-4l-style-frame-v2.png) — taches de peinture ajoutées, image de recherche, pas une animation finale.
+- **Concept Henri :** [`assets/art/henri-character.png`](assets/art/henri-character.png).
+- **Concept de la sorcière :** [`assets/art/sorciere-character.png`](assets/art/sorciere-character.png).
 - **Source du MP3 :** [`clip-arm/clips/Jeannot slamrap.mp3`](https://github.com/Thierryaco/clip-arm/blob/arena/2748952e-clip-arm/clips/Jeannot%20slamrap.mp3), copiée ici sans modifier `clip-arm`.
 
 ## Références et direction visuelle
 
 L'image fournie montre Jeannot avec barbe foncée/grisonnante, chapeau jaune, combinaison de travail bleue et cigarette, à côté d'une Renault 4L vert menthe pâle, ancienne et rouillée mais intacte. Cette silhouette et cette voiture sont les références à suivre, au lieu de la 4L générique du prototype précédent.
 
-La maquette Canvas de [`animation/intro.html`](animation/intro.html) était un test technique de synchronisation, pas le style final : elle est considérée comme **à remplacer**. La première image de recherche donne une piste d'encrage/cel shading ; elle ne valide pas encore le look final DBZ.
+La maquette Canvas de [`animation/intro.html`](animation/intro.html) était un test technique, pas le style final : elle est considérée comme **à remplacer**. Les trois images dans `assets/art/` sont des concepts de recherche pour harmoniser les personnages et le trait ; elles ne sont pas encore des cels animés ni une validation finale du look DBZ.
 
 ## Référence audio
 
@@ -27,9 +29,10 @@ Ces repères donnent seulement les grandes sections. Les débuts/fins des parole
 - [x] Paroles, personnages, géographie et intentions définis dans le brief.
 - [x] MP3 ajouté et caractéristiques audio vérifiées.
 - [x] Référence visuelle de Jeannot et de la 4L intégrée dans `assets/references/`.
-- [x] Première image-clé manga créée comme recherche de style.
+- [x] Image de référence déplacée et renommée sous `assets/references/`.
+- [x] Concepts illustrés mis à jour pour Jeannot, Henri et la sorcière.
 - [x] Première proposition de storyboard.
-- [ ] Valider/corriger le style de l'image-clé et le dessin exact de la 4L.
+- [ ] Valider le trait, les proportions et le dessin de la 4L avant l'animation.
 - [ ] Remplacer le prototype Canvas par une animation illustrée en cels à 12–15 images dessinées/s, puis exporter à 24 fps (cels sur deux).
 - [ ] Recaler les lèvres, les actions et les coups sur les paroles et les accents musicaux.
 - [ ] Étendre l'animation aux 104,36 s et rendre le MP4 H.264 avec audio AAC 48 kHz.
@@ -44,9 +47,9 @@ Ces repères donnent seulement les grandes sections. Les débuts/fins des parole
 
 ## Personnages
 
-- **Jeannot :** peintre d'une cinquantaine d'années, barbu et grisonnant, chapeau jaune et combinaison bleue d'après la référence, toujours une gitane ; héros qui se relève toujours. Il vit en face du narrateur avec sa sœur, la sorcière, et son chien Enji.
-- **Henri :** frère de Jeannot, voisin immédiat ; chute des escaliers et dents esquintées comme gag de cartoon.
-- **La sorcière :** sœur de Jeannot, méchante de cartoon dans sa tourelle.
+- **Jeannot :** peintre d'une cinquantaine d'années, barbu et grisonnant, chapeau jaune et combinaison bleue tachés de peinture, toujours une gitane ; héros qui se relève toujours. Il vit en face du narrateur avec sa sœur, la sorcière, et son chien Enji.
+- **Henri :** frère de Jeannot, un peu plus âgé ; cheveux plus longs, hirsutes et en bataille. Il habite à côté, tombe des escaliers et esquinte ses dents en gag de cartoon.
+- **La sorcière :** sœur de Jeannot, cheveux teints très noirs et en bataille, maquillage chargé avec beaucoup de mascara ; méchante de cartoon dans sa tourelle.
 - **Diego (« le rat ») :** plombier à casquette et salopette, nez et moustache façon Mario Bros. Il conduit une vieille Estafette de plombier et retape depuis des années une Coccinelle orange avec son fils Marco.
 - **Marco :** fils de Diego, aide à retaper la Coccinelle.
 - **Enji :** chien de Jeannot.

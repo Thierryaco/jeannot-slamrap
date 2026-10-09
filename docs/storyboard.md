@@ -2,8 +2,8 @@
 
 ## Références visuelles
 
-- Image fournie par l'utilisateur : [`assets/references/jeannot-4l-reference.png`](../assets/references/jeannot-4l-reference.png). Elle fixe la silhouette de Jeannot (chapeau jaune, combinaison bleue, barbe, cigarette) et la 4L vert menthe vue de l'arrière, avec sa caisse carrée et sa rouille, mais intacte.
-- Image-clé de recherche de style : [`assets/art/jeannot-4l-style-frame.png`](../assets/art/jeannot-4l-style-frame.png). C'est un essai illustré, pas une animation ni un style final validé.
+- Image fournie par l'utilisateur : [`assets/references/jeannot-4l-reference.png`](../assets/references/jeannot-4l-reference.png). Elle fixe Jeannot (chapeau jaune, combinaison bleue, barbe, cigarette) et la 4L vert menthe vue de l'arrière, carrée, rouillée mais intacte.
+- Images de recherche : Jeannot et la 4L [`assets/art/jeannot-4l-style-frame-v2.png`](../assets/art/jeannot-4l-style-frame-v2.png), Henri [`assets/art/henri-character.png`](../assets/art/henri-character.png), sorcière [`assets/art/sorciere-character.png`](../assets/art/sorciere-character.png). Ce sont des concepts, pas encore des cels animés ni un look final validé.
 - Le personnage et la voiture géométriques du prototype Canvas sont à écarter pour la production.
 
 ## Repères audio
@@ -24,9 +24,9 @@ Les répartitions de temps par ligne sont des repères de montage, pas un aligne
 
 | Temps estimé | Parole | Image / animation |
 |---|---|---|
-| 00:16,35–00:18,88 | Jeannot est là, et toujours là ! | Jeannot devant sa maison ; apparition du cartouche « Jeannot est toujours là ». |
-| 00:18,88–00:21,42 | La sorcière est partie, Jeannot est encore là | La sorcière s'éloigne de sa tourelle ; Jeannot ne bouge pas. |
-| 00:21,42–00:23,95 | Alors Henri s'enfuit, Jeannot est toujours là | Henri détale depuis la maison voisine ; contrechamp sur Jeannot. |
+| 00:16,35–00:18,88 | Jeannot est là, et toujours là ! | Jeannot devant sa maison, taches de peinture sur la combinaison bleue et le chapeau jaune ; apparition du cartouche « Jeannot est toujours là ». |
+| 00:18,88–00:21,42 | La sorcière est partie, Jeannot est encore là | La sorcière s'éloigne de sa tourelle ; cheveux noirs teints en bataille et mascara très appuyé ; Jeannot ne bouge pas. |
+| 00:21,42–00:23,95 | Alors Henri s'enfuit, Jeannot est toujours là | Henri, un peu plus âgé, détale depuis la maison voisine, ses cheveux longs et hirsutes au vent ; contrechamp sur Jeannot. |
 | 00:23,95–00:26,48 | La sorcière est revenue, c'est la merde dans la rue | Retour spectaculaire de la sorcière ; agitation comique et lignes de vitesse. |
 | 00:26,48–00:29,02 | Henri tombe des escaliers, toutes ses dents sont esquintées | Chute burlesque, sans gore ; gag visuel sur ses dents esquintées. |
 

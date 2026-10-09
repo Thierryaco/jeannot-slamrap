@@ -1,66 +1,83 @@
-# Storyboard provisoire — Jeannot slamrap
+# Storyboard — Jeannot slamrap
 
-## Base de travail
+## Repères audio
 
-- **Durée visée :** 1:44 (104 s), selon le brief.
-- **Découpage ci-dessous :** estimation en attendant l'écoute et l'analyse du MP3. Le fichier `audio/jeannot-slamrap.mp3` est absent de ce checkout ; les attaques de voix, silences, temps forts et synchronisations ne sont donc pas mesurés. Les bornes seront déplacées au montage pour coller réellement à l'audio.
-- **Règle paroles :** texte chanté repris exactement du brief. Les indications visuelles n'ajoutent pas de dialogue ; les onomatopées sont des effets à l'écran.
-- **Mise en scène :** une seule rue, Jeannot et Henri à un bout, Diego à l'autre. La 4L reste une vieille voiture rouillée, mais visuellement intacte.
+Le MP3 de référence est présent dans `audio/jeannot-slamrap.mp3` : 104,36 s, MP3 VBR (~185,8 kb/s), 48 kHz, stéréo. L'analyse de l'enveloppe et des transitoires donne ces repères globaux : montée de niveau vers 16 s, creux/build autour de 43–54 s, relance vers 54 s, creux vers 82–86 s et fondu à partir d'environ 97 s. Le tempo candidat est ~90,7 BPM (ou 45,4 en half-time).
 
-## Découpage proposé
+**Important :** ces mesures repèrent la musique, pas les mots. Les débuts de sections ci-dessous sont estimés à partir des changements de niveau et de la pulsation ; les répartitions ligne par ligne sont provisoires, à confirmer à l'écoute avant le lipsync. Les paroles sont reprises mot pour mot du brief. Pas de dialogue ajouté ; « BAM » et « CRAC » restent des effets visuels.
 
-### 00:00–00:25 — Couplet 1 : installation de la rue
+## Découpage provisoire — total 1:44,36
 
-| Temps estimé | Parole | Image / animation |
-|---|---|---|
-| 00:00–00:04 | Jeannot est là, et toujours là ! | Plan d'ensemble de la rue, puis travelling vers Jeannot devant sa maison. Cartouche « Jeannot est toujours là ». La 4L rouillée est garée près de lui. |
-| 00:04–00:09 | La sorcière est partie, Jeannot est encore là | La sorcière s'éloigne de sa tourelle ; Jeannot reste immobile dans le cadre. |
-| 00:09–00:13 | Alors Henri s'enfuit, Jeannot est toujours là | Henri sort de chez lui, juste à côté, et détale ; contrechamp sur Jeannot qui n'a pas bougé. |
-| 00:13–00:18 | La sorcière est revenue, c'est la merde dans la rue | Retour spectaculaire de la sorcière dans sa tourelle ; lignes de vitesse et agitation comique dans la rue. |
-| 00:18–00:25 | Henri tombe des escaliers, toutes ses dents sont esquintées | Chute burlesque dans l'escalier, sans gore ; arrêt sur image et gag visuel sur les dents esquintées. |
+### 00:00–00:16,35 — Ouverture musicale / installation
 
-### 00:25–00:50 — Premier refrain : le rival apparaît
+Plan d'ensemble de la rue en montée progressive. Présenter Jeannot et sa 4L rouillée, Henri dans la maison voisine, puis la tourelle de la sorcière et l'autre bout de la rue. Enji peut traverser le cadre pour son gag. Garder la bouche de Jeannot prête à être animée dès la première entrée vocale réellement repérée ; ne pas ajouter de texte chanté.
+
+### 00:16,35–00:29,02 — Couplet 1
+
+Les répartitions de temps par ligne sont des repères de montage, pas un alignement automatique des phonèmes.
 
 | Temps estimé | Parole | Image / animation |
 |---|---|---|
-| 00:25–00:29 | Jeannot a gagné, Jeannot est toujours là | Jeannot prend une pose de héros ; flash et cartouche récurrent. |
-| 00:29–00:33 | Il ne partira pas, il restera là | Gros plan déterminé, puis plan large : il garde sa place devant la maison. |
-| 00:33–00:37 | La 4 ailes dans la rue, le bordel est revenu | La caméra passe sur la 4L et le désordre comique de la rue ; la voiture reste entière. |
-| 00:37–00:40 | Le rat guette, dans son estafette | À l'autre bout de la rue, Diego observe depuis son Estafette de plombier. Montrer l'autocollant « Chat Chainegaz » seulement après confirmation de l'orthographe. |
-| 00:40–00:44 | La sorcière d'sa tourelle, attend son Roméo | Contre-plongée sur la sorcière à sa fenêtre, qui guette Diego. |
-| 00:44–00:50 | Et le rat Diégo, casse la 4 ailes de Jeannot | Diego lance son assaut ; impact manga, « BAM » et secousse d'écran. La 4L est secouée, mais n'est ni détruite ni cassée. |
+| 00:16,35–00:18,88 | Jeannot est là, et toujours là ! | Jeannot devant sa maison ; apparition du cartouche « Jeannot est toujours là ». |
+| 00:18,88–00:21,42 | La sorcière est partie, Jeannot est encore là | La sorcière s'éloigne de sa tourelle ; Jeannot ne bouge pas. |
+| 00:21,42–00:23,95 | Alors Henri s'enfuit, Jeannot est toujours là | Henri détale depuis la maison voisine ; contrechamp sur Jeannot. |
+| 00:23,95–00:26,48 | La sorcière est revenue, c'est la merde dans la rue | Retour spectaculaire de la sorcière ; agitation comique et lignes de vitesse. |
+| 00:26,48–00:29,02 | Henri tombe des escaliers, toutes ses dents sont esquintées | Chute burlesque, sans gore ; gag visuel sur ses dents esquintées. |
 
-### 00:50–00:55 — Pont : face-à-face
-
-| Temps estimé | Parole | Image / animation |
-|---|---|---|
-| 00:50–00:55 | C'est le combat final, entre Diego et Jeannot | Travelling sur toute la rue jusqu'au face-à-face. Jeannot se prépare ; Diego descend de son fourgon. Montée d'aura et lignes de vitesse. |
-
-### 00:55–01:29 — Deuxième refrain : combat et victoire
+### 00:29,02–00:43,69 — Premier refrain : le rival apparaît
 
 | Temps estimé | Parole | Image / animation |
 |---|---|---|
-| 00:55–00:59 | Jeannot a gagné, Jeannot est toujours là | Jeannot revient dans le cadre, solide après le premier échange ; cartouche récurrent. |
-| 00:59–01:03 | Il ne partira pas, il restera là | Transformation de Jeannot : cheveux dressés et aura, sans changer de lieu. |
-| 01:03–01:07 | Jeannot tape Diego, qui se casse le dos | Échange rapide ; coup stylisé, flash blanc, « CRAC » visuel et tremblement de l'image. |
-| 01:07–01:11 | Diégo est à terre, c'est la fin de la guerre | Diego tombe au sol, sans blessure graphique. Enji arrive et renifle sa casquette ou lui tourne autour, gag visuel. |
-| 01:11–01:16 | Jeannot prend sa peinture, et la verse sur la voiture | Jeannot prend son pot de peinture et le soulève comme une boule d'énergie ; coupe vers la voiture visée. |
-| 01:16–01:20 | du fils de Diégo, qui s'appelle Marco | Révélation de la Coccinelle orange en restauration ; Marco est près de la voiture. La peinture tombe dessus, conformément aux paroles. |
-| 01:20–01:24 | Diégo a perdu, Jeannot a gagné | Diego reste à terre ; Jeannot se redresse dans un cadre héroïque. |
-| 01:24–01:29 | C'est le roi de la rue, et il nous casse les pieds | Jeannot prend la pose au milieu de la rue ; réaction agacée des voisins et gag avec Enji, sans nouvelle réplique. |
+| 00:29,02–00:31,47 | Jeannot a gagné, Jeannot est toujours là | Pose héroïque de Jeannot, flash et cartouche récurrent. |
+| 00:31,47–00:33,91 | Il ne partira pas, il restera là | Gros plan déterminé, puis plan large sur sa maison. |
+| 00:33,91–00:36,36 | La 4 ailes dans la rue, le bordel est revenu | La caméra passe sur la 4L ; elle reste entière et reconnaissable. |
+| 00:36,36–00:38,80 | Le rat guette, dans son estafette | Diego observe depuis son Estafette à l'autre bout de la rue. |
+| 00:38,80–00:41,25 | La sorcière d'sa tourelle, attend son Roméo | Contre-plongée sur la sorcière qui guette Diego. |
+| 00:41,25–00:43,69 | Et le rat Diégo, casse la 4 ailes de Jeannot | Diego lance son assaut : « BAM » visuel et secousse. La 4L est secouée, mais pas détruite ni cassée. |
 
-### 01:29–01:44 — Refrain final et fin
+L'autocollant du fourgon ne sera écrit « Chat Chainegaz » qu'après confirmation de l'orthographe.
+
+### 00:43,69–00:53,70 — Pont / montée du combat
 
 | Temps estimé | Parole | Image / animation |
 |---|---|---|
-| 01:29–01:33 | Jeannot a gagné, Jeannot est toujours là | Reprise du cartouche et de la pose héroïque, avec un bref rappel des personnages dans la rue. |
-| 01:33–01:37 | Il ne partira pas, il restera là | Jeannot reste devant sa maison ; l'aura retombe et l'image se stabilise. |
-| 01:37–01:40 | Fin | Carton « Fin », calé sur la voix réelle une fois le MP3 disponible. |
-| 01:40–01:44 | — | Dernière pose tenue jusqu'à la fin de la musique ; fondu au noir sur le dernier accent audio. |
+| 00:43,69–00:50,35 | — | Baisse de niveau : travelling le long de la rue, les deux rivaux se font face ; préparer la montée d'aura. |
+| 00:50,35–00:53,70 | C'est le combat final, entre Diego et Jeannot | Fenêtre vocale candidate à confirmer ; cadrage frontal, montée d'énergie et lignes de vitesse. |
 
-## À verrouiller au prochain passage audio
+### 00:53,70–01:22,00 — Deuxième refrain : combat et victoire
 
-1. Ajouter le MP3 de référence au chemin `audio/jeannot-slamrap.mp3`.
-2. Confirmer sa durée réelle et repérer les débuts/fins de phrases, respirations et temps forts.
-3. Recaler tous les timecodes, la bouche de Jeannot et les impacts sur la voix et la musique.
-4. Confirmer l'orthographe de l'autocollant « Chat Chainegaz ».
+Les durées par ligne sont réparties provisoirement sur la fenêtre musicale mesurée ; les coupes seront ajustées aux attaques de voix réelles.
+
+| Temps estimé | Parole | Image / animation |
+|---|---|---|
+| 00:53,70–00:57,24 | Jeannot a gagné, Jeannot est toujours là | Jeannot se redresse ; cartouche récurrent. |
+| 00:57,24–01:00,78 | Il ne partira pas, il restera là | Transformation : cheveux dressés et aura, sans changer de rue. |
+| 01:00,78–01:03,99 | Jeannot tape Diego, qui se casse le dos | Coup stylisé, flash blanc, « CRAC » visuel et tremblement. |
+| 01:03,99–01:07,53 | Diégo est à terre, c'est la fin de la guerre | Diego tombe sans blessure graphique ; Enji renifle sa casquette ou lui tourne autour. |
+| 01:07,53–01:11,71 | Jeannot prend sa peinture, et la verse sur la voiture | Jeannot soulève son pot de peinture comme une boule d'énergie ; coupe vers la voiture. |
+| 01:11,71–01:14,92 | du fils de Diégo, qui s'appelle Marco | Révélation de la Coccinelle orange en restauration, Marco à côté ; la peinture tombe dessus. |
+| 01:14,92–01:18,13 | Diégo a perdu, Jeannot a gagné | Diego reste à terre ; Jeannot se redresse en héros. |
+| 01:18,13–01:22,00 | C'est le roi de la rue, et il nous casse les pieds | Jeannot pose au milieu de la rue ; réactions agacées et gag visuel avec Enji, sans réplique. |
+
+### 01:22,00–01:25,70 — Relance musicale
+
+Bref temps de respiration avant le dernier refrain ; tenir le plan de victoire, puis recadrer Jeannot au premier accent suivant.
+
+### 01:25,70–01:37,00 — Refrain final et « Fin »
+
+| Temps estimé | Parole | Image / animation |
+|---|---|---|
+| 01:25,70–01:29,45 | Jeannot a gagné, Jeannot est toujours là | Reprise du cartouche et de la pose héroïque. |
+| 01:29,45–01:33,20 | Il ne partira pas, il restera là | Jeannot reste devant sa maison ; l'aura retombe. |
+| 01:33,20–01:37,00 | Fin | Carton « Fin », à recaler sur la voix réelle. |
+
+### 01:37,00–01:44,36 — Sortie
+
+Tenir la dernière pose, fondu au noir sur la fin de la musique. Aucun texte supplémentaire.
+
+## À confirmer à l'écoute
+
+1. Première entrée vocale, surtout pendant l'ouverture à faible niveau.
+2. Début et fin exacts de chaque phrase, notamment le pont et le dernier « Fin ».
+3. Accents précis des coups et du versement de peinture.
+4. Orthographe de l'autocollant « Chat Chainegaz ».

@@ -81,7 +81,20 @@ Bref temps de respiration avant le dernier refrain ; tenir le plan de victoire, 
 
 Tenir la dernière pose, fondu au noir sur la fin de la musique. Aucun texte supplémentaire.
 
-## À confirmer à l'écoute
+## Découpage caméra — test et couplet 1
+
+Le premier MP4 de test (`renders/jeannot-intro-test-12fps.mp4`) est un **test de mouvement de caméra et de fumée** sur l'image-clé Jeannot/4L : 3 secondes, 36 images à 12 fps, avec le premier bout audio estimé. Il ne teste pas encore l'animation du corps ni le lipsync.
+
+| Fenêtre provisoire | Plan et caméra | Action / intention |
+|---|---|---|
+| 00:00–00:16,35 | **Plan général** depuis le point de vue du narrateur ; lent travelling avant dans la rue, parallaxe légère entre façades et premier plan. | Installer l'unique rue et faire découvrir la 4L de Jeannot ; garder l'entrée vocale à vérifier. |
+| 00:16,35–00:18,88 | **Plan moyen 3/4 arrière** sur Jeannot et la 4L ; test actuel : push-in doux, léger recadrage vers Jeannot, fumée animée à 12 fps. | « Jeannot est là, et toujours là ! » ; prochaine version : clignement, tête/épaule et bouche en cels. |
+| 00:18,88–00:21,42 | **Contre-plongée moyenne** sur la tourelle ; panoramique vif vers la fenêtre, puis suivi court de la sorcière qui s'en va. | « La sorcière est partie, Jeannot est encore là » ; révéler ses cheveux noirs, son mascara et sa cigarette. |
+| 00:21,42–00:23,95 | **Plan latéral de course** sur Henri ; travelling latéral qui accompagne sa fuite, lignes de vitesse en arrière-plan. | « Alors Henri s'enfuit, Jeannot est toujours là » ; lunettes et cigarette lisibles, sourire benêt. |
+| 00:23,95–00:26,48 | **Retour tourelle** par whip-pan ; brève pause sur la sorcière, puis petit push-in. | « La sorcière est revenue, c'est la merde dans la rue » ; accent comique sur son air fatigué. |
+| 00:26,48–00:29,02 | **Tilt vers l'escalier**, caméra suit Henri dans la chute ; flash blanc très bref, secousse à l'impact, arrêt de deux cels sur le gag des dents. | « Henri tombe des escaliers, toutes ses dents sont esquintées » ; Enji accourt dans le dernier temps. |
+
+### À confirmer à l'écoute
 
 1. Première entrée vocale, surtout pendant l'ouverture à faible niveau.
 2. Début et fin exacts de chaque phrase, notamment le pont et le dernier « Fin ».

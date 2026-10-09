@@ -4,7 +4,9 @@ Clip d'animation 2D d'action-comédie, direction manga shōnen inspirée de DBZ.
 
 - **Durée audio mesurée :** 104,36 s (1 min 44,36 s).
 - **Format visé :** 1920 × 1080, 16:9 (à confirmer).
-- **Storyboard :** [`docs/storyboard.md`](docs/storyboard.md).
+- **Storyboard et plans caméra :** [`docs/storyboard.md`](docs/storyboard.md).
+- **Test de mouvement 12 fps :** [`renders/jeannot-intro-test-12fps.mp4`](renders/jeannot-intro-test-12fps.mp4) — push-in et fumée, pas encore de cels corporels/lipsync.
+- **Script du test :** [`tools/render_intro_test.py`](tools/render_intro_test.py), dépendances dans [`requirements-render.txt`](requirements-render.txt).
 - **MP3 :** [`audio/jeannot-slamrap.mp3`](audio/jeannot-slamrap.mp3), source [Suno](https://suno.com/s/Yp6esDOipsgZOeGw).
 - **Référence Jeannot + 4L fournie par l'utilisateur :** [`assets/references/jeannot-4l-reference.png`](assets/references/jeannot-4l-reference.png).
 - **Image-clé Jeannot/4L mise à jour :** [`assets/art/jeannot-4l-style-frame-v2.png`](assets/art/jeannot-4l-style-frame-v2.png) — taches de peinture ajoutées, image de recherche, pas une animation finale.
@@ -29,12 +31,12 @@ Ces repères donnent seulement les grandes sections. Les débuts/fins des parole
 
 - [x] Paroles, personnages, géographie et intentions définis dans le brief.
 - [x] MP3 ajouté et caractéristiques audio vérifiées.
-- [x] Référence visuelle de Jeannot et de la 4L intégrée dans `assets/references/`.
-- [x] Image de référence déplacée et renommée sous `assets/references/`.
+- [x] Référence visuelle de Jeannot et de la 4L déplacée sous `assets/references/`.
 - [x] Concepts illustrés mis à jour pour Jeannot, Henri, la sorcière et Enji.
-- [x] Première proposition de storyboard.
-- [ ] Valider le trait, les proportions et le dessin de la 4L avant l'animation.
-- [ ] Remplacer le prototype Canvas par une animation illustrée en cels à 12–15 images dessinées/s, puis exporter à 24 fps (cels sur deux).
+- [x] Storyboard provisoire avec plans et mouvements de caméra pour l'ouverture.
+- [x] Test vidéo de 3 s rendu en 1080p à 12 fps avec push-in et fumée animée.
+- [ ] Animer les personnages eux-mêmes en cels (visage, bouche et poses), puis exporter à 24 fps sur deux.
+- [ ] Valider le trait et les proportions de la 4L avant d'étendre la séquence.
 - [ ] Recaler les lèvres, les actions et les coups sur les paroles et les accents musicaux.
 - [ ] Étendre l'animation aux 104,36 s et rendre le MP4 H.264 avec audio AAC 48 kHz.
 

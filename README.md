@@ -5,8 +5,10 @@ Clip d'animation 2D d'action-comédie, direction manga shōnen inspirée de DBZ.
 - **Durée audio mesurée :** 104,36 s (1 min 44,36 s).
 - **Format visé :** 1920 × 1080, 16:9 (à confirmer).
 - **Storyboard et plans caméra :** [`docs/storyboard.md`](docs/storyboard.md).
-- **Test de mouvement 12 fps :** [`renders/jeannot-intro-test-12fps.mp4`](renders/jeannot-intro-test-12fps.mp4) — push-in et fumée, pas encore de cels corporels/lipsync.
-- **Script du test :** [`tools/render_intro_test.py`](tools/render_intro_test.py), dépendances dans [`requirements-render.txt`](requirements-render.txt).
+- **Test de caméra 12 fps :** [`renders/jeannot-intro-test-12fps.mp4`](renders/jeannot-intro-test-12fps.mp4) — push-in et fumée sur l'image de référence ; pas encore de cels corporels/lipsync.
+- **Test d'action 12 fps :** [`renders/henri-stairs-test-12fps.mp4`](renders/henri-stairs-test-12fps.mp4) — chute comique d'Henri, 2,75 s et 33 images, avec extrait audio provisoire. C'est un cutout animé, pas encore des cels redessinés.
+- **Décor / source du rig Henri :** [`assets/rigs/henri-stairs-clean-plate.png`](assets/rigs/henri-stairs-clean-plate.png) et [`assets/rigs/henri-cutout-green.png`](assets/rigs/henri-cutout-green.png).
+- **Scripts des tests :** [`tools/render_intro_test.py`](tools/render_intro_test.py) et [`tools/render_henri_fall_test.py`](tools/render_henri_fall_test.py), dépendances dans [`requirements-render.txt`](requirements-render.txt).
 - **MP3 :** [`audio/jeannot-slamrap.mp3`](audio/jeannot-slamrap.mp3), source [Suno](https://suno.com/s/Yp6esDOipsgZOeGw).
 - **Référence Jeannot + 4L fournie par l'utilisateur :** [`assets/references/jeannot-4l-reference.png`](assets/references/jeannot-4l-reference.png).
 - **Image-clé Jeannot/4L mise à jour :** [`assets/art/jeannot-4l-style-frame-v2.png`](assets/art/jeannot-4l-style-frame-v2.png) — taches de peinture ajoutées, image de recherche, pas une animation finale.
@@ -35,7 +37,8 @@ Ces repères donnent seulement les grandes sections. Les débuts/fins des parole
 - [x] Concepts illustrés mis à jour pour Jeannot, Henri, la sorcière et Enji.
 - [x] Storyboard provisoire avec plans et mouvements de caméra pour l'ouverture.
 - [x] Test vidéo de 3 s rendu en 1080p à 12 fps avec push-in et fumée animée.
-- [ ] Animer les personnages eux-mêmes en cels (visage, bouche et poses), puis exporter à 24 fps sur deux.
+- [x] Test d'action de 2,75 s rendu à 12 fps : détourage corrigé, chute d'Henri en cutout et extrait audio provisoire.
+- [ ] Remplacer le cutout de chute par des cels dessinés (visage, bouche et poses), puis exporter à 24 fps sur deux.
 - [ ] Valider le trait et les proportions de la 4L avant d'étendre la séquence.
 - [ ] Recaler les lèvres, les actions et les coups sur les paroles et les accents musicaux.
 - [ ] Étendre l'animation aux 104,36 s et rendre le MP4 H.264 avec audio AAC 48 kHz.

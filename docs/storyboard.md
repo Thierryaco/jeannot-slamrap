@@ -92,7 +92,7 @@ Le premier MP4 de test (`renders/jeannot-intro-test-12fps.mp4`) est un **test de
 | 00:18,88–00:21,42 | **Contre-plongée moyenne** sur la tourelle ; panoramique vif vers la fenêtre, puis suivi court de la sorcière qui s'en va. | « La sorcière est partie, Jeannot est encore là » ; révéler ses cheveux noirs, son mascara et sa cigarette. |
 | 00:21,42–00:23,95 | **Plan latéral de course** sur Henri ; travelling latéral qui accompagne sa fuite, lignes de vitesse en arrière-plan. | « Alors Henri s'enfuit, Jeannot est toujours là » ; lunettes et cigarette lisibles, sourire benêt. |
 | 00:23,95–00:26,48 | **Retour tourelle** par whip-pan ; brève pause sur la sorcière, puis petit push-in. | « La sorcière est revenue, c'est la merde dans la rue » ; accent comique sur son air fatigué. |
-| 00:26,48–00:29,02 | **Tilt vers l'escalier**, caméra suit Henri dans la chute ; flash blanc très bref, secousse à l'impact, arrêt de deux cels sur le gag des dents. | « Henri tombe des escaliers, toutes ses dents sont esquintées » ; Enji accourt dans le dernier temps. |
+| 00:26,48–00:29,02 | **Tilt vers l'escalier**, caméra suit Henri dans la chute ; flash blanc très bref, secousse à l'impact, arrêt de deux cels sur le gag des dents. Le test actuel [`renders/henri-stairs-test-12fps.mp4`](../renders/henri-stairs-test-12fps.mp4) dure 2,75 s à 12 fps (33 images) et utilise un cutout pivoté, pas encore des cels dessinés. | « Henri tombe des escaliers, toutes ses dents sont esquintées » ; audio et paroles conservés, Enji accourt dans le dernier temps du storyboard. |
 
 ### À confirmer à l'écoute
 

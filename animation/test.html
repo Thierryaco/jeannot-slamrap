@@ -3,39 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jeannot slamrap — test de mouvement 12 fps</title>
+  <title>Jeannot slamrap — tests d'animation</title>
   <style>
     :root { color-scheme: dark; font-family: system-ui, sans-serif; }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; background: #0b111c; color: #edf2f8; }
-    main { width: min(1240px, calc(100% - 32px)); margin: 30px auto; }
+    main { width: min(1240px, calc(100% - 32px)); margin: 30px auto 56px; }
     .eyebrow { color: #f2bf44; font-size: 11px; font-weight: 800; letter-spacing: .16em; }
     h1 { margin: 7px 0 8px; font-size: clamp(24px,4vw,40px); }
-    .lead { color: #b5c0cf; margin: 0 0 20px; line-height: 1.5; }
+    h2 { margin: 0 0 8px; font-size: clamp(20px,3vw,28px); }
+    .lead { color: #b5c0cf; margin: 0 0 24px; line-height: 1.5; }
+    section { margin: 0 0 34px; }
+    .description { color: #b5c0cf; margin: 0 0 14px; line-height: 1.55; }
     video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #05080d; border: 1px solid #344153; border-radius: 10px; box-shadow: 0 20px 60px #0008; }
     .meta { display: flex; gap: 10px; flex-wrap: wrap; margin: 15px 0 18px; }
     .tag { border: 1px solid #354357; border-radius: 999px; padding: 6px 10px; color: #c4cfdd; font-size: 12px; }
     .note { padding: 14px 16px; border-left: 3px solid #f2bf44; background: #141d2b; color: #c1cbda; font-size: 13px; line-height: 1.6; }
     a { color: #f2bf44; }
+    .divider { height: 1px; border: 0; background: #263448; margin: 34px 0; }
   </style>
 </head>
 <body>
   <main>
-    <p class="eyebrow">JEANNOT SLAMRAP · TEST D'ANIMATION</p>
-    <h1>Plan 1 — Jeannot et sa 4L</h1>
-    <p class="lead">Premier essai de mouvement caméra sur le dessin de référence, accompagné du MP3. Le plan est rendu à 12 images par seconde.</p>
-    <video controls playsinline preload="metadata" poster="../assets/art/jeannot-4l-style-frame-v2.png">
-      <source src="../renders/jeannot-intro-test-12fps.mp4" type="video/mp4">
-      Ton navigateur ne peut pas lire cette vidéo.
-    </video>
-    <div class="meta">
-      <span class="tag">3 secondes</span>
-      <span class="tag">1920 × 1080</span>
-      <span class="tag">12 fps · 36 images</span>
-      <span class="tag">AAC stéréo · 48 kHz</span>
-      <span class="tag">Audio source : 00:16,35–00:19,35*</span>
-    </div>
-    <p class="note"><strong>Limite de ce test :</strong> il vérifie le push-in et la fumée animée. Le corps, les expressions et le lipsync ne sont pas encore animés en cels ; le repère de départ audio reste à confirmer. Le vieux prototype vectoriel n'est pas utilisé ici. <a href="../docs/storyboard.md">Voir les plans et mouvements de caméra proposés.</a></p>
+    <p class="eyebrow">JEANNOT SLAMRAP · TESTS D'ANIMATION</p>
+    <h1>Essais de plans à 12 images par seconde</h1>
+    <p class="lead">Deux tests courts montés sur des passages provisoires du morceau. Ils servent à régler la mise en scène avant la fabrication des cels dessinés.</p>
+
+    <section aria-labelledby="henri-title">
+      <h2 id="henri-title">Plan 2 — La chute d'Henri</h2>
+      <p class="description">Henri bascule, effectue une roulade burlesque dans l'escalier et termine au sol sur le gag du « CRAC » — sans blessure graphique.</p>
+      <video controls playsinline preload="metadata" poster="../renders/henri-stairs-test-poster.jpg">
+        <source src="../renders/henri-stairs-test-12fps.mp4" type="video/mp4">
+        Ton navigateur ne peut pas lire cette vidéo.
+      </video>
+      <div class="meta">
+        <span class="tag">2,75 secondes</span>
+        <span class="tag">1920 × 1080</span>
+        <span class="tag">12 fps · 33 images</span>
+        <span class="tag">AAC stéréo · 48 kHz</span>
+        <span class="tag">Extrait MP3 provisoire : 00:26,48–00:29,23</span>
+      </div>
+      <p class="note"><strong>État du test :</strong> le fond vert a été détouré et la contamination verte des cheveux corrigée. Henri est encore animé en cutout pivoté, pas en cels redessinés ; le début et la fin de l'extrait audio restent à recaler à l'écoute. Les paroles affichées sont celles du morceau, mot pour mot. <a href="../docs/storyboard.md">Voir le storyboard et le mouvement de caméra proposés.</a></p>
+    </section>
+
+    <hr class="divider">
+
+    <section aria-labelledby="jeannot-title">
+      <h2 id="jeannot-title">Plan 1 — Jeannot et sa 4L</h2>
+      <p class="description">Premier essai de mouvement caméra sur le dessin de référence, accompagné du MP3.</p>
+      <video controls playsinline preload="metadata" poster="../assets/art/jeannot-4l-style-frame-v2.png">
+        <source src="../renders/jeannot-intro-test-12fps.mp4" type="video/mp4">
+        Ton navigateur ne peut pas lire cette vidéo.
+      </video>
+      <div class="meta">
+        <span class="tag">3 secondes</span>
+        <span class="tag">1920 × 1080</span>
+        <span class="tag">12 fps · 36 images</span>
+        <span class="tag">AAC stéréo · 48 kHz</span>
+        <span class="tag">Audio source : 00:16,35–00:19,35*</span>
+      </div>
+      <p class="note"><strong>Limite de ce test :</strong> il vérifie le push-in et la fumée animée. Le corps, les expressions et le lipsync ne sont pas encore animés en cels ; le repère de départ audio reste à confirmer. Le prototype vectoriel rejeté n'est pas utilisé ici.</p>
+    </section>
   </main>
 </body>
 </html>

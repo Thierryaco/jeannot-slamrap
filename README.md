@@ -5,6 +5,7 @@ Clip d'animation 2D d'action-comédie, esthétique manga/DBZ stylisée faite mai
 - **Durée audio mesurée :** 104,36 s (1 min 44,36 s).
 - **Format visé :** 1920 × 1080, 16:9 (à confirmer).
 - **Storyboard :** [`docs/storyboard.md`](docs/storyboard.md).
+- **Prototype animé du couplet 1 :** [`animation/intro.html`](animation/intro.html) (lecture continue liée au MP3).
 - **Musique :** [Suno](https://suno.com/s/Yp6esDOipsgZOeGw).
 - **MP3 dans ce dépôt :** [`audio/jeannot-slamrap.mp3`](audio/jeannot-slamrap.mp3).
 - **Source du MP3 :** [`clip-arm/clips/Jeannot slamrap.mp3`](https://github.com/Thierryaco/clip-arm/blob/arena/2748952e-clip-arm/clips/Jeannot%20slamrap.mp3) — copié ici sans modifier `clip-arm`.
@@ -20,9 +21,9 @@ Ces repères donnent le découpage général. Les timecodes phrase par phrase du
 - [x] Paroles, personnages, géographie et style définis dans le brief.
 - [x] MP3 de référence ajouté et caractéristiques audio vérifiées.
 - [x] Première proposition de storyboard, avec repères de sections mesurés et cues de paroles estimés.
+- [x] Prototype Canvas animé en continu pour l'ouverture et le premier couplet (`animation/intro.html`).
 - [ ] Confirmer à l'écoute les débuts/fins exacts des paroles, puis verrouiller la synchronisation labiale et les impacts.
-- [ ] Concevoir l'animation articulée 2D (Canvas ou SVG) et les mouvements de caméra.
-- [ ] Rendre image par image avec Chromium/Puppeteer, puis assembler le MP4 avec ffmpeg.
+- [ ] Étendre l'animation au reste du morceau, puis rendre image par image avec Chromium/Puppeteer et assembler le MP4 avec ffmpeg.
 - [ ] Vérifier le rendu final en H.264, avec l'audio AAC 48 kHz.
 
 ## Direction artistique et règles

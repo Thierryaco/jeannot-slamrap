@@ -1,5 +1,11 @@
 # Storyboard — Jeannot slamrap
 
+## Références visuelles
+
+- Image fournie par l'utilisateur : [`assets/references/jeannot-4l-reference.png`](../assets/references/jeannot-4l-reference.png). Elle fixe la silhouette de Jeannot (chapeau jaune, combinaison bleue, barbe, cigarette) et la 4L vert menthe vue de l'arrière, avec sa caisse carrée et sa rouille, mais intacte.
+- Image-clé de recherche de style : [`assets/art/jeannot-4l-style-frame.png`](../assets/art/jeannot-4l-style-frame.png). C'est un essai illustré, pas une animation ni un style final validé.
+- Le personnage et la voiture géométriques du prototype Canvas sont à écarter pour la production.
+
 ## Repères audio
 
 Le MP3 de référence est présent dans `audio/jeannot-slamrap.mp3` : 104,36 s, MP3 VBR (~185,8 kb/s), 48 kHz, stéréo. L'analyse de l'enveloppe et des transitoires donne ces repères globaux : montée de niveau vers 16 s, creux/build autour de 43–54 s, relance vers 54 s, creux vers 82–86 s et fondu à partir d'environ 97 s. Le tempo candidat est ~90,7 BPM (ou 45,4 en half-time).

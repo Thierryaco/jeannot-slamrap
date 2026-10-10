@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeannot slamrap — prototype animé</title>
+  <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+  <main class="app">
+    <header class="heading">
+      <div>
+        <p class="eyebrow">JEANNOT SLAMRAP · ANIMATION 2D</p>
+        <h1>Prototype animé — couplet 1</h1>
+      </div>
+      <p class="status">Animation continue · Canvas 1920 × 1080 · repères provisoires</p>
+    </header>
+
+    <section class="screen" aria-label="Aperçu animé du couplet 1">
+      <canvas id="scene" width="1920" height="1080" aria-label="Rue de Jeannot animée"></canvas>
+      <div class="screen-tag">COUPLET 1 · APERÇU DE TRAVAIL</div>
+    </section>
+
+    <section class="player" aria-label="Commandes audio et animation">
+      <button id="play" class="play" type="button">▶ Lire le couplet</button>
+      <div class="timeline">
+        <div class="time-row"><span id="current">00:00.00</span><span>Extrait animé · 00:29.02</span></div>
+        <input id="seek" type="range" min="0" max="29.02" step="0.01" value="0" aria-label="Position dans l'extrait">
+      </div>
+      <button id="restart" class="restart" type="button">↺ Recommencer</button>
+    </section>
+    <p class="note">Les mouvements sont animés en continu et suivent le temps du MP3. Le calage précis des syllabes sera affiné à l'écoute.</p>
+  </main>
+  <script src="intro.js"></script>
+</body>
+</html>

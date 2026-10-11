@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 16/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 17/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 | Plan | Image | État |
 |---|---|---|
@@ -20,7 +20,7 @@
 | P14 | [`assets/storyboards/p14-diego-rattles-4l.png`](../assets/storyboards/p14-diego-rattles-4l.png) | ✅ Poussée — secousse comique, 4L intacte |
 | P15 | [`assets/storyboards/p15-final-fight-standoff.png`](../assets/storyboards/p15-final-fight-standoff.png) | ✅ Poussée — duel installé dans la rue |
 | P16 | [`assets/storyboards/p16-final-combat.png`](../assets/storyboards/p16-final-combat.png) | ✅ Poussée — annonce du duel final |
-| P17 | — | ⬜ À faire |
+| P17 | [`assets/storyboards/p17-jeannot-advantage.png`](../assets/storyboards/p17-jeannot-advantage.png) | ✅ Poussée — Jeannot prend l'avantage sans contact violent |
 | P18 | — | ⬜ À faire |
 | P19 | — | ⬜ À faire |
 | P20 | — | ⬜ À faire |

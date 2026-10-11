@@ -77,7 +77,7 @@ Add complete clip storyboard and opening frame
 
 <img src="../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png" width="640" alt="P01 v1">
 
-**P01 · v2** — ⏳ à valider — ancien fil, commit 068faf0 (03h48) · ⚪ faite sans carte du plan  
+**P01 · v2** — ❌ écartée — ancien fil, commit 068faf0 (03h48) · ⚪ faite sans carte du plan  
 Correct Estafette position in opening storyboard
 
 <img src="../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png" width="640" alt="P01 v2">

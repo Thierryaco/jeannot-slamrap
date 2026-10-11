@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 7/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 8/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 | Plan | Image | État |
 |---|---|---|
@@ -11,7 +11,7 @@
 | P05 | [`assets/storyboards/p05-witch-leaves.png`](../assets/storyboards/p05-witch-leaves.png) | ✅ Poussée — la sœur quitte la tourelle |
 | P06 | [`assets/storyboards/p06-henri-runs.png`](../assets/storyboards/p06-henri-runs.png) | ✅ Poussée — course menée par le corps |
 | P07 | [`assets/storyboards/p07-witch-returns.png`](../assets/storyboards/p07-witch-returns.png) | ✅ Poussée — retour à la tourelle |
-| P08 | — | ⬜ À faire |
+| P08 | [`assets/storyboards/p08-henri-stair-fall.png`](../assets/storyboards/p08-henri-stair-fall.png) | ✅ Poussée — appui main/genou, sans rotation ni gore |
 | P09 | — | ⬜ À faire |
 | P10 | — | ⬜ À faire |
 | P11 | — | ⬜ À faire |

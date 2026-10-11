@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Images de base : 29/29 poussées. Audit de cohérence : en cours ; master P01 révisé, P05 (laisse d'Enji) et P11 déjà corrigés.** Les images signalées seront reprises une par une, avec suivi et push à chaque correction. Les annotations détaillées et les mouvements de caméra finaux restent après cet audit, puis viendra le montage complet du storyboard.
+**Images de base : 29/29 poussées. Audit de cohérence : en cours ; P01 master, P05 (laisse d'Enji), P11 (emplacement) et P12 (Diego tête à la fenêtre) révisés.** Les autres images signalées seront reprises une par une, avec suivi et push à chaque correction. Les annotations détaillées et les mouvements de caméra finaux restent après cet audit, puis viendra le montage complet du storyboard.
 
 ## Verrou de continuité spatiale
 
@@ -22,7 +22,7 @@
 | P09 | [`assets/storyboards/p09-jeannot-victory-pose.png`](../assets/storyboards/p09-jeannot-victory-pose.png) | ✅ Poussée — pose héroïque, 4L intacte |
 | P10 | [`assets/storyboards/p10-jeannot-stays.png`](../assets/storyboards/p10-jeannot-stays.png) | ✅ Poussée — gros plan, Jeannot reste dans la rue |
 | P11 | [`assets/storyboards/p11-4l-in-street.png`](../assets/storyboards/p11-4l-in-street.png) | 🔁 Corrigée — emplacement et orientation verrouillés comme P01 |
-| P12 | [`assets/storyboards/p12-diego-watches.png`](../assets/storyboards/p12-diego-watches.png) | ✅ Poussée — Diego observe depuis l'Estafette |
+| P12 | [`assets/storyboards/p12-diego-watches.png`](../assets/storyboards/p12-diego-watches.png) | 🔁 Corrigée — Diego tête/épaule à la fenêtre ; visage de référence, aucune figure parasite |
 | P13 | [`assets/storyboards/p13-witch-watches.png`](../assets/storyboards/p13-witch-watches.png) | ✅ Poussée — la sœur observe Diego depuis la tourelle |
 | P14 | [`assets/storyboards/p14-diego-rattles-4l.png`](../assets/storyboards/p14-diego-rattles-4l.png) | ✅ Poussée — secousse comique, 4L intacte |
 | P15 | [`assets/storyboards/p15-final-fight-standoff.png`](../assets/storyboards/p15-final-fight-standoff.png) | ✅ Poussée — duel installé dans la rue |

@@ -99,7 +99,7 @@ Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus lo
 
 <img src="../assets/storyboards/a-valider/p01/p01-v5-nouveau.png" width="640" alt="P01 v5">
 
-**P01 · v6** — 🔁 à retoucher — nouveau fil, retouche de v5 pour coller à la carte v1 · ⚪ faite sans carte du plan  
+**P01 · v6** — ❌ écartée — nouveau fil, retouche de v5 pour coller à la carte v1 · ⚪ faite sans carte du plan  
 Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeannot) mais en 16:9 ; l'escalier extérieur est maintenant sur la maison d'Henri, juste après celle de Jeannot à gauche ; plus d'escalier à droite. Reste à vérifier : l'Estafette est bien au fond, mais plutôt au milieu de la chaussée qu'au bord gauche devant le garage de Diego.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v6-nouveau.png" width="640" alt="P01 v6">

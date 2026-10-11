@@ -94,7 +94,7 @@ Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus lo
 
 - 💬 *2026-10-11 10:58* — Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée.
 
-**P01 · v5** — ⏳ à valider — nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4 · ⚪ faite sans carte du plan  
+**P01 · v5** — ❌ écartée — nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4 · ⚪ faite sans carte du plan  
 4L vue de derrière, bien plus rouillée (comme la photo) ; tourelle sur la maison de Jeannot à gauche. À corriger si on la garde : l'escalier extérieur est à DROITE (côté narrateur) au lieu d'être sur la maison d'Henri à gauche ; l'Estafette est au milieu de la rue au lieu d'être devant chez Diego au fond ; format 3:2, à recadrer en 16:9.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v5-nouveau.png" width="640" alt="P01 v5">

@@ -108,7 +108,13 @@
      "fichier": "p01-v7-nouveau.png",
      "source": "nouveau fil, retouche de v6 avec la carte v2",
      "note": "Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.",
-     "etat": "a-retoucher"
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-11 11:26",
+       "texte": "Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue"
+      }
+     ]
     }
    ]
   },

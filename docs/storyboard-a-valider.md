@@ -109,6 +109,8 @@ Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible ded
 
 <img src="../assets/storyboards/a-valider/p01/p01-v7-nouveau.png" width="640" alt="P01 v7">
 
+- 💬 *2026-10-11 11:26* — Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue
+
 ## P02
 
 **00:05–00:10** · Instrumental · ⏳ À valider

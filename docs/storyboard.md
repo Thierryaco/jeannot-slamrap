@@ -79,7 +79,7 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 
 | Plan | Temps estimé | Paroles | Image, jeu et caméra |
 |---|---:|---|---|
-| P25 | 01:22,00–01:25,70 | Instrumental | Tenir la victoire, laisser retomber aura et poussière, puis recadrer Jeannot au premier accent du refrain final. |
+| P25 | 01:22,00–01:25,70 | Instrumental | Tenir la victoire, laisser retomber aura et poussière, puis recadrer Jeannot au premier accent du refrain final. La 4L et l'Estafette gardent leurs emplacements fixes. [Image-clé](../assets/storyboards/p25-victory-breath.png). |
 
 ### 01:25,70–01:37,00 — Refrain final et « Fin »
 

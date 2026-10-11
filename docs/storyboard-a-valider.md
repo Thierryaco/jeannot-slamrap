@@ -141,7 +141,7 @@ Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une 
 
 - 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
 
-**P01 · v12** — ⏳ à valider — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 · 🟢 conforme à la carte actuelle (rév. 4)  
+**P01 · v12** — 🔁 à retoucher — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 · 🟢 conforme à la carte actuelle (rév. 4)  
 Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe brune, combinaison bleue). Coccinelle visible dans le garage ouvert avec Diego, Enji assis sur le trottoir. Écarts : Henri est sur le balcon de la tourelle au lieu du haut de son escalier ; 4 barrières levées et la rue continue avec des maisons au-delà (pas de rails visibles, pas de descente) ; Estafette pas collée au trottoir ; Enji à gauche de Jeannot. Une 2e tentative (2 propositions) a été refusée.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png" width="640" alt="P01 v12">

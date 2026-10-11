@@ -128,6 +128,17 @@
        "texte": "la rue se termine après l'estafette de diego  par un passage à niveau de train  elle descend ensuite donc on plus des collines au fond"
       }
      ]
+    },
+    {
+     "id": "v9",
+     "fichier": "p01-v9-carte-rev1.png",
+     "source": "nouveau fil, générée d'après ta carte P01 rév. 1 + v8 (style) + photo de référence",
+     "carte": {
+      "plan_rev": 1,
+      "lieux_rev": 2
+     },
+     "note": "Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L de dos très rouillée, Jeannot hors champ, passage à niveau au bout (croix de Saint-André, barrières). Écarts : Henri est en bas de son escalier au lieu d'en haut, le garage arrive trop tôt, l'Estafette est au milieu de la chaussée, et on voit encore des maisons après le passage à niveau au lieu des collines.",
+     "etat": "a-valider"
     }
    ]
   },

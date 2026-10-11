@@ -2,9 +2,9 @@
  "P01": {
   "cameras": [
    {
-    "x": 92.0,
+    "x": 95.0,
     "y": 495.0,
-    "angle": -2.0,
+    "angle": 0.0,
     "fov": 60.0,
     "portee": 1300.0,
     "hauteur": "à hauteur d'yeux"

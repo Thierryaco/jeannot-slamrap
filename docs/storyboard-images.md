@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 25/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 26/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 ## Verrou de continuité spatiale
 
@@ -35,7 +35,7 @@
 | P23 | [`assets/storyboards/p23-winner-street.png`](../assets/storyboards/p23-winner-street.png) | ✅ Poussée — 4L et Estafette à leur emplacement fixe |
 | P24 | [`assets/storyboards/p24-king-of-street.png`](../assets/storyboards/p24-king-of-street.png) | ✅ Poussée — pose de Jeannot, gag d'Enji, voitures fixes |
 | P25 | [`assets/storyboards/p25-victory-breath.png`](../assets/storyboards/p25-victory-breath.png) | ✅ Poussée — respiration après la victoire, voitures fixes |
-| P26 | — | ⬜ À faire |
+| P26 | [`assets/storyboards/p26-final-chorus-winner.png`](../assets/storyboards/p26-final-chorus-winner.png) | ✅ Poussée — 4L entière à son emplacement fixe |
 | P27 | — | ⬜ À faire |
 | P28 | — | ⬜ À faire |
 | P29 | — | ⬜ À faire |

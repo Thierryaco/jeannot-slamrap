@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 29/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Images de base : 29/29 poussées. Audit de cohérence demandé : en cours ; P05 corrigé, autres plans à vérifier/réviser.** Les annotations détaillées et les mouvements de caméra finaux restent après cet audit, puis viendra le montage complet du storyboard.
 
 ## Verrou de continuité spatiale
 
@@ -14,7 +14,7 @@
 | P02 | [`assets/storyboards/p02-jeannot-enji-v2.png`](../assets/storyboards/p02-jeannot-enji-v2.png) | ✅ Poussée — Jeannot, sa 4L et Enji |
 | P03 | [`assets/storyboards/p03-street-geography.png`](../assets/storyboards/p03-street-geography.png) | ✅ Poussée — géographie de la rue |
 | P04 | [`assets/storyboards/p04-jeannot-first-verse.png`](../assets/storyboards/p04-jeannot-first-verse.png) | ✅ Poussée — geste de cigarette et fumée unique |
-| P05 | [`assets/storyboards/p05-witch-leaves.png`](../assets/storyboards/p05-witch-leaves.png) | ✅ Poussée — la sœur quitte la tourelle |
+| P05 | [`assets/storyboards/p05-witch-leaves.png`](../assets/storyboards/p05-witch-leaves.png) | 🔁 Corrigée — une seule 4L fixe ; la sorcière tient Enji en laisse |
 | P06 | [`assets/storyboards/p06-henri-runs.png`](../assets/storyboards/p06-henri-runs.png) | ✅ Poussée — course menée par le corps |
 | P07 | [`assets/storyboards/p07-witch-returns.png`](../assets/storyboards/p07-witch-returns.png) | ✅ Poussée — retour à la tourelle |
 | P08 | [`assets/storyboards/p08-henri-stair-fall.png`](../assets/storyboards/p08-henri-stair-fall.png) | ✅ Poussée — appui main/genou, sans rotation ni gore |

@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 28/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 29/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 ## Verrou de continuité spatiale
 
@@ -38,4 +38,4 @@
 | P26 | [`assets/storyboards/p26-final-chorus-winner.png`](../assets/storyboards/p26-final-chorus-winner.png) | ✅ Poussée — 4L entière à son emplacement fixe |
 | P27 | [`assets/storyboards/p27-jeannot-remains.png`](../assets/storyboards/p27-jeannot-remains.png) | ✅ Poussée — pose apaisée, véhicules à leurs repères fixes |
 | P28 | [`assets/storyboards/p28-fin-card-background.png`](../assets/storyboards/p28-fin-card-background.png) | ✅ Poussée — fond final ; titre « Fin » à annoter ensuite |
-| P29 | — | ⬜ À faire |
+| P29 | [`assets/storyboards/p29-outro-wide-hold.png`](../assets/storyboards/p29-outro-wide-hold.png) | ✅ Poussée — plan large final, voitures aux repères fixes |

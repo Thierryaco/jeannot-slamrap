@@ -93,7 +93,7 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 
 | Plan | Temps | Paroles | Image, jeu et caméra |
 |---|---:|---|---|
-| P29 | 01:37,00–01:44,36 | Instrumental / réverbération | Tenir la dernière pose et la rue, puis fondu au noir à la fin du MP3. Aucun texte supplémentaire. |
+| P29 | 01:37,00–01:44,36 | Instrumental / réverbération | Tenir la dernière pose et la rue, puis fondu au noir à la fin du MP3. Aucun texte supplémentaire ; la 4L et l'Estafette conservent leurs repères fixes. [Image-clé](../assets/storyboards/p29-outro-wide-hold.png). |
 
 ## Repères de synchro et prochaines validations
 

@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 9/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 10/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 | Plan | Image | État |
 |---|---|---|
@@ -13,7 +13,7 @@
 | P07 | [`assets/storyboards/p07-witch-returns.png`](../assets/storyboards/p07-witch-returns.png) | ✅ Poussée — retour à la tourelle |
 | P08 | [`assets/storyboards/p08-henri-stair-fall.png`](../assets/storyboards/p08-henri-stair-fall.png) | ✅ Poussée — appui main/genou, sans rotation ni gore |
 | P09 | [`assets/storyboards/p09-jeannot-victory-pose.png`](../assets/storyboards/p09-jeannot-victory-pose.png) | ✅ Poussée — pose héroïque, 4L intacte |
-| P10 | — | ⬜ À faire |
+| P10 | [`assets/storyboards/p10-jeannot-stays.png`](../assets/storyboards/p10-jeannot-stays.png) | ✅ Poussée — gros plan, Jeannot reste dans la rue |
 | P11 | — | ⬜ À faire |
 | P12 | — | ⬜ À faire |
 | P13 | — | ⬜ À faire |

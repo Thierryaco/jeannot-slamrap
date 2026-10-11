@@ -73,7 +73,7 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 | P21 | 01:07,53–01:11,71 | « Jeannot prend sa peinture, et la verse sur la voiture » | Jeannot saisit son pot et le lève comme une boule d'énergie, puis amorce le geste de verser. Coupe dans le mouvement vers la Coccinelle orange de Marco ; ne pas viser la 4L. [Image-clé](../assets/storyboards/p21-jeannot-paint-can.png). |
 | P22 | 01:11,71–01:14,92 | « du fils de Diégo, qui s'appelle Marco » | Révéler la Coccinelle orange sur parpaings, en restauration : capot ouvert, roue déposée, outils et pièces à proximité. La peinture touche la carrosserie comme gag visuel ; Diego et Marco sont clairement associés à cette voiture. Le design détaillé de Marco reste à définir. [Image-clé](../assets/storyboards/p22-marco-beetle-paint.png). |
 | P23 | 01:14,92–01:18,13 | « Diégo a perdu, Jeannot a gagné » | Retour à la rue. Diego reste au sol un instant, Jeannot se relève et reprend sa pose de héros ; Enji traverse le cadre. La 4L et l'Estafette restent à leur place fixe. [Image-clé](../assets/storyboards/p23-winner-street.png). |
-| P24 | 01:18,13–01:22,00 | « C'est le roi de la rue, et il nous casse les pieds » | Pose de Jeannot au milieu de la rue. Réactions exaspérées aux fenêtres et gag d'Enji ; aucun dialogue ajouté. |
+| P24 | 01:18,13–01:22,00 | « C'est le roi de la rue, et il nous casse les pieds » | Pose de Jeannot au milieu de la rue. Réactions exaspérées aux fenêtres et gag d'Enji ; aucun dialogue ajouté. La 4L et l'Estafette restent à leur place. [Image-clé](../assets/storyboards/p24-king-of-street.png). |
 
 ### 01:22,00–01:25,70 — Relance musicale
 

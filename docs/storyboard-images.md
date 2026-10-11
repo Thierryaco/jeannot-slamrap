@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 23/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 24/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 ## Verrou de continuité spatiale
 
@@ -33,7 +33,7 @@
 | P21 | [`assets/storyboards/p21-jeannot-paint-can.png`](../assets/storyboards/p21-jeannot-paint-can.png) | ✅ Poussée — pot levé, 4L hors cible et fixe |
 | P22 | [`assets/storyboards/p22-marco-beetle-paint.png`](../assets/storyboards/p22-marco-beetle-paint.png) | ✅ Poussée — Coccinelle sur parpaings, éclaboussure, 4L hors champ |
 | P23 | [`assets/storyboards/p23-winner-street.png`](../assets/storyboards/p23-winner-street.png) | ✅ Poussée — 4L et Estafette à leur emplacement fixe |
-| P24 | — | ⬜ À faire |
+| P24 | [`assets/storyboards/p24-king-of-street.png`](../assets/storyboards/p24-king-of-street.png) | ✅ Poussée — pose de Jeannot, gag d'Enji, voitures fixes |
 | P25 | — | ⬜ À faire |
 | P26 | — | ⬜ À faire |
 | P27 | — | ⬜ À faire |

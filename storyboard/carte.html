@@ -16,8 +16,12 @@ button{padding:5px 10px;border-radius:6px;border:1px solid var(--line);backgroun
 button:hover{background:#233149} button.main{background:#3a3010;color:var(--or);border-color:#6b5717;font-weight:600}
 button:disabled{opacity:.4;cursor:default}
 #wrap{flex:1;display:flex;min-height:0}
-#stage{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;background:#05080d;padding:6px}
-svg{width:100%;height:100%;touch-action:none;user-select:none}
+#stage{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#05080d;padding:6px;gap:6px}
+#svg{width:100%;flex:1;min-height:0;touch-action:none;user-select:none}
+#vuebox{width:100%;display:flex;flex-direction:column;align-items:center;gap:3px}
+#vuebox .vh{font-size:12.5px;color:#cbd5e1;display:flex;gap:10px;align-items:center}
+#vue{height:min(36vh,42vw);aspect-ratio:16/9;max-width:100%;background:#1b2636;border:1px solid var(--line);border-radius:6px}
+#vuebox.grand #vue{height:min(62vh,52vw)} #vuebox.cache #vue{display:none}
 aside{width:360px;border-left:1px solid var(--line);overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:12px}
 h3{margin:0 0 6px;font-size:14px;color:var(--or)}
 .lyr{color:var(--or);font-size:13px;margin:2px 0} .brief{color:#b5c0cf;font-size:12px;line-height:1.4;margin:0}
@@ -46,7 +50,10 @@ textarea{width:100%;min-height:70px;background:#0d1420;color:#edf2f8;border:1px 
   <a href="a-valider.html">← Storyboard à valider</a>
 </header>
 <div id="wrap">
-  <div id="stage"><svg id="svg" viewBox="0 0 1600 1000"></svg></div>
+  <div id="stage"><svg id="svg" viewBox="0 0 1600 1000"></svg>
+    <div id="vuebox"><div class="vh">👁️ <b>Vue de la caméra</b> (calculée depuis la carte : c'est ce que l'image doit montrer)
+      <button id="vuegrand">⤢ agrandir</button><button id="vuecache">masquer</button></div>
+      <svg id="vue" viewBox="0 0 1920 1080"></svg></div></div>
   <aside>
     <div class="box"><div class="lyr" id="lyr"></div><p class="brief" id="brief"></p></div>
     <div class="box" id="selbox"><h3>Sélection</h3><div id="selpanel" class="help">Clique sur la caméra, un personnage ou un véhicule.<br>Position = le rond de couleur · pointe noire = sens du regard · ↻ orange = poignée pour tourner.</div></div>
@@ -167,7 +174,100 @@ function drawItems(){
       el('title',{},hg).textContent='Poignée pour tourner (ce n\'est pas la position)';
     }
   }
-  updateChamp(); updatePanel(false);
+  updateChamp(); updatePanel(false); drawVue();
+}
+document.getElementById('vuegrand').onclick=e=>{const b=document.getElementById('vuebox');b.classList.toggle('grand');e.target.textContent=b.classList.contains('grand')?'⤡ réduire':'⤢ agrandir';};
+document.getElementById('vuecache').onclick=e=>{const b=document.getElementById('vuebox');b.classList.toggle('cache');e.target.textContent=b.classList.contains('cache')?'afficher':'masquer';};
+
+
+// ---------- Vue caméra (projection perspective de la carte) ----------
+const VM=0.037, VW=1920, VH=1080, VNEAR=0.6;
+const VHAUT={"à hauteur d'yeux":[1.6,0],"plongée (vue d'en haut)":[4.5,-14],"contre-plongée (vue d'en bas)":[0.6,12],"vue aérienne / drone":[18,-38],"au ras du sol":[0.3,2]};
+const VHVEH={'4l':1.55,estafette:1.95,coccinelle:1.7};
+const VPOSE={debout:1,marche:1,court:.95,assis:.72,accroupi:.6,'couché':.3,'appuyé':1,'penché':.85,tombe:.6,saute:1.1,renifle:.75,aboie:1,dort:.45};
+const VPOSEC={assis:1.15,'couché':.55,dort:.5,renifle:.8};
+function vCam(c){const a=c.angle*Math.PI/180,[eye,p]=VHAUT[c.hauteur]||[1.6,0];
+  return {x:c.x,y:c.y,fx:Math.cos(a),fy:Math.sin(a),rx:-Math.sin(a),ry:Math.cos(a),eye,p:p*Math.PI/180,F:(VW/2)/Math.tan(c.fov*Math.PI/360)};}
+function vC(k,mx,my,h){const dx=(mx-k.x)*VM,dy=(my-k.y)*VM,f=dx*k.fx+dy*k.fy,r=dx*k.rx+dy*k.ry,u=h-k.eye;
+  return [r,-f*Math.sin(k.p)+u*Math.cos(k.p),f*Math.cos(k.p)+u*Math.sin(k.p)];}
+const vPc=(k,c)=>[VW/2+k.F*c[0]/c[2],VH/2-k.F*c[1]/c[2]];
+const vP=(k,mx,my,h=0)=>{const c=vC(k,mx,my,h);return c[2]>VNEAR?vPc(k,c):null;};
+function vSeg(k,a,b){let A=vC(k,...a),B=vC(k,...b);if(A[2]<VNEAR&&B[2]<VNEAR)return null;
+  if(A[2]<VNEAR||B[2]<VNEAR){const t=(VNEAR-A[2])/(B[2]-A[2]),P=A.map((v,i)=>v+t*(B[i]-v));if(A[2]<VNEAR)A=P;else B=P;}return [vPc(k,A),vPc(k,B)];}
+function vBox(cx,cy,w,h,ang,z0,z1){const a=ang*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+  const p=[[w/2,-h/2],[w/2,h/2],[-w/2,h/2],[-w/2,-h/2]].map(([u,v])=>[cx+c*u-s*v,cy+s*u+c*v]);
+  const B=p.map(q=>[...q,z0]),T=p.map(q=>[...q,z1]),E=[];for(let i=0;i<4;i++){E.push([B[i],B[(i+1)%4]],[T[i],T[(i+1)%4]],[B[i],T[i]]);}
+  return {E,front:[B[0],B[1],T[1],T[0]]};}
+function vStairs(x,y){for(const d of L.details) if(d.type==='escalier'&&x>=d.x&&x<=d.x+d.w&&y>=d.y&&y<=d.y+d.h) return 2.8*(d.y+d.h-y)/d.h; return 0;}
+function vClip(k,poly){ // polygone 3D (carte) -> polygone image coupé au plan proche
+  const C=poly.map(p=>vC(k,...p)); const out=[];
+  for(let i=0;i<C.length;i++){const A=C[i],B=C[(i+1)%C.length],ia=A[2]>=VNEAR,ib=B[2]>=VNEAR;
+    if(ia) out.push(A);
+    if(ia!==ib){const t=(VNEAR-A[2])/(B[2]-A[2]); out.push(A.map((v,j)=>v+t*(B[j]-v)));}}
+  if(out.length<3) return null;
+  return {pts:out.map(c=>vPc(k,c)), z:C.reduce((s,c)=>s+c[2],0)/C.length};
+}
+function drawVue(){
+  const v=document.getElementById('vue'); if(!v||!data||!L) return; v.innerHTML='';
+  const k=vCam(data.cameras[0]), FF='DejaVu Sans, Arial, sans-serif';
+  const hz=VH/2-k.F*Math.tan(k.p);
+  el('rect',{x:0,y:0,width:VW,height:VH,fill:'#9cc0e0'},v);
+  el('rect',{x:0,y:Math.max(0,Math.min(VH,hz)),width:VW,height:VH,fill:'#7d8a6a'},v);
+  const R=L.rue, ym=(R.chaussee_haut+R.chaussee_bas)/2, faces=[], labels=[];
+  const camxy=[k.x,k.y];
+  const addBox=(cx,cy,w,h,ang,z0,z1,col,stroke,frontCol)=>{const a=ang*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+    const p=[[w/2,-h/2],[w/2,h/2],[-w/2,h/2],[-w/2,-h/2]].map(([u,q])=>[cx+c*u-s*q,cy+s*u+c*q]);
+    for(let i=0;i<4;i++){const A=p[i],B=p[(i+1)%4],mx=(A[0]+B[0])/2,my=(A[1]+B[1])/2,nx=mx-cx,ny=my-cy;
+      if((camxy[0]-mx)*nx+(camxy[1]-my)*ny<=0) continue; // face cachée
+      faces.push({poly:[[...A,z0],[...B,z0],[...B,z1],[...A,z1]],fill:(i===0&&frontCol)?frontCol:col,stroke});}
+    if(k.eye>z1) faces.push({poly:p.map(q=>[...q,z1]),fill:col,stroke,top:true});
+  };
+  // sol
+  const ground=(pts,fill)=>{const r=vClip(k,pts.map(p=>[...p,0]));if(r)el('polygon',{points:r.pts.map(p=>p.join(',')).join(' '),fill},v);};
+  ground([[R.x0-400,R.nord_lot],[1538,R.nord_lot],[1538,R.sud_lot],[R.x0-400,R.sud_lot]],'#8d9a78');
+  ground([[R.x0-400,R.nord_trottoir],[1538,R.nord_trottoir],[1538,R.sud_trottoir],[R.x0-400,R.sud_trottoir]],'#a3a39e');
+  ground([[R.x0-400,R.chaussee_haut],[1560,R.chaussee_haut],[1560,R.chaussee_bas],[R.x0-400,R.chaussee_bas]],'#55595f');
+  for(const d of [10,20,30,40,50]){const x=k.x+d/VM*k.fx,s=vSeg(k,[x,R.chaussee_haut,0],[x,R.chaussee_bas,0]);
+    if(s){el('line',{x1:s[0][0],y1:s[0][1],x2:s[1][0],y2:s[1][1],stroke:'#fff','stroke-opacity':.25,'stroke-width':1.5},v);labels.push([vP(k,x,ym,0),d+' m','#e8e8e8',18]);}}
+  // bâtiments
+  for(const b of L.batiments){const hb=b.id==='garage-diego'?3.3:6.8;
+    addBox(b.x+b.w/2,b.y+b.h/2,b.w,b.h,0,0,hb,b.couleur||'#ddd','#4a4030');
+    const fy=b.y<495?b.y+b.h:b.y; labels.push([vP(k,b.x+b.w/2,fy,hb+0.7),b.nom.replace("Maison d'",'').replace('Maison de ',''),'#fff3c4',24]);
+    if(b.ouverture==='sud'){const cx=b.x+b.w/2,y=b.y+b.h+0.5,dw=1.5/VM;
+      faces.push({poly:[[cx-dw,y,0],[cx+dw,y,0],[cx+dw,y,2.4],[cx-dw,y,2.4]],fill:'#1a1d22',stroke:'#ff9a40',sw:4,zbias:-0.05});
+      labels.push([vP(k,cx,y,2.9),'porte du garage','#ffb060',20]);}}
+  for(const d of L.details){
+    if(d.type==='escalier'){faces.push({poly:[[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y,2.8],[d.x,d.y,2.8]],fill:'#cfc7b6',stroke:'#6b6355'});
+      faces.push({poly:[[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y,0],[d.x+d.w,d.y,2.8]],fill:'#b3ab9a',stroke:'#6b6355'});}
+    if(d.type==='tourelle') addBox(d.x,d.y,d.r*1.6,d.r*1.6,0,0,9.5,'#c9b6e8','#4a3d63');
+    if(d.type==='passage_niveau'){
+      [-7,7].forEach(dx=>{const s=vSeg(k,[d.x+dx,R.nord_trottoir,0.01],[d.x+dx,R.sud_trottoir,0.01]);if(s)faces.push({line:s,stroke:'#d33',sw:3,z:vC(k,d.x,ym,0)[2]});});
+      [R.chaussee_haut-6,R.chaussee_bas+6].forEach(yb=>{const s1=vSeg(k,[d.x-20,yb,0],[d.x-20,yb,1.1]),s2=vSeg(k,[d.x-20,yb,1.1],[d.x-20,yb,5]),z=vC(k,d.x-20,yb,0)[2];
+        if(s1)faces.push({line:s1,stroke:'#eee',sw:5,z});if(s2)faces.push({line:s2,stroke:'#e33',sw:4,z});});
+      labels.push([vP(k,d.x+30,ym,0),'↓ la route plonge','#ffd0d0',18]);}
+  }
+  // éléments
+  const cat=Object.fromEntries(L.catalogue.map(c=>[c.id,c]));
+  for(const [id,e] of Object.entries(data.elements)){const c=cat[id]; if(!e.visible||!c) continue;
+    if(c.type==='vehicule'){const hv=VHVEH[id]||1.6; addBox(e.x,e.y,c.w,c.h,e.angle,0,hv,c.couleur,c.contour,c.contour);
+      labels.push([vP(k,e.x,e.y,hv+0.6),c.nom.replace(' (sur parpaings)',''),c.couleur,26]);}
+    else{const z0=vStairs(e.x,e.y),hh=c.espece==='chien'?0.62*(VPOSEC[e.pose]||1):1.75*(VPOSE[e.pose]||1);
+      const pb=vP(k,e.x,e.y,z0),pt=vP(k,e.x,e.y,z0+hh); if(!pb||!pt) continue;
+      faces.push({perso:true,pb,pt,c,e,z:vC(k,e.x,e.y,0)[2]-0.01,hh,z0});
+      labels.push([[pb[0],pt[1]-12],c.nom,c.couleur,26]);}
+  }
+  // tri du plus loin au plus près, puis dessin
+  for(const f of faces){ if(f.poly){const r=vClip(k,f.poly); f.r=r; f.z=r?r.z+(f.zbias||0)+(f.top?0.01:0):-1;} }
+  faces.filter(f=>f.z>0).sort((a,b)=>b.z-a.z).forEach(f=>{
+    if(f.line){el('line',{x1:f.line[0][0],y1:f.line[0][1],x2:f.line[1][0],y2:f.line[1][1],stroke:f.stroke,'stroke-width':f.sw,'stroke-linecap':'round'},v);return;}
+    if(f.perso){const {pb,pt,c,e}=f,hp=pb[1]-pt[1],wp=hp*(c.espece==='chien'&&e.pose!=='assis'?0.6:0.3);
+      el('rect',{x:pb[0]-wp/2,y:pt[1],width:wp,height:hp,rx:wp/2.5,fill:c.couleur,stroke:'#111','stroke-width':2.5},v);
+      const a=e.angle*Math.PI/180,head=vP(k,e.x,e.y,f.z0+f.hh*0.82),tip=vP(k,e.x+18*Math.cos(a),e.y+18*Math.sin(a),f.z0+f.hh*0.82);
+      if(head&&tip) el('line',{x1:head[0],y1:head[1],x2:tip[0],y2:tip[1],stroke:'#111','stroke-width':4,'stroke-linecap':'round'},v); return;}
+    if(f.r) el('polygon',{points:f.r.pts.map(p=>p.join(',')).join(' '),fill:f.fill,stroke:f.stroke||'none','stroke-width':f.sw||2,'stroke-linejoin':'round'},v);
+  });
+  for(const [p0,t,col,sz] of labels){ if(p0&&p0[0]>-80&&p0[0]<VW+80&&p0[1]<VH+40){const p=[Math.max(70,Math.min(VW-70,p0[0])),Math.max(sz+6,p0[1])];const e=el('text',{x:p[0],y:p[1],'font-size':sz,'font-family':FF,'font-weight':'bold','text-anchor':'middle',fill:col,stroke:'#000','stroke-width':4,'paint-order':'stroke'},v);e.textContent=t;} }
+  el('rect',{x:1,y:1,width:VW-2,height:VH-2,fill:'none',stroke:'#e04f5f','stroke-width':3},v);
 }
 
 function selObj(){ if(!sel) return null; return sel.kind==='cam'?data.cameras[sel.id]:data.elements[sel.id]; }

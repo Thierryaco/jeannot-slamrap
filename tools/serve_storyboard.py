@@ -31,6 +31,7 @@ ETATS = {"a-valider", "retenue", "ecartee", "a-retoucher"}
 sys.path.insert(0, str(ROOT / "tools"))
 import build_a_valider  # noqa: E402
 import draw_street_map  # noqa: E402
+import calque  # noqa: E402
 
 CARTE = ROOT / "assets/storyboards/a-valider/carte"
 PLANS = CARTE / "plans.json"
@@ -152,10 +153,12 @@ def save_carte(data):
         plans = dict(sorted(plans.items()))
         PLANS.write_text(json.dumps(plans, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         png = draw_street_map.render_plan(plan_id, lieux, plans, meta.get(plan_id))
+        cq = png.with_name(f"{plan_id.lower()}-calque.png")
+        calque.calque(plan_id).save(cq)
         build_a_valider.main()
     rel = lambda f: str(Path(f).relative_to(ROOT))  # noqa: E731
     git_save(f"Carte interactive : placement {plan_id} (rév. {clean['rev']})",
-             [rel(PLANS), rel(png), rel(png.with_suffix(".svg")), "docs/storyboard-a-valider.md"])
+             [rel(PLANS), rel(png), rel(png.with_suffix(".svg")), rel(cq), "docs/storyboard-a-valider.md"])
     return plans
 
 

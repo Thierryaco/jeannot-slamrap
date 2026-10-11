@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 17/29 images terminées et poussées.** P18 est en ébauche locale mais n'est pas comptée : la cigarette de Jeannot manque et doit être corrigée. Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 18/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 ## Verrou de continuité spatiale
 
@@ -27,7 +27,7 @@
 | P15 | [`assets/storyboards/p15-final-fight-standoff.png`](../assets/storyboards/p15-final-fight-standoff.png) | ✅ Poussée — duel installé dans la rue |
 | P16 | [`assets/storyboards/p16-final-combat.png`](../assets/storyboards/p16-final-combat.png) | ✅ Poussée — annonce du duel final |
 | P17 | [`assets/storyboards/p17-jeannot-advantage.png`](../assets/storyboards/p17-jeannot-advantage.png) | ✅ Poussée — Jeannot prend l'avantage sans contact violent |
-| P18 | — | 🟡 Ébauche locale à corriger — cigarette manquante, non poussée |
+| P18 | [`assets/storyboards/p18-jeannot-power-up.png`](../assets/storyboards/p18-jeannot-power-up.png) | ✅ Poussée — transformation, cigarette et 4L à sa place fixe |
 | P19 | — | ⬜ À faire |
 | P20 | — | ⬜ À faire |
 | P21 | — | ⬜ À faire |

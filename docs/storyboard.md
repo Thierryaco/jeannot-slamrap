@@ -67,7 +67,7 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 | Plan | Temps estimé | Paroles exactes | Image, jeu et caméra |
 |---|---:|---|---|
 | P17 | 00:53,70–00:57,24 | « Jeannot a gagné, Jeannot est toujours là » | Diego et Jeannot tournent autour l'un de l'autre ; Jeannot reprend l'avantage. Flash/cartouche récurrent sur l'accent musical. [Image-clé](../assets/storyboards/p17-jeannot-advantage.png). |
-| P18 | 00:57,24–01:00,78 | « Il ne partira pas, il restera là » | Transformation shōnen de Jeannot : cheveux qui se dressent, aura et lignes de vitesse. Conserver chapeau, combinaison tachée et cigarette comme motifs ; rester dans la rue. |
+| P18 | 00:57,24–01:00,78 | « Il ne partira pas, il restera là » | Transformation shōnen de Jeannot : cheveux qui se dressent, aura et lignes de vitesse. Conserver chapeau, combinaison tachée et cigarette comme motifs ; rester dans la rue. [Image-clé](../assets/storyboards/p18-jeannot-power-up.png). |
 | P19 | 01:00,78–01:03,99 | « Jeannot tape Diego, qui se casse le dos » | Coup stylisé, anticipation corporelle puis impact sur l'accent. Flash blanc et « CRAC » graphique ; Diego est projeté/comiquement plié, sans gore ni fracture réaliste. |
 | P20 | 01:03,99–01:07,53 | « Diégo est à terre, c'est la fin de la guerre » | Diego se retrouve au sol, sonné mais indemne. Enji renifle sa casquette ou lui tourne autour ; gag muet, pas de dialogue. |
 | P21 | 01:07,53–01:11,71 | « Jeannot prend sa peinture, et la verse sur la voiture » | Jeannot saisit son pot et le lève comme une boule d'énergie, puis amorce le geste de verser. Coupe dans le mouvement vers la Coccinelle orange de Marco ; ne pas viser la 4L. |

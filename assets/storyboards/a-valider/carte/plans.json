@@ -1,1 +1,77 @@
-{}
+{
+ "P01": {
+  "cameras": [
+   {
+    "x": 92.0,
+    "y": 495.0,
+    "angle": -2.0,
+    "fov": 60.0,
+    "portee": 1300.0,
+    "hauteur": "à hauteur d'yeux"
+   }
+  ],
+  "elements": {
+   "4l": {
+    "x": 230.0,
+    "y": 452.0,
+    "angle": 0.0,
+    "visible": true
+   },
+   "estafette": {
+    "x": 1424.0,
+    "y": 454.0,
+    "angle": 180.0,
+    "visible": true
+   },
+   "coccinelle": {
+    "x": 1215.0,
+    "y": 256.0,
+    "angle": 0.0,
+    "visible": true
+   },
+   "jeannot": {
+    "x": 300.0,
+    "y": 389.0,
+    "angle": 90.0,
+    "visible": true
+   },
+   "enji": {
+    "x": 332.0,
+    "y": 393.0,
+    "angle": 90.0,
+    "visible": true
+   },
+   "sorciere": {
+    "x": 128.0,
+    "y": 332.0,
+    "angle": 90.0,
+    "visible": true
+   },
+   "henri": {
+    "x": 525.0,
+    "y": 324.0,
+    "angle": 90.0,
+    "visible": true
+   },
+   "diego": {
+    "x": 1215.0,
+    "y": 389.0,
+    "angle": 90.0,
+    "visible": true
+   },
+   "marco": {
+    "x": 1265.0,
+    "y": 300.0,
+    "angle": 180.0,
+    "visible": false
+   },
+   "narrateur": {
+    "x": 205.0,
+    "y": 609.0,
+    "angle": -90.0,
+    "visible": false
+   }
+  },
+  "note": ""
+ }
+}

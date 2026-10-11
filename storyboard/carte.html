@@ -100,8 +100,17 @@ function drawBase(){
     if(d.type==='escalier'){el('rect',{x:d.x,y:d.y,width:d.w,height:d.h,fill:'#bfb7a8',stroke:'#33404f'},g);
       for(let i=1;i<6;i++)el('line',{x1:d.x+i*d.w/6,y1:d.y,x2:d.x+i*d.w/6,y2:d.y+d.h,stroke:'#6e6658'},g);
       const t=el('text',{x:d.x+d.w/2,y:d.y+d.h+16,'font-size':12,'text-anchor':'middle',fill:'#4a5566'},g);t.textContent='escalier ext.';}
+    if(d.type==='passage_niveau'){const x=d.x,y=d.y-120,w=d.w,h=d.h+240;
+      el('rect',{x,y,width:w,height:h,fill:'#b9ab95'},g);
+      for(let yy=y+6;yy<y+h;yy+=14) el('line',{x1:x+4,y1:yy,x2:x+w-4,y2:yy,stroke:'#7a5c3a','stroke-width':4},g);
+      for(const xx of [x+12,x+w-12]) el('line',{x1:xx,y1:y,x2:xx,y2:y+h,stroke:'#4b4f55','stroke-width':3},g);
+      for(const by of [r.chaussee_haut-6,r.chaussee_bas+6]) el('line',{x1:x-4,y1:by,x2:x-38,y2:by,stroke:'#d9363e','stroke-width':6},g);
+      const t1=el('text',{x:x+w/2,y:y-10,'font-size':12,'font-weight':'bold','text-anchor':'middle',fill:'#7a1d27'},g);t1.textContent='passage à niveau';
+      const t2=el('text',{x:x+w/2,y:y+h+18,'font-size':11,'text-anchor':'middle',fill:'#4a5566'},g);t2.textContent='puis descente,';
+      const t3=el('text',{x:x+w/2,y:y+h+32,'font-size':11,'text-anchor':'middle',fill:'#4a5566'},g);t3.textContent='collines au fond';}
   }
-  for(const [x,txt] of [[r.x0-30,'O'],[r.x1+30,'E']]){const t=el('text',{x,y:mid+6,'font-size':22,'font-weight':'bold','text-anchor':'middle',fill:'#4a5566'},g);t.textContent=txt;}
+  {const t=el('text',{x:r.x0-30,y:mid+6,'font-size':22,'font-weight':'bold','text-anchor':'middle',fill:'#4a5566'},g);t.textContent='O';
+   const e=el('text',{x:1592,y:100,'font-size':16,'font-weight':'bold','text-anchor':'end',fill:'#4a5566'},g);e.textContent='E →';}
   const defs=el('defs',{},svg);const cp=el('clipPath',{id:'zone'},defs);el('rect',{x:0,y:90,width:1600,height:780},cp);
   el('g',{id:'cones','clip-path':'url(#zone)'},svg);
   el('g',{id:'items'},svg);
@@ -170,7 +179,7 @@ function champ(ci){
   const out=[];
   for(const [n,sm] of pts){ let best=null;
     for(const [x,y] of sm){
-      const dx=x-c.x,dy=y-c.y,dist=Math.hypot(dx,dy); if(dist<1||dist>c.portee) continue;
+      const dx=x-c.x,dy=y-c.y,dist=Math.hypot(dx,dy); if(dist<1) continue;
       const diff=((Math.atan2(dy,dx)*180/Math.PI-c.angle+540)%360)-180;
       if(Math.abs(diff)<=c.fov/2&&(!best||dist<best.dist)) best={n,dist,side:Math.abs(diff)<=c.fov/8?'au centre':(diff<0?'à gauche':'à droite')};
     }
@@ -201,7 +210,8 @@ function updatePanel(rebuild=true){
     <div class="row">Direction <input type="number" name="angle" value="${Math.round(o.angle)}" style="width:70px">°</div>
     <div class="row">Objectif <select name="focale">${FOCALES.map(([n,v])=>`<option value="${v}" ${Math.abs(o.fov-v)<1?'selected':''}>${n} (${v}°)</option>`).join('')}<option value="" ${FOCALES.some(([n,v])=>Math.abs(o.fov-v)<1)?'':'selected'}>personnalisé</option></select></div>
     <div class="row">Angle de vue <input type="range" name="fov" min="8" max="100" value="${o.fov}"><span id="fovv">${o.fov}°</span></div>
-    <div class="row">Portée <input type="range" name="portee" min="100" max="1500" step="10" value="${o.portee}"></div>
+    <div class="row">Longueur du cône <input type="range" name="portee" min="100" max="1500" step="10" value="${o.portee}"></div>
+    <div class="help">(la longueur ne sert qu'au dessin : la caméra voit jusqu'à l'horizon)</div>
     <div class="row">Hauteur <select name="hauteur">${HAUTEURS.map(h=>`<option ${o.hauteur===h?'selected':''}>${h}</option>`).join('')}</select></div>`;
   }else{
     const k=cat[sel.id];
@@ -247,7 +257,7 @@ function load(planId){
   const m=META.find(x=>x.plan===planId)||{};
   $('lyr').textContent=`${planId} · ${m.temps||''} · ${m.paroles||''}`; $('brief').textContent=m.brief||'';
   $('note').value=data.note||'';
-  $('status').textContent=PLANS[planId]?'':(data.copie_de?`(pas encore enregistré — repris de ${data.copie_de})`:'(pas encore enregistré — placement par défaut)');
+  $('status').textContent=PLANS[planId]?`rév. ${PLANS[planId].rev||1} · ${PLANS[planId].maj||''}`:(data.copie_de?`(pas encore enregistré — repris de ${data.copie_de})`:'(pas encore enregistré — placement par défaut)');
   $('plan').value=planId; history.replaceState(null,'','#'+planId);
   renderEls(); drawItems(); updatePanel(true);
 }
@@ -292,7 +302,7 @@ async function save(){
   try{
     const r=await fetch('/api/carte',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan:cur,data:body})});
     const j=await r.json(); if(!j.ok) throw new Error(j.erreur);
-    PLANS=j.plans; dirty=false; const s=$('status'); s.className='saved'; s.textContent='✔ enregistré et poussé sur GitHub';
+    PLANS=j.plans; dirty=false; const s=$('status'); s.className='saved'; s.textContent=`✔ enregistré (rév. ${PLANS[cur].rev}) et poussé sur GitHub`;
     buildSelect();
   }catch(err){alert('Erreur : '+err.message);} finally{$('save').disabled=false;}
 }

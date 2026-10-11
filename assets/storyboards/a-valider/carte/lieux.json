@@ -1,5 +1,5 @@
 {
- "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot).",
+ "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes.",
  "taille": [
   1600,
   1000
@@ -206,6 +206,16 @@
    "y": 342,
    "w": 50,
    "h": 40
+  },
+  {
+   "id": "passage-a-niveau",
+   "type": "passage_niveau",
+   "nom": "passage à niveau (voie ferrée)",
+   "x": 1538,
+   "y": 385,
+   "w": 44,
+   "h": 220,
+   "apres": "après le passage à niveau, la route descend : on ne voit plus de maisons, seulement des collines au fond"
   }
  ],
  "catalogue": [
@@ -362,5 +372,6 @@
     "visible": false
    }
   }
- }
+ },
+ "rev": 2
 }

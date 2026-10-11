@@ -33,7 +33,29 @@ def img_path(plan, fichier):
     return f"assets/storyboards/a-valider/{plan.lower()}/{fichier}"
 
 
+CARTE = ROOT / "assets/storyboards/a-valider/carte"
+
+
+def carte_state():
+    plans = json.loads((CARTE / "plans.json").read_text(encoding="utf-8")) if (CARTE / "plans.json").exists() else {}
+    lieux = json.loads((CARTE / "lieux.json").read_text(encoding="utf-8"))
+    return plans, lieux.get("rev", 1)
+
+
+def badge(plan, o, plans, lrev):
+    if not plan.startswith("P"):
+        return ""
+    cp = plans.get(plan)
+    c = o.get("carte")
+    if not c:
+        return " · ⚪ faite sans carte du plan"
+    if cp and c.get("plan_rev") == cp.get("rev") and c.get("lieux_rev") == lrev:
+        return f" · 🟢 conforme à la carte actuelle (rév. {cp.get('rev')})"
+    return f" · 🟠 faite d'après la carte rév. {c.get('plan_rev')} — la carte a changé depuis"
+
+
 def build_md(man):
+    plans, lrev = carte_state()
     out = [
         "# Storyboard — options à valider",
         "",
@@ -65,6 +87,10 @@ def build_md(man):
             f"> {p['brief']}",
             "",
         ]
+        cp = plans.get(p["plan"])
+        if cp:
+            out += [f"🗺️ Carte du plan (rév. {cp.get('rev')}, {cp.get('maj', '')}) :", "",
+                    f'<img src="../assets/storyboards/a-valider/carte/plans/{p["plan"].lower()}.png" width="420" alt="carte {p["plan"]}">', ""]
         if p.get("notes"):
             out += [f"Notes : {p['notes']}", ""]
         if p.get("avis"):
@@ -74,7 +100,7 @@ def build_md(man):
         for o in p["options"]:
             src = "../" + img_path(p["plan"], o["fichier"])
             out += [
-                f"**{p['plan']} · {o['id']}** — {ETATS.get(o['etat'], o['etat'])} — {o['source']}  ",
+                f"**{p['plan']} · {o['id']}** — {ETATS.get(o['etat'], o['etat'])} — {o['source']}{badge(p['plan'], o, plans, lrev)}  ",
                 f"{o['note']}",
                 "",
                 f'<img src="{src}" width="640" alt="{p["plan"]} {o["id"]}">',

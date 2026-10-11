@@ -38,6 +38,10 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 .row{display:flex;gap:6px;align-items:flex-end} .row textarea{flex:1}
 #zoom{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:10;cursor:zoom-out}
 #zoom img{max-width:98vw;max-height:96vh}
+.bdg{font-size:12px;padding:2px 7px;border-radius:5px;align-self:flex-start}
+.bdg.vert{background:#123824;color:#7ee0a5} .bdg.orange{background:#3d2a0c;color:#f5c56a} .bdg.gris{background:#1d2633;color:#9fb0c4}
+.carteplan{display:flex;gap:12px;align-items:flex-start;background:#111a29;border:1px solid var(--line);border-radius:8px;padding:8px;margin:0 0 12px;max-width:1150px;font-size:13px;color:#cbd5e1}
+.carteplan img{width:360px;max-width:45%;border-radius:5px;cursor:zoom-in} .carteplan a{color:var(--or)} .carteplan.vide{color:#9fb0c4}
 #toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#1d2a3e;border:1px solid var(--line);padding:8px 14px;border-radius:8px;display:none;z-index:11}
 </style>
 </head>
@@ -54,7 +58,22 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 const MANIFEST = '../assets/storyboards/a-valider/options.json';
 const ST = {"a-valider":"⏳ À valider","en-cours":"🛠️ En cours","valide":"✅ Validé"};
 const ET = {"a-valider":"⏳ à valider","retenue":"✅ retenue","ecartee":"❌ écartée","a-retoucher":"🔁 à retoucher"};
-let canWrite = false, man = null;
+let canWrite = false, man = null, CPLANS = {}, LREV = 1;
+const CARTE_DIR = '../assets/storyboards/a-valider/carte';
+function badge(p, o){
+  if (!/^P\d/.test(p.plan)) return '';
+  const cp = CPLANS[p.plan];
+  if (!o.carte) return '<span class="bdg gris">⚪ faite sans carte du plan</span>';
+  if (cp && o.carte.plan_rev === cp.rev && o.carte.lieux_rev === LREV) return `<span class="bdg vert">🟢 conforme à la carte actuelle (rév. ${cp.rev})</span>`;
+  return `<span class="bdg orange">🟠 faite d'après la carte rév. ${o.carte.plan_rev} — la carte a changé depuis${cp?` (rév. ${cp.rev})`:''}</span>`;
+}
+function carteBox(p){
+  if (!/^P\d/.test(p.plan)) return p.plan==='CARTE' ? `<p class="brief"><a href="carte.html">🗺️ Ouvrir la carte interactive</a> (les lieux validés servent de base à tous les plans)</p>` : '';
+  const cp = CPLANS[p.plan];
+  if (!cp) return `<div class="carteplan vide">🗺️ Pas encore de carte pour ce plan — <a href="carte.html#${p.plan}">la placer sur la carte interactive</a></div>`;
+  const src = `${CARTE_DIR}/plans/${p.plan.toLowerCase()}.png?r=${cp.rev}-${LREV}`;
+  return `<div class="carteplan"><img loading="lazy" src="${src}" alt="carte ${p.plan}"><div>🗺️ <b>Carte du plan</b> · rév. ${cp.rev} · ${esc(cp.maj||'')}<br><a href="carte.html#${p.plan}">✏️ modifier la caméra / les personnages</a>${cp.note?`<br><i>${esc(cp.note)}</i>`:''}</div></div>`;
+}
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const toast = m => { const t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; clearTimeout(t._h); t._h=setTimeout(()=>t.style.display='none',2600); };
 const avisList = a => (a&&a.length) ? `<ul class="avis">${a.map(x=>`<li><i>${esc(x.date)}</i>${esc(x.texte)}</li>`).join('')}</ul>` : '';
@@ -72,6 +91,7 @@ function render(){
         <figcaption>
           <div class="head"><b>${esc(o.id)}</b><span>${ET[o.etat]||esc(o.etat)}</span></div>
           <small>${esc(o.source)}</small>
+          ${badge(p, o)}
           <div>${esc(o.note)}</div>
           ${avisList(o.avis)}
           ${canWrite ? `<div class="btns">${b('retenue','ok','✅ Je choisis')}${b('a-retoucher','warn','🔁 À retoucher')}${b('ecartee','ko','❌ Écarter')}${b('a-valider','','⏳ Remettre')}</div>
@@ -81,6 +101,7 @@ function render(){
     return `<section class="plan" id="${p.plan.toLowerCase()}">
       <h2>${esc(p.plan)} <span class="t">${esc(p.temps)}</span><span class="st">${ST[p.statut]||esc(p.statut)}${p.choix?` · choix : ${esc(p.choix)}`:''}</span></h2>
       <p class="lyr">${esc(p.paroles)}</p><p class="brief">${esc(p.brief)}</p>
+      ${carteBox(p)}
       <div class="grid">${opts}</div>
       <div class="libre"><h3>💡 Autre idée / avis libre sur le plan ${esc(p.plan)}</h3>
         ${avisList(p.avis)}
@@ -99,7 +120,7 @@ async function post(body){
 
 document.addEventListener('click', async e=>{
   const el = e.target;
-  if (el.tagName==='IMG' && el.closest('figure')) { const z=document.getElementById('zoom'); z.querySelector('img').src=el.src; z.style.display='flex'; return; }
+  if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { const z=document.getElementById('zoom'); z.querySelector('img').src=el.src; z.style.display='flex'; return; }
   if (el.closest('#zoom')) { document.getElementById('zoom').style.display='none'; return; }
   if (el.tagName!=='BUTTON') return;
   const plan=el.dataset.plan, option=el.dataset.opt||null;
@@ -118,6 +139,10 @@ document.addEventListener('click', async e=>{
 (async()=>{
   try { const r = await fetch('/api/manifest',{cache:'no-store'}); if(!r.ok) throw 0; man = await r.json(); canWrite = true; }
   catch { man = await (await fetch(MANIFEST,{cache:'no-store'})).json(); }
+  try {
+    const [cp, lx] = await Promise.all([`${CARTE_DIR}/plans.json`, `${CARTE_DIR}/lieux.json`].map(u => fetch(u, {cache:'no-store'}).then(r => r.ok ? r.json() : {})));
+    CPLANS = cp || {}; LREV = (lx && lx.rev) || 1;
+  } catch {}
   document.getElementById('mode').textContent = canWrite ? '· avis activés' : '· lecture seule (lancer tools/serve_storyboard.py pour donner des avis)';
   render();
   if (location.hash) document.querySelector(location.hash)?.scrollIntoView();

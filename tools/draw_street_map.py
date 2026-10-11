@@ -11,6 +11,8 @@ Sorties (SVG + PNG identiques) :
   python3 tools/draw_street_map.py base v3      -> carte/carte-rue-v3.{svg,png}
   python3 tools/draw_street_map.py plan P01     -> carte/plans/p01.{svg,png}
   python3 tools/draw_street_map.py tous         -> toutes les cartes de plans
+  python3 tools/draw_street_map.py decrire P01  -> description texte du plan
+                                                   (sert de base aux prompts d'images)
 """
 import json
 import math
@@ -97,8 +99,20 @@ def draw_base(c, L):
             for i in range(1, 6):
                 c.line(d["x"] + i * d["w"] / 6, d["y"], d["x"] + i * d["w"] / 6, d["y"] + d["h"], "#6e6658", 1)
             c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] + 16, "escalier ext.", 12, "#4a5566")
+        elif d["type"] == "passage_niveau":
+            x, y, w, h = d["x"], d["y"] - 120, d["w"], d["h"] + 240
+            c.rect(x, y, w, h, "#b9ab95", stroke=None, sw=0)
+            for yy in range(int(y) + 6, int(y + h), 14):
+                c.line(x + 4, yy, x + w - 4, yy, "#7a5c3a", 4)
+            c.line(x + 12, y, x + 12, y + h, "#4b4f55", 3)
+            c.line(x + w - 12, y, x + w - 12, y + h, "#4b4f55", 3)
+            for by in (r["chaussee_haut"] - 6, r["chaussee_bas"] + 6):
+                c.line(x - 4, by, x - 4 - 34, by, "#d9363e", 6)
+            c.text(x + w / 2, y - 10, "passage à niveau", 12, "#7a1d27", True)
+            c.text(x + w / 2, y + h + 18, "puis descente,", 11, "#4a5566")
+            c.text(x + w / 2, y + h + 32, "collines au fond", 11, "#4a5566")
     c.text(r["x0"] - 30, mid + 5, "O", 20, "#4a5566", True)
-    c.text(r["x1"] + 30, mid + 5, "E", 20, "#4a5566", True)
+    c.text(1592, 100, "E →", 16, "#4a5566", True, anchor="end")
 
 
 def draw_elements(c, L, placement):
@@ -190,7 +204,7 @@ def dans_le_champ(L, placement, cam_index=0):
         for px, py in samples:
             dx, dy = px - cam["x"], py - cam["y"]
             dist = math.hypot(dx, dy)
-            if dist < 1 or dist > cam["portee"]:
+            if dist < 1:  # la portée ne sert qu'au dessin du cône : la caméra voit jusqu'à l'horizon
                 continue
             diff = (math.degrees(math.atan2(dy, dx)) - cam["angle"] + 540) % 360 - 180
             if abs(diff) <= cam["fov"] / 2 and (best is None or dist < best[0]):
@@ -199,6 +213,84 @@ def dans_le_champ(L, placement, cam_index=0):
         if best:
             out.append(best)
     return sorted(out)
+
+
+def _ou(L, x, y):
+    """Décrit un point de la carte en mots."""
+    r = L["rue"]
+    if y < r["nord_trottoir"] or y > r["sud_trottoir"]:
+        cote = "côté Jeannot" if y < r["nord_trottoir"] else "côté narrateur"
+        for b in L["batiments"]:
+            if b["x"] - 12 <= x <= b["x"] + b["w"] + 12 and ((y < 495) == (b["y"] < 495)):
+                nom = nom_lieu(b["nom"], b["y"] + b["h"] / 2)
+                if b["y"] <= y <= b["y"] + b["h"]:
+                    return f"dans/contre {nom} ({cote})"
+                return f"devant {nom}, dans la cour/le jardin ({cote})"
+        return f"parcelle {cote}"
+    if y < r["chaussee_haut"]:
+        zone = "sur le trottoir côté Jeannot"
+    elif y > r["chaussee_bas"]:
+        zone = "sur le trottoir côté narrateur"
+    elif y < r["chaussee_haut"] + 40:
+        zone = "sur la chaussée contre le trottoir côté Jeannot"
+    elif y > r["chaussee_bas"] - 40:
+        zone = "sur la chaussée contre le trottoir côté narrateur"
+    else:
+        zone = "au milieu de la chaussée"
+    if x < L["batiments"][0]["x"] + 40:
+        return f"{zone}, tout au bout ouest de la rue (bout de Jeannot)"
+    if x > r["x1"] - 40:
+        return f"{zone}, tout au bout est de la rue (vers le passage à niveau)"
+    north = [b for b in L["batiments"] if b["y"] < 495]
+    near = min(north, key=lambda b: abs(b["x"] + b["w"] / 2 - x))
+    return f"{zone}, à hauteur de {nom_lieu(near['nom'], near['y'] + near['h'] / 2)}"
+
+
+def _vu(cam, x, y, ang, vehicule):
+    """Comment la caméra voit un élément orienté (de face, de dos, de profil)."""
+    to = math.degrees(math.atan2(y - cam["y"], x - cam["x"]))
+    diff = (ang - to + 540) % 360 - 180
+    if abs(diff) <= 45:
+        return "vue de derrière" if vehicule else "de dos"
+    if abs(diff) >= 135:
+        return "vue de face (l'avant vers la caméra)" if vehicule else "de face"
+    side = "droite" if diff > 0 else "gauche"
+    return f"vue de profil, l'avant vers la {side} de l'image" if vehicule else f"de profil, tourné vers la {side} de l'image"
+
+
+def decrire(L, placement):
+    cat = {e["id"]: e for e in L["catalogue"]}
+    cams = placement.get("cameras", [])
+    lines = []
+    dirs = {0: "l'est (vers le bout de Diego)", 90: "le sud (vers le côté narrateur)", 180: "l'ouest (vers le bout de Jeannot)", -90: "le nord (vers le côté Jeannot)"}
+    for i, cam in enumerate(cams):
+        nom = ("Caméra de début" if i == 0 else "Caméra de fin") if len(cams) == 2 else "Caméra"
+        a = (cam["angle"] + 180) % 360 - 180
+        best = min(dirs, key=lambda k: abs((a - k + 540) % 360 - 180))
+        ecart = (a - best + 540) % 360 - 180
+        prec = "" if abs(ecart) < 8 else f" (décalée de {abs(round(ecart))}° vers le {'sud' if ecart > 0 else 'nord'})" if best in (0, 180) else f" (décalée de {abs(round(ecart))}°)"
+        lines.append(f"{nom} : {_ou(L, cam['x'], cam['y'])} ; regarde vers {dirs[best]}{prec} ; angle de vue {cam['fov']:.0f}° ; {cam.get('hauteur', '')}.")
+        champ = dans_le_champ(L, placement, i)
+        for titre, lo, hi in (("Premier plan", 0, 300), ("Plan moyen", 300, 800), ("Fond", 800, 99999)):
+            items = [f"{n} ({sd})" for dist, sd, n in champ if lo <= dist < hi]
+            lines.append(f"  {titre} : {', '.join(items) if items else '—'}")
+        for eid, e in placement.get("elements", {}).items():
+            if not e.get("visible", True) or eid not in cat:
+                continue
+            if any(n == cat[eid]["nom"] for _, _, n in champ):
+                k = cat[eid]
+                lines.append(f"  - {k['nom']} : {_ou(L, e['x'], e['y'])} ; {_vu(cam, e['x'], e['y'], e.get('angle', 0), k['type'] == 'vehicule')}.")
+    hors = [cat[eid]["nom"] for eid, e in placement.get("elements", {}).items()
+            if e.get("visible", True) and eid in cat and not any(n == cat[eid]["nom"] for c in range(len(cams)) for _, _, n in dans_le_champ(L, placement, c))]
+    if hors:
+        lines.append("Présents dans la scène mais hors champ : " + ", ".join(hors) + ".")
+    for d in L["details"]:
+        if d.get("apres") and any(n == d["nom"] for c in range(len(cams)) for _, _, n in dans_le_champ(L, placement, c)):
+            lines.append(f"Au bout de la rue : {d['nom']} ; {d['apres']}.")
+    if placement.get("note"):
+        lines.append("Note de l'utilisateur : " + placement["note"])
+    lines.append(f"(carte du plan rév. {placement.get('rev', '?')}, lieux rév. {L.get('rev', 1)})")
+    return "\n".join(lines)
 
 
 def build(L, placement, titre, sous_titre="", legend_extra=""):
@@ -323,7 +415,7 @@ def render_plan(plan_id, L=None, plans=None, meta=None):
     out.mkdir(parents=True, exist_ok=True)
     champ = dans_le_champ(L, placement)
     vu = ", ".join(f"{n} ({s})" for _, s, n in champ[:8])
-    titre = f"Plan {plan_id}" + (f" — {meta['temps']}" if meta else "")
+    titre = f"Plan {plan_id}" + (f" — {meta['temps']}" if meta else "") + f"  (rév. {placement.get('rev', 1)})"
     sous = meta["paroles"] if meta else ""
     c = build(L, placement, titre, sous, legend_extra=("Dans le champ : " + vu) if vu else "")
     (out / f"{plan_id.lower()}.svg").write_text(to_svg(c), encoding="utf-8")
@@ -345,6 +437,11 @@ if __name__ == "__main__":
         (CARTE / f"carte-rue-{version}.svg").write_text(to_svg(c), encoding="utf-8")
         to_png(c, CARTE / f"carte-rue-{version}.png")
         print("ok", CARTE / f"carte-rue-{version}.png")
+    elif args[0] == "decrire":
+        plans = load_plans()
+        for pid in [a.upper() for a in args[1:]]:
+            print(f"== {pid}")
+            print(decrire(L, plans[pid]))
     elif args[0] in ("plan", "tous"):
         plans, meta = load_plans(), plan_meta()
         ids = list(plans) if args[0] == "tous" else [a.upper() for a in args[1:]]

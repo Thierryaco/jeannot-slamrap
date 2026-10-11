@@ -142,12 +142,16 @@ def save_carte(data):
     clean = {"cameras": cams, "elements": els, "note": str(d.get("note", ""))[:2000]}
     with LOCK:
         plans = json.loads(PLANS.read_text(encoding="utf-8")) if PLANS.exists() else {}
+        clean["rev"] = int(plans.get(plan_id, {}).get("rev", 0)) + 1
+        clean["maj"] = now()
         plans[plan_id] = clean
         plans = dict(sorted(plans.items()))
         PLANS.write_text(json.dumps(plans, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         png = draw_street_map.render_plan(plan_id, lieux, plans, meta.get(plan_id))
+        build_a_valider.main()
     rel = lambda f: str(Path(f).relative_to(ROOT))  # noqa: E731
-    git_save(f"Carte interactive : placement {plan_id}", [rel(PLANS), rel(png), rel(png.with_suffix(".svg"))])
+    git_save(f"Carte interactive : placement {plan_id} (rév. {clean['rev']})",
+             [rel(PLANS), rel(png), rel(png.with_suffix(".svg")), "docs/storyboard-a-valider.md"])
     return plans
 
 

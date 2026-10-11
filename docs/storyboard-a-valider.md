@@ -68,34 +68,38 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-**P01 · v1** — ⏳ à valider — ancien fil, commit f1eccd4 (03h40)  
+🗺️ Carte du plan (rév. 1, 2026-10-11 11:50) :
+
+<img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
+
+**P01 · v1** — ⏳ à valider — ancien fil, commit f1eccd4 (03h40) · ⚪ faite sans carte du plan  
 Add complete clip storyboard and opening frame
 
 <img src="../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png" width="640" alt="P01 v1">
 
-**P01 · v2** — ⏳ à valider — ancien fil, commit 068faf0 (03h48)  
+**P01 · v2** — ⏳ à valider — ancien fil, commit 068faf0 (03h48) · ⚪ faite sans carte du plan  
 Correct Estafette position in opening storyboard
 
 <img src="../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png" width="640" alt="P01 v2">
 
-**P01 · v3** — ⏳ à valider — ancien fil, commit dda932f (06h01)  
+**P01 · v3** — ⏳ à valider — ancien fil, commit dda932f (06h01) · ⚪ faite sans carte du plan  
 Reframe P01 master with fixed realistic 4L placement — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p01/p01-v3-ancien-fil-06h01.png" width="640" alt="P01 v3">
 
-**P01 · v4** — 🔁 à retoucher — nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot  
+**P01 · v4** — 🔁 à retoucher — nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot · ⚪ faite sans carte du plan  
 Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v4-nouveau.png" width="640" alt="P01 v4">
 
 - 💬 *2026-10-11 10:58* — Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée.
 
-**P01 · v5** — ⏳ à valider — nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4  
+**P01 · v5** — ⏳ à valider — nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4 · ⚪ faite sans carte du plan  
 4L vue de derrière, bien plus rouillée (comme la photo) ; tourelle sur la maison de Jeannot à gauche. À corriger si on la garde : l'escalier extérieur est à DROITE (côté narrateur) au lieu d'être sur la maison d'Henri à gauche ; l'Estafette est au milieu de la rue au lieu d'être devant chez Diego au fond ; format 3:2, à recadrer en 16:9.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v5-nouveau.png" width="640" alt="P01 v5">
 
-**P01 · v6** — 🔁 à retoucher — nouveau fil, retouche de v5 pour coller à la carte v1  
+**P01 · v6** — 🔁 à retoucher — nouveau fil, retouche de v5 pour coller à la carte v1 · ⚪ faite sans carte du plan  
 Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeannot) mais en 16:9 ; l'escalier extérieur est maintenant sur la maison d'Henri, juste après celle de Jeannot à gauche ; plus d'escalier à droite. Reste à vérifier : l'Estafette est bien au fond, mais plutôt au milieu de la chaussée qu'au bord gauche devant le garage de Diego.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v6-nouveau.png" width="640" alt="P01 v6">
@@ -104,14 +108,14 @@ Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeanno
 - 💬 *2026-10-11 11:15* — il faudra  prendre en compte  mon avis  de l'image de la carte  
 Pour le garage de diego
 
-**P01 · v7** — 🔁 à retoucher — nouveau fil, retouche de v6 avec la carte v2  
+**P01 · v7** — 🔁 à retoucher — nouveau fil, retouche de v6 avec la carte v2 · ⚪ faite sans carte du plan  
 Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v7-nouveau.png" width="640" alt="P01 v7">
 
 - 💬 *2026-10-11 11:26* — Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue
 
-**P01 · v8** — 🔁 à retoucher — nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente)  
+**P01 · v8** — 🔁 à retoucher — nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente) · ⚪ faite sans carte du plan  
 La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue juste une ouverture de garage sombre sur la gauche, sans voiture visible. Écarts avec la carte : le garage arrive trop tôt (juste après la maison d'Henri au lieu d'être après deux voisins), et l'Estafette est encore au milieu de la chaussée au lieu d'être garée à gauche devant la maison de Diego.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v8-nouveau.png" width="640" alt="P01 v8">
@@ -124,12 +128,12 @@ La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue jus
 
 > Glissement vers la maison de Jeannot et sa 4L vert menthe, rouillée mais intacte. Jeannot respire, décale son poids et tient sa cigarette ; Enji traverse le cadre pour son gag.
 
-**P02 · v1** — ⏳ à valider — ancien fil, commit 2db27a6 (03h55)  
+**P02 · v1** — ⏳ à valider — ancien fil, commit 2db27a6 (03h55) · ⚪ faite sans carte du plan  
 Add P02 storyboard keyframe and progress tracker
 
 <img src="../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png" width="640" alt="P02 v1">
 
-**P02 · v2** — ⏳ à valider — ancien fil, commit e2a3352 (06h33)  
+**P02 · v2** — ⏳ à valider — ancien fil, commit e2a3352 (06h33) · ⚪ faite sans carte du plan  
 Reframe P02 with fixed 4L continuity — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p02/p02-v2-ancien-fil-06h33.png" width="640" alt="P02 v2">
@@ -140,12 +144,12 @@ Reframe P02 with fixed 4L continuity — version en place dans le storyboard
 
 > Pan vers la maison voisine et l'escalier d'Henri, puis vers la tourelle de la sorcière et l'autre bout de la rue où se trouve Diego. Finir le mouvement sur Jeannot, prêt pour la première entrée vocale.
 
-**P03 · v1** — ⏳ à valider — ancien fil, commit 7bda9a7 (03h56)  
+**P03 · v1** — ⏳ à valider — ancien fil, commit 7bda9a7 (03h56) · ⚪ faite sans carte du plan  
 Add P03 street geography storyboard frame
 
 <img src="../assets/storyboards/a-valider/p03/p03-v1-ancien-fil-03h56.png" width="640" alt="P03 v1">
 
-**P03 · v2** — ⏳ à valider — ancien fil, commit ea24889 (06h34)  
+**P03 · v2** — ⏳ à valider — ancien fil, commit ea24889 (06h34) · ⚪ faite sans carte du plan  
 Reframe P03 with master street layout — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p03/p03-v2-ancien-fil-06h34.png" width="640" alt="P03 v2">
@@ -156,7 +160,7 @@ Reframe P03 with master street layout — version en place dans le storyboard
 
 > Plan moyen 3/4 de Jeannot près de la 4L. Il lève la cigarette vers la bouche, inspire ; épaules et torse bougent, puis il relâche son souffle. Une seule fumée évolue avec le geste. Léger push-in ; la 4L reste visible.
 
-**P04 · v1** — ⏳ à valider — ancien fil, commit 36af4fe (03h57)  
+**P04 · v1** — ⏳ à valider — ancien fil, commit 36af4fe (03h57) · ⚪ faite sans carte du plan  
 Add P04 Jeannot performance storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p04/p04-v1-ancien-fil.png" width="640" alt="P04 v1">
@@ -167,17 +171,17 @@ Add P04 Jeannot performance storyboard frame — version en place dans le storyb
 
 > La sœur descend de la tourelle et s'éloigne sur le trottoir droit, cigarette à la main, en tenant Enji en laisse. Jeannot reste près de son unique 4L, à l'emplacement fixe devant chez lui.
 
-**P05 · v1** — ⏳ à valider — ancien fil, commit 1798b2b (03h57)  
+**P05 · v1** — ⏳ à valider — ancien fil, commit 1798b2b (03h57) · ⚪ faite sans carte du plan  
 Add P05 witch departure storyboard frame
 
 <img src="../assets/storyboards/a-valider/p05/p05-v1-ancien-fil-03h57.png" width="640" alt="P05 v1">
 
-**P05 · v2** — ⏳ à valider — ancien fil, commit be42921 (05h28)  
+**P05 · v2** — ⏳ à valider — ancien fil, commit be42921 (05h28) · ⚪ faite sans carte du plan  
 Correct P05 car continuity and leash Enji
 
 <img src="../assets/storyboards/a-valider/p05/p05-v2-ancien-fil-05h28.png" width="640" alt="P05 v2">
 
-**P05 · v3** — ⏳ à valider — ancien fil, commit f1d2b39 (06h24)  
+**P05 · v3** — ⏳ à valider — ancien fil, commit f1d2b39 (06h24) · ⚪ faite sans carte du plan  
 Reframe P05 around fixed 4L and leashed Enji — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p05/p05-v3-ancien-fil-06h24.png" width="640" alt="P05 v3">
@@ -188,7 +192,7 @@ Reframe P05 around fixed 4L and leashed Enji — version en place dans le storyb
 
 > Plan latéral de course. Henri part de la maison voisine et traverse le haut des marches ; bras, épaules, tête et jambes ont des poses distinctes. Garder lunettes, cigarette et sourire lisibles.
 
-**P06 · v1** — ⏳ à valider — ancien fil, commit 1529fa5 (03h58)  
+**P06 · v1** — ⏳ à valider — ancien fil, commit 1529fa5 (03h58) · ⚪ faite sans carte du plan  
 Add P06 Henri running storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p06/p06-v1-ancien-fil.png" width="640" alt="P06 v1">
@@ -199,7 +203,7 @@ Add P06 Henri running storyboard frame — version en place dans le storyboard
 
 > Whip-pan vers la tourelle ; la sorcière réapparaît, puis petit push-in sur son air fatigué. Réaction comique dans la rue, sans dialogue ni nouveau texte.
 
-**P07 · v1** — ⏳ à valider — ancien fil, commit 45092df (03h59)  
+**P07 · v1** — ⏳ à valider — ancien fil, commit 45092df (03h59) · ⚪ faite sans carte du plan  
 Add P07 witch return storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p07/p07-v1-ancien-fil.png" width="640" alt="P07 v1">
@@ -210,7 +214,7 @@ Add P07 witch return storyboard frame — version en place dans le storyboard
 
 > Tilt vers l'escalier et suivi continu : Henri perd pied, tente de se rattraper, pose main et genou sur une marche, glisse et finit assis en bas. Pas de salto ni rotation complète. Petit flash/poussière sur « dents », puis tenir son sourire aux dents ébréchées, sans gore ; Enji accourt sur le dernier temps.
 
-**P08 · v1** — ⏳ à valider — ancien fil, commit 862007f (04h02)  
+**P08 · v1** — ⏳ à valider — ancien fil, commit 862007f (04h02) · ⚪ faite sans carte du plan  
 Add P08 Henri fall storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p08/p08-v1-ancien-fil.png" width="640" alt="P08 v1">
@@ -221,7 +225,7 @@ Add P08 Henri fall storyboard frame — version en place dans le storyboard
 
 > Jeannot se redresse devant sa 4L et prend une pose héroïque ; flash bref et motif graphique récurrent. Aucun dommage à la voiture.
 
-**P09 · v1** — ⏳ à valider — ancien fil, commit c00899b (04h03)  
+**P09 · v1** — ⏳ à valider — ancien fil, commit c00899b (04h03) · ⚪ faite sans carte du plan  
 Add P09 Jeannot victory storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p09/p09-v1-ancien-fil.png" width="640" alt="P09 v1">
@@ -232,7 +236,7 @@ Add P09 Jeannot victory storyboard frame — version en place dans le storyboard
 
 > Gros plan de Jeannot, puis recul vers la maison entière. Il reste solidement ancré dans la rue ; aura encore discrète.
 
-**P10 · v1** — ⏳ à valider — ancien fil, commit da041ab (04h11)  
+**P10 · v1** — ⏳ à valider — ancien fil, commit da041ab (04h11) · ⚪ faite sans carte du plan  
 Add P10 Jeannot stays storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p10/p10-v1-ancien-fil.png" width="640" alt="P10 v1">
@@ -243,12 +247,12 @@ Add P10 Jeannot stays storyboard frame — version en place dans le storyboard
 
 > Plan sur la 4L depuis le même côté ; révéler sa forme carrée et sa rouille sans changer son emplacement ni son orientation. Léger frémissement comique possible, mais elle demeure intacte.
 
-**P11 · v1** — ⏳ à valider — ancien fil, commit d87986c (04h12)  
+**P11 · v1** — ⏳ à valider — ancien fil, commit d87986c (04h12) · ⚪ faite sans carte du plan  
 Add P11 Renault 4L storyboard frame
 
 <img src="../assets/storyboards/a-valider/p11/p11-v1-ancien-fil-04h12.png" width="640" alt="P11 v1">
 
-**P11 · v2** — ⏳ à valider — ancien fil, commit 676c4e3 (04h22)  
+**P11 · v2** — ⏳ à valider — ancien fil, commit 676c4e3 (04h22) · ⚪ faite sans carte du plan  
 Lock Renault 4L position and correct P11 frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p11/p11-v2-ancien-fil-04h22.png" width="640" alt="P11 v2">
@@ -259,17 +263,17 @@ Lock Renault 4L position and correct P11 frame — version en place dans le stor
 
 > Plan large depuis l'extrémité de Jeannot : la 4L reste au premier plan à son emplacement fixe ; l'Estafette bleu-gris est plus loin sur le même trottoir gauche. « Le rat », c'est Diego : seule sa tête et un peu d'épaule dépassent de la fenêtre conducteur ; visage conforme au concept approuvé. Aucun doublon de voiture ni personnage supplémentaire.
 
-**P12 · v1** — ⏳ à valider — ancien fil, commit 235f743 (04h13)  
+**P12 · v1** — ⏳ à valider — ancien fil, commit 235f743 (04h13) · ⚪ faite sans carte du plan  
 Add P12 Diego in Estafette storyboard frame
 
 <img src="../assets/storyboards/a-valider/p12/p12-v1-ancien-fil-04h13.png" width="640" alt="P12 v1">
 
-**P12 · v2** — ⏳ à valider — ancien fil, commit 486eb5b (06h22)  
+**P12 · v2** — ⏳ à valider — ancien fil, commit 486eb5b (06h22) · ⚪ faite sans carte du plan  
 Correct P12 Diego's peeking Estafette shot
 
 <img src="../assets/storyboards/a-valider/p12/p12-v2-ancien-fil-06h22.png" width="640" alt="P12 v2">
 
-**P12 · v3** — ⏳ à valider — ancien fil, commit a43d5e7 (06h55)  
+**P12 · v3** — ⏳ à valider — ancien fil, commit a43d5e7 (06h55) · ⚪ faite sans carte du plan  
 Correct P12 van and 4L depth order — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p12/p12-v3-ancien-fil-06h55.png" width="640" alt="P12 v3">
@@ -280,7 +284,7 @@ Correct P12 van and 4L depth order — version en place dans le storyboard
 
 > Contre-plongée sur la sorcière à sa fenêtre ; son regard suit Diego dans l'Estafette. Cigarette, mascara et fatigue restent lisibles.
 
-**P13 · v1** — ⏳ à valider — ancien fil, commit 9599dff (04h14)  
+**P13 · v1** — ⏳ à valider — ancien fil, commit 9599dff (04h14) · ⚪ faite sans carte du plan  
 Add P13 witch watching Diego storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p13/p13-v1-ancien-fil.png" width="640" alt="P13 v1">
@@ -291,7 +295,7 @@ Add P13 witch watching Diego storyboard frame — version en place dans le story
 
 > Diego provoque une secousse comique de la 4L : mouvement caméra et éclat « BAM » visuel. La tôle vibre, mais rien ne casse et la voiture ne se déforme pas.
 
-**P14 · v1** — ⏳ à valider — ancien fil, commit 54c00b4 (04h14)  
+**P14 · v1** — ⏳ à valider — ancien fil, commit 54c00b4 (04h14) · ⚪ faite sans carte du plan  
 Add P14 intact 4L comic shake storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p14/p14-v1-ancien-fil.png" width="640" alt="P14 v1">
@@ -302,7 +306,7 @@ Add P14 intact 4L comic shake storyboard frame — version en place dans le stor
 
 > Travelling le long de la rue, de la 4L jusqu'à Diego. Les deux rivaux se font face de part et d'autre de la chaussée. La caméra se rapproche ; lignes d'énergie et aura montent au rythme, sans changer de lieu.
 
-**P15 · v1** — ⏳ à valider — ancien fil, commit 6dc895b (04h15)  
+**P15 · v1** — ⏳ à valider — ancien fil, commit 6dc895b (04h15) · ⚪ faite sans carte du plan  
 Add P15 Diego and Jeannot fight standoff frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p15/p15-v1-ancien-fil.png" width="640" alt="P15 v1">
@@ -313,7 +317,7 @@ Add P15 Diego and Jeannot fight standoff frame — version en place dans le stor
 
 > Cadrage frontal alterné sur Diego puis Jeannot ; terminer en plan large de l'axe de la rue. Fenêtre vocale à vérifier.
 
-**P16 · v1** — ⏳ à valider — ancien fil, commit d281ff2 (04h16)  
+**P16 · v1** — ⏳ à valider — ancien fil, commit d281ff2 (04h16) · ⚪ faite sans carte du plan  
 Add P16 final combat announcement frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p16/p16-v1-ancien-fil.png" width="640" alt="P16 v1">
@@ -324,7 +328,7 @@ Add P16 final combat announcement frame — version en place dans le storyboard
 
 > Diego et Jeannot tournent autour l'un de l'autre ; Jeannot reprend l'avantage. Flash/cartouche récurrent sur l'accent musical.
 
-**P17 · v1** — ⏳ à valider — ancien fil, commit 1a0012f (04h17)  
+**P17 · v1** — ⏳ à valider — ancien fil, commit 1a0012f (04h17) · ⚪ faite sans carte du plan  
 Add P17 Jeannot advantage storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p17/p17-v1-ancien-fil.png" width="640" alt="P17 v1">
@@ -335,7 +339,7 @@ Add P17 Jeannot advantage storyboard frame — version en place dans le storyboa
 
 > Transformation shōnen de Jeannot : cheveux qui se dressent, aura et lignes de vitesse. Conserver chapeau, combinaison tachée et cigarette comme motifs ; rester dans la rue.
 
-**P18 · v1** — ⏳ à valider — ancien fil, commit 96de1c3 (04h44)  
+**P18 · v1** — ⏳ à valider — ancien fil, commit 96de1c3 (04h44) · ⚪ faite sans carte du plan  
 Add P18 Jeannot power-up storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p18/p18-v1-ancien-fil.png" width="640" alt="P18 v1">
@@ -346,7 +350,7 @@ Add P18 Jeannot power-up storyboard frame — version en place dans le storyboar
 
 > Gag d'action stylisé : bourrasque d'aura, Diego se déséquilibre comiquement, sans blessure réaliste ni gore.
 
-**P19 · v1** — ⏳ à valider — ancien fil, commit 7114680 (04h47)  
+**P19 · v1** — ⏳ à valider — ancien fil, commit 7114680 (04h47) · ⚪ faite sans carte du plan  
 Add P19 comic recoil storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p19/p19-v1-ancien-fil.png" width="640" alt="P19 v1">
@@ -357,7 +361,7 @@ Add P19 comic recoil storyboard frame — version en place dans le storyboard
 
 > Diego se retrouve au sol, sonné mais indemne. Enji renifle sa casquette ou lui tourne autour ; gag muet, pas de dialogue.
 
-**P20 · v1** — ⏳ à valider — ancien fil, commit 8af880a (04h48)  
+**P20 · v1** — ⏳ à valider — ancien fil, commit 8af880a (04h48) · ⚪ faite sans carte du plan  
 Add P20 Diego and Enji storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p20/p20-v1-ancien-fil.png" width="640" alt="P20 v1">
@@ -368,7 +372,7 @@ Add P20 Diego and Enji storyboard frame — version en place dans le storyboard
 
 > Jeannot saisit son pot et le lève comme une boule d'énergie, puis amorce le geste de verser. Coupe dans le mouvement vers la Coccinelle orange de Marco ; ne pas viser la 4L.
 
-**P21 · v1** — ⏳ à valider — ancien fil, commit 7e5dc32 (04h50)  
+**P21 · v1** — ⏳ à valider — ancien fil, commit 7e5dc32 (04h50) · ⚪ faite sans carte du plan  
 Add P21 Jeannot paint-can storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p21/p21-v1-ancien-fil.png" width="640" alt="P21 v1">
@@ -379,7 +383,7 @@ Add P21 Jeannot paint-can storyboard frame — version en place dans le storyboa
 
 > Révéler la Coccinelle orange sur parpaings, en restauration : capot ouvert, roue déposée, outils et pièces à proximité. La peinture touche la carrosserie comme gag visuel ; Diego et Marco sont clairement associés à cette voiture. Le design détaillé de Marco reste à définir.
 
-**P22 · v1** — ⏳ à valider — ancien fil, commit 449d450 (05h05)  
+**P22 · v1** — ⏳ à valider — ancien fil, commit 449d450 (05h05) · ⚪ faite sans carte du plan  
 Add P22 Marco Beetle paint storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p22/p22-v1-ancien-fil.png" width="640" alt="P22 v1">
@@ -390,7 +394,7 @@ Add P22 Marco Beetle paint storyboard frame — version en place dans le storybo
 
 > Retour à la rue. Diego reste au sol un instant, Jeannot se relève et reprend sa pose de héros ; Enji traverse le cadre. La 4L et l'Estafette restent à leur place fixe.
 
-**P23 · v1** — ⏳ à valider — ancien fil, commit 1815a67 (05h07)  
+**P23 · v1** — ⏳ à valider — ancien fil, commit 1815a67 (05h07) · ⚪ faite sans carte du plan  
 Add P23 victory return with fixed car continuity — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p23/p23-v1-ancien-fil.png" width="640" alt="P23 v1">
@@ -401,7 +405,7 @@ Add P23 victory return with fixed car continuity — version en place dans le st
 
 > Pose de Jeannot au milieu de la rue. Réactions exaspérées aux fenêtres et gag d'Enji ; aucun dialogue ajouté. La 4L et l'Estafette restent à leur place.
 
-**P24 · v1** — ⏳ à valider — ancien fil, commit 673edd5 (05h09)  
+**P24 · v1** — ⏳ à valider — ancien fil, commit 673edd5 (05h09) · ⚪ faite sans carte du plan  
 Add P24 king of the street storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p24/p24-v1-ancien-fil.png" width="640" alt="P24 v1">
@@ -412,7 +416,7 @@ Add P24 king of the street storyboard frame — version en place dans le storybo
 
 > Tenir la victoire, laisser retomber aura et poussière, puis recadrer Jeannot au premier accent du refrain final. La 4L et l'Estafette gardent leurs emplacements fixes.
 
-**P25 · v1** — ⏳ à valider — ancien fil, commit 0282de3 (05h10)  
+**P25 · v1** — ⏳ à valider — ancien fil, commit 0282de3 (05h10) · ⚪ faite sans carte du plan  
 Add P25 victory breathing storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p25/p25-v1-ancien-fil.png" width="640" alt="P25 v1">
@@ -423,7 +427,7 @@ Add P25 victory breathing storyboard frame — version en place dans le storyboa
 
 > Reprise du motif de victoire, en plan plus large qui inclut la 4L entière. Flash bref ; voitures à leurs emplacements fixes.
 
-**P26 · v1** — ⏳ à valider — ancien fil, commit d0c978c (05h12)  
+**P26 · v1** — ⏳ à valider — ancien fil, commit d0c978c (05h12) · ⚪ faite sans carte du plan  
 Add P26 final chorus storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p26/p26-v1-ancien-fil.png" width="640" alt="P26 v1">
@@ -434,7 +438,7 @@ Add P26 final chorus storyboard frame — version en place dans le storyboard
 
 > Jeannot reste devant sa maison ; respiration et posture se calment, l'aura s'éteint. La 4L et l'Estafette gardent exactement leurs emplacements fixes.
 
-**P27 · v1** — ⏳ à valider — ancien fil, commit 8eb1389 (05h20)  
+**P27 · v1** — ⏳ à valider — ancien fil, commit 8eb1389 (05h20) · ⚪ faite sans carte du plan  
 Add P27 Jeannot remains storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p27/p27-v1-ancien-fil.png" width="640" alt="P27 v1">
@@ -445,7 +449,7 @@ Add P27 Jeannot remains storyboard frame — version en place dans le storyboard
 
 > Fond de carton sur le dernier accent vocal, avec espace réservé au titre exact « Fin » pour l'étape d'annotation ; maintien bref, à recaler sur la voix réelle. Les deux voitures gardent leurs emplacements fixes.
 
-**P28 · v1** — ⏳ à valider — ancien fil, commit 129bef2 (05h22)  
+**P28 · v1** — ⏳ à valider — ancien fil, commit 129bef2 (05h22) · ⚪ faite sans carte du plan  
 Add P28 closing title-card storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p28/p28-v1-ancien-fil.png" width="640" alt="P28 v1">
@@ -456,7 +460,7 @@ Add P28 closing title-card storyboard frame — version en place dans le storybo
 
 > Tenir la dernière pose et la rue, puis fondu au noir à la fin du MP3. Aucun texte supplémentaire ; la 4L et l'Estafette conservent leurs repères fixes.
 
-**P29 · v1** — ⏳ à valider — ancien fil, commit 4e4650b (05h23)  
+**P29 · v1** — ⏳ à valider — ancien fil, commit 4e4650b (05h23) · ⚪ faite sans carte du plan  
 Add P29 final outro storyboard frame — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p29/p29-v1-ancien-fil.png" width="640" alt="P29 v1">

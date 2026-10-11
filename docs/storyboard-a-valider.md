@@ -134,7 +134,7 @@ Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri 
 
 <img src="../assets/storyboards/a-valider/p01/p01-v10-carte-rev2.png" width="640" alt="P01 v10">
 
-**P01 · v11** — ⏳ à valider — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) · 🟢 conforme à la carte actuelle (rév. 4)  
+**P01 · v11** — 🔁 à retoucher — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) · 🟢 conforme à la carte actuelle (rév. 4)  
 Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une seule fumée), Enji à la bonne taille sur le trottoir, Coccinelle orange bien visible dans le garage ouvert avec Diego à côté, passage à niveau ouvert (barrières levées), la route plonge, collines seulement. Écarts restants : l'Estafette est sur la chaussée au centre-droit au lieu d'être collée au trottoir gauche devant le garage ; Enji est à gauche de Jeannot (contre le mur) plutôt qu'entre lui et la voiture ; les rails sont peu lisibles entre les barrières ; Jeannot est de 3/4 plutôt que de profil strict ; le garage arrive toujours juste après la maison d'Henri.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v11-carte-rev4.png" width="640" alt="P01 v11">

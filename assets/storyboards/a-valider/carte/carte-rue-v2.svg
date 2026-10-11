@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><clipPath id="zone"><rect x="70" y="110" width="1460" height="750"/></clipPath></defs>
+<rect x="0.0" y="0.0" width="1600.0" height="1000.0" rx="0" fill="#f4efe4" stroke="none" stroke-width="0"/>
+<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Carte de la rue — vue de dessus (référence des lieux)</text>
+<text x="800.0" y="72.0" font-size="15" fill="#4a5566" text-anchor="middle">Ouest = bout de Jeannot  ·  Est = bout de Diego  ·  côté nord = côté Jeannot  ·  côté sud = côté narrateur</text>
+<rect x="70.0" y="385.0" width="1460.0" height="40.0" rx="0" fill="#d9d4ca" stroke="#33404f" stroke-width="1"/>
+<rect x="70.0" y="425.0" width="1460.0" height="140.0" rx="0" fill="#8e939a" stroke="#33404f" stroke-width="1"/>
+<rect x="70.0" y="565.0" width="1460.0" height="40.0" rx="0" fill="#d9d4ca" stroke="#33404f" stroke-width="1"/>
+<line x1="90.0" y1="495.0" x2="1510.0" y2="495.0" stroke="#e8e8e8" stroke-width="2" stroke-dasharray="18 16"/>
+<text x="820.0" y="525.0" font-size="15" fill="#f1f1f1" text-anchor="middle" font-weight="bold">RUE (une seule rue pour tout le clip)</text>
+<rect x="80.0" y="110.0" width="250.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="100.0" y="165.0" width="210.0" height="175.0" rx="0" fill="#f7d9a8" stroke="#33404f" stroke-width="2"/>
+<text x="205.0" y="250.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">Maison de JEANNOT</text>
+<text x="205.0" y="274.0" font-size="14" fill="#4a5566" text-anchor="middle">+ la sorcière + Enji</text>
+<rect x="340.0" y="110.0" width="230.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="360.0" y="165.0" width="190.0" height="175.0" rx="0" fill="#e7e0f5" stroke="#33404f" stroke-width="2"/>
+<text x="455.0" y="250.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">Maison d'HENRI</text>
+<text x="455.0" y="274.0" font-size="14" fill="#4a5566" text-anchor="middle">juste à côté</text>
+<rect x="580.0" y="110.0" width="250.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="600.0" y="165.0" width="210.0" height="175.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="705.0" y="250.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="840.0" y="110.0" width="250.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="860.0" y="165.0" width="210.0" height="175.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="965.0" y="250.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<circle cx="128.0" cy="332.0" r="30" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="220.0" y="150.0" font-size="13" fill="#5b3f8c" text-anchor="middle">tourelle de la sorcière ↓</text>
+<rect x="500.0" y="342.0" width="50.0" height="40.0" rx="0" fill="#bfb7a8" stroke="#33404f" stroke-width="2"/>
+<line x1="508.3" y1="342.0" x2="508.3" y2="382.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="516.6" y1="342.0" x2="516.6" y2="382.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="524.9" y1="342.0" x2="524.9" y2="382.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="533.2" y1="342.0" x2="533.2" y2="382.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="541.5" y1="342.0" x2="541.5" y2="382.0" stroke="#6e6658" stroke-width="1"/>
+<text x="525.0" y="400.0" font-size="12" fill="#4a5566" text-anchor="middle">escalier ext.</text>
+<rect x="1100.0" y="110.0" width="420.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="1115.0" y="150.0" width="200.0" height="205.0" rx="0" fill="#d7d2c8" stroke="#33404f" stroke-width="2"/>
+<line x1="1123.0" y1="355.0" x2="1307.0" y2="355.0" stroke="#d7d2c8" stroke-width="6"/>
+<line x1="1115.0" y1="355.0" x2="1315.0" y2="355.0" stroke="#e04f5f" stroke-width="3" stroke-dasharray="10 6"/>
+<text x="1215.0" y="178.0" font-size="14" fill="#1b2430" text-anchor="middle" font-weight="bold">garage / atelier</text>
+<text x="1215.0" y="372.0" font-size="12" fill="#7a1d27" text-anchor="middle" font-weight="bold">porte ouverte ↓ vue dégagée</text>
+<rect x="1167.0" y="230.0" width="96.0" height="52.0" rx="20" fill="#f08a2c" stroke="#33404f" stroke-width="2"/>
+<rect x="1163.0" y="222.0" width="18.0" height="14.0" rx="0" fill="#9b9b9b" stroke="#33404f" stroke-width="1"/>
+<rect x="1249.0" y="222.0" width="18.0" height="14.0" rx="0" fill="#9b9b9b" stroke="#33404f" stroke-width="1"/>
+<rect x="1163.0" y="276.0" width="18.0" height="14.0" rx="0" fill="#9b9b9b" stroke="#33404f" stroke-width="1"/>
+<rect x="1249.0" y="276.0" width="18.0" height="14.0" rx="0" fill="#9b9b9b" stroke="#33404f" stroke-width="1"/>
+<text x="1215.0" y="310.0" font-size="13" fill="#1b2430" text-anchor="middle" font-weight="bold">Coccinelle orange</text>
+<text x="1215.0" y="328.0" font-size="12" fill="#4a5566" text-anchor="middle">sur parpaings (Diego + Marco)</text>
+<rect x="1335.0" y="165.0" width="180.0" height="175.0" rx="0" fill="#cfe0f2" stroke="#33404f" stroke-width="2"/>
+<text x="1425.0" y="250.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">Maison de DIEGO</text>
+<rect x="80.0" y="613.0" width="250.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="100.0" y="635.0" width="210.0" height="165.0" rx="0" fill="#d8ecf7" stroke="#33404f" stroke-width="2"/>
+<text x="205.0" y="715.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">NARRATEUR</text>
+<text x="205.0" y="739.0" font-size="14" fill="#4a5566" text-anchor="middle">en face de Jeannot</text>
+<rect x="340.0" y="613.0" width="240.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="360.0" y="635.0" width="200.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="460.0" y="715.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="590.0" y="613.0" width="250.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="610.0" y="635.0" width="210.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="715.0" y="715.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="850.0" y="613.0" width="250.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="870.0" y="635.0" width="210.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="975.0" y="715.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="1110.0" y="613.0" width="410.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="1130.0" y="635.0" width="370.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="1315.0" y="715.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisins</text>
+<text x="1315.0" y="739.0" font-size="14" fill="#4a5566" text-anchor="middle">en face de Diego</text>
+<rect x="180.0" y="431.0" width="100.0" height="42.0" rx="6" fill="#a8dcc0" stroke="#2c5f47" stroke-width="2"/>
+<polygon points="280.0,439.0 296.0,452.0 280.0,465.0" fill="#2c5f47" fill-opacity="1.0" stroke="none" stroke-width="0"/>
+<text x="230.0" y="458.0" font-size="16" fill="#173b2b" text-anchor="middle" font-weight="bold">4L</text>
+<text x="188.0" y="495.0" font-size="12" fill="#173b2b" text-anchor="start">l'unique 4L, très rouillée — nez vers l'est</text>
+<rect x="1365.0" y="431.0" width="118.0" height="46.0" rx="5" fill="#8fa3b8" stroke="#33475c" stroke-width="2"/>
+<polygon points="1365.0,440.0 1350.0,454.0 1365.0,468.0" fill="#33475c" fill-opacity="1.0" stroke="none" stroke-width="0"/>
+<text x="1424.0" y="460.0" font-size="14" fill="#16222f" text-anchor="middle" font-weight="bold">Estafette</text>
+<text x="1424.0" y="497.0" font-size="12" fill="#16222f" text-anchor="middle">devant la maison de Diego</text>
+<circle cx="300.0" cy="389.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
+<text x="300.0" y="394.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>
+<circle cx="332.0" cy="393.0" r="13" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
+<text x="332.0" y="398.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">E</text>
+<circle cx="525.0" cy="324.0" r="13" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="525.0" y="329.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">H</text>
+<circle cx="1215.0" cy="389.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
+<text x="1215.0" y="394.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
+<circle cx="205.0" cy="609.0" r="13" fill="#9fd1ee" stroke="#1b2430" stroke-width="2"/>
+<text x="205.0" y="614.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">N</text>
+<circle cx="128.0" cy="332.0" r="12" fill="#7d5cc0" stroke="#1b2430" stroke-width="2"/>
+<text x="128.0" y="337.0" font-size="13" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
+<polygon points="92.0,495.0 1287.4,129.5 1310.0,776.2" fill="#e04f5f" fill-opacity="0.13" stroke="none" stroke-width="0" clip-path="url(#zone)"/>
+<rect x="76.0" y="484.0" width="26.0" height="22.0" rx="3" fill="#e04f5f" stroke="#7a1d27" stroke-width="2"/>
+<polygon points="102.0,489.0 112.0,484.0 112.0,506.0 102.0,501.0" fill="#7a1d27" fill-opacity="1.0" stroke="none" stroke-width="0"/>
+<text x="89.0" y="533.0" font-size="15" fill="#7a1d27" text-anchor="middle" font-weight="bold">P01</text>
+<text x="40.0" y="500.0" font-size="20" fill="#4a5566" text-anchor="middle" font-weight="bold">O</text>
+<text x="1560.0" y="500.0" font-size="20" fill="#4a5566" text-anchor="middle" font-weight="bold">E</text>
+<text x="70.0" y="895.0" font-size="16" fill="#1b2430" text-anchor="start" font-weight="bold">Légende :</text>
+<circle cx="180.0" cy="889.0" r="10" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
+<text x="198.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">J  Jeannot</text>
+<circle cx="385.0" cy="889.0" r="10" fill="#7d5cc0" stroke="#1b2430" stroke-width="2"/>
+<text x="403.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">S  la sorcière (tourelle)</text>
+<circle cx="590.0" cy="889.0" r="10" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="608.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">H  Henri</text>
+<circle cx="795.0" cy="889.0" r="10" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
+<text x="813.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">D  Diego</text>
+<circle cx="1000.0" cy="889.0" r="10" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
+<text x="1018.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">E  Enji</text>
+<circle cx="1205.0" cy="889.0" r="10" fill="#9fd1ee" stroke="#1b2430" stroke-width="2"/>
+<text x="1223.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">N  narrateur</text>
+<rect x="80.0" y="917.0" width="26.0" height="20.0" rx="3" fill="#e04f5f" stroke="#7a1d27" stroke-width="2"/>
+<text x="118.0" y="933.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra + champ de vision.  P01 : bout Jeannot → vers Diego : 4L vue de derrière</text>
+<text x="80.0" y="967.0" font-size="14" fill="#7a1d27" text-anchor="start" font-weight="bold">Règle : les lieux et les voitures ne bougent jamais d'un plan à l'autre ; seule la caméra change de place ou d'axe.</text>
+</svg>

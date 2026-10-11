@@ -10,8 +10,8 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | 🛠️ En cours | 1 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 6 | — |
+| [CARTE](#carte) | référence | 🛠️ En cours | 2 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 7 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -55,6 +55,11 @@ D'après tes réponses : Henri juste à côté du même côté, tourelle sur la 
 - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
 et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans.
 
+**CARTE · v2** — ⏳ à valider — nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)  
+Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.
+
+<img src="../assets/storyboards/a-valider/carte/carte-rue-v2.png" width="640" alt="CARTE v2">
+
 ## P01
 
 **00:00–00:05** · Instrumental · 🛠️ En cours
@@ -96,6 +101,11 @@ Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeanno
 - 💬 *2026-10-11 11:14* — il faudra  prendre en compte  mon avis  de l'image de la carte
 - 💬 *2026-10-11 11:15* — il faudra  prendre en compte  mon avis  de l'image de la carte  
 Pour le garage de diego
+
+**P01 · v7** — ⏳ à valider — nouveau fil, retouche de v6 avec la carte v2  
+Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v7-nouveau.png" width="640" alt="P01 v7">
 
 ## P02
 

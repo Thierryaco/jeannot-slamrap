@@ -21,6 +21,13 @@
        "texte": "inverser la position de la maison et du garage de diego .\net repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans."
       }
      ]
+    },
+    {
+     "id": "v2",
+     "fichier": "carte-rue-v2.png",
+     "source": "nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)",
+     "note": "Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.",
+     "etat": "a-valider"
     }
    ]
   },
@@ -89,6 +96,13 @@
        "texte": "il faudra  prendre en compte  mon avis  de l'image de la carte  \nPour le garage de diego"
       }
      ]
+    },
+    {
+     "id": "v7",
+     "fichier": "p01-v7-nouveau.png",
+     "source": "nouveau fil, retouche de v6 avec la carte v2",
+     "note": "Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.",
+     "etat": "a-valider"
     }
    ]
   },

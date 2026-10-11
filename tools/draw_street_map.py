@@ -88,18 +88,23 @@ def build():
     for i in range(1, 6):
         line(sx + i * 8.3, sy, sx + i * 8.3, sy + 40, "#6e6658", 1)
     text(sx + 25, sy + 58, "escalier ext.", 12, "#4a5566")
-    # Diego : maison + garage/atelier avec la Coccinelle
+    # Diego : garage/atelier OUVERT côté ouest (vue dégagée depuis la rue), maison à l'est
     dx = X0 + 1030
     rect(dx, N_LOT, X1 - dx - 10, N_PAVE - N_LOT - 8, "#e9f0dc", stroke="#9aa58a", sw=1)
-    rect(dx + 15, N_LOT + 55, 180, 175, "#cfe0f2")
-    text(dx + 105, N_LOT + 140, "Maison de DIEGO", 17, bold=True)
-    rect(dx + 210, N_LOT + 40, 200, 205, "#d7d2c8", dash=(8, 5))
-    text(dx + 310, N_LOT + 68, "garage / atelier", 14, bold=True)
-    rect(dx + 262, N_LOT + 120, 96, 52, "#f08a2c", rx=20)
-    for px, py in ((dx + 258, N_LOT + 112), (dx + 344, N_LOT + 112), (dx + 258, N_LOT + 166), (dx + 344, N_LOT + 166)):
+    gx = dx + 15
+    rect(gx, N_LOT + 40, 200, 205, "#d7d2c8")
+    line(gx + 8, N_LOT + 245, gx + 192, N_LOT + 245, "#d7d2c8", 6)  # façade ouverte sur la rue
+    line(gx, N_LOT + 245, gx + 200, N_LOT + 245, "#e04f5f", 3, dash=(10, 6))
+    text(gx + 100, N_LOT + 68, "garage / atelier", 14, bold=True)
+    text(gx + 100, N_LOT + 262, "porte ouverte ↓ vue dégagée", 12, "#7a1d27", True)
+    rect(gx + 52, N_LOT + 120, 96, 52, "#f08a2c", rx=20)
+    for px, py in ((gx + 48, N_LOT + 112), (gx + 134, N_LOT + 112), (gx + 48, N_LOT + 166), (gx + 134, N_LOT + 166)):
         rect(px, py, 18, 14, "#9b9b9b", sw=1)
-    text(dx + 310, N_LOT + 200, "Coccinelle orange", 13, bold=True)
-    text(dx + 310, N_LOT + 218, "sur parpaings (Diego + Marco)", 12, "#4a5566")
+    text(gx + 100, N_LOT + 200, "Coccinelle orange", 13, bold=True)
+    text(gx + 100, N_LOT + 218, "sur parpaings (Diego + Marco)", 12, "#4a5566")
+    hx = dx + 235
+    rect(hx, N_LOT + 55, 180, 175, "#cfe0f2")
+    text(hx + 90, N_LOT + 140, "Maison de DIEGO", 17, bold=True)
 
     # Côté sud (côté narrateur)
     lots_s = [
@@ -122,11 +127,11 @@ def build():
     poly([(cx4 + 100, cy4 + 8), (cx4 + 116, cy4 + 21), (cx4 + 100, cy4 + 34)], "#2c5f47")
     text(cx4 + 50, cy4 + 27, "4L", 16, "#173b2b", True)
     text(cx4 + 8, cy4 + 64, "l'unique 4L, très rouillée — nez vers l'est", 12, "#173b2b", anchor="start")
-    ex, ey = dx + 60, ROAD_T + 6
+    ex, ey = hx + 30, ROAD_T + 6
     rect(ex, ey, 118, 46, "#8fa3b8", stroke="#33475c", sw=2, rx=5)
     poly([(ex, ey + 9), (ex - 15, ey + 23), (ex, ey + 37)], "#33475c")
     text(ex + 59, ey + 29, "Estafette", 14, "#16222f", True)
-    text(ex + 59, ey + 66, "devant chez Diego", 12, "#16222f")
+    text(ex + 59, ey + 66, "devant la maison de Diego", 12, "#16222f")
 
     # Personnages (repères habituels)
     chars = [
@@ -134,7 +139,7 @@ def build():
         (X0 + 262, N_PAVE + 8, "#b08a5a", "E", "Enji"),
         (X0 + 58, N_LOT + 222, None, "S", ""),
         (sx + 25, sy - 18, "#c9b6e8", "H", "Henri"),
-        (dx + 300, N_PAVE + 4, "#5d8fd6", "D", "Diego"),
+        (gx + 100, N_PAVE + 4, "#5d8fd6", "D", "Diego"),
         (X0 + 135, S_PAVE + 4, "#9fd1ee", "N", "narrateur"),
     ]
     for x, y, col, letter, _ in chars:

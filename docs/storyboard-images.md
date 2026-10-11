@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 14/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 15/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 | Plan | Image | État |
 |---|---|---|
@@ -18,7 +18,7 @@
 | P12 | [`assets/storyboards/p12-diego-watches.png`](../assets/storyboards/p12-diego-watches.png) | ✅ Poussée — Diego observe depuis l'Estafette |
 | P13 | [`assets/storyboards/p13-witch-watches.png`](../assets/storyboards/p13-witch-watches.png) | ✅ Poussée — la sœur observe Diego depuis la tourelle |
 | P14 | [`assets/storyboards/p14-diego-rattles-4l.png`](../assets/storyboards/p14-diego-rattles-4l.png) | ✅ Poussée — secousse comique, 4L intacte |
-| P15 | — | ⬜ À faire |
+| P15 | [`assets/storyboards/p15-final-fight-standoff.png`](../assets/storyboards/p15-final-fight-standoff.png) | ✅ Poussée — duel installé dans la rue |
 | P16 | — | ⬜ À faire |
 | P17 | — | ⬜ À faire |
 | P18 | — | ⬜ À faire |

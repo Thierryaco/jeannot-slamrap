@@ -58,7 +58,7 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 
 | Plan | Temps estimé | Paroles | Image, jeu et caméra |
 |---|---:|---|---|
-| P15 | 00:43,69–00:50,35 | Instrumental / montée musicale | Travelling le long de la rue, de la 4L jusqu'à Diego. Les deux rivaux se font face de part et d'autre de la chaussée. La caméra se rapproche ; lignes d'énergie et aura montent au rythme, sans changer de lieu. |
+| P15 | 00:43,69–00:50,35 | Instrumental / montée musicale | Travelling le long de la rue, de la 4L jusqu'à Diego. Les deux rivaux se font face de part et d'autre de la chaussée. La caméra se rapproche ; lignes d'énergie et aura montent au rythme, sans changer de lieu. [Image-clé](../assets/storyboards/p15-final-fight-standoff.png). |
 | P16 | 00:50,35–00:53,70 | « C'est le combat final, entre Diego et Jeannot » | Cadrage frontal alterné sur Diego puis Jeannot ; terminer en plan large de l'axe de la rue. Fenêtre vocale à vérifier. |
 
 ### 00:53,70–01:22,00 — Deuxième refrain : combat et victoire

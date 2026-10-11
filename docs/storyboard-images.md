@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Images de base : 29/29 poussées. Audit de cohérence : en cours ; P01 master, P05 (laisse d'Enji), P11 (emplacement) et P12 (Diego tête à la fenêtre) révisés.** Les autres images signalées seront reprises une par une, avec suivi et push à chaque correction. Les annotations détaillées et les mouvements de caméra finaux restent après cet audit, puis viendra le montage complet du storyboard.
+**Images de base : 29/29 poussées. Audit de cohérence : en cours ; P01 master, P02 (échelle/position 4L), P05 (laisse d'Enji), P11 (emplacement) et P12 (Diego tête à la fenêtre) révisés.** Les autres images signalées seront reprises une par une, avec suivi et push à chaque correction. Les annotations détaillées et les mouvements de caméra finaux restent après cet audit, puis viendra le montage complet du storyboard.
 
 ## Verrou de continuité spatiale
 
@@ -12,7 +12,7 @@
 | Plan | Image | État |
 |---|---|---|
 | P01 | [`assets/storyboards/p01-establishing-street.png`](../assets/storyboards/p01-establishing-street.png) | 🔁 Révisée — 4L unique, échelle réaliste sur l'asphalte, repère maître |
-| P02 | [`assets/storyboards/p02-jeannot-enji-v2.png`](../assets/storyboards/p02-jeannot-enji-v2.png) | ✅ Poussée — Jeannot, sa 4L et Enji |
+| P02 | [`assets/storyboards/p02-jeannot-enji-v2.png`](../assets/storyboards/p02-jeannot-enji-v2.png) | 🔁 Révisée sur P01 — une seule 4L à sa place fixe ; Enji en traversée |
 | P03 | [`assets/storyboards/p03-street-geography.png`](../assets/storyboards/p03-street-geography.png) | ✅ Poussée — géographie de la rue |
 | P04 | [`assets/storyboards/p04-jeannot-first-verse.png`](../assets/storyboards/p04-jeannot-first-verse.png) | ✅ Poussée — geste de cigarette et fumée unique |
 | P05 | [`assets/storyboards/p05-witch-leaves.png`](../assets/storyboards/p05-witch-leaves.png) | 🔁 Reprise sur P01 — 4L à taille et place fixes ; sorcière tient Enji en laisse |

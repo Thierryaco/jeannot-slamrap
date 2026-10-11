@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 2 | v2 |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 9 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 10 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -126,6 +126,11 @@ La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue jus
 Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L de dos très rouillée, Jeannot hors champ, passage à niveau au bout (croix de Saint-André, barrières). Écarts : Henri est en bas de son escalier au lieu d'en haut, le garage arrive trop tôt, l'Estafette est au milieu de la chaussée, et on voit encore des maisons après le passage à niveau au lieu des collines.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v9-carte-rev1.png" width="640" alt="P01 v9">
+
+**P01 · v10** — ⏳ à valider — nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji) · 🟢 conforme à la carte actuelle (rév. 2)  
+Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v10-carte-rev2.png" width="640" alt="P01 v10">
 
 ## P02
 

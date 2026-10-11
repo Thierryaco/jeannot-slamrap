@@ -139,6 +139,17 @@
      },
      "note": "Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L de dos très rouillée, Jeannot hors champ, passage à niveau au bout (croix de Saint-André, barrières). Écarts : Henri est en bas de son escalier au lieu d'en haut, le garage arrive trop tôt, l'Estafette est au milieu de la chaussée, et on voit encore des maisons après le passage à niveau au lieu des collines.",
      "etat": "a-valider"
+    },
+    {
+     "id": "v10",
+     "fichier": "p01-v10-carte-rev2.png",
+     "source": "nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji)",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 2
+     },
+     "note": "Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.",
+     "etat": "a-valider"
     }
    ]
   },

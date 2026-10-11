@@ -61,10 +61,12 @@ Reframe P01 master with fixed realistic 4L placement — version en place dans l
 
 <img src="../assets/storyboards/a-valider/p01/p01-v3-ancien-fil-06h01.png" width="640" alt="P01 v3">
 
-**P01 · v4** — ⏳ à valider — nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot  
+**P01 · v4** — 🔁 à retoucher — nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot  
 Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v4-nouveau.png" width="640" alt="P01 v4">
+
+- 💬 *2026-10-11 10:58* — Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée.
 
 ## P02
 

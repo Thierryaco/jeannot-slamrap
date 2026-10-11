@@ -35,7 +35,13 @@
      "fichier": "p01-v4-nouveau.png",
      "source": "nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot",
      "note": "Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.",
-     "etat": "a-valider"
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-11 10:58",
+       "texte": "Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée."
+      }
+     ]
     }
    ]
   },

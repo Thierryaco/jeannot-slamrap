@@ -68,7 +68,7 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 4, 2026-10-11 12:14) :
+🗺️ Carte du plan (rév. 5, 2026-10-11 12:37) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
@@ -134,14 +134,14 @@ Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri 
 
 <img src="../assets/storyboards/a-valider/p01/p01-v10-carte-rev2.png" width="640" alt="P01 v10">
 
-**P01 · v11** — 🔁 à retoucher — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) · 🟢 conforme à la carte actuelle (rév. 4)  
+**P01 · v11** — 🔁 à retoucher — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) · 🟠 faite d'après la carte rév. 4 — la carte a changé depuis  
 Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une seule fumée), Enji à la bonne taille sur le trottoir, Coccinelle orange bien visible dans le garage ouvert avec Diego à côté, passage à niveau ouvert (barrières levées), la route plonge, collines seulement. Écarts restants : l'Estafette est sur la chaussée au centre-droit au lieu d'être collée au trottoir gauche devant le garage ; Enji est à gauche de Jeannot (contre le mur) plutôt qu'entre lui et la voiture ; les rails sont peu lisibles entre les barrières ; Jeannot est de 3/4 plutôt que de profil strict ; le garage arrive toujours juste après la maison d'Henri.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v11-carte-rev4.png" width="640" alt="P01 v11">
 
 - 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
 
-**P01 · v12** — 🔁 à retoucher — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 · 🟢 conforme à la carte actuelle (rév. 4)  
+**P01 · v12** — 🔁 à retoucher — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 · 🟠 faite d'après la carte rév. 4 — la carte a changé depuis  
 Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe brune, combinaison bleue). Coccinelle visible dans le garage ouvert avec Diego, Enji assis sur le trottoir. Écarts : Henri est sur le balcon de la tourelle au lieu du haut de son escalier ; 4 barrières levées et la rue continue avec des maisons au-delà (pas de rails visibles, pas de descente) ; Estafette pas collée au trottoir ; Enji à gauche de Jeannot. Une 2e tentative (2 propositions) a été refusée.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png" width="640" alt="P01 v12">

@@ -48,8 +48,8 @@
     "visible": true
    },
    "henri": {
-    "x": 530.0,
-    "y": 302.0,
+    "x": 532.0,
+    "y": 356.0,
     "angle": 90.0,
     "visible": true
    },
@@ -73,7 +73,7 @@
    }
   },
   "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\n",
-  "rev": 4,
-  "maj": "2026-10-11 12:14"
+  "rev": 5,
+  "maj": "2026-10-11 12:37"
  }
 }

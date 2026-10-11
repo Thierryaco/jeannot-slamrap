@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ⏳ À valider | 1 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 4 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 5 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -79,6 +79,11 @@ Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus lo
 <img src="../assets/storyboards/a-valider/p01/p01-v4-nouveau.png" width="640" alt="P01 v4">
 
 - 💬 *2026-10-11 10:58* — Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée.
+
+**P01 · v5** — ⏳ à valider — nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4  
+4L vue de derrière, bien plus rouillée (comme la photo) ; tourelle sur la maison de Jeannot à gauche. À corriger si on la garde : l'escalier extérieur est à DROITE (côté narrateur) au lieu d'être sur la maison d'Henri à gauche ; l'Estafette est au milieu de la rue au lieu d'être devant chez Diego au fond ; format 3:2, à recadrer en 16:9.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v5-nouveau.png" width="640" alt="P01 v5">
 
 ## P02
 

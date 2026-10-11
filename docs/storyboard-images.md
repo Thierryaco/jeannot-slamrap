@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 18/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 19/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 ## Verrou de continuité spatiale
 
@@ -28,7 +28,7 @@
 | P16 | [`assets/storyboards/p16-final-combat.png`](../assets/storyboards/p16-final-combat.png) | ✅ Poussée — annonce du duel final |
 | P17 | [`assets/storyboards/p17-jeannot-advantage.png`](../assets/storyboards/p17-jeannot-advantage.png) | ✅ Poussée — Jeannot prend l'avantage sans contact violent |
 | P18 | [`assets/storyboards/p18-jeannot-power-up.png`](../assets/storyboards/p18-jeannot-power-up.png) | ✅ Poussée — transformation, cigarette et 4L à sa place fixe |
-| P19 | — | ⬜ À faire |
+| P19 | [`assets/storyboards/p19-comic-recoil.png`](../assets/storyboards/p19-comic-recoil.png) | ✅ Poussée — gag de déséquilibre, voitures et place de la 4L préservées |
 | P20 | — | ⬜ À faire |
 | P21 | — | ⬜ À faire |
 | P22 | — | ⬜ À faire |

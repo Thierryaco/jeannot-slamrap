@@ -87,7 +87,7 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 |---|---:|---|---|
 | P26 | 01:25,70–01:29,45 | « Jeannot a gagné, Jeannot est toujours là » | Reprise du motif de victoire, en plan plus large qui inclut la 4L entière. Flash bref ; voitures à leurs emplacements fixes. [Image-clé](../assets/storyboards/p26-final-chorus-winner.png). |
 | P27 | 01:29,45–01:33,20 | « Il ne partira pas, il restera là » | Jeannot reste devant sa maison ; respiration et posture se calment, l'aura s'éteint. La 4L et l'Estafette gardent exactement leurs emplacements fixes. [Image-clé](../assets/storyboards/p27-jeannot-remains.png). |
-| P28 | 01:33,20–01:37,00 | « Fin » | Carton « Fin » sur le dernier accent vocal, puis maintien bref. Recaler sur la voix réelle. |
+| P28 | 01:33,20–01:37,00 | « Fin » | Fond de carton sur le dernier accent vocal, avec espace réservé au titre exact « Fin » pour l'étape d'annotation ; maintien bref, à recaler sur la voix réelle. Les deux voitures gardent leurs emplacements fixes. [Image-clé](../assets/storyboards/p28-fin-card-background.png). |
 
 ### 01:37,00–01:44,36 — Sortie
 

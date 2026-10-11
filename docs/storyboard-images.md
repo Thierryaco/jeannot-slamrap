@@ -1,16 +1,17 @@
 # Suivi des images du storyboard
 
-**Images de base : 29/29 poussées. Audit de cohérence demandé : en cours ; P05 corrigé, autres plans à vérifier/réviser.** Les annotations détaillées et les mouvements de caméra finaux restent après cet audit, puis viendra le montage complet du storyboard.
+**Images de base : 29/29 poussées. Audit de cohérence : en cours ; master P01 révisé, P05 (laisse d'Enji) et P11 déjà corrigés.** Les images signalées seront reprises une par une, avec suivi et push à chaque correction. Les annotations détaillées et les mouvements de caméra finaux restent après cet audit, puis viendra le montage complet du storyboard.
 
 ## Verrou de continuité spatiale
 
-- P01 est la carte maîtresse de la rue. La 4L reste toujours au même emplacement devant chez Jeannot, contre le trottoir gauche, avec le nez vers le point de vue du narrateur ; elle ne change ni de place ni d'orientation entre les plans.
-- L'Estafette reste au même trottoir gauche, plus loin vers Diego. La Coccinelle orange reste à son aire de réparation, sur parpaings, et n'apparaît dans la rue que si un plan le justifie.
-- Les changements de cadrage viennent de la caméra, jamais d'un déplacement implicite des voitures. Pour chaque nouvelle image, reprendre P01 et le plan adjacent comme références de décor et d'axe.
+- P01 est la carte maîtresse révisée. La 4L reste toujours au même emplacement devant chez Jeannot, sur l'asphalte contre le trottoir gauche, avec le nez orienté vers le point de vue du narrateur ; elle ne change ni de place, ni d'orientation, ni d'échelle de référence entre les plans larges. **Une seule 4L par plan.**
+- Jeannot reste près de sa 4L/maison sauf déplacement explicite dans l'action ; pas de Jeannot isolé au fond ou au milieu de la rue sans motivation.
+- L'Estafette, silhouette de fourgon bleu-gris distincte, reste plus loin au même trottoir gauche, vers Diego. La Coccinelle orange reste à son aire de réparation, sur parpaings, et n'apparaît dans la rue que si un plan le justifie.
+- Les changements de cadrage viennent de la caméra, jamais d'un déplacement implicite des voitures. Pour chaque nouvelle image, reprendre P01 révisé et le plan adjacent comme références de décor, d'axe, d'échelle et de position.
 
 | Plan | Image | État |
 |---|---|---|
-| P01 | [`assets/storyboards/p01-establishing-street.png`](../assets/storyboards/p01-establishing-street.png) | ✅ Poussée — Estafette garée du même côté que la 4L |
+| P01 | [`assets/storyboards/p01-establishing-street.png`](../assets/storyboards/p01-establishing-street.png) | 🔁 Révisée — 4L unique, échelle réaliste sur l'asphalte, repère maître |
 | P02 | [`assets/storyboards/p02-jeannot-enji-v2.png`](../assets/storyboards/p02-jeannot-enji-v2.png) | ✅ Poussée — Jeannot, sa 4L et Enji |
 | P03 | [`assets/storyboards/p03-street-geography.png`](../assets/storyboards/p03-street-geography.png) | ✅ Poussée — géographie de la rue |
 | P04 | [`assets/storyboards/p04-jeannot-first-verse.png`](../assets/storyboards/p04-jeannot-first-verse.png) | ✅ Poussée — geste de cigarette et fumée unique |

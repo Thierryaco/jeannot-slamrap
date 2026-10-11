@@ -3,8 +3,8 @@
 Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versions récupérées dans l'historique Git + nouvelles propositions), pour ne rien perdre si un fil plante.
 
 - Fichier source : [`assets/storyboards/a-valider/options.json`](../assets/storyboards/a-valider/options.json)
-- Page de comparaison : [`storyboard/a-valider.html`](../storyboard/a-valider.html)
-- Régénérer : `python3 tools/build_a_valider.py`
+- Page de comparaison avec avis : lancer `python3 tools/serve_storyboard.py` puis ouvrir `/storyboard/a-valider.html`
+- Régénérer ce fichier : `python3 tools/build_a_valider.py`
 
 ## Avancement
 

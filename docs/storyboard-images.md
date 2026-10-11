@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 5/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 6/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 | Plan | Image | État |
 |---|---|---|
@@ -9,7 +9,7 @@
 | P03 | [`assets/storyboards/p03-street-geography.png`](../assets/storyboards/p03-street-geography.png) | ✅ Poussée — géographie de la rue |
 | P04 | [`assets/storyboards/p04-jeannot-first-verse.png`](../assets/storyboards/p04-jeannot-first-verse.png) | ✅ Poussée — geste de cigarette et fumée unique |
 | P05 | [`assets/storyboards/p05-witch-leaves.png`](../assets/storyboards/p05-witch-leaves.png) | ✅ Poussée — la sœur quitte la tourelle |
-| P06 | — | ⬜ À faire |
+| P06 | [`assets/storyboards/p06-henri-runs.png`](../assets/storyboards/p06-henri-runs.png) | ✅ Poussée — course menée par le corps |
 | P07 | — | ⬜ À faire |
 | P08 | — | ⬜ À faire |
 | P09 | — | ⬜ À faire |

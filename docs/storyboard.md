@@ -1,102 +1,103 @@
-# Storyboard — Jeannot slamrap
+# Storyboard complet — *Jeannot slamrap*
 
-## Références visuelles
+**Version de travail — 11 octobre 2026.** Durée du MP3 : **1 min 44,36 s**. Les timecodes reprennent le découpage provisoire existant ; ils ne remplacent pas le recalage à l'écoute des entrées de voix, des syllabes et des accents musicaux.
 
-- Image fournie par l'utilisateur : [`assets/references/jeannot-4l-reference.png`](../assets/references/jeannot-4l-reference.png). Elle fixe Jeannot (chapeau jaune, combinaison bleue, barbe, cigarette) et la 4L vert menthe vue de l'arrière, carrée, rouillée mais intacte.
-- Concepts de recherche : Jeannot/4L [`assets/art/jeannot-4l-style-frame-v2.png`](../assets/art/jeannot-4l-style-frame-v2.png), Henri [`assets/art/henri-character-v2.png`](../assets/art/henri-character-v2.png), sorcière [`assets/art/sorciere-character-v2.png`](../assets/art/sorciere-character-v2.png), Enji [`assets/art/enji-character.png`](../assets/art/enji-character.png). Ils intègrent les dernières notes, mais restent des concepts, pas des cels animés.
-- Le personnage et la voiture géométriques du prototype Canvas sont à écarter pour la production.
+## Références et règles de continuité
 
-## Repères audio
+- Image de référence fournie par l'utilisateur : [`assets/references/jeannot-4l-reference.png`](../assets/references/jeannot-4l-reference.png). Les concepts de Jeannot/4L, Henri, la sorcière et Enji restent des références de dessin, pas des cels animés. Le prototype Canvas est écarté.
+- La rue est unique : maison de Jeannot à une extrémité, narrateur en face, Henri à côté, Diego à l'autre bout. Le combat reste dans cette rue ; la Coccinelle est dans l'atelier/aire de réparation de Diego.
+- **Jeannot :** peintre d'environ cinquante ans, barbe grisonnante, chapeau jaune et combinaison bleue tachés de peinture, cigarette. Sa Renault 4L est vert menthe pâle, ancienne et rouillée, mais **reste entière et reconnaissable**.
+- **Henri :** frère de Jeannot, un peu plus âgé ; cheveux longs, hirsutes, lunettes rectangulaires fines en métal gris bon marché, cigarette et sourire gentil mais niais. Dents abîmées, gag non graphique.
+- **La sorcière :** sœur plus âgée, fatiguée, cheveux teints très noirs et ébouriffés, mascara marqué, cigarette ; elle observe depuis sa tourelle.
+- **Diego (« le rat ») :** plombier d'environ cinquante ans, du même âge que Jeannot ; visage rond et bienveillant, grand nez crochu, moustache noire épaisse et droite, casquette et salopette bleue. Il conduit une vieille Estafette et restaure avec Marco une Coccinelle orange, soutenue par des parpaings.
+- **Marco :** fils de Diego, participe à la restauration de la Coccinelle ; son design détaillé reste à définir.
+- **Enji :** vieux bâtard croisé berger, museau grisonnant et poil rêche ; gag visuel, sans dialogue.
+- Aucune parole ni aucun dialogue ajoutés. « BAM » et « CRAC » sont des effets graphiques seulement, pas des paroles ni des sons ajoutés. Les coups sont burlesques, sans gore ni blessure réaliste. La peinture atteint la Coccinelle de Marco, jamais la 4L intacte de Jeannot.
 
-Le MP3 de référence est présent dans `audio/jeannot-slamrap.mp3` : 104,36 s, MP3 VBR (~185,8 kb/s), 48 kHz, stéréo. L'analyse de l'enveloppe et des transitoires donne ces repères globaux : montée de niveau vers 16 s, creux/build autour de 43–54 s, relance vers 54 s, creux vers 82–86 s et fondu à partir d'environ 97 s. Le tempo candidat est ~90,7 BPM (ou 45,4 en half-time).
+## Direction animation / caméra
 
-**Important :** ces mesures repèrent la musique, pas les mots. Les débuts de sections ci-dessous sont estimés à partir des changements de niveau et de la pulsation ; les répartitions ligne par ligne sont provisoires, à confirmer à l'écoute avant le lipsync. Les paroles sont reprises mot pour mot du brief. Pas de dialogue ajouté ; « BAM » et « CRAC » restent des effets visuels.
+- Cible : **10–15 dessins distincts par seconde**, puis export 1920 × 1080, 16:9, 24 fps (sur deux images quand le mouvement le permet), H.264/AAC 48 kHz.
+- Caméra 2D en calques : travellings, panoramiques, tilt et parallaxe légère ; lignes de vitesse et flashes d'impact uniquement sur les accents. Éviter les tremblements permanents.
+- Fumée de Jeannot : un seul panache animé, attaché à la cigarette ; aucune fumée fixe derrière le personnage.
+- Les MP4 disponibles restent des essais de mouvement, pas des cels finaux. La chute d'Henri doit être une suite de poses corporelles lisibles — perte d'équilibre, rattrapage, appui, glissade, réception — sans rotation globale du personnage.
 
-## Découpage provisoire — total 1:44,36
+## Découpage complet
 
-### 00:00–00:16,35 — Ouverture musicale / installation
+### 00:00–00:16,35 — Ouverture musicale : installer la rue
 
-Plan d'ensemble de la rue en montée progressive. Présenter Jeannot et sa 4L rouillée, Henri dans la maison voisine, puis la tourelle de la sorcière et l'autre bout de la rue. Enji peut traverser le cadre pour son gag. Garder la bouche de Jeannot prête à être animée dès la première entrée vocale réellement repérée ; ne pas ajouter de texte chanté.
+| Plan | Temps | Paroles | Image, jeu et caméra |
+|---|---:|---|---|
+| P01 | 00:00–00:05 | Instrumental | Plan général de la rue. Travelling avant lent depuis le point de vue du narrateur ; parallaxe discrète entre façades et premier plan. Présenter clairement la géographie, sans texte ajouté. [Image-clé de travail, à valider](../assets/storyboards/p01-establishing-street.png). |
+| P02 | 00:05–00:10 | Instrumental | Glissement vers la maison de Jeannot et sa 4L vert menthe, rouillée mais intacte. Jeannot respire, décale son poids et tient sa cigarette ; Enji traverse le cadre pour son gag. |
+| P03 | 00:10–00:16,35 | Instrumental | Pan vers la maison voisine et l'escalier d'Henri, puis vers la tourelle de la sorcière et l'autre bout de la rue où se trouve Diego. Finir le mouvement sur Jeannot, prêt pour la première entrée vocale. |
 
-### 00:16,35–00:29,02 — Couplet 1
+### 00:16,35–00:29,02 — Couplet 1 : Jeannot, la sorcière et Henri
 
-Les répartitions de temps par ligne sont des repères de montage, pas un alignement automatique des phonèmes.
+Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots à l'écoute.
 
-| Temps estimé | Parole | Image / animation |
-|---|---|---|
-| 00:16,35–00:18,88 | Jeannot est là, et toujours là ! | Jeannot devant sa maison, taches de peinture sur la combinaison bleue et le chapeau jaune ; apparition du cartouche « Jeannot est toujours là ». |
-| 00:18,88–00:21,42 | La sorcière est partie, Jeannot est encore là | La sorcière s'éloigne de sa tourelle, cigarette aux lèvres ; cheveux noirs teints en bataille, mascara lourd et air fatigué ; Jeannot ne bouge pas. |
-| 00:21,42–00:23,95 | Alors Henri s'enfuit, Jeannot est toujours là | Henri, un peu plus âgé, détale depuis la maison voisine : lunettes rectangulaires fines, cigarette et cheveux longs hirsutes ; son sourire reste niais mais gentil. |
-| 00:23,95–00:26,48 | La sorcière est revenue, c'est la merde dans la rue | Retour spectaculaire de la sorcière ; agitation comique et lignes de vitesse. |
-| 00:26,48–00:29,02 | Henri tombe des escaliers, toutes ses dents sont esquintées | Chute burlesque, sans gore ; gag visuel sur ses dents esquintées. |
+| Plan | Temps estimé | Paroles exactes | Image, jeu et caméra |
+|---|---:|---|---|
+| P04 | 00:16,35–00:18,88 | « Jeannot est là, et toujours là ! » | Plan moyen 3/4 de Jeannot près de la 4L. Il lève la cigarette vers la bouche, inspire ; épaules et torse bougent, puis il relâche son souffle. Une seule fumée évolue avec le geste. Léger push-in ; la 4L reste visible. |
+| P05 | 00:18,88–00:21,42 | « La sorcière est partie, Jeannot est encore là » | Contre-plongée vers la tourelle, panoramique jusqu'à la fenêtre, puis suivi de la sœur qui s'éloigne. Cheveux noirs teints en bataille, mascara lourd, cigarette et air épuisé. Retour bref sur Jeannot qui ne quitte pas son emplacement. |
+| P06 | 00:21,42–00:23,95 | « Alors Henri s'enfuit, Jeannot est toujours là » | Plan latéral de course. Henri part de la maison voisine et traverse le haut des marches ; bras, épaules, tête et jambes ont des poses distinctes. Garder lunettes, cigarette et sourire lisibles. |
+| P07 | 00:23,95–00:26,48 | « La sorcière est revenue, c'est la merde dans la rue » | Whip-pan vers la tourelle ; la sorcière réapparaît, puis petit push-in sur son air fatigué. Réaction comique dans la rue, sans dialogue ni nouveau texte. |
+| P08 | 00:26,48–00:29,02 | « Henri tombe des escaliers, toutes ses dents sont esquintées » | Tilt vers l'escalier et suivi continu : Henri perd pied, tente de se rattraper, pose main et genou sur une marche, glisse et finit assis en bas. Pas de salto ni rotation complète. Petit flash/poussière sur « dents », puis tenir son sourire aux dents ébréchées, sans gore ; Enji accourt sur le dernier temps. |
 
 ### 00:29,02–00:43,69 — Premier refrain : le rival apparaît
 
-| Temps estimé | Parole | Image / animation |
-|---|---|---|
-| 00:29,02–00:31,47 | Jeannot a gagné, Jeannot est toujours là | Pose héroïque de Jeannot, flash et cartouche récurrent. |
-| 00:31,47–00:33,91 | Il ne partira pas, il restera là | Gros plan déterminé, puis plan large sur sa maison. |
-| 00:33,91–00:36,36 | La 4 ailes dans la rue, le bordel est revenu | La caméra passe sur la 4L ; elle reste entière et reconnaissable. |
-| 00:36,36–00:38,80 | Le rat guette, dans son estafette | Diego observe depuis son Estafette à l'autre bout de la rue. |
-| 00:38,80–00:41,25 | La sorcière d'sa tourelle, attend son Roméo | Contre-plongée sur la sorcière qui guette Diego. |
-| 00:41,25–00:43,69 | Et le rat Diégo, casse la 4 ailes de Jeannot | Diego lance son assaut : « BAM » visuel et secousse. La 4L est secouée, mais pas détruite ni cassée. |
+| Plan | Temps estimé | Paroles exactes | Image, jeu et caméra |
+|---|---:|---|---|
+| P09 | 00:29,02–00:31,47 | « Jeannot a gagné, Jeannot est toujours là » | Jeannot se redresse devant sa 4L et prend une pose héroïque ; flash bref et motif graphique récurrent. Aucun dommage à la voiture. |
+| P10 | 00:31,47–00:33,91 | « Il ne partira pas, il restera là » | Gros plan de Jeannot, puis recul vers la maison entière. Il reste solidement ancré dans la rue ; aura encore discrète. |
+| P11 | 00:33,91–00:36,36 | « La 4 ailes dans la rue, le bordel est revenu » | Travelling sur la 4L de l'arrière vers le profil ; montrer sa forme carrée et sa couleur vert menthe. Léger frémissement comique possible, mais elle demeure intacte. |
+| P12 | 00:36,36–00:38,80 | « Le rat guette, dans son estafette » | Plan de l'Estafette de plombier de Diego, à l'autre bout de la rue. Diego observe depuis la cabine. L'autocollant « Chat Chainegaz » attend confirmation d'orthographe. |
+| P13 | 00:38,80–00:41,25 | « La sorcière d'sa tourelle, attend son Roméo » | Contre-plongée sur la sorcière à sa fenêtre ; son regard suit Diego dans l'Estafette. Cigarette, mascara et fatigue restent lisibles. |
+| P14 | 00:41,25–00:43,69 | « Et le rat Diégo, casse la 4 ailes de Jeannot » | Diego provoque une secousse comique de la 4L : mouvement caméra et éclat « BAM » visuel. La tôle vibre, mais rien ne casse et la voiture ne se déforme pas. |
 
-L'autocollant du fourgon ne sera écrit « Chat Chainegaz » qu'après confirmation de l'orthographe.
+### 00:43,69–00:53,70 — Pont : installer le combat
 
-### 00:43,69–00:53,70 — Pont / montée du combat
-
-| Temps estimé | Parole | Image / animation |
-|---|---|---|
-| 00:43,69–00:50,35 | — | Baisse de niveau : travelling le long de la rue, les deux rivaux se font face ; préparer la montée d'aura. |
-| 00:50,35–00:53,70 | C'est le combat final, entre Diego et Jeannot | Fenêtre vocale candidate à confirmer ; cadrage frontal, montée d'énergie et lignes de vitesse. |
+| Plan | Temps estimé | Paroles | Image, jeu et caméra |
+|---|---:|---|---|
+| P15 | 00:43,69–00:50,35 | Instrumental / montée musicale | Travelling le long de la rue, de la 4L jusqu'à Diego. Les deux rivaux se font face de part et d'autre de la chaussée. La caméra se rapproche ; lignes d'énergie et aura montent au rythme, sans changer de lieu. |
+| P16 | 00:50,35–00:53,70 | « C'est le combat final, entre Diego et Jeannot » | Cadrage frontal alterné sur Diego puis Jeannot ; terminer en plan large de l'axe de la rue. Fenêtre vocale à vérifier. |
 
 ### 00:53,70–01:22,00 — Deuxième refrain : combat et victoire
 
-Les durées par ligne sont réparties provisoirement sur la fenêtre musicale mesurée ; les coupes seront ajustées aux attaques de voix réelles.
-
-| Temps estimé | Parole | Image / animation |
-|---|---|---|
-| 00:53,70–00:57,24 | Jeannot a gagné, Jeannot est toujours là | Jeannot se redresse ; cartouche récurrent. |
-| 00:57,24–01:00,78 | Il ne partira pas, il restera là | Transformation : cheveux dressés et aura, sans changer de rue. |
-| 01:00,78–01:03,99 | Jeannot tape Diego, qui se casse le dos | Coup stylisé, flash blanc, « CRAC » visuel et tremblement. |
-| 01:03,99–01:07,53 | Diégo est à terre, c'est la fin de la guerre | Diego tombe sans blessure graphique ; Enji renifle sa casquette ou lui tourne autour. |
-| 01:07,53–01:11,71 | Jeannot prend sa peinture, et la verse sur la voiture | Jeannot soulève son pot de peinture comme une boule d'énergie ; coupe vers la voiture. |
-| 01:11,71–01:14,92 | du fils de Diégo, qui s'appelle Marco | Révélation de la Coccinelle orange en restauration, Marco à côté ; la peinture tombe dessus. |
-| 01:14,92–01:18,13 | Diégo a perdu, Jeannot a gagné | Diego reste à terre ; Jeannot se redresse en héros. |
-| 01:18,13–01:22,00 | C'est le roi de la rue, et il nous casse les pieds | Jeannot pose au milieu de la rue ; réactions agacées et gag visuel avec Enji, sans réplique. |
+| Plan | Temps estimé | Paroles exactes | Image, jeu et caméra |
+|---|---:|---|---|
+| P17 | 00:53,70–00:57,24 | « Jeannot a gagné, Jeannot est toujours là » | Diego et Jeannot tournent autour l'un de l'autre ; Jeannot reprend l'avantage. Flash/cartouche récurrent sur l'accent musical. |
+| P18 | 00:57,24–01:00,78 | « Il ne partira pas, il restera là » | Transformation shōnen de Jeannot : cheveux qui se dressent, aura et lignes de vitesse. Conserver chapeau, combinaison tachée et cigarette comme motifs ; rester dans la rue. |
+| P19 | 01:00,78–01:03,99 | « Jeannot tape Diego, qui se casse le dos » | Coup stylisé, anticipation corporelle puis impact sur l'accent. Flash blanc et « CRAC » graphique ; Diego est projeté/comiquement plié, sans gore ni fracture réaliste. |
+| P20 | 01:03,99–01:07,53 | « Diégo est à terre, c'est la fin de la guerre » | Diego se retrouve au sol, sonné mais indemne. Enji renifle sa casquette ou lui tourne autour ; gag muet, pas de dialogue. |
+| P21 | 01:07,53–01:11,71 | « Jeannot prend sa peinture, et la verse sur la voiture » | Jeannot saisit son pot et le lève comme une boule d'énergie, puis amorce le geste de verser. Coupe dans le mouvement vers la Coccinelle orange de Marco ; ne pas viser la 4L. |
+| P22 | 01:11,71–01:14,92 | « du fils de Diégo, qui s'appelle Marco » | Révéler la Coccinelle orange sur parpaings, en restauration : capot ouvert, roue déposée, outils et pièces à proximité. La peinture touche la carrosserie comme gag visuel ; Diego et Marco sont clairement associés à cette voiture. Le design détaillé de Marco reste à définir. |
+| P23 | 01:14,92–01:18,13 | « Diégo a perdu, Jeannot a gagné » | Retour à la rue. Diego reste au sol un instant, Jeannot se relève et reprend sa pose de héros ; Enji traverse le cadre. |
+| P24 | 01:18,13–01:22,00 | « C'est le roi de la rue, et il nous casse les pieds » | Pose de Jeannot au milieu de la rue. Réactions exaspérées aux fenêtres et gag d'Enji ; aucun dialogue ajouté. |
 
 ### 01:22,00–01:25,70 — Relance musicale
 
-Bref temps de respiration avant le dernier refrain ; tenir le plan de victoire, puis recadrer Jeannot au premier accent suivant.
+| Plan | Temps estimé | Paroles | Image, jeu et caméra |
+|---|---:|---|---|
+| P25 | 01:22,00–01:25,70 | Instrumental | Tenir la victoire, laisser retomber aura et poussière, puis recadrer Jeannot au premier accent du refrain final. |
 
 ### 01:25,70–01:37,00 — Refrain final et « Fin »
 
-| Temps estimé | Parole | Image / animation |
-|---|---|---|
-| 01:25,70–01:29,45 | Jeannot a gagné, Jeannot est toujours là | Reprise du cartouche et de la pose héroïque. |
-| 01:29,45–01:33,20 | Il ne partira pas, il restera là | Jeannot reste devant sa maison ; l'aura retombe. |
-| 01:33,20–01:37,00 | Fin | Carton « Fin », à recaler sur la voix réelle. |
+| Plan | Temps estimé | Paroles exactes | Image, jeu et caméra |
+|---|---:|---|---|
+| P26 | 01:25,70–01:29,45 | « Jeannot a gagné, Jeannot est toujours là » | Reprise du motif de victoire, en plan plus large qui inclut la 4L entière. Flash bref. |
+| P27 | 01:29,45–01:33,20 | « Il ne partira pas, il restera là » | Jeannot reste devant sa maison ; respiration et posture se calment, l'aura s'éteint. |
+| P28 | 01:33,20–01:37,00 | « Fin » | Carton « Fin » sur le dernier accent vocal, puis maintien bref. Recaler sur la voix réelle. |
 
 ### 01:37,00–01:44,36 — Sortie
 
-Tenir la dernière pose, fondu au noir sur la fin de la musique. Aucun texte supplémentaire.
+| Plan | Temps | Paroles | Image, jeu et caméra |
+|---|---:|---|---|
+| P29 | 01:37,00–01:44,36 | Instrumental / réverbération | Tenir la dernière pose et la rue, puis fondu au noir à la fin du MP3. Aucun texte supplémentaire. |
 
-## Découpage caméra — test et couplet 1
+## Repères de synchro et prochaines validations
 
-Le premier MP4 de test (`renders/jeannot-intro-test-12fps.mp4`) est un **test de mouvement de caméra et de fumée** sur l'image-clé Jeannot/4L : 3 secondes, 36 images à 12 fps, avec le premier bout audio estimé. Il ne teste pas encore l'animation du corps ni le lipsync.
-
-| Fenêtre provisoire | Plan et caméra | Action / intention |
-|---|---|---|
-| 00:00–00:16,35 | **Plan général** depuis le point de vue du narrateur ; lent travelling avant dans la rue, parallaxe légère entre façades et premier plan. | Installer l'unique rue et faire découvrir la 4L de Jeannot ; garder l'entrée vocale à vérifier. |
-| 00:16,35–00:18,88 | **Plan moyen 3/4 arrière** sur Jeannot et la 4L ; test actuel : push-in doux, léger recadrage vers Jeannot, fumée animée à 12 fps. | « Jeannot est là, et toujours là ! » ; prochaine version : clignement, tête/épaule et bouche en cels. |
-| 00:18,88–00:21,42 | **Contre-plongée moyenne** sur la tourelle ; panoramique vif vers la fenêtre, puis suivi court de la sorcière qui s'en va. | « La sorcière est partie, Jeannot est encore là » ; révéler ses cheveux noirs, son mascara et sa cigarette. |
-| 00:21,42–00:23,95 | **Plan latéral de course** sur Henri ; travelling latéral qui accompagne sa fuite, lignes de vitesse en arrière-plan. | « Alors Henri s'enfuit, Jeannot est toujours là » ; lunettes et cigarette lisibles, sourire benêt. |
-| 00:23,95–00:26,48 | **Retour tourelle** par whip-pan ; brève pause sur la sorcière, puis petit push-in. | « La sorcière est revenue, c'est la merde dans la rue » ; accent comique sur son air fatigué. |
-| 00:26,48–00:29,02 | **Tilt vers l'escalier**, caméra suit Henri dans la chute ; flash blanc très bref, secousse à l'impact, arrêt de deux cels sur le gag des dents. Le test actuel [`renders/henri-stairs-test-12fps.mp4`](../renders/henri-stairs-test-12fps.mp4) dure 2,75 s à 12 fps (33 images) et utilise un cutout pivoté, pas encore des cels dessinés. | « Henri tombe des escaliers, toutes ses dents sont esquintées » ; audio et paroles conservés, Enji accourt dans le dernier temps du storyboard. |
-
-### À confirmer à l'écoute
-
-1. Première entrée vocale, surtout pendant l'ouverture à faible niveau.
-2. Début et fin exacts de chaque phrase, notamment le pont et le dernier « Fin ».
-3. Accents précis des coups et du versement de peinture.
-4. Orthographe de l'autocollant « Chat Chainegaz ».
+1. Réécouter le MP3 du début à la fin et noter l'entrée/sortie de chaque phrase avant le lipsync. **16,35 s** et **26,48 s** restent des repères provisoires, non confirmés.
+2. Recaler la gestuelle de Jeannot sur la cigarette et l'exhalation, avec un seul panache animé.
+3. Recaler les poses de la chute sur « tombe », « escaliers », « dents » et « esquintées » ; pas de rotation globale.
+4. Confirmer l'orthographe du sticker de l'Estafette et définir Marco avant les cels finaux.
+5. Faire valider les essais des plans 1 et 2 avant de les considérer comme référence de production ou de les pousser comme versions finales.

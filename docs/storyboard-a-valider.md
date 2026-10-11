@@ -94,6 +94,8 @@ Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeanno
 <img src="../assets/storyboards/a-valider/p01/p01-v6-nouveau.png" width="640" alt="P01 v6">
 
 - 💬 *2026-10-11 11:14* — il faudra  prendre en compte  mon avis  de l'image de la carte
+- 💬 *2026-10-11 11:15* — il faudra  prendre en compte  mon avis  de l'image de la carte  
+Pour le garage de diego
 
 ## P02
 

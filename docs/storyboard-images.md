@@ -1,6 +1,6 @@
 # Suivi des images du storyboard
 
-**Avancement : 20/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 21/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 ## Verrou de continuité spatiale
 
@@ -30,7 +30,7 @@
 | P18 | [`assets/storyboards/p18-jeannot-power-up.png`](../assets/storyboards/p18-jeannot-power-up.png) | ✅ Poussée — transformation, cigarette et 4L à sa place fixe |
 | P19 | [`assets/storyboards/p19-comic-recoil.png`](../assets/storyboards/p19-comic-recoil.png) | ✅ Poussée — gag de déséquilibre, voitures et place de la 4L préservées |
 | P20 | [`assets/storyboards/p20-diego-and-enji.png`](../assets/storyboards/p20-diego-and-enji.png) | ✅ Poussée — gag calme avec Enji, 4L fixe |
-| P21 | — | ⬜ À faire |
+| P21 | [`assets/storyboards/p21-jeannot-paint-can.png`](../assets/storyboards/p21-jeannot-paint-can.png) | ✅ Poussée — pot levé, 4L hors cible et fixe |
 | P22 | — | ⬜ À faire |
 | P23 | — | ⬜ À faire |
 | P24 | — | ⬜ À faire |

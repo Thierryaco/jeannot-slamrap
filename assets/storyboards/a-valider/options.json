@@ -115,6 +115,13 @@
        "texte": "Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue"
       }
      ]
+    },
+    {
+     "id": "v8",
+     "fichier": "p01-v8-nouveau.png",
+     "source": "nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente)",
+     "note": "La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue juste une ouverture de garage sombre sur la gauche, sans voiture visible. Écarts avec la carte : le garage arrive trop tôt (juste après la maison d'Henri au lieu d'être après deux voisins), et l'Estafette est encore au milieu de la chaussée au lieu d'être garée à gauche devant la maison de Diego.",
+     "etat": "a-valider"
     }
    ]
   },

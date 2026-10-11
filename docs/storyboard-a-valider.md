@@ -116,6 +116,8 @@ La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue jus
 
 <img src="../assets/storyboards/a-valider/p01/p01-v8-nouveau.png" width="640" alt="P01 v8">
 
+- 💬 *2026-10-11 11:50* — la rue se termine après l'estafette de diego  par un passage à niveau de train  elle descend ensuite donc on plus des collines au fond
+
 ## P02
 
 **00:05–00:10** · Instrumental · ⏳ À valider

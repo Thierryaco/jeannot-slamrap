@@ -22,7 +22,7 @@
 | P09 | [`assets/storyboards/p09-jeannot-victory-pose.png`](../assets/storyboards/p09-jeannot-victory-pose.png) | ✅ Poussée — pose héroïque, 4L intacte |
 | P10 | [`assets/storyboards/p10-jeannot-stays.png`](../assets/storyboards/p10-jeannot-stays.png) | ✅ Poussée — gros plan, Jeannot reste dans la rue |
 | P11 | [`assets/storyboards/p11-4l-in-street.png`](../assets/storyboards/p11-4l-in-street.png) | 🔁 Corrigée — emplacement et orientation verrouillés comme P01 |
-| P12 | [`assets/storyboards/p12-diego-watches.png`](../assets/storyboards/p12-diego-watches.png) | 🔁 Corrigée — Diego tête/épaule à la fenêtre ; visage de référence, aucune figure parasite |
+| P12 | [`assets/storyboards/p12-diego-watches.png`](../assets/storyboards/p12-diego-watches.png) | 🔁 Corrigée — 4L devant, Estafette derrière même côté ; Diego ne montre que tête/épaule |
 | P13 | [`assets/storyboards/p13-witch-watches.png`](../assets/storyboards/p13-witch-watches.png) | ✅ Poussée — la sœur observe Diego depuis la tourelle |
 | P14 | [`assets/storyboards/p14-diego-rattles-4l.png`](../assets/storyboards/p14-diego-rattles-4l.png) | ✅ Poussée — secousse comique, 4L intacte |
 | P15 | [`assets/storyboards/p15-final-fight-standoff.png`](../assets/storyboards/p15-final-fight-standoff.png) | ✅ Poussée — duel installé dans la rue |

@@ -72,6 +72,49 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
+**P01 · v1** — ❌ écartée — ancien fil, commit f1eccd4 (03h40) · ⚪ faite sans carte du plan  
+Add complete clip storyboard and opening frame
+
+<img src="../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png" width="640" alt="P01 v1">
+
+**P01 · v2** — ❌ écartée — ancien fil, commit 068faf0 (03h48) · ⚪ faite sans carte du plan  
+Correct Estafette position in opening storyboard
+
+<img src="../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png" width="640" alt="P01 v2">
+
+**P01 · v3** — ❌ écartée — ancien fil, commit dda932f (06h01) · ⚪ faite sans carte du plan  
+Reframe P01 master with fixed realistic 4L placement — version en place dans le storyboard
+
+<img src="../assets/storyboards/a-valider/p01/p01-v3-ancien-fil-06h01.png" width="640" alt="P01 v3">
+
+**P01 · v4** — ❌ écartée — nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot · ⚪ faite sans carte du plan  
+Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v4-nouveau.png" width="640" alt="P01 v4">
+
+- 💬 *2026-10-11 10:58* — Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée.
+
+**P01 · v5** — ❌ écartée — nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4 · ⚪ faite sans carte du plan  
+4L vue de derrière, bien plus rouillée (comme la photo) ; tourelle sur la maison de Jeannot à gauche. À corriger si on la garde : l'escalier extérieur est à DROITE (côté narrateur) au lieu d'être sur la maison d'Henri à gauche ; l'Estafette est au milieu de la rue au lieu d'être devant chez Diego au fond ; format 3:2, à recadrer en 16:9.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v5-nouveau.png" width="640" alt="P01 v5">
+
+**P01 · v6** — ❌ écartée — nouveau fil, retouche de v5 pour coller à la carte v1 · ⚪ faite sans carte du plan  
+Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeannot) mais en 16:9 ; l'escalier extérieur est maintenant sur la maison d'Henri, juste après celle de Jeannot à gauche ; plus d'escalier à droite. Reste à vérifier : l'Estafette est bien au fond, mais plutôt au milieu de la chaussée qu'au bord gauche devant le garage de Diego.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v6-nouveau.png" width="640" alt="P01 v6">
+
+- 💬 *2026-10-11 11:14* — il faudra  prendre en compte  mon avis  de l'image de la carte
+- 💬 *2026-10-11 11:15* — il faudra  prendre en compte  mon avis  de l'image de la carte  
+Pour le garage de diego
+
+**P01 · v7** — ❌ écartée — nouveau fil, retouche de v6 avec la carte v2 · ⚪ faite sans carte du plan  
+Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v7-nouveau.png" width="640" alt="P01 v7">
+
+- 💬 *2026-10-11 11:26* — Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue
+
 **P01 · v8** — 🔁 à retoucher — nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente) · ⚪ faite sans carte du plan  
 La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue juste une ouverture de garage sombre sur la gauche, sans voiture visible. Écarts avec la carte : le garage arrive trop tôt (juste après la maison d'Henri au lieu d'être après deux voisins), et l'Estafette est encore au milieu de la chaussée au lieu d'être garée à gauche devant la maison de Diego.
 
@@ -79,7 +122,7 @@ La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue jus
 
 - 💬 *2026-10-11 11:50* — la rue se termine après l'estafette de diego  par un passage à niveau de train  elle descend ensuite donc on plus des collines au fond
 
-**P01 · v9** — ⏳ à valider — nouveau fil, générée d'après ta carte P01 rév. 1 + v8 (style) + photo de référence · 🟠 faite d'après la carte rév. 1 — la carte a changé depuis  
+**P01 · v9** — ❌ écartée — nouveau fil, générée d'après ta carte P01 rév. 1 + v8 (style) + photo de référence · 🟠 faite d'après la carte rév. 1 — la carte a changé depuis  
 Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L de dos très rouillée, Jeannot hors champ, passage à niveau au bout (croix de Saint-André, barrières). Écarts : Henri est en bas de son escalier au lieu d'en haut, le garage arrive trop tôt, l'Estafette est au milieu de la chaussée, et on voit encore des maisons après le passage à niveau au lieu des collines.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v9-carte-rev1.png" width="640" alt="P01 v9">
@@ -102,23 +145,6 @@ Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une 
 Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe brune, combinaison bleue). Coccinelle visible dans le garage ouvert avec Diego, Enji assis sur le trottoir. Écarts : Henri est sur le balcon de la tourelle au lieu du haut de son escalier ; 4 barrières levées et la rue continue avec des maisons au-delà (pas de rails visibles, pas de descente) ; Estafette pas collée au trottoir ; Enji à gauche de Jeannot. Une 2e tentative (2 propositions) a été refusée.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png" width="640" alt="P01 v12">
-
-<details><summary>🗄️ 7 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7</summary>
-
-- **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
-- **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
-- **v3** — ancien fil, commit dda932f (06h01) — ../assets/storyboards/a-valider/p01/p01-v3-ancien-fil-06h01.png
-- **v4** — nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot — ../assets/storyboards/a-valider/p01/p01-v4-nouveau.png
-  - 💬 *2026-10-11 10:58* — Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée.
-- **v5** — nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4 — ../assets/storyboards/a-valider/p01/p01-v5-nouveau.png
-- **v6** — nouveau fil, retouche de v5 pour coller à la carte v1 — ../assets/storyboards/a-valider/p01/p01-v6-nouveau.png
-  - 💬 *2026-10-11 11:14* — il faudra  prendre en compte  mon avis  de l'image de la carte
-  - 💬 *2026-10-11 11:15* — il faudra  prendre en compte  mon avis  de l'image de la carte  
-Pour le garage de diego
-- **v7** — nouveau fil, retouche de v6 avec la carte v2 — ../assets/storyboards/a-valider/p01/p01-v7-nouveau.png
-  - 💬 *2026-10-11 11:26* — Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue
-
-</details>
 
 ## P02
 

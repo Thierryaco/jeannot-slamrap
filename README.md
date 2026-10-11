@@ -15,6 +15,7 @@ Clip d'animation 2D d'action-comédie, direction manga shōnen inspirée de DBZ.
 - **Concept Henri révisé :** [`assets/art/henri-character-v2.png`](assets/art/henri-character-v2.png).
 - **Concept de la sorcière révisé :** [`assets/art/sorciere-character-v2.png`](assets/art/sorciere-character-v2.png).
 - **Concept d'Enji :** [`assets/art/enji-character.png`](assets/art/enji-character.png).
+- **Concept de réparation validé pour Diego :** [`assets/art/diego-beetle-repair-concept-v2.png`](assets/art/diego-beetle-repair-concept-v2.png) — Coccinelle orange sur parpaings, en cours de restauration.
 - **Source du MP3 :** [`clip-arm/clips/Jeannot slamrap.mp3`](https://github.com/Thierryaco/clip-arm/blob/arena/2748952e-clip-arm/clips/Jeannot%20slamrap.mp3), copiée ici sans modifier `clip-arm`.
 
 ## Références et direction visuelle
@@ -56,7 +57,7 @@ Ces repères donnent seulement les grandes sections. Les débuts/fins des parole
 - **Jeannot :** peintre d'une cinquantaine d'années, barbu et grisonnant, chapeau jaune et combinaison bleue tachés de peinture, toujours une gitane ; héros qui se relève toujours. Il vit en face du narrateur avec sa sœur, la sorcière, et son chien Enji.
 - **Henri :** frère de Jeannot, un peu plus âgé ; cheveux plus longs, hirsutes et en bataille. Il fume, porte des lunettes rectangulaires fines en métal gris bon marché et a un sourire niais mais gentil. Ses dents sont jaunies, irrégulières et ébréchées, comme la 4L, sans gore. Il habite à côté et tombe des escaliers.
 - **La sorcière :** sœur de Jeannot, plus âgée, laide et fatiguée dans un registre cartoon ; cheveux teints très noirs et en bataille, beaucoup de mascara. Elle fume et guette depuis sa tourelle.
-- **Diego (« le rat ») :** plombier à casquette et salopette, nez et moustache façon Mario Bros. Il conduit une vieille Estafette de plombier et retape depuis des années une Coccinelle orange avec son fils Marco.
+- **Diego (« le rat ») :** plombier d'environ cinquante ans, du même âge que Jeannot ; visage rond et bienveillant, grand nez crochu, moustache noire épaisse et droite, casquette et salopette bleue. Il conduit une vieille Estafette et retape depuis des années une Coccinelle orange avec son fils Marco.
 - **Marco :** fils de Diego, aide à retaper la Coccinelle.
 - **Enji :** vieux bâtard croisé berger, pelage rêche et museau grisonnant ; chien fidèle de Jeannot.
 

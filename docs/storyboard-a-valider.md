@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 2 | v2 |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 10 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 11 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -133,6 +133,11 @@ Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L
 Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v10-carte-rev2.png" width="640" alt="P01 v10">
+
+**P01 · v11** — ⏳ à valider — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) · 🟢 conforme à la carte actuelle (rév. 4)  
+Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une seule fumée), Enji à la bonne taille sur le trottoir, Coccinelle orange bien visible dans le garage ouvert avec Diego à côté, passage à niveau ouvert (barrières levées), la route plonge, collines seulement. Écarts restants : l'Estafette est sur la chaussée au centre-droit au lieu d'être collée au trottoir gauche devant le garage ; Enji est à gauche de Jeannot (contre le mur) plutôt qu'entre lui et la voiture ; les rails sont peu lisibles entre les barrières ; Jeannot est de 3/4 plutôt que de profil strict ; le garage arrive toujours juste après la maison d'Henri.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v11-carte-rev4.png" width="640" alt="P01 v11">
 
 ## P02
 

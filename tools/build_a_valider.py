@@ -97,7 +97,8 @@ def build_md(man):
             out += ["**Avis / idées sur le plan :**", ""]
             out += [f"- *{a['date']}* — {a['texte']}" for a in p["avis"]]
             out.append("")
-        for o in p["options"]:
+        ecartees = [o for o in p["options"] if o["etat"] == "ecartee"]
+        for o in [o for o in p["options"] if o["etat"] != "ecartee"]:
             src = "../" + img_path(p["plan"], o["fichier"])
             out += [
                 f"**{p['plan']} · {o['id']}** — {ETATS.get(o['etat'], o['etat'])} — {o['source']}{badge(p['plan'], o, plans, lrev)}  ",
@@ -109,6 +110,12 @@ def build_md(man):
             if o.get("avis"):
                 out += [f"- 💬 *{a['date']}* — {a['texte']}" for a in o["avis"]]
                 out.append("")
+        if ecartees:
+            out += ["<details><summary>🗄️ " + f"{len(ecartees)} option(s) écartée(s) : " + ", ".join(o["id"] for o in ecartees) + "</summary>", ""]
+            for o in ecartees:
+                out += [f"- **{o['id']}** — {o['source']} — " + "../" + img_path(p["plan"], o["fichier"])]
+                out += [f"  - 💬 *{a['date']}* — {a['texte']}" for a in o.get("avis", [])]
+            out += ["", "</details>", ""]
     return "\n".join(out) + "\n"
 
 

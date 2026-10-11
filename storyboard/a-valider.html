@@ -78,11 +78,13 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 const toast = m => { const t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; clearTimeout(t._h); t._h=setTimeout(()=>t.style.display='none',2600); };
 const avisList = a => (a&&a.length) ? `<ul class="avis">${a.map(x=>`<li><i>${esc(x.date)}</i>${esc(x.texte)}</li>`).join('')}</ul>` : '';
 
+const SHOW_EC = new Set();
 function render(){
   const drafts = Object.fromEntries([...document.querySelectorAll('textarea')].map(t=>[t.id,t.value]));
   document.getElementById('nav').innerHTML = man.plans.map(p=>`<a class="${p.statut}" href="#${p.plan.toLowerCase()}">${p.plan}</a>`).join('');
   document.getElementById('main').innerHTML = man.plans.map(p=>{
-    const opts = p.options.map(o=>{
+    const nEc = p.options.filter(o=>o.etat==='ecartee').length;
+    const opts = p.options.filter(o=>o.etat!=='ecartee'||SHOW_EC.has(p.plan)).map(o=>{
       const src = `../assets/storyboards/a-valider/${p.plan.toLowerCase()}/${o.fichier}`;
       const key = `${p.plan}-${o.id}`;
       const b = (etat, cls, label) => `<button class="${cls} ${o.etat===etat?'on':''}" data-plan="${p.plan}" data-opt="${o.id}" data-etat="${etat}">${label}</button>`;
@@ -103,6 +105,7 @@ function render(){
       <p class="lyr">${esc(p.paroles)}</p><p class="brief">${esc(p.brief)}</p>
       ${carteBox(p)}
       <div class="grid">${opts}</div>
+      ${nEc?`<p class="brief"><button class="toggle-ec" data-plan="${p.plan}">${SHOW_EC.has(p.plan)?'🙈 Masquer':'🗄️ Voir'} les ${nEc} option(s) écartée(s)</button> <small>(cachées par défaut, gardées dans l'historique)</small></p>`:''}
       <div class="libre"><h3>💡 Autre idée / avis libre sur le plan ${esc(p.plan)}</h3>
         ${avisList(p.avis)}
         ${canWrite ? `<div class="row"><textarea id="t-${p.plan}" placeholder="Ce que tu veux : une autre version, une idée de cadrage, un détail pour tout le plan…"></textarea><button class="send" data-plan="${p.plan}">Envoyer</button></div>` : ''}
@@ -123,6 +126,7 @@ document.addEventListener('click', async e=>{
   if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { const z=document.getElementById('zoom'); z.querySelector('img').src=el.src; z.style.display='flex'; return; }
   if (el.closest('#zoom')) { document.getElementById('zoom').style.display='none'; return; }
   if (el.tagName!=='BUTTON') return;
+  if (el.classList.contains('toggle-ec')) { const p=el.dataset.plan; SHOW_EC.has(p)?SHOW_EC.delete(p):SHOW_EC.add(p); render(); return; }
   const plan=el.dataset.plan, option=el.dataset.opt||null;
   try{
     if (el.dataset.etat) {

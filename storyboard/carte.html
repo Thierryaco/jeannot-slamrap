@@ -30,7 +30,7 @@ textarea{width:100%;min-height:70px;background:#0d1420;color:#edf2f8;border:1px 
 #champ{font-size:12.5px;line-height:1.5;color:#cbd5e1} #champ b{color:#edf2f8}
 #status{font-size:12px;color:#8fa0b5} #status.dirty{color:#f5c56a} #status.saved{color:var(--ok)}
 .help{font-size:12px;color:#8fa0b5;line-height:1.45}
-.sel{outline:none} .handle{cursor:grab;fill:#fff;stroke:#111;stroke-width:2}
+.sel{outline:none} .handle{cursor:grab;fill:#ffb347;stroke:#111;stroke-width:2} .handle-g{cursor:grab}
 .item{cursor:move}
 @media (max-width:900px){#wrap{flex-direction:column} aside{width:auto;border-left:0;border-top:1px solid var(--line)} #stage{min-height:55vh}}
 </style>
@@ -49,7 +49,7 @@ textarea{width:100%;min-height:70px;background:#0d1420;color:#edf2f8;border:1px 
   <div id="stage"><svg id="svg" viewBox="0 0 1600 1000"></svg></div>
   <aside>
     <div class="box"><div class="lyr" id="lyr"></div><p class="brief" id="brief"></p></div>
-    <div class="box" id="selbox"><h3>Sélection</h3><div id="selpanel" class="help">Clique sur la caméra, un personnage ou un véhicule.</div></div>
+    <div class="box" id="selbox"><h3>Sélection</h3><div id="selpanel" class="help">Clique sur la caméra, un personnage ou un véhicule.<br>Position = le rond de couleur · pointe noire = sens du regard · ↻ orange = poignée pour tourner.</div></div>
     <div class="box"><h3>🎥 Ce que voit la caméra</h3><div id="champ"></div></div>
     <div class="box"><h3>Présents dans le plan</h3><div class="els" id="els"></div></div>
     <div class="box"><h3>Caméra</h3>
@@ -61,7 +61,7 @@ textarea{width:100%;min-height:70px;background:#0d1420;color:#edf2f8;border:1px 
     <div class="box"><h3>Outils</h3>
       <button id="copyprev">Copier le placement du plan précédent</button>
       <button id="reset">Placement par défaut</button>
-      <p class="help"><b>Mode d'emploi :</b> glisse un élément pour le déplacer. Quand il est sélectionné, tire la <b>poignée blanche</b> pour le tourner (pour la caméra : la direction du regard). Les véhicules ont le nez du côté de la flèche, les personnages regardent dans le sens de leur petite flèche. N'oublie pas <b>💾 Enregistrer</b> : c'est poussé sur GitHub et je génère l'image de la carte du plan.</p>
+      <p class="help"><b>Mode d'emploi :</b> la <b>position</b> d'un personnage, c'est le <b>rond de couleur avec sa lettre</b> ; la petite <b>pointe noire</b> montre où il regarde. Glisse le rond pour le déplacer. Quand il est sélectionné, une <b>poignée orange ↻</b> apparaît au bout d'un pointillé : elle sert seulement à le tourner (pour la caméra : la direction du regard). Un élément <b>en transparent</b> est hors champ. Les véhicules ont le nez du côté de la flèche, les personnages regardent dans le sens de leur petite flèche. N'oublie pas <b>💾 Enregistrer</b> : c'est poussé sur GitHub et je génère l'image de la carte du plan.</p>
     </div>
   </aside>
 </div>
@@ -129,8 +129,11 @@ function drawItems(){
   });
   if(data.cameras.length===2){const [a,b]=data.cameras;el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'#2f7fd8','stroke-width':3,'stroke-dasharray':'4 4'},items);}
   const order=Object.entries(data.elements).filter(([id,e])=>e.visible&&cat[id]).sort((a,b)=>(cat[a[0]].type==='vehicule'?0:1)-(cat[b[0]].type==='vehicule'?0:1));
+  const vus=new Set(); data.cameras.forEach((c,i)=>champ(i).forEach(x=>vus.add(x.n)));
   for(const [id,e] of order){
-    const k=cat[id], g=el('g',{class:'item','data-kind':'el','data-id':id},items);
+    const k=cat[id], horsChamp=!vus.has(k.nom);
+    const g=el('g',{class:'item','data-kind':'el','data-id':id,opacity:horsChamp?0.45:1},items);
+    if(horsChamp) el('title',{},g).textContent=k.nom+' — hors champ (la caméra ne le voit pas)';
     if(k.type==='vehicule'){
       const w=k.w,h=k.h;
       el('polygon',{points:P(rot(e.x,e.y,[[-w/2,-h/2],[w/2,-h/2],[w/2,h/2],[-w/2,h/2]],e.angle)),fill:k.couleur,stroke:k.contour,'stroke-width':3},g);
@@ -156,7 +159,10 @@ function drawItems(){
       const d=sel.kind==='cam'?110:(cat[sel.id]?.type==='vehicule'?95:60);
       const hx=o.x+d*Math.cos(o.angle*Math.PI/180), hy=o.y+d*Math.sin(o.angle*Math.PI/180);
       el('line',{x1:o.x,y1:o.y,x2:hx,y2:hy,stroke:'#fff','stroke-width':2,'stroke-dasharray':'3 3','pointer-events':'none'},hs);
-      el('circle',{cx:hx,cy:hy,r:11,class:'handle','data-kind':'handle'},hs);
+      const hg=el('g',{'data-kind':'handle',class:'handle-g'},hs);
+      el('circle',{cx:hx,cy:hy,r:13,class:'handle','data-kind':'handle'},hg);
+      const ht=el('text',{x:hx,y:hy+6,'font-size':17,'font-weight':'bold','text-anchor':'middle',fill:'#111','pointer-events':'none'},hg); ht.textContent='↻';
+      el('title',{},hg).textContent='Poignée pour tourner (ce n\'est pas la position)';
     }
   }
   updateChamp(); updatePanel(false);
@@ -193,12 +199,16 @@ function updateChamp(){
     const fmt=a=>a.map(x=>`${x.n} <i style="color:#8fa0b5">(${x.side})</i>`).join(', ')||'—';
     return `${title}<div>🔹 <b>Premier plan :</b> ${fmt(near)}</div><div>🔸 <b>Plan moyen :</b> ${fmt(mid)}</div><div>▫️ <b>Fond :</b> ${fmt(far)}</div>`;
   });
+  const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
+  const vus=new Set(); data.cameras.forEach((c,i)=>champ(i).forEach(x=>vus.add(x.n)));
+  const hors=Object.entries(data.elements).filter(([id,e])=>e.visible&&cat[id]&&!vus.has(cat[id].nom)).map(([id])=>cat[id].nom);
+  if(hors.length) parts.push(`<div style="color:#f5c56a">🚫 <b>Hors champ</b> (présents mais pas vus par la caméra, affichés en transparent) : ${hors.join(', ')}</div>`);
   $('champ').innerHTML=parts.join('<hr style="border-color:#2a3647">')||'Pas de caméra.';
 }
 
 function updatePanel(rebuild=true){
   const p=$('selpanel'); const o=selObj();
-  if(!o){p.innerHTML='Clique sur la caméra, un personnage ou un véhicule.';return;}
+  if(!o){p.innerHTML='Clique sur la caméra, un personnage ou un véhicule.<br>Position = le rond de couleur · pointe noire = sens du regard · ↻ orange = poignée pour tourner.';return;}
   if(!rebuild && p.dataset.for===`${sel.kind}-${sel.id}`){ // juste mettre à jour les valeurs
     const a=p.querySelector('[name=angle]'); if(a&&document.activeElement!==a) a.value=Math.round(o.angle); return;
   }

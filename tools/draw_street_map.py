@@ -287,7 +287,8 @@ def decrire(L, placement):
         lines.append("Présents dans la scène mais hors champ : " + ", ".join(hors) + ".")
     for d in L["details"]:
         if d.get("apres") and any(n == d["nom"] for c in range(len(cams)) for _, _, n in dans_le_champ(L, placement, c)):
-            lines.append(f"Au bout de la rue : {d['nom']} ; {d['apres']}.")
+            etat = f" — {d['etat']}" if d.get("etat") else ""
+            lines.append(f"Au bout de la rue : {d['nom']}{etat} ; {d['apres']}.")
     if placement.get("note"):
         lines.append("Note de l'utilisateur : " + placement["note"])
     lines.append(f"(carte du plan rév. {placement.get('rev', '?')}, lieux rév. {L.get('rev', 1)})")

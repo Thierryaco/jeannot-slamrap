@@ -215,7 +215,8 @@
    "y": 385,
    "w": 44,
    "h": 220,
-   "apres": "après le passage à niveau, la route descend : on ne voit plus de maisons, seulement des collines au fond"
+   "apres": "juste après les rails, la route plonge en pente très raide (environ 45°) et disparaît de la vue : on ne la voit plus, ni aucune maison, seulement des collines au loin",
+   "etat": "ouvert : barrières levées des deux côtés, et les rails de chemin de fer bien visibles qui traversent la chaussée entre les deux barrières"
   }
  ],
  "catalogue": [
@@ -373,5 +374,5 @@
    }
   }
  },
- "rev": 2
+ "rev": 3
 }

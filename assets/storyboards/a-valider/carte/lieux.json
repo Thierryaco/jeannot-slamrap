@@ -260,7 +260,8 @@
    "type": "perso",
    "nom": "Enji",
    "lettre": "E",
-   "couleur": "#b08a5a"
+   "couleur": "#b08a5a",
+   "espece": "chien"
   },
   {
    "id": "narrateur",
@@ -374,5 +375,29 @@
    }
   }
  },
- "rev": 3
+ "rev": 3,
+ "poses": {
+  "perso": [
+   "debout",
+   "marche",
+   "court",
+   "assis",
+   "accroupi",
+   "couché",
+   "appuyé",
+   "penché",
+   "tombe",
+   "saute"
+  ],
+  "chien": [
+   "debout",
+   "marche",
+   "court",
+   "assis",
+   "couché",
+   "renifle",
+   "aboie",
+   "dort"
+  ]
+ }
 }

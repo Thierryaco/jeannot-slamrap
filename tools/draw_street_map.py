@@ -136,6 +136,9 @@ def draw_elements(c, L, placement):
             c.poly(rot_pts(x, y, [(10, -8), (26, 0), (10, 8)], a), "#1b2430")
             c.circle(x, y, 13, k["couleur"])
             c.text(x, y + 5, k["lettre"], 14, "#fff" if k["lettre"] == "S" else "#111", True)
+            lab = pose_label(e)
+            if lab:
+                c.text(x, y + 30, lab, 11, "#1b2430", True)
 
 
 def cone(cam):
@@ -155,6 +158,16 @@ def clip_seg(x0, y0, x1, y1, box=(0, 90, 1600, 870)):
                 if 0 < tt < t and not (lo <= v1 <= hi):
                     t = tt
     return x0 + (x1 - x0) * t, y0 + (y1 - y0) * t
+
+
+def pose_label(e, court=True):
+    """Pose (si autre que « debout ») et action d'un personnage."""
+    pose = e.get("pose", "")
+    action = e.get("action", "")
+    parts = [pose] if pose and (pose != "debout" or not court) else []
+    if action:
+        parts.append(action[:28] + ("…" if court and len(action) > 28 else "") if court else action)
+    return " · ".join(parts)
 
 
 def nom_lieu(nom, y):
@@ -280,7 +293,9 @@ def decrire(L, placement):
                 continue
             if any(n == cat[eid]["nom"] for _, _, n in champ):
                 k = cat[eid]
-                lines.append(f"  - {k['nom']} : {_ou(L, e['x'], e['y'])} ; {_vu(cam, e['x'], e['y'], e.get('angle', 0), k['type'] == 'vehicule')}.")
+                lines.append(f"  - {k['nom']} : {_ou(L, e['x'], e['y'])} ; {_vu(cam, e['x'], e['y'], e.get('angle', 0), k['type'] == 'vehicule')}"
+                             + (f" ; pose : {e['pose']}" if e.get("pose") else "")
+                             + (f" ; action : {e['action']}" if e.get("action") else "") + ".")
     hors = [cat[eid]["nom"] for eid, e in placement.get("elements", {}).items()
             if e.get("visible", True) and eid in cat and not any(n == cat[eid]["nom"] for c in range(len(cams)) for _, _, n in dans_le_champ(L, placement, c))]
     if hors:

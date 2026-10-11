@@ -139,6 +139,10 @@ def save_carte(data):
         if eid in ids:
             els[eid] = {"x": _num(e["x"]), "y": _num(e["y"]), "angle": _num(e.get("angle", 0), -720, 720),
                         "visible": bool(e.get("visible", True))}
+            if e.get("pose"):
+                els[eid]["pose"] = str(e["pose"])[:40]
+            if str(e.get("action", "")).strip():
+                els[eid]["action"] = str(e["action"]).strip()[:200]
     clean = {"cameras": cams, "elements": els, "note": str(d.get("note", ""))[:2000]}
     with LOCK:
         plans = json.loads(PLANS.read_text(encoding="utf-8")) if PLANS.exists() else {}

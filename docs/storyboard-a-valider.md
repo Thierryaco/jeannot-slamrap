@@ -68,7 +68,7 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 2, 2026-10-11 11:55) :
+🗺️ Carte du plan (rév. 3, 2026-10-11 12:03) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
@@ -127,7 +127,7 @@ Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L
 
 <img src="../assets/storyboards/a-valider/p01/p01-v9-carte-rev1.png" width="640" alt="P01 v9">
 
-**P01 · v10** — ⏳ à valider — nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji) · 🟢 conforme à la carte actuelle (rév. 2)  
+**P01 · v10** — ⏳ à valider — nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji) · 🟠 faite d'après la carte rév. 2 — la carte a changé depuis  
 Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v10-carte-rev2.png" width="640" alt="P01 v10">

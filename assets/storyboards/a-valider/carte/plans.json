@@ -12,8 +12,8 @@
   ],
   "elements": {
    "4l": {
-    "x": 230.0,
-    "y": 452.0,
+    "x": 333.0,
+    "y": 455.0,
     "angle": 0.0,
     "visible": true
    },
@@ -30,14 +30,14 @@
     "visible": true
    },
    "jeannot": {
-    "x": 300.0,
-    "y": 389.0,
+    "x": 279.0,
+    "y": 357.0,
     "angle": 90.0,
     "visible": true
    },
    "enji": {
-    "x": 332.0,
-    "y": 393.0,
+    "x": 313.0,
+    "y": 346.0,
     "angle": 90.0,
     "visible": true
    },
@@ -48,8 +48,8 @@
     "visible": true
    },
    "henri": {
-    "x": 525.0,
-    "y": 324.0,
+    "x": 530.0,
+    "y": 295.0,
     "angle": 90.0,
     "visible": true
    },

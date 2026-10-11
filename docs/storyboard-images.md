@@ -2,6 +2,12 @@
 
 **Avancement : 17/29 images terminées et poussées.** P18 est en ébauche locale mais n'est pas comptée : la cigarette de Jeannot manque et doit être corrigée. Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
+## Verrou de continuité spatiale
+
+- P01 est la carte maîtresse de la rue. La 4L reste toujours au même emplacement devant chez Jeannot, contre le trottoir gauche, avec le nez vers le point de vue du narrateur ; elle ne change ni de place ni d'orientation entre les plans.
+- L'Estafette reste au même trottoir gauche, plus loin vers Diego. La Coccinelle orange reste à son aire de réparation, sur parpaings, et n'apparaît dans la rue que si un plan le justifie.
+- Les changements de cadrage viennent de la caméra, jamais d'un déplacement implicite des voitures. Pour chaque nouvelle image, reprendre P01 et le plan adjacent comme références de décor et d'axe.
+
 | Plan | Image | État |
 |---|---|---|
 | P01 | [`assets/storyboards/p01-establishing-street.png`](../assets/storyboards/p01-establishing-street.png) | ✅ Poussée — Estafette garée du même côté que la 4L |
@@ -14,7 +20,7 @@
 | P08 | [`assets/storyboards/p08-henri-stair-fall.png`](../assets/storyboards/p08-henri-stair-fall.png) | ✅ Poussée — appui main/genou, sans rotation ni gore |
 | P09 | [`assets/storyboards/p09-jeannot-victory-pose.png`](../assets/storyboards/p09-jeannot-victory-pose.png) | ✅ Poussée — pose héroïque, 4L intacte |
 | P10 | [`assets/storyboards/p10-jeannot-stays.png`](../assets/storyboards/p10-jeannot-stays.png) | ✅ Poussée — gros plan, Jeannot reste dans la rue |
-| P11 | [`assets/storyboards/p11-4l-in-street.png`](../assets/storyboards/p11-4l-in-street.png) | ✅ Poussée — 4L entière, rouille et vue arrière |
+| P11 | [`assets/storyboards/p11-4l-in-street.png`](../assets/storyboards/p11-4l-in-street.png) | 🔁 Corrigée — emplacement et orientation verrouillés comme P01 |
 | P12 | [`assets/storyboards/p12-diego-watches.png`](../assets/storyboards/p12-diego-watches.png) | ✅ Poussée — Diego observe depuis l'Estafette |
 | P13 | [`assets/storyboards/p13-witch-watches.png`](../assets/storyboards/p13-witch-watches.png) | ✅ Poussée — la sœur observe Diego depuis la tourelle |
 | P14 | [`assets/storyboards/p14-diego-rattles-4l.png`](../assets/storyboards/p14-diego-rattles-4l.png) | ✅ Poussée — secousse comique, 4L intacte |

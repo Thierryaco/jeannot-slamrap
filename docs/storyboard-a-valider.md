@@ -10,6 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
+| [CARTE](#carte) | référence | ⏳ À valider | 1 | — |
 | [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 4 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -39,6 +40,17 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | [P27](#p27) | 01:29,45–01:33,20 | ⏳ À valider | 1 | — |
 | [P28](#p28) | 01:33,20–01:37,00 | ⏳ À valider | 1 | — |
 | [P29](#p29) | 01:37,00–01:44,36 | ⏳ À valider | 1 | — |
+
+## CARTE
+
+**référence** · Carte des lieux (vue de dessus) · ⏳ À valider
+
+> Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
+
+**CARTE · v1** — ⏳ à valider — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg  
+D'après tes réponses : Henri juste à côté du même côté, tourelle sur la maison de Jeannot, Diego au bout du même côté, Estafette devant chez Diego. Caméra P01 au bout de Jeannot, regard vers Diego → 4L vue de derrière.
+
+<img src="../assets/storyboards/a-valider/carte/carte-rue-v1.png" width="640" alt="CARTE v1">
 
 ## P01
 

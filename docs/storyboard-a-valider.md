@@ -127,6 +127,8 @@ Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L
 
 <img src="../assets/storyboards/a-valider/p01/p01-v9-carte-rev1.png" width="640" alt="P01 v9">
 
+- 💬 *2026-10-11 12:08* — (remarque donnée dans le chat) J’ai choisi l’image du passage à niveau. Il faut qu’il soit ouvert, avec les rails de chemin de fer entre les 2 barrières, sinon c’est bizarre juste la route. Après, la route descend à 45°, on ne la voit plus.
+
 **P01 · v10** — ⏳ à valider — nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji) · 🟠 faite d'après la carte rév. 2 — la carte a changé depuis  
 Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.
 

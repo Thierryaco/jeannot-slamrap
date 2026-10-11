@@ -138,7 +138,13 @@
       "lieux_rev": 2
      },
      "note": "Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L de dos très rouillée, Jeannot hors champ, passage à niveau au bout (croix de Saint-André, barrières). Écarts : Henri est en bas de son escalier au lieu d'en haut, le garage arrive trop tôt, l'Estafette est au milieu de la chaussée, et on voit encore des maisons après le passage à niveau au lieu des collines.",
-     "etat": "a-valider"
+     "etat": "a-valider",
+     "avis": [
+      {
+       "date": "2026-10-11 12:08",
+       "texte": "(remarque donnée dans le chat) J’ai choisi l’image du passage à niveau. Il faut qu’il soit ouvert, avec les rails de chemin de fer entre les 2 barrières, sinon c’est bizarre juste la route. Après, la route descend à 45°, on ne la voit plus."
+      }
+     ]
     },
     {
      "id": "v10",

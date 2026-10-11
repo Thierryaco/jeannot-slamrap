@@ -6,6 +6,9 @@
 - POST /api/avis     : enregistre un avis / un choix dans le manifeste,
                        régénère docs/storyboard-a-valider.md, puis fait un
                        commit + push Git en arrière-plan (sauvegarde anti-bug).
+- GET  /api/carte    : lieux + placements par plan (carte interactive)
+- POST /api/carte    : enregistre le placement d'un plan (caméras, personnages,
+                       véhicules, note), redessine carte/plans/pXX.png, commit + push.
 
 Usage : python3 tools/serve_storyboard.py [port]   (défaut 8000, écoute 0.0.0.0)
 """
@@ -27,17 +30,22 @@ ETATS = {"a-valider", "retenue", "ecartee", "a-retoucher"}
 
 sys.path.insert(0, str(ROOT / "tools"))
 import build_a_valider  # noqa: E402
+import draw_street_map  # noqa: E402
+
+CARTE = ROOT / "assets/storyboards/a-valider/carte"
+PLANS = CARTE / "plans.json"
 
 
 def now():
     return datetime.now(ZoneInfo("Europe/Paris")).strftime("%Y-%m-%d %H:%M")
 
 
-def git_save(message):
+def git_save(message, files=None):
+    files = files or [str(MANIFEST.relative_to(ROOT)), "docs/storyboard-a-valider.md"]
+
     def run():
         with GIT_LOCK:
             try:
-                files = [str(MANIFEST.relative_to(ROOT)), "docs/storyboard-a-valider.md"]
                 subprocess.run(["git", "add", *files], cwd=ROOT, check=True, capture_output=True)
                 r = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT)
                 if r.returncode == 0:
@@ -97,6 +105,52 @@ def apply(data):
     return man
 
 
+def carte_payload():
+    meta = [{k: p[k] for k in ("plan", "temps", "paroles", "brief")}
+            for p in json.loads(MANIFEST.read_text(encoding="utf-8"))["plans"] if p["plan"].startswith("P")]
+    plans = json.loads(PLANS.read_text(encoding="utf-8")) if PLANS.exists() else {}
+    return {"lieux": draw_street_map.load_lieux(), "plans": plans, "meta": meta}
+
+
+def _num(v, lo=-5000, hi=5000):
+    v = float(v)
+    if not (lo <= v <= hi):
+        raise ValueError("valeur hors limites")
+    return round(v, 1)
+
+
+def save_carte(data):
+    plan_id = str(data.get("plan", "")).upper()
+    d = data.get("data") or {}
+    lieux = draw_street_map.load_lieux()
+    ids = {k["id"] for k in lieux["catalogue"]}
+    meta = {p["plan"]: p for p in json.loads(MANIFEST.read_text(encoding="utf-8"))["plans"]}
+    if plan_id not in meta or not plan_id.startswith("P"):
+        raise ValueError("plan inconnu")
+    cams = []
+    for c in (d.get("cameras") or [])[:2]:
+        cams.append({"x": _num(c["x"]), "y": _num(c["y"]), "angle": _num(c["angle"], -720, 720),
+                     "fov": _num(c["fov"], 1, 180), "portee": _num(c["portee"], 10, 3000),
+                     "hauteur": str(c.get("hauteur", ""))[:60]})
+    if not cams:
+        raise ValueError("il faut au moins une caméra")
+    els = {}
+    for eid, e in (d.get("elements") or {}).items():
+        if eid in ids:
+            els[eid] = {"x": _num(e["x"]), "y": _num(e["y"]), "angle": _num(e.get("angle", 0), -720, 720),
+                        "visible": bool(e.get("visible", True))}
+    clean = {"cameras": cams, "elements": els, "note": str(d.get("note", ""))[:2000]}
+    with LOCK:
+        plans = json.loads(PLANS.read_text(encoding="utf-8")) if PLANS.exists() else {}
+        plans[plan_id] = clean
+        plans = dict(sorted(plans.items()))
+        PLANS.write_text(json.dumps(plans, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        png = draw_street_map.render_plan(plan_id, lieux, plans, meta.get(plan_id))
+    rel = lambda f: str(Path(f).relative_to(ROOT))  # noqa: E731
+    git_save(f"Carte interactive : placement {plan_id}", [rel(PLANS), rel(png), rel(png.with_suffix(".svg"))])
+    return plans
+
+
 class Handler(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
@@ -116,16 +170,20 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header("Location", "/storyboard/a-valider.html")
             self.end_headers()
             return
+        if self.path.startswith("/api/carte"):
+            return self._json(200, carte_payload())
         if self.path.startswith("/api/manifest"):
             return self._json(200, json.loads(MANIFEST.read_text(encoding="utf-8")))
         return super().do_GET()
 
     def do_POST(self):
-        if not self.path.startswith("/api/avis"):
+        if not self.path.startswith(("/api/avis", "/api/carte")):
             return self._json(404, {"erreur": "inconnu"})
         try:
             n = int(self.headers.get("Content-Length", 0))
             data = json.loads(self.rfile.read(n) or b"{}")
+            if self.path.startswith("/api/carte"):
+                return self._json(200, {"ok": True, "plans": save_carte(data)})
             man = apply(data)
             return self._json(200, {"ok": True, "manifest": man})
         except Exception as exc:

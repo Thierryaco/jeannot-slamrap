@@ -1,13 +1,13 @@
 # Suivi des images du storyboard
 
-**Avancement : 3/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
+**Avancement : 4/29 images terminées et poussées.** Une image autonome 16:9 par plan ; cette étape produit les images-clés uniquement, sans annoter les mouvements de caméra ni monter l'animatique. Après les 29 images : annotations détaillées, mouvements de caméra, montage complet du storyboard, puis création et animation.
 
 | Plan | Image | État |
 |---|---|---|
 | P01 | [`assets/storyboards/p01-establishing-street.png`](../assets/storyboards/p01-establishing-street.png) | ✅ Poussée — Estafette garée du même côté que la 4L |
 | P02 | [`assets/storyboards/p02-jeannot-enji-v2.png`](../assets/storyboards/p02-jeannot-enji-v2.png) | ✅ Poussée — Jeannot, sa 4L et Enji |
 | P03 | [`assets/storyboards/p03-street-geography.png`](../assets/storyboards/p03-street-geography.png) | ✅ Poussée — géographie de la rue |
-| P04 | — | ⬜ À faire |
+| P04 | [`assets/storyboards/p04-jeannot-first-verse.png`](../assets/storyboards/p04-jeannot-first-verse.png) | ✅ Poussée — geste de cigarette et fumée unique |
 | P05 | — | ⬜ À faire |
 | P06 | — | ⬜ À faire |
 | P07 | — | ⬜ À faire |

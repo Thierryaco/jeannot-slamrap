@@ -72,7 +72,7 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v1** — ⏳ à valider — ancien fil, commit f1eccd4 (03h40) · ⚪ faite sans carte du plan  
+**P01 · v1** — ❌ écartée — ancien fil, commit f1eccd4 (03h40) · ⚪ faite sans carte du plan  
 Add complete clip storyboard and opening frame
 
 <img src="../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png" width="640" alt="P01 v1">

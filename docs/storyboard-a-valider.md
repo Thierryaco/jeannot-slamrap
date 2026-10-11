@@ -82,7 +82,7 @@ Correct Estafette position in opening storyboard
 
 <img src="../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png" width="640" alt="P01 v2">
 
-**P01 · v3** — ⏳ à valider — ancien fil, commit dda932f (06h01) · ⚪ faite sans carte du plan  
+**P01 · v3** — ❌ écartée — ancien fil, commit dda932f (06h01) · ⚪ faite sans carte du plan  
 Reframe P01 master with fixed realistic 4L placement — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p01/p01-v3-ancien-fil-06h01.png" width="640" alt="P01 v3">

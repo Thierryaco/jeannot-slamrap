@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [P01](#p01) | 00:00–00:05 | ⏳ À valider | 3 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 4 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -42,7 +42,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 ## P01
 
-**00:00–00:05** · Instrumental · ⏳ À valider
+**00:00–00:05** · Instrumental · 🛠️ En cours
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
@@ -60,6 +60,11 @@ Correct Estafette position in opening storyboard
 Reframe P01 master with fixed realistic 4L placement — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p01/p01-v3-ancien-fil-06h01.png" width="640" alt="P01 v3">
+
+**P01 · v4** — ⏳ à valider — nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot  
+Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v4-nouveau.png" width="640" alt="P01 v4">
 
 ## P02
 

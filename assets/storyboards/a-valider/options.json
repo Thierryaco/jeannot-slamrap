@@ -6,7 +6,7 @@
    "temps": "00:00–00:05",
    "paroles": "Instrumental",
    "brief": "Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.",
-   "statut": "a-valider",
+   "statut": "en-cours",
    "choix": null,
    "options": [
     {
@@ -28,6 +28,13 @@
      "fichier": "p01-v3-ancien-fil-06h01.png",
      "source": "ancien fil, commit dda932f (06h01)",
      "note": "Reframe P01 master with fixed realistic 4L placement — version en place dans le storyboard",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v4",
+     "fichier": "p01-v4-nouveau.png",
+     "source": "nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot",
+     "note": "Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.",
      "etat": "a-valider"
     }
    ]

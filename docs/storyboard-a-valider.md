@@ -153,6 +153,8 @@ Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons vienn
 
 <img src="../assets/storyboards/a-valider/p01/p01-v13-montage-rev5.png" width="640" alt="P01 v13">
 
+- 💬 *2026-10-11 12:50* — l'estafette ne ressemble plus trop  celle du début et il y a un souci de corrélation des postions sur la carte et celle généré la coccinelle à le bout  du nez à la limite de la sortie du garage sur le plan et là elle sort sur le trottoire
+
 ## P02
 
 **00:05–00:10** · Instrumental · ⏳ À valider

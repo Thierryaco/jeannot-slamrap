@@ -146,6 +146,8 @@ Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe br
 
 <img src="../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png" width="640" alt="P01 v12">
 
+- 💬 *2026-10-11 12:40* — le fond de la rue n'est plus bon il faut reprendre celui de la V11 vérifier que henri ressemble bien à henri  ce qui n'est pas du tout le cas de même pour Diego au fond
+
 ## P02
 
 **00:05–00:10** · Instrumental · ⏳ À valider

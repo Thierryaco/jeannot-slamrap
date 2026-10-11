@@ -64,10 +64,10 @@
 <polygon points="1480.0,474.0 1368.0,474.0 1368.0,434.0 1480.0,434.0" fill="#8fa3b8" fill-opacity="1.0"/>
 <polygon points="1367.0,469.0 1349.0,454.0 1367.0,439.0" fill="#33475c" fill-opacity="1.0"/>
 <text x="1424.0" y="459.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Estafette</text>
-<polygon points="1167.0,230.0 1263.0,230.0 1263.0,282.0 1167.0,282.0" fill="#8a4510" fill-opacity="1.0"/>
-<polygon points="1170.0,233.0 1260.0,233.0 1260.0,279.0 1170.0,279.0" fill="#f08a2c" fill-opacity="1.0"/>
-<polygon points="1261.0,238.0 1279.0,256.0 1261.0,274.0" fill="#8a4510" fill-opacity="1.0"/>
-<text x="1215.0" y="261.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
+<polygon points="1244.0,250.0 1244.0,346.0 1192.0,346.0 1192.0,250.0" fill="#8a4510" fill-opacity="1.0"/>
+<polygon points="1241.0,253.0 1241.0,343.0 1195.0,343.0 1195.0,253.0" fill="#f08a2c" fill-opacity="1.0"/>
+<polygon points="1236.0,344.0 1218.0,362.0 1200.0,344.0" fill="#8a4510" fill-opacity="1.0"/>
+<text x="1218.0" y="303.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
 <polygon points="287.0,367.0 279.0,383.0 271.0,367.0" fill="#1b2430" fill-opacity="1.0"/>
 <circle cx="279.0" cy="357.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
 <text x="279.0" y="362.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>

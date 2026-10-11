@@ -108,7 +108,7 @@ Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeanno
 - 💬 *2026-10-11 11:15* — il faudra  prendre en compte  mon avis  de l'image de la carte  
 Pour le garage de diego
 
-**P01 · v7** — 🔁 à retoucher — nouveau fil, retouche de v6 avec la carte v2 · ⚪ faite sans carte du plan  
+**P01 · v7** — ❌ écartée — nouveau fil, retouche de v6 avec la carte v2 · ⚪ faite sans carte du plan  
 Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v7-nouveau.png" width="640" alt="P01 v7">

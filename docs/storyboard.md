@@ -52,7 +52,7 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 | P11 | 00:33,91–00:36,36 | « La 4 ailes dans la rue, le bordel est revenu » | Travelling sur la 4L de l'arrière vers le profil ; montrer sa forme carrée et sa couleur vert menthe. Léger frémissement comique possible, mais elle demeure intacte. [Image-clé](../assets/storyboards/p11-4l-in-street.png). |
 | P12 | 00:36,36–00:38,80 | « Le rat guette, dans son estafette » | Plan de l'Estafette de plombier de Diego, à l'autre bout de la rue. Diego observe depuis la cabine. L'autocollant « Chat Chainegaz » attend confirmation d'orthographe. [Image-clé](../assets/storyboards/p12-diego-watches.png). |
 | P13 | 00:38,80–00:41,25 | « La sorcière d'sa tourelle, attend son Roméo » | Contre-plongée sur la sorcière à sa fenêtre ; son regard suit Diego dans l'Estafette. Cigarette, mascara et fatigue restent lisibles. [Image-clé](../assets/storyboards/p13-witch-watches.png). |
-| P14 | 00:41,25–00:43,69 | « Et le rat Diégo, casse la 4 ailes de Jeannot » | Diego provoque une secousse comique de la 4L : mouvement caméra et éclat « BAM » visuel. La tôle vibre, mais rien ne casse et la voiture ne se déforme pas. |
+| P14 | 00:41,25–00:43,69 | « Et le rat Diégo, casse la 4 ailes de Jeannot » | Diego provoque une secousse comique de la 4L : mouvement caméra et éclat « BAM » visuel. La tôle vibre, mais rien ne casse et la voiture ne se déforme pas. [Image-clé](../assets/storyboards/p14-diego-rattles-4l.png). |
 
 ### 00:43,69–00:53,70 — Pont : installer le combat
 

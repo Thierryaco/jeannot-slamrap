@@ -166,7 +166,13 @@
       "lieux_rev": 3
      },
      "note": "Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une seule fumée), Enji à la bonne taille sur le trottoir, Coccinelle orange bien visible dans le garage ouvert avec Diego à côté, passage à niveau ouvert (barrières levées), la route plonge, collines seulement. Écarts restants : l'Estafette est sur la chaussée au centre-droit au lieu d'être collée au trottoir gauche devant le garage ; Enji est à gauche de Jeannot (contre le mur) plutôt qu'entre lui et la voiture ; les rails sont peu lisibles entre les barrières ; Jeannot est de 3/4 plutôt que de profil strict ; le garage arrive toujours juste après la maison d'Henri.",
-     "etat": "a-retoucher"
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-11 12:24",
+       "texte": "depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider"
+      }
+     ]
     }
    ]
   },

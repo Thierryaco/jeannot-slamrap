@@ -139,6 +139,8 @@ Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une 
 
 <img src="../assets/storyboards/a-valider/p01/p01-v11-carte-rev4.png" width="640" alt="P01 v11">
 
+- 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
+
 ## P02
 
 **00:05–00:10** · Instrumental · ⏳ À valider

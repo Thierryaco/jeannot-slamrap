@@ -108,9 +108,10 @@ def draw_base(c, L):
             c.line(x + w - 12, y, x + w - 12, y + h, "#4b4f55", 3)
             for by in (r["chaussee_haut"] - 6, r["chaussee_bas"] + 6):
                 c.line(x - 4, by, x - 4 - 34, by, "#d9363e", 6)
-            c.text(x + w / 2, y - 10, "passage à niveau", 12, "#7a1d27", True)
-            c.text(x + w / 2, y + h + 18, "puis descente,", 11, "#4a5566")
-            c.text(x + w / 2, y + h + 32, "collines au fond", 11, "#4a5566")
+            c.text(1596, y - 24, "passage", 12, "#7a1d27", True, anchor="end")
+            c.text(1596, y - 9, "à niveau", 12, "#7a1d27", True, anchor="end")
+            c.text(1596, y + h + 16, "puis descente,", 11, "#4a5566", anchor="end")
+            c.text(1596, y + h + 30, "collines au fond", 11, "#4a5566", anchor="end")
     c.text(r["x0"] - 30, mid + 5, "O", 20, "#4a5566", True)
     c.text(1592, 100, "E →", 16, "#4a5566", True, anchor="end")
 
@@ -293,12 +294,12 @@ def decrire(L, placement):
     return "\n".join(lines)
 
 
-def build(L, placement, titre, sous_titre="", legend_extra=""):
+def build(L, placement, titre, sous_titre="", legend_extra="", label="P"):
     W, H = L["taille"]
     c = Canvas(W, H)
     draw_base(c, L)
     draw_elements(c, L, placement)
-    draw_cameras(c, L, placement)
+    draw_cameras(c, L, placement, label)
     c.text(W / 2, 42, titre, 26, bold=True)
     c.text(W / 2, 72, sous_titre or "Ouest = bout de Jeannot  ·  Est = bout de Diego  ·  nord = côté Jeannot  ·  sud = côté narrateur", 15, "#4a5566")
     ly = 895
@@ -311,7 +312,7 @@ def build(L, placement, titre, sous_titre="", legend_extra=""):
     cam = placement.get("cameras", [{}])[0]
     info = legend_extra
     if cam:
-        info = f"Caméra : {cam.get('hauteur', '')}, angle de vue {cam.get('fov', '?')}°. " + info
+        info = f"Caméra : {cam.get('hauteur', '')}, angle de vue {cam.get('fov', 0):.0f}°. " + info
     c.text(70, ly + 36, info[:170], 14, anchor="start")
     c.text(70, ly + 70, "Règle : les lieux ne bougent jamais ; véhicules et personnages restent en place sauf action prévue dans le plan.",
            14, "#7a1d27", True, anchor="start")
@@ -417,7 +418,7 @@ def render_plan(plan_id, L=None, plans=None, meta=None):
     vu = ", ".join(f"{n} ({s})" for _, s, n in champ[:8])
     titre = f"Plan {plan_id}" + (f" — {meta['temps']}" if meta else "") + f"  (rév. {placement.get('rev', 1)})"
     sous = meta["paroles"] if meta else ""
-    c = build(L, placement, titre, sous, legend_extra=("Dans le champ : " + vu) if vu else "")
+    c = build(L, placement, titre, sous, legend_extra=("Dans le champ : " + vu) if vu else "", label=plan_id)
     (out / f"{plan_id.lower()}.svg").write_text(to_svg(c), encoding="utf-8")
     to_png(c, out / f"{plan_id.lower()}.png")
     return out / f"{plan_id.lower()}.png"

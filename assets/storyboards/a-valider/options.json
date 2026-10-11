@@ -1,733 +1,733 @@
 {
-  "regles": "Chaque plan garde toutes ses options. Rien n'est supprimé : une option écartée passe à l'état 'ecartee'. L'option validée est recopiée dans assets/storyboards/ à la fin du tri.",
-  "plans": [
+ "regles": "Chaque plan garde toutes ses options. Rien n'est supprimé : une option écartée passe à l'état 'ecartee'. L'option validée est recopiée dans assets/storyboards/ à la fin du tri.",
+ "plans": [
+  {
+   "plan": "CARTE",
+   "temps": "référence",
+   "paroles": "Carte des lieux (vue de dessus)",
+   "brief": "Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.",
+   "statut": "valide",
+   "choix": "v2",
+   "options": [
     {
-      "plan": "CARTE",
-      "temps": "référence",
-      "paroles": "Carte des lieux (vue de dessus)",
-      "brief": "Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.",
-      "statut": "valide",
-      "choix": "v2",
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "carte-rue-v1.png",
-          "source": "nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg",
-          "note": "D'après tes réponses : Henri juste à côté du même côté, tourelle sur la maison de Jeannot, Diego au bout du même côté, Estafette devant chez Diego. Caméra P01 au bout de Jeannot, regard vers Diego → 4L vue de derrière.",
-          "etat": "a-retoucher",
-          "avis": [
-            {
-              "date": "2026-10-11 11:13",
-              "texte": "inverser la position de la maison et du garage de diego .\net repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans."
-            }
-          ]
-        },
-        {
-          "id": "v2",
-          "fichier": "carte-rue-v2.png",
-          "source": "nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)",
-          "note": "Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.",
-          "etat": "retenue",
-          "avis": [
-            {
-              "date": "2026-10-11 11:25",
-              "texte": "C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé"
-            }
-          ]
-        }
-      ]
+     "id": "v1",
+     "fichier": "carte-rue-v1.png",
+     "source": "nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg",
+     "note": "D'après tes réponses : Henri juste à côté du même côté, tourelle sur la maison de Jeannot, Diego au bout du même côté, Estafette devant chez Diego. Caméra P01 au bout de Jeannot, regard vers Diego → 4L vue de derrière.",
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-11 11:13",
+       "texte": "inverser la position de la maison et du garage de diego .\net repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans."
+      }
+     ]
     },
     {
-      "plan": "P01",
-      "temps": "00:00–00:05",
-      "paroles": "Instrumental",
-      "brief": "Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.",
-      "statut": "en-cours",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p01-v1-ancien-fil-03h40.png",
-          "source": "ancien fil, commit f1eccd4 (03h40)",
-          "note": "Add complete clip storyboard and opening frame",
-          "etat": "ecartee"
-        },
-        {
-          "id": "v2",
-          "fichier": "p01-v2-ancien-fil-03h48.png",
-          "source": "ancien fil, commit 068faf0 (03h48)",
-          "note": "Correct Estafette position in opening storyboard",
-          "etat": "ecartee"
-        },
-        {
-          "id": "v3",
-          "fichier": "p01-v3-ancien-fil-06h01.png",
-          "source": "ancien fil, commit dda932f (06h01)",
-          "note": "Reframe P01 master with fixed realistic 4L placement — version en place dans le storyboard",
-          "etat": "ecartee"
-        },
-        {
-          "id": "v4",
-          "fichier": "p01-v4-nouveau.png",
-          "source": "nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot",
-          "note": "Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.",
-          "etat": "ecartee",
-          "avis": [
-            {
-              "date": "2026-10-11 10:58",
-              "texte": "Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée."
-            }
-          ]
-        },
-        {
-          "id": "v5",
-          "fichier": "p01-v5-nouveau.png",
-          "source": "nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4",
-          "note": "4L vue de derrière, bien plus rouillée (comme la photo) ; tourelle sur la maison de Jeannot à gauche. À corriger si on la garde : l'escalier extérieur est à DROITE (côté narrateur) au lieu d'être sur la maison d'Henri à gauche ; l'Estafette est au milieu de la rue au lieu d'être devant chez Diego au fond ; format 3:2, à recadrer en 16:9.",
-          "etat": "ecartee"
-        },
-        {
-          "id": "v6",
-          "fichier": "p01-v6-nouveau.png",
-          "source": "nouveau fil, retouche de v5 pour coller à la carte v1",
-          "note": "Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeannot) mais en 16:9 ; l'escalier extérieur est maintenant sur la maison d'Henri, juste après celle de Jeannot à gauche ; plus d'escalier à droite. Reste à vérifier : l'Estafette est bien au fond, mais plutôt au milieu de la chaussée qu'au bord gauche devant le garage de Diego.",
-          "etat": "ecartee",
-          "avis": [
-            {
-              "date": "2026-10-11 11:14",
-              "texte": "il faudra  prendre en compte  mon avis  de l'image de la carte"
-            },
-            {
-              "date": "2026-10-11 11:15",
-              "texte": "il faudra  prendre en compte  mon avis  de l'image de la carte  \nPour le garage de diego"
-            }
-          ]
-        },
-        {
-          "id": "v7",
-          "fichier": "p01-v7-nouveau.png",
-          "source": "nouveau fil, retouche de v6 avec la carte v2",
-          "note": "Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.",
-          "etat": "ecartee",
-          "avis": [
-            {
-              "date": "2026-10-11 11:26",
-              "texte": "Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue"
-            }
-          ]
-        },
-        {
-          "id": "v8",
-          "fichier": "p01-v8-nouveau.png",
-          "source": "nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente)",
-          "note": "La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue juste une ouverture de garage sombre sur la gauche, sans voiture visible. Écarts avec la carte : le garage arrive trop tôt (juste après la maison d'Henri au lieu d'être après deux voisins), et l'Estafette est encore au milieu de la chaussée au lieu d'être garée à gauche devant la maison de Diego.",
-          "etat": "a-retoucher",
-          "avis": [
-            {
-              "date": "2026-10-11 11:50",
-              "texte": "la rue se termine après l'estafette de diego  par un passage à niveau de train  elle descend ensuite donc on plus des collines au fond"
-            }
-          ]
-        },
-        {
-          "id": "v9",
-          "fichier": "p01-v9-carte-rev1.png",
-          "source": "nouveau fil, générée d'après ta carte P01 rév. 1 + v8 (style) + photo de référence",
-          "carte": {
-            "plan_rev": 1,
-            "lieux_rev": 2
-          },
-          "note": "Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L de dos très rouillée, Jeannot hors champ, passage à niveau au bout (croix de Saint-André, barrières). Écarts : Henri est en bas de son escalier au lieu d'en haut, le garage arrive trop tôt, l'Estafette est au milieu de la chaussée, et on voit encore des maisons après le passage à niveau au lieu des collines.",
-          "etat": "ecartee",
-          "avis": [
-            {
-              "date": "2026-10-11 12:08",
-              "texte": "(remarque donnée dans le chat) J’ai choisi l’image du passage à niveau. Il faut qu’il soit ouvert, avec les rails de chemin de fer entre les 2 barrières, sinon c’est bizarre juste la route. Après, la route descend à 45°, on ne la voit plus."
-            }
-          ]
-        },
-        {
-          "id": "v10",
-          "fichier": "p01-v10-carte-rev2.png",
-          "source": "nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji)",
-          "carte": {
-            "plan_rev": 2,
-            "lieux_rev": 2
-          },
-          "note": "Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v11",
-          "fichier": "p01-v11-carte-rev4.png",
-          "source": "nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3)",
-          "carte": {
-            "plan_rev": 4,
-            "lieux_rev": 3
-          },
-          "note": "Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une seule fumée), Enji à la bonne taille sur le trottoir, Coccinelle orange bien visible dans le garage ouvert avec Diego à côté, passage à niveau ouvert (barrières levées), la route plonge, collines seulement. Écarts restants : l'Estafette est sur la chaussée au centre-droit au lieu d'être collée au trottoir gauche devant le garage ; Enji est à gauche de Jeannot (contre le mur) plutôt qu'entre lui et la voiture ; les rails sont peu lisibles entre les barrières ; Jeannot est de 3/4 plutôt que de profil strict ; le garage arrive toujours juste après la maison d'Henri.",
-          "etat": "a-retoucher",
-          "avis": [
-            {
-              "date": "2026-10-11 12:24",
-              "texte": "depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider"
-            }
-          ]
-        },
-        {
-          "id": "v12",
-          "fichier": "p01-v12-style-v8-rev4.png",
-          "source": "nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4",
-          "carte": {
-            "plan_rev": 4,
-            "lieux_rev": 3
-          },
-          "note": "Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe brune, combinaison bleue). Coccinelle visible dans le garage ouvert avec Diego, Enji assis sur le trottoir. Écarts : Henri est sur le balcon de la tourelle au lieu du haut de son escalier ; 4 barrières levées et la rue continue avec des maisons au-delà (pas de rails visibles, pas de descente) ; Estafette pas collée au trottoir ; Enji à gauche de Jeannot. Une 2e tentative (2 propositions) a été refusée.",
-          "etat": "a-retoucher",
-          "avis": [
-            {
-              "date": "2026-10-11 12:40",
-              "texte": "le fond de la rue n'est plus bon il faut reprendre celui de la V11 vérifier que henri ressemble bien à henri  ce qui n'est pas du tout le cas de même pour Diego au fond"
-            }
-          ]
-        },
-        {
-          "id": "v13",
-          "fichier": "p01-v13-montage-rev5.png",
-          "source": "nouveau fil, montage : v12 (style v8) + fond de rue de v11, Henri et Diego refaits d'après leurs fiches, carte P01 rév. 5",
-          "carte": {
-            "plan_rev": 5,
-            "lieux_rev": 3
-          },
-          "note": "Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons viennent de v12 ; le bout de la rue (garage ouvert avec la Coccinelle, Estafette, passage à niveau ouvert, collines) vient de v11, recalé au pixel près ; balcon de la tourelle vidé (repris de v8) ; Henri redessiné d'après sa fiche (cheveux longs en bataille, lunettes, pull marron) et posé sur son escalier, quelques marches au-dessus du sol (rév. 5) ; Diego refait d'après sa fiche (casquette, moustache, t-shirt kaki, salopette bleue) ; rails renforcés entre les barrières. Écarts possibles : Henri est petit (échelle des marches) ; l'Estafette n'est pas tout à fait collée au trottoir ; Enji est à gauche de Jeannot.",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P02",
-      "temps": "00:05–00:10",
-      "paroles": "Instrumental",
-      "brief": "Glissement vers la maison de Jeannot et sa 4L vert menthe, rouillée mais intacte. Jeannot respire, décale son poids et tient sa cigarette ; Enji traverse le cadre pour son gag.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p02-v1-ancien-fil-03h55.png",
-          "source": "ancien fil, commit 2db27a6 (03h55)",
-          "note": "Add P02 storyboard keyframe and progress tracker",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v2",
-          "fichier": "p02-v2-ancien-fil-06h33.png",
-          "source": "ancien fil, commit e2a3352 (06h33)",
-          "note": "Reframe P02 with fixed 4L continuity — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P03",
-      "temps": "00:10–00:16,35",
-      "paroles": "Instrumental",
-      "brief": "Pan vers la maison voisine et l'escalier d'Henri, puis vers la tourelle de la sorcière et l'autre bout de la rue où se trouve Diego. Finir le mouvement sur Jeannot, prêt pour la première entrée vocale.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p03-v1-ancien-fil-03h56.png",
-          "source": "ancien fil, commit 7bda9a7 (03h56)",
-          "note": "Add P03 street geography storyboard frame",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v2",
-          "fichier": "p03-v2-ancien-fil-06h34.png",
-          "source": "ancien fil, commit ea24889 (06h34)",
-          "note": "Reframe P03 with master street layout — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P04",
-      "temps": "00:16,35–00:18,88",
-      "paroles": "« Jeannot est là, et toujours là ! »",
-      "brief": "Plan moyen 3/4 de Jeannot près de la 4L. Il lève la cigarette vers la bouche, inspire ; épaules et torse bougent, puis il relâche son souffle. Une seule fumée évolue avec le geste. Léger push-in ; la 4L reste visible.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p04-v1-ancien-fil.png",
-          "source": "ancien fil, commit 36af4fe (03h57)",
-          "note": "Add P04 Jeannot performance storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P05",
-      "temps": "00:18,88–00:21,42",
-      "paroles": "« La sorcière est partie, Jeannot est encore là »",
-      "brief": "La sœur descend de la tourelle et s'éloigne sur le trottoir droit, cigarette à la main, en tenant Enji en laisse. Jeannot reste près de son unique 4L, à l'emplacement fixe devant chez lui.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p05-v1-ancien-fil-03h57.png",
-          "source": "ancien fil, commit 1798b2b (03h57)",
-          "note": "Add P05 witch departure storyboard frame",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v2",
-          "fichier": "p05-v2-ancien-fil-05h28.png",
-          "source": "ancien fil, commit be42921 (05h28)",
-          "note": "Correct P05 car continuity and leash Enji",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v3",
-          "fichier": "p05-v3-ancien-fil-06h24.png",
-          "source": "ancien fil, commit f1d2b39 (06h24)",
-          "note": "Reframe P05 around fixed 4L and leashed Enji — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P06",
-      "temps": "00:21,42–00:23,95",
-      "paroles": "« Alors Henri s'enfuit, Jeannot est toujours là »",
-      "brief": "Plan latéral de course. Henri part de la maison voisine et traverse le haut des marches ; bras, épaules, tête et jambes ont des poses distinctes. Garder lunettes, cigarette et sourire lisibles.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p06-v1-ancien-fil.png",
-          "source": "ancien fil, commit 1529fa5 (03h58)",
-          "note": "Add P06 Henri running storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P07",
-      "temps": "00:23,95–00:26,48",
-      "paroles": "« La sorcière est revenue, c'est la merde dans la rue »",
-      "brief": "Whip-pan vers la tourelle ; la sorcière réapparaît, puis petit push-in sur son air fatigué. Réaction comique dans la rue, sans dialogue ni nouveau texte.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p07-v1-ancien-fil.png",
-          "source": "ancien fil, commit 45092df (03h59)",
-          "note": "Add P07 witch return storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P08",
-      "temps": "00:26,48–00:29,02",
-      "paroles": "« Henri tombe des escaliers, toutes ses dents sont esquintées »",
-      "brief": "Tilt vers l'escalier et suivi continu : Henri perd pied, tente de se rattraper, pose main et genou sur une marche, glisse et finit assis en bas. Pas de salto ni rotation complète. Petit flash/poussière sur « dents », puis tenir son sourire aux dents ébréchées, sans gore ; Enji accourt sur le dernier temps.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p08-v1-ancien-fil.png",
-          "source": "ancien fil, commit 862007f (04h02)",
-          "note": "Add P08 Henri fall storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P09",
-      "temps": "00:29,02–00:31,47",
-      "paroles": "« Jeannot a gagné, Jeannot est toujours là »",
-      "brief": "Jeannot se redresse devant sa 4L et prend une pose héroïque ; flash bref et motif graphique récurrent. Aucun dommage à la voiture.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p09-v1-ancien-fil.png",
-          "source": "ancien fil, commit c00899b (04h03)",
-          "note": "Add P09 Jeannot victory storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P10",
-      "temps": "00:31,47–00:33,91",
-      "paroles": "« Il ne partira pas, il restera là »",
-      "brief": "Gros plan de Jeannot, puis recul vers la maison entière. Il reste solidement ancré dans la rue ; aura encore discrète.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p10-v1-ancien-fil.png",
-          "source": "ancien fil, commit da041ab (04h11)",
-          "note": "Add P10 Jeannot stays storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P11",
-      "temps": "00:33,91–00:36,36",
-      "paroles": "« La 4 ailes dans la rue, le bordel est revenu »",
-      "brief": "Plan sur la 4L depuis le même côté ; révéler sa forme carrée et sa rouille sans changer son emplacement ni son orientation. Léger frémissement comique possible, mais elle demeure intacte.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p11-v1-ancien-fil-04h12.png",
-          "source": "ancien fil, commit d87986c (04h12)",
-          "note": "Add P11 Renault 4L storyboard frame",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v2",
-          "fichier": "p11-v2-ancien-fil-04h22.png",
-          "source": "ancien fil, commit 676c4e3 (04h22)",
-          "note": "Lock Renault 4L position and correct P11 frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P12",
-      "temps": "00:36,36–00:38,80",
-      "paroles": "« Le rat guette, dans son estafette »",
-      "brief": "Plan large depuis l'extrémité de Jeannot : la 4L reste au premier plan à son emplacement fixe ; l'Estafette bleu-gris est plus loin sur le même trottoir gauche. « Le rat », c'est Diego : seule sa tête et un peu d'épaule dépassent de la fenêtre conducteur ; visage conforme au concept approuvé. Aucun doublon de voiture ni personnage supplémentaire.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p12-v1-ancien-fil-04h13.png",
-          "source": "ancien fil, commit 235f743 (04h13)",
-          "note": "Add P12 Diego in Estafette storyboard frame",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v2",
-          "fichier": "p12-v2-ancien-fil-06h22.png",
-          "source": "ancien fil, commit 486eb5b (06h22)",
-          "note": "Correct P12 Diego's peeking Estafette shot",
-          "etat": "a-valider"
-        },
-        {
-          "id": "v3",
-          "fichier": "p12-v3-ancien-fil-06h55.png",
-          "source": "ancien fil, commit a43d5e7 (06h55)",
-          "note": "Correct P12 van and 4L depth order — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P13",
-      "temps": "00:38,80–00:41,25",
-      "paroles": "« La sorcière d'sa tourelle, attend son Roméo »",
-      "brief": "Contre-plongée sur la sorcière à sa fenêtre ; son regard suit Diego dans l'Estafette. Cigarette, mascara et fatigue restent lisibles.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p13-v1-ancien-fil.png",
-          "source": "ancien fil, commit 9599dff (04h14)",
-          "note": "Add P13 witch watching Diego storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P14",
-      "temps": "00:41,25–00:43,69",
-      "paroles": "« Et le rat Diégo, casse la 4 ailes de Jeannot »",
-      "brief": "Diego provoque une secousse comique de la 4L : mouvement caméra et éclat « BAM » visuel. La tôle vibre, mais rien ne casse et la voiture ne se déforme pas.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p14-v1-ancien-fil.png",
-          "source": "ancien fil, commit 54c00b4 (04h14)",
-          "note": "Add P14 intact 4L comic shake storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P15",
-      "temps": "00:43,69–00:50,35",
-      "paroles": "Instrumental / montée musicale",
-      "brief": "Travelling le long de la rue, de la 4L jusqu'à Diego. Les deux rivaux se font face de part et d'autre de la chaussée. La caméra se rapproche ; lignes d'énergie et aura montent au rythme, sans changer de lieu.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p15-v1-ancien-fil.png",
-          "source": "ancien fil, commit 6dc895b (04h15)",
-          "note": "Add P15 Diego and Jeannot fight standoff frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P16",
-      "temps": "00:50,35–00:53,70",
-      "paroles": "« C'est le combat final, entre Diego et Jeannot »",
-      "brief": "Cadrage frontal alterné sur Diego puis Jeannot ; terminer en plan large de l'axe de la rue. Fenêtre vocale à vérifier.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p16-v1-ancien-fil.png",
-          "source": "ancien fil, commit d281ff2 (04h16)",
-          "note": "Add P16 final combat announcement frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P17",
-      "temps": "00:53,70–00:57,24",
-      "paroles": "« Jeannot a gagné, Jeannot est toujours là »",
-      "brief": "Diego et Jeannot tournent autour l'un de l'autre ; Jeannot reprend l'avantage. Flash/cartouche récurrent sur l'accent musical.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p17-v1-ancien-fil.png",
-          "source": "ancien fil, commit 1a0012f (04h17)",
-          "note": "Add P17 Jeannot advantage storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P18",
-      "temps": "00:57,24–01:00,78",
-      "paroles": "« Il ne partira pas, il restera là »",
-      "brief": "Transformation shōnen de Jeannot : cheveux qui se dressent, aura et lignes de vitesse. Conserver chapeau, combinaison tachée et cigarette comme motifs ; rester dans la rue.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p18-v1-ancien-fil.png",
-          "source": "ancien fil, commit 96de1c3 (04h44)",
-          "note": "Add P18 Jeannot power-up storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P19",
-      "temps": "01:00,78–01:03,99",
-      "paroles": "« Jeannot tape Diego, qui se casse le dos »",
-      "brief": "Gag d'action stylisé : bourrasque d'aura, Diego se déséquilibre comiquement, sans blessure réaliste ni gore.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p19-v1-ancien-fil.png",
-          "source": "ancien fil, commit 7114680 (04h47)",
-          "note": "Add P19 comic recoil storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P20",
-      "temps": "01:03,99–01:07,53",
-      "paroles": "« Diégo est à terre, c'est la fin de la guerre »",
-      "brief": "Diego se retrouve au sol, sonné mais indemne. Enji renifle sa casquette ou lui tourne autour ; gag muet, pas de dialogue.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p20-v1-ancien-fil.png",
-          "source": "ancien fil, commit 8af880a (04h48)",
-          "note": "Add P20 Diego and Enji storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P21",
-      "temps": "01:07,53–01:11,71",
-      "paroles": "« Jeannot prend sa peinture, et la verse sur la voiture »",
-      "brief": "Jeannot saisit son pot et le lève comme une boule d'énergie, puis amorce le geste de verser. Coupe dans le mouvement vers la Coccinelle orange de Marco ; ne pas viser la 4L.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p21-v1-ancien-fil.png",
-          "source": "ancien fil, commit 7e5dc32 (04h50)",
-          "note": "Add P21 Jeannot paint-can storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P22",
-      "temps": "01:11,71–01:14,92",
-      "paroles": "« du fils de Diégo, qui s'appelle Marco »",
-      "brief": "Révéler la Coccinelle orange sur parpaings, en restauration : capot ouvert, roue déposée, outils et pièces à proximité. La peinture touche la carrosserie comme gag visuel ; Diego et Marco sont clairement associés à cette voiture. Le design détaillé de Marco reste à définir.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p22-v1-ancien-fil.png",
-          "source": "ancien fil, commit 449d450 (05h05)",
-          "note": "Add P22 Marco Beetle paint storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P23",
-      "temps": "01:14,92–01:18,13",
-      "paroles": "« Diégo a perdu, Jeannot a gagné »",
-      "brief": "Retour à la rue. Diego reste au sol un instant, Jeannot se relève et reprend sa pose de héros ; Enji traverse le cadre. La 4L et l'Estafette restent à leur place fixe.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p23-v1-ancien-fil.png",
-          "source": "ancien fil, commit 1815a67 (05h07)",
-          "note": "Add P23 victory return with fixed car continuity — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P24",
-      "temps": "01:18,13–01:22,00",
-      "paroles": "« C'est le roi de la rue, et il nous casse les pieds »",
-      "brief": "Pose de Jeannot au milieu de la rue. Réactions exaspérées aux fenêtres et gag d'Enji ; aucun dialogue ajouté. La 4L et l'Estafette restent à leur place.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p24-v1-ancien-fil.png",
-          "source": "ancien fil, commit 673edd5 (05h09)",
-          "note": "Add P24 king of the street storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P25",
-      "temps": "01:22,00–01:25,70",
-      "paroles": "Instrumental",
-      "brief": "Tenir la victoire, laisser retomber aura et poussière, puis recadrer Jeannot au premier accent du refrain final. La 4L et l'Estafette gardent leurs emplacements fixes.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p25-v1-ancien-fil.png",
-          "source": "ancien fil, commit 0282de3 (05h10)",
-          "note": "Add P25 victory breathing storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P26",
-      "temps": "01:25,70–01:29,45",
-      "paroles": "« Jeannot a gagné, Jeannot est toujours là »",
-      "brief": "Reprise du motif de victoire, en plan plus large qui inclut la 4L entière. Flash bref ; voitures à leurs emplacements fixes.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p26-v1-ancien-fil.png",
-          "source": "ancien fil, commit d0c978c (05h12)",
-          "note": "Add P26 final chorus storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P27",
-      "temps": "01:29,45–01:33,20",
-      "paroles": "« Il ne partira pas, il restera là »",
-      "brief": "Jeannot reste devant sa maison ; respiration et posture se calment, l'aura s'éteint. La 4L et l'Estafette gardent exactement leurs emplacements fixes.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p27-v1-ancien-fil.png",
-          "source": "ancien fil, commit 8eb1389 (05h20)",
-          "note": "Add P27 Jeannot remains storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P28",
-      "temps": "01:33,20–01:37,00",
-      "paroles": "« Fin »",
-      "brief": "Fond de carton sur le dernier accent vocal, avec espace réservé au titre exact « Fin » pour l'étape d'annotation ; maintien bref, à recaler sur la voix réelle. Les deux voitures gardent leurs emplacements fixes.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p28-v1-ancien-fil.png",
-          "source": "ancien fil, commit 129bef2 (05h22)",
-          "note": "Add P28 closing title-card storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
-    },
-    {
-      "plan": "P29",
-      "temps": "01:37,00–01:44,36",
-      "paroles": "Instrumental / réverbération",
-      "brief": "Tenir la dernière pose et la rue, puis fondu au noir à la fin du MP3. Aucun texte supplémentaire ; la 4L et l'Estafette conservent leurs repères fixes.",
-      "statut": "a-valider",
-      "choix": null,
-      "options": [
-        {
-          "id": "v1",
-          "fichier": "p29-v1-ancien-fil.png",
-          "source": "ancien fil, commit 4e4650b (05h23)",
-          "note": "Add P29 final outro storyboard frame — version en place dans le storyboard",
-          "etat": "a-valider"
-        }
-      ]
+     "id": "v2",
+     "fichier": "carte-rue-v2.png",
+     "source": "nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)",
+     "note": "Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.",
+     "etat": "retenue",
+     "avis": [
+      {
+       "date": "2026-10-11 11:25",
+       "texte": "C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé"
+      }
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "plan": "P01",
+   "temps": "00:00–00:05",
+   "paroles": "Instrumental",
+   "brief": "Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.",
+   "statut": "en-cours",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p01-v1-ancien-fil-03h40.png",
+     "source": "ancien fil, commit f1eccd4 (03h40)",
+     "note": "Add complete clip storyboard and opening frame",
+     "etat": "ecartee"
+    },
+    {
+     "id": "v2",
+     "fichier": "p01-v2-ancien-fil-03h48.png",
+     "source": "ancien fil, commit 068faf0 (03h48)",
+     "note": "Correct Estafette position in opening storyboard",
+     "etat": "ecartee"
+    },
+    {
+     "id": "v3",
+     "fichier": "p01-v3-ancien-fil-06h01.png",
+     "source": "ancien fil, commit dda932f (06h01)",
+     "note": "Reframe P01 master with fixed realistic 4L placement — version en place dans le storyboard",
+     "etat": "ecartee"
+    },
+    {
+     "id": "v4",
+     "fichier": "p01-v4-nouveau.png",
+     "source": "nouveau fil, généré le 11/10 à partir de v3 + photo de référence + style frame Jeannot",
+     "note": "Même géographie que v3 (4L unique contre le trottoir gauche, Estafette plus loin même côté, escalier d'Henri à droite, tourelle au fond) ; Jeannot sur le trottoir à côté de la 4L, cigarette avec un seul filet de fumée.",
+     "etat": "ecartee",
+     "avis": [
+      {
+       "date": "2026-10-11 10:58",
+       "texte": "Je préfère la 4L vue de derrière (comme sur la photo de référence). Elle était aussi en moins bon état que sur cette version : plus rouillée, plus abîmée."
+      }
+     ]
+    },
+    {
+     "id": "v5",
+     "fichier": "p01-v5-nouveau.png",
+     "source": "nouveau fil, généré le 11/10 d'après la carte v1 + photo de référence + style frame + v4",
+     "note": "4L vue de derrière, bien plus rouillée (comme la photo) ; tourelle sur la maison de Jeannot à gauche. À corriger si on la garde : l'escalier extérieur est à DROITE (côté narrateur) au lieu d'être sur la maison d'Henri à gauche ; l'Estafette est au milieu de la rue au lieu d'être devant chez Diego au fond ; format 3:2, à recadrer en 16:9.",
+     "etat": "ecartee"
+    },
+    {
+     "id": "v6",
+     "fichier": "p01-v6-nouveau.png",
+     "source": "nouveau fil, retouche de v5 pour coller à la carte v1",
+     "note": "Comme v5 (4L vue de derrière, très rouillée, tourelle sur la maison de Jeannot) mais en 16:9 ; l'escalier extérieur est maintenant sur la maison d'Henri, juste après celle de Jeannot à gauche ; plus d'escalier à droite. Reste à vérifier : l'Estafette est bien au fond, mais plutôt au milieu de la chaussée qu'au bord gauche devant le garage de Diego.",
+     "etat": "ecartee",
+     "avis": [
+      {
+       "date": "2026-10-11 11:14",
+       "texte": "il faudra  prendre en compte  mon avis  de l'image de la carte"
+      },
+      {
+       "date": "2026-10-11 11:15",
+       "texte": "il faudra  prendre en compte  mon avis  de l'image de la carte  \nPour le garage de diego"
+      }
+     ]
+    },
+    {
+     "id": "v7",
+     "fichier": "p01-v7-nouveau.png",
+     "source": "nouveau fil, retouche de v6 avec la carte v2",
+     "note": "Comme v6, avec au fond le garage ouvert et la Coccinelle orange bien visible dedans. Écarts avec la carte : le garage est placé tout au bout, face à la rue (comme si la rue finissait sur chez Diego), au lieu d'être sur le côté gauche, et l'Estafette est au milieu de la chaussée au lieu d'être garée à gauche devant la maison. Recadrée en 16:9.",
+     "etat": "ecartee",
+     "avis": [
+      {
+       "date": "2026-10-11 11:26",
+       "texte": "Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue"
+      }
+     ]
+    },
+    {
+     "id": "v8",
+     "fichier": "p01-v8-nouveau.png",
+     "source": "nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente)",
+     "note": "La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue juste une ouverture de garage sombre sur la gauche, sans voiture visible. Écarts avec la carte : le garage arrive trop tôt (juste après la maison d'Henri au lieu d'être après deux voisins), et l'Estafette est encore au milieu de la chaussée au lieu d'être garée à gauche devant la maison de Diego.",
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-11 11:50",
+       "texte": "la rue se termine après l'estafette de diego  par un passage à niveau de train  elle descend ensuite donc on plus des collines au fond"
+      }
+     ]
+    },
+    {
+     "id": "v9",
+     "fichier": "p01-v9-carte-rev1.png",
+     "source": "nouveau fil, générée d'après ta carte P01 rév. 1 + v8 (style) + photo de référence",
+     "carte": {
+      "plan_rev": 1,
+      "lieux_rev": 2
+     },
+     "note": "Suit la carte rév. 1 : caméra au milieu de la chaussée au bout de Jeannot, 4L de dos très rouillée, Jeannot hors champ, passage à niveau au bout (croix de Saint-André, barrières). Écarts : Henri est en bas de son escalier au lieu d'en haut, le garage arrive trop tôt, l'Estafette est au milieu de la chaussée, et on voit encore des maisons après le passage à niveau au lieu des collines.",
+     "etat": "ecartee",
+     "avis": [
+      {
+       "date": "2026-10-11 12:08",
+       "texte": "(remarque donnée dans le chat) J’ai choisi l’image du passage à niveau. Il faut qu’il soit ouvert, avec les rails de chemin de fer entre les 2 barrières, sinon c’est bizarre juste la route. Après, la route descend à 45°, on ne la voit plus."
+      }
+     ]
+    },
+    {
+     "id": "v10",
+     "fichier": "p01-v10-carte-rev2.png",
+     "source": "nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji)",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 2
+     },
+     "note": "Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v11",
+     "fichier": "p01-v11-carte-rev4.png",
+     "source": "nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3)",
+     "carte": {
+      "plan_rev": 4,
+      "lieux_rev": 3
+     },
+     "note": "Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une seule fumée), Enji à la bonne taille sur le trottoir, Coccinelle orange bien visible dans le garage ouvert avec Diego à côté, passage à niveau ouvert (barrières levées), la route plonge, collines seulement. Écarts restants : l'Estafette est sur la chaussée au centre-droit au lieu d'être collée au trottoir gauche devant le garage ; Enji est à gauche de Jeannot (contre le mur) plutôt qu'entre lui et la voiture ; les rails sont peu lisibles entre les barrières ; Jeannot est de 3/4 plutôt que de profil strict ; le garage arrive toujours juste après la maison d'Henri.",
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-11 12:24",
+       "texte": "depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider"
+      }
+     ]
+    },
+    {
+     "id": "v12",
+     "fichier": "p01-v12-style-v8-rev4.png",
+     "source": "nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4",
+     "carte": {
+      "plan_rev": 4,
+      "lieux_rev": 3
+     },
+     "note": "Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe brune, combinaison bleue). Coccinelle visible dans le garage ouvert avec Diego, Enji assis sur le trottoir. Écarts : Henri est sur le balcon de la tourelle au lieu du haut de son escalier ; 4 barrières levées et la rue continue avec des maisons au-delà (pas de rails visibles, pas de descente) ; Estafette pas collée au trottoir ; Enji à gauche de Jeannot. Une 2e tentative (2 propositions) a été refusée.",
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-11 12:40",
+       "texte": "le fond de la rue n'est plus bon il faut reprendre celui de la V11 vérifier que henri ressemble bien à henri  ce qui n'est pas du tout le cas de même pour Diego au fond"
+      }
+     ]
+    },
+    {
+     "id": "v13",
+     "fichier": "p01-v13-montage-rev5.png",
+     "source": "nouveau fil, montage : v12 (style v8) + fond de rue de v11, Henri et Diego refaits d'après leurs fiches, carte P01 rév. 5",
+     "carte": {
+      "plan_rev": 5,
+      "lieux_rev": 3
+     },
+     "note": "Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons viennent de v12 ; le bout de la rue (garage ouvert avec la Coccinelle, Estafette, passage à niveau ouvert, collines) vient de v11, recalé au pixel près ; balcon de la tourelle vidé (repris de v8) ; Henri redessiné d'après sa fiche (cheveux longs en bataille, lunettes, pull marron) et posé sur son escalier, quelques marches au-dessus du sol (rév. 5) ; Diego refait d'après sa fiche (casquette, moustache, t-shirt kaki, salopette bleue) ; rails renforcés entre les barrières. Écarts possibles : Henri est petit (échelle des marches) ; l'Estafette n'est pas tout à fait collée au trottoir ; Enji est à gauche de Jeannot.",
+     "etat": "a-retoucher"
+    }
+   ]
+  },
+  {
+   "plan": "P02",
+   "temps": "00:05–00:10",
+   "paroles": "Instrumental",
+   "brief": "Glissement vers la maison de Jeannot et sa 4L vert menthe, rouillée mais intacte. Jeannot respire, décale son poids et tient sa cigarette ; Enji traverse le cadre pour son gag.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p02-v1-ancien-fil-03h55.png",
+     "source": "ancien fil, commit 2db27a6 (03h55)",
+     "note": "Add P02 storyboard keyframe and progress tracker",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v2",
+     "fichier": "p02-v2-ancien-fil-06h33.png",
+     "source": "ancien fil, commit e2a3352 (06h33)",
+     "note": "Reframe P02 with fixed 4L continuity — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P03",
+   "temps": "00:10–00:16,35",
+   "paroles": "Instrumental",
+   "brief": "Pan vers la maison voisine et l'escalier d'Henri, puis vers la tourelle de la sorcière et l'autre bout de la rue où se trouve Diego. Finir le mouvement sur Jeannot, prêt pour la première entrée vocale.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p03-v1-ancien-fil-03h56.png",
+     "source": "ancien fil, commit 7bda9a7 (03h56)",
+     "note": "Add P03 street geography storyboard frame",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v2",
+     "fichier": "p03-v2-ancien-fil-06h34.png",
+     "source": "ancien fil, commit ea24889 (06h34)",
+     "note": "Reframe P03 with master street layout — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P04",
+   "temps": "00:16,35–00:18,88",
+   "paroles": "« Jeannot est là, et toujours là ! »",
+   "brief": "Plan moyen 3/4 de Jeannot près de la 4L. Il lève la cigarette vers la bouche, inspire ; épaules et torse bougent, puis il relâche son souffle. Une seule fumée évolue avec le geste. Léger push-in ; la 4L reste visible.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p04-v1-ancien-fil.png",
+     "source": "ancien fil, commit 36af4fe (03h57)",
+     "note": "Add P04 Jeannot performance storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P05",
+   "temps": "00:18,88–00:21,42",
+   "paroles": "« La sorcière est partie, Jeannot est encore là »",
+   "brief": "La sœur descend de la tourelle et s'éloigne sur le trottoir droit, cigarette à la main, en tenant Enji en laisse. Jeannot reste près de son unique 4L, à l'emplacement fixe devant chez lui.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p05-v1-ancien-fil-03h57.png",
+     "source": "ancien fil, commit 1798b2b (03h57)",
+     "note": "Add P05 witch departure storyboard frame",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v2",
+     "fichier": "p05-v2-ancien-fil-05h28.png",
+     "source": "ancien fil, commit be42921 (05h28)",
+     "note": "Correct P05 car continuity and leash Enji",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v3",
+     "fichier": "p05-v3-ancien-fil-06h24.png",
+     "source": "ancien fil, commit f1d2b39 (06h24)",
+     "note": "Reframe P05 around fixed 4L and leashed Enji — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P06",
+   "temps": "00:21,42–00:23,95",
+   "paroles": "« Alors Henri s'enfuit, Jeannot est toujours là »",
+   "brief": "Plan latéral de course. Henri part de la maison voisine et traverse le haut des marches ; bras, épaules, tête et jambes ont des poses distinctes. Garder lunettes, cigarette et sourire lisibles.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p06-v1-ancien-fil.png",
+     "source": "ancien fil, commit 1529fa5 (03h58)",
+     "note": "Add P06 Henri running storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P07",
+   "temps": "00:23,95–00:26,48",
+   "paroles": "« La sorcière est revenue, c'est la merde dans la rue »",
+   "brief": "Whip-pan vers la tourelle ; la sorcière réapparaît, puis petit push-in sur son air fatigué. Réaction comique dans la rue, sans dialogue ni nouveau texte.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p07-v1-ancien-fil.png",
+     "source": "ancien fil, commit 45092df (03h59)",
+     "note": "Add P07 witch return storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P08",
+   "temps": "00:26,48–00:29,02",
+   "paroles": "« Henri tombe des escaliers, toutes ses dents sont esquintées »",
+   "brief": "Tilt vers l'escalier et suivi continu : Henri perd pied, tente de se rattraper, pose main et genou sur une marche, glisse et finit assis en bas. Pas de salto ni rotation complète. Petit flash/poussière sur « dents », puis tenir son sourire aux dents ébréchées, sans gore ; Enji accourt sur le dernier temps.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p08-v1-ancien-fil.png",
+     "source": "ancien fil, commit 862007f (04h02)",
+     "note": "Add P08 Henri fall storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P09",
+   "temps": "00:29,02–00:31,47",
+   "paroles": "« Jeannot a gagné, Jeannot est toujours là »",
+   "brief": "Jeannot se redresse devant sa 4L et prend une pose héroïque ; flash bref et motif graphique récurrent. Aucun dommage à la voiture.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p09-v1-ancien-fil.png",
+     "source": "ancien fil, commit c00899b (04h03)",
+     "note": "Add P09 Jeannot victory storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P10",
+   "temps": "00:31,47–00:33,91",
+   "paroles": "« Il ne partira pas, il restera là »",
+   "brief": "Gros plan de Jeannot, puis recul vers la maison entière. Il reste solidement ancré dans la rue ; aura encore discrète.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p10-v1-ancien-fil.png",
+     "source": "ancien fil, commit da041ab (04h11)",
+     "note": "Add P10 Jeannot stays storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P11",
+   "temps": "00:33,91–00:36,36",
+   "paroles": "« La 4 ailes dans la rue, le bordel est revenu »",
+   "brief": "Plan sur la 4L depuis le même côté ; révéler sa forme carrée et sa rouille sans changer son emplacement ni son orientation. Léger frémissement comique possible, mais elle demeure intacte.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p11-v1-ancien-fil-04h12.png",
+     "source": "ancien fil, commit d87986c (04h12)",
+     "note": "Add P11 Renault 4L storyboard frame",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v2",
+     "fichier": "p11-v2-ancien-fil-04h22.png",
+     "source": "ancien fil, commit 676c4e3 (04h22)",
+     "note": "Lock Renault 4L position and correct P11 frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P12",
+   "temps": "00:36,36–00:38,80",
+   "paroles": "« Le rat guette, dans son estafette »",
+   "brief": "Plan large depuis l'extrémité de Jeannot : la 4L reste au premier plan à son emplacement fixe ; l'Estafette bleu-gris est plus loin sur le même trottoir gauche. « Le rat », c'est Diego : seule sa tête et un peu d'épaule dépassent de la fenêtre conducteur ; visage conforme au concept approuvé. Aucun doublon de voiture ni personnage supplémentaire.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p12-v1-ancien-fil-04h13.png",
+     "source": "ancien fil, commit 235f743 (04h13)",
+     "note": "Add P12 Diego in Estafette storyboard frame",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v2",
+     "fichier": "p12-v2-ancien-fil-06h22.png",
+     "source": "ancien fil, commit 486eb5b (06h22)",
+     "note": "Correct P12 Diego's peeking Estafette shot",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v3",
+     "fichier": "p12-v3-ancien-fil-06h55.png",
+     "source": "ancien fil, commit a43d5e7 (06h55)",
+     "note": "Correct P12 van and 4L depth order — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P13",
+   "temps": "00:38,80–00:41,25",
+   "paroles": "« La sorcière d'sa tourelle, attend son Roméo »",
+   "brief": "Contre-plongée sur la sorcière à sa fenêtre ; son regard suit Diego dans l'Estafette. Cigarette, mascara et fatigue restent lisibles.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p13-v1-ancien-fil.png",
+     "source": "ancien fil, commit 9599dff (04h14)",
+     "note": "Add P13 witch watching Diego storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P14",
+   "temps": "00:41,25–00:43,69",
+   "paroles": "« Et le rat Diégo, casse la 4 ailes de Jeannot »",
+   "brief": "Diego provoque une secousse comique de la 4L : mouvement caméra et éclat « BAM » visuel. La tôle vibre, mais rien ne casse et la voiture ne se déforme pas.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p14-v1-ancien-fil.png",
+     "source": "ancien fil, commit 54c00b4 (04h14)",
+     "note": "Add P14 intact 4L comic shake storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P15",
+   "temps": "00:43,69–00:50,35",
+   "paroles": "Instrumental / montée musicale",
+   "brief": "Travelling le long de la rue, de la 4L jusqu'à Diego. Les deux rivaux se font face de part et d'autre de la chaussée. La caméra se rapproche ; lignes d'énergie et aura montent au rythme, sans changer de lieu.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p15-v1-ancien-fil.png",
+     "source": "ancien fil, commit 6dc895b (04h15)",
+     "note": "Add P15 Diego and Jeannot fight standoff frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P16",
+   "temps": "00:50,35–00:53,70",
+   "paroles": "« C'est le combat final, entre Diego et Jeannot »",
+   "brief": "Cadrage frontal alterné sur Diego puis Jeannot ; terminer en plan large de l'axe de la rue. Fenêtre vocale à vérifier.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p16-v1-ancien-fil.png",
+     "source": "ancien fil, commit d281ff2 (04h16)",
+     "note": "Add P16 final combat announcement frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P17",
+   "temps": "00:53,70–00:57,24",
+   "paroles": "« Jeannot a gagné, Jeannot est toujours là »",
+   "brief": "Diego et Jeannot tournent autour l'un de l'autre ; Jeannot reprend l'avantage. Flash/cartouche récurrent sur l'accent musical.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p17-v1-ancien-fil.png",
+     "source": "ancien fil, commit 1a0012f (04h17)",
+     "note": "Add P17 Jeannot advantage storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P18",
+   "temps": "00:57,24–01:00,78",
+   "paroles": "« Il ne partira pas, il restera là »",
+   "brief": "Transformation shōnen de Jeannot : cheveux qui se dressent, aura et lignes de vitesse. Conserver chapeau, combinaison tachée et cigarette comme motifs ; rester dans la rue.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p18-v1-ancien-fil.png",
+     "source": "ancien fil, commit 96de1c3 (04h44)",
+     "note": "Add P18 Jeannot power-up storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P19",
+   "temps": "01:00,78–01:03,99",
+   "paroles": "« Jeannot tape Diego, qui se casse le dos »",
+   "brief": "Gag d'action stylisé : bourrasque d'aura, Diego se déséquilibre comiquement, sans blessure réaliste ni gore.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p19-v1-ancien-fil.png",
+     "source": "ancien fil, commit 7114680 (04h47)",
+     "note": "Add P19 comic recoil storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P20",
+   "temps": "01:03,99–01:07,53",
+   "paroles": "« Diégo est à terre, c'est la fin de la guerre »",
+   "brief": "Diego se retrouve au sol, sonné mais indemne. Enji renifle sa casquette ou lui tourne autour ; gag muet, pas de dialogue.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p20-v1-ancien-fil.png",
+     "source": "ancien fil, commit 8af880a (04h48)",
+     "note": "Add P20 Diego and Enji storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P21",
+   "temps": "01:07,53–01:11,71",
+   "paroles": "« Jeannot prend sa peinture, et la verse sur la voiture »",
+   "brief": "Jeannot saisit son pot et le lève comme une boule d'énergie, puis amorce le geste de verser. Coupe dans le mouvement vers la Coccinelle orange de Marco ; ne pas viser la 4L.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p21-v1-ancien-fil.png",
+     "source": "ancien fil, commit 7e5dc32 (04h50)",
+     "note": "Add P21 Jeannot paint-can storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P22",
+   "temps": "01:11,71–01:14,92",
+   "paroles": "« du fils de Diégo, qui s'appelle Marco »",
+   "brief": "Révéler la Coccinelle orange sur parpaings, en restauration : capot ouvert, roue déposée, outils et pièces à proximité. La peinture touche la carrosserie comme gag visuel ; Diego et Marco sont clairement associés à cette voiture. Le design détaillé de Marco reste à définir.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p22-v1-ancien-fil.png",
+     "source": "ancien fil, commit 449d450 (05h05)",
+     "note": "Add P22 Marco Beetle paint storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P23",
+   "temps": "01:14,92–01:18,13",
+   "paroles": "« Diégo a perdu, Jeannot a gagné »",
+   "brief": "Retour à la rue. Diego reste au sol un instant, Jeannot se relève et reprend sa pose de héros ; Enji traverse le cadre. La 4L et l'Estafette restent à leur place fixe.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p23-v1-ancien-fil.png",
+     "source": "ancien fil, commit 1815a67 (05h07)",
+     "note": "Add P23 victory return with fixed car continuity — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P24",
+   "temps": "01:18,13–01:22,00",
+   "paroles": "« C'est le roi de la rue, et il nous casse les pieds »",
+   "brief": "Pose de Jeannot au milieu de la rue. Réactions exaspérées aux fenêtres et gag d'Enji ; aucun dialogue ajouté. La 4L et l'Estafette restent à leur place.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p24-v1-ancien-fil.png",
+     "source": "ancien fil, commit 673edd5 (05h09)",
+     "note": "Add P24 king of the street storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P25",
+   "temps": "01:22,00–01:25,70",
+   "paroles": "Instrumental",
+   "brief": "Tenir la victoire, laisser retomber aura et poussière, puis recadrer Jeannot au premier accent du refrain final. La 4L et l'Estafette gardent leurs emplacements fixes.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p25-v1-ancien-fil.png",
+     "source": "ancien fil, commit 0282de3 (05h10)",
+     "note": "Add P25 victory breathing storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P26",
+   "temps": "01:25,70–01:29,45",
+   "paroles": "« Jeannot a gagné, Jeannot est toujours là »",
+   "brief": "Reprise du motif de victoire, en plan plus large qui inclut la 4L entière. Flash bref ; voitures à leurs emplacements fixes.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p26-v1-ancien-fil.png",
+     "source": "ancien fil, commit d0c978c (05h12)",
+     "note": "Add P26 final chorus storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P27",
+   "temps": "01:29,45–01:33,20",
+   "paroles": "« Il ne partira pas, il restera là »",
+   "brief": "Jeannot reste devant sa maison ; respiration et posture se calment, l'aura s'éteint. La 4L et l'Estafette gardent exactement leurs emplacements fixes.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p27-v1-ancien-fil.png",
+     "source": "ancien fil, commit 8eb1389 (05h20)",
+     "note": "Add P27 Jeannot remains storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P28",
+   "temps": "01:33,20–01:37,00",
+   "paroles": "« Fin »",
+   "brief": "Fond de carton sur le dernier accent vocal, avec espace réservé au titre exact « Fin » pour l'étape d'annotation ; maintien bref, à recaler sur la voix réelle. Les deux voitures gardent leurs emplacements fixes.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p28-v1-ancien-fil.png",
+     "source": "ancien fil, commit 129bef2 (05h22)",
+     "note": "Add P28 closing title-card storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  },
+  {
+   "plan": "P29",
+   "temps": "01:37,00–01:44,36",
+   "paroles": "Instrumental / réverbération",
+   "brief": "Tenir la dernière pose et la rue, puis fondu au noir à la fin du MP3. Aucun texte supplémentaire ; la 4L et l'Estafette conservent leurs repères fixes.",
+   "statut": "a-valider",
+   "choix": null,
+   "options": [
+    {
+     "id": "v1",
+     "fichier": "p29-v1-ancien-fil.png",
+     "source": "ancien fil, commit 4e4650b (05h23)",
+     "note": "Add P29 final outro storyboard frame — version en place dans le storyboard",
+     "etat": "a-valider"
+    }
+   ]
+  }
+ ]
 }

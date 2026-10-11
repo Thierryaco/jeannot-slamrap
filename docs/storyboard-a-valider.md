@@ -52,6 +52,9 @@ D'après tes réponses : Henri juste à côté du même côté, tourelle sur la 
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v1.png" width="640" alt="CARTE v1">
 
+- 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
+et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans.
+
 ## P01
 
 **00:00–00:05** · Instrumental · 🛠️ En cours

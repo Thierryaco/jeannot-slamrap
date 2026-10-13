@@ -86,15 +86,6 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v13** — 🔁 à retoucher — nouveau fil, montage : v12 (style v8) + fond de rue de v11, Henri et Diego refaits d'après leurs fiches, carte P01 rév. 5 · 🟠 faite d'après la carte rév. 5 — la carte a changé depuis  
-Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons viennent de v12 ; le bout de la rue (garage ouvert avec la Coccinelle, Estafette, passage à niveau ouvert, collines) vient de v11, recalé au pixel près ; balcon de la tourelle vidé (repris de v8) ; Henri redessiné d'après sa fiche (cheveux longs en bataille, lunettes, pull marron) et posé sur son escalier, quelques marches au-dessus du sol (rév. 5) ; Diego refait d'après sa fiche (casquette, moustache, t-shirt kaki, salopette bleue) ; rails renforcés entre les barrières. Écarts possibles : Henri est petit (échelle des marches) ; l'Estafette n'est pas tout à fait collée au trottoir ; Enji est à gauche de Jeannot.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v13-montage-rev5.png" width="640" alt="P01 v13">
-
-- 💬 *2026-10-11 12:50* — l'estafette ne ressemble plus trop  celle du début et il y a un souci de corrélation des postions sur la carte et celle généré la coccinelle à le bout  du nez à la limite de la sortie du garage sur le plan et là elle sort sur le trottoire
-- 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
-- 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
-
 **P01 · v16** — 🔁 à retoucher — tools/p01_v16.py (retouches locales sur v13) · contrôle : tools/controle_retouche.py → p01-v16-controle.jpg · 🟠 faite d'après la carte rév. 8 — la carte a changé depuis  
 La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle d'ardoise de la maison de Jeannot est retiré pour dégager la vue ; la tourelle est surélevée d'environ 0,55 m et son corps descend jusqu'au mur du jardin ; la sorcière est penchée à la fenêtre de la tourelle, au-dessus de la 4L ; le capot avant de la Coccinelle est ouvert, avec des outils et une caisse à outils au sol. Rien d'autre ne bouge (rue, Jeannot, Enji, 4L, maisons, Diego, Henri, Estafette). Contrôle automatique CONFORME : 0 pixel modifié hors des 2 zones, couleurs déjà présentes dans l'image, pas de grain ajouté, raccords invisibles.
 
@@ -114,7 +105,7 @@ La v18 avec seulement tes corrections : la sorcière est de nouveau nette (trait
 
 <img src="../assets/storyboards/a-valider/p01/p01-v19-retouche-v18.png" width="640" alt="P01 v19">
 
-<details><summary>🗄️ 13 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v17</summary>
+<details><summary>🗄️ 14 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v17</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -137,6 +128,10 @@ Pour le garage de diego
   - 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
 - **v12** — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 — ../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png
   - 💬 *2026-10-11 12:40* — le fond de la rue n'est plus bon il faut reprendre celui de la V11 vérifier que henri ressemble bien à henri  ce qui n'est pas du tout le cas de même pour Diego au fond
+- **v13** — nouveau fil, montage : v12 (style v8) + fond de rue de v11, Henri et Diego refaits d'après leurs fiches, carte P01 rév. 5 — ../assets/storyboards/a-valider/p01/p01-v13-montage-rev5.png
+  - 💬 *2026-10-11 12:50* — l'estafette ne ressemble plus trop  celle du début et il y a un souci de corrélation des postions sur la carte et celle généré la coccinelle à le bout  du nez à la limite de la sortie du garage sur le plan et là elle sort sur le trottoire
+  - 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
+  - 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
 - **v17** — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png
   - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
 

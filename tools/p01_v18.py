@@ -2,6 +2,7 @@
 1) toit autour de la tourelle : restes de la surélévation (v16) corrigés avec le toit/ciel d'origine de v13 ;
 2) (étapes suivantes) Estafette plus fidèle + logo Renault ; tourelle et sorcière un peu plus grandes, tête plus sortie.
 Usage : python3 tools/p01_v18.py SORTIE.png"""
+import os
 import sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
@@ -20,6 +21,9 @@ def _masque_tourelle_v16(size):
     d.rectangle((316, 195 - S, 460, 232 - S), fill=255)
     d.rectangle((384, 200 - S, 452, 540), fill=255)
     return np.array(m.filter(ImageFilter.MaxFilter(5))) > 0
+
+
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'assets', 'storyboards', 'a-valider', 'p01')
 
 
 def corrige_toit(a, o):
@@ -54,10 +58,37 @@ def corrige_toit(a, o):
     return a
 
 
+def estafette(a):
+    """Estafette refaite (avis v17) : vraie Renault Estafette de face + losange Renault, d'après P02 v2 / P03.
+    Crop-edit work/v18-estafette-edit.png, détourée (work/v18-estafette-masque.png), mise à la largeur de
+    l'ancienne (97 px, x 1020-1117), roues au même endroit (y 588)."""
+    from scipy import ndimage
+    from PIL import ImageFilter
+    W = os.path.join(BASE, 'work')
+    e = Image.open(os.path.join(W, 'v18-estafette-edit.png')).convert('RGB')
+    m = np.asarray(Image.open(os.path.join(W, 'v18-estafette-masque.png'))) > 0
+    ea = np.asarray(e).astype(float)
+    Y, X = np.mgrid[:m.shape[0], :m.shape[1]]
+    m &= ~((X > 730) & (Y < 272) & (ea.mean(2) < 140))          # moignons de la barrière
+    s = 97 / 480.0
+    w, h = round(e.width * s), round(e.height * s)
+    es = np.asarray(e.resize((w, h), Image.LANCZOS)).astype(float)
+    ms = Image.fromarray((m * 255).astype(np.uint8)).resize((w, h), Image.LANCZOS)
+    ms = np.asarray(ms.filter(ImageFilter.GaussianBlur(0.6))).astype(float) / 255
+    ms = np.clip((ms - 0.15) / 0.7, 0, 1)
+    es = np.asarray(Image.fromarray(es.astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.5))).astype(float)
+    es = es * np.array([0.80, 0.76, 0.81])                       # ramène au bleu-gris passé de l'ancienne (médianes carrosserie)
+    ox = round(1068.5 - 618 * s); oy = round(588 - 771 * s)
+    reg = a[oy:oy + h, ox:ox + w]
+    a[oy:oy + h, ox:ox + w] = reg * (1 - ms[..., None]) + es * ms[..., None]
+    return a
+
+
 def build():
     a = np.array(Image.open(V17).convert("RGB")).astype(float)
     o = np.array(Image.open(V13).convert("RGB")).astype(float)
     a = corrige_toit(a, o)
+    a = estafette(a)
     return Image.fromarray(np.clip(a, 0, 255).astype("uint8"))
 
 

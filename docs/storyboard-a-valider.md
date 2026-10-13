@@ -109,7 +109,7 @@ Toutes les modifs de la v14 + la caméra B : 1,5 m plus à droite (vers le milie
 
 <img src="../assets/storyboards/a-valider/p01/p01-v15-camera-b.png" width="640" alt="P01 v15">
 
-**P01 · v16** — ⏳ à valider — tools/p01_v16.py (retouches locales sur v13) · contrôle : tools/controle_retouche.py → p01-v16-controle.jpg · 🟢 conforme à la carte actuelle (rév. 8)  
+**P01 · v16** — 🔁 à retoucher — tools/p01_v16.py (retouches locales sur v13) · contrôle : tools/controle_retouche.py → p01-v16-controle.jpg · 🟢 conforme à la carte actuelle (rév. 8)  
 La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle d'ardoise de la maison de Jeannot est retiré pour dégager la vue ; la tourelle est surélevée d'environ 0,55 m et son corps descend jusqu'au mur du jardin ; la sorcière est penchée à la fenêtre de la tourelle, au-dessus de la 4L ; le capot avant de la Coccinelle est ouvert, avec des outils et une caisse à outils au sol. Rien d'autre ne bouge (rue, Jeannot, Enji, 4L, maisons, Diego, Henri, Estafette). Contrôle automatique CONFORME : 0 pixel modifié hors des 2 zones, couleurs déjà présentes dans l'image, pas de grain ajouté, raccords invisibles.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v16-retouche-v13.png" width="640" alt="P01 v16">

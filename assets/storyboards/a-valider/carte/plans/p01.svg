@@ -131,13 +131,13 @@
 <polygon points="1172.0,359.0 1164.0,375.0 1156.0,359.0" fill="#1b2430" fill-opacity="1.0"/>
 <circle cx="1164.0" cy="349.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
 <text x="1164.0" y="354.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
-<polygon points="95.0,495.0 1220.8,-155.0 1220.8,1145.0" fill="#e04f5f" fill-opacity="0.14" clip-path="url(#zone)"/>
-<line x1="95.0" y1="495.0" x2="796.5" y2="90.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
-<line x1="95.0" y1="495.0" x2="744.5" y2="870.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
-<polygon points="79.0,484.0 105.0,484.0 105.0,506.0 79.0,506.0" fill="#e04f5f" fill-opacity="1.0"/>
-<polygon points="105.0,489.0 116.0,483.0 116.0,507.0 105.0,501.0" fill="#1b2430" fill-opacity="1.0"/>
-<text x="95.0" y="529.0" font-size="13" fill="#e04f5f" text-anchor="middle" font-weight="bold">P01</text>
-<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 6)</text>
+<polygon points="126.8,495.0 1232.4,-822.6 1232.4,1812.6" fill="#e04f5f" fill-opacity="0.14" clip-path="url(#zone)"/>
+<line x1="126.8" y1="495.0" x2="466.6" y2="90.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="126.8" y1="495.0" x2="441.5" y2="870.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
+<polygon points="110.8,484.0 136.8,484.0 136.8,506.0 110.8,506.0" fill="#e04f5f" fill-opacity="1.0"/>
+<polygon points="136.8,489.0 147.8,483.0 147.8,507.0 136.8,501.0" fill="#1b2430" fill-opacity="1.0"/>
+<text x="126.8" y="529.0" font-size="13" fill="#e04f5f" text-anchor="middle" font-weight="bold">P01</text>
+<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 7)</text>
 <text x="800.0" y="72.0" font-size="15" fill="#4a5566" text-anchor="middle">Instrumental</text>
 <text x="70.0" y="895.0" font-size="16" fill="#1b2430" text-anchor="start" font-weight="bold">Légende :</text>
 <circle cx="180.0" cy="889.0" r="10" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
@@ -154,6 +154,6 @@
 <text x="1147.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">E  Enji</text>
 <circle cx="1320.0" cy="889.0" r="10" fill="#9fd1ee" stroke="#1b2430" stroke-width="2"/>
 <text x="1337.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">N  le narrateur</text>
-<text x="70.0" y="931.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra : à hauteur d'yeux, angle de vue 60°. Dans le champ : Enji (à gauche), Jeannot (à gauche), la 4L (à gauche), voisin (côté narrateur) (à droite), Maison d'HENRI (à </text>
+<text x="70.0" y="931.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra : à hauteur d'yeux, angle de vue 100°. Dans le champ : Enji (au centre), Jeannot (à gauche), narrateur (à droite), Maison de JEANNOT (à gauche), la 4L (au centre),</text>
 <text x="70.0" y="965.0" font-size="14" fill="#7a1d27" text-anchor="start" font-weight="bold">Règle : les lieux ne bougent jamais ; véhicules et personnages restent en place sauf action prévue dans le plan.</text>
 </svg>

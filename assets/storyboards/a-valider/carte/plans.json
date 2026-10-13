@@ -2,11 +2,11 @@
  "P01": {
   "cameras": [
    {
-    "x": 95.0,
+    "x": 126.8,
     "y": 495.0,
     "angle": 0.0,
-    "fov": 60.0,
-    "portee": 1300.0,
+    "fov": 100.0,
+    "portee": 1720.0,
     "hauteur": "à hauteur d'yeux"
    }
   ],
@@ -73,7 +73,7 @@
    }
   },
   "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\n",
-  "rev": 6,
-  "maj": "2026-10-13 09:57"
+  "rev": 7,
+  "maj": "2026-10-13 10:12"
  }
 }

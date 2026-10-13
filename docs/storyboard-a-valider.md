@@ -74,7 +74,7 @@ D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit 
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 6, 2026-10-13 09:57) :
+🗺️ Carte du plan (rév. 7, 2026-10-13 10:12) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 

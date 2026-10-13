@@ -104,7 +104,7 @@ La v16 avec seulement tes corrections : la sorcière est environ 2 fois plus gra
 
 - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
 
-**P01 · v18** — ⏳ à valider — tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg · 🟢 conforme à la carte actuelle (rév. 11)  
+**P01 · v18** — 🔁 à retoucher — tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg · 🟢 conforme à la carte actuelle (rév. 11)  
 La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault Estafette de face (calandre basse à lamelles, phares ronds, clignotants orange, pare-chocs chromé, d'après P02 v2 / P03) avec le losange Renault devant, même place, même largeur, même bleu-gris ; la tourelle est un peu plus large, la fenêtre plus grande et bien dans le mur, la sorcière plus grande, penchée dehors (tête et cheveux hors de la fenêtre), elle fume toujours. Toit vérifié : les morceaux de toit rouges remontés avec le cône en v16 (au-dessus du faîtage à gauche, au bout de la corniche à droite) sont enlevés, l'antenne est revenue comme en v13, et le double débord de toit / la marche / la plaque pâle à gauche de la tourelle sont remplacés par un seul débord. Rien d'autre ne bouge. Contrôle automatique CONFORME (0 pixel modifié hors des 3 zones : toit, tourelle, Estafette).
 
 <img src="../assets/storyboards/a-valider/p01/p01-v18-retouche-v17.png" width="640" alt="P01 v18">

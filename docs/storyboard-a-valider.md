@@ -114,6 +114,8 @@ La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle
 
 <img src="../assets/storyboards/a-valider/p01/p01-v16-retouche-v13.png" width="640" alt="P01 v16">
 
+- 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
+
 <details><summary>🗄️ 11 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png

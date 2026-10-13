@@ -53,7 +53,7 @@
      "source": "tools/draw_street_map.py base v4 (lieux rév. 6)",
      "note": "Carte recalée sur l'image P01 v13 (la carte suit l'image, pas l'inverse). La rue est prolongée de 12 m vers l'ouest (la caméra de la v13 est 6,5 m avant le début de la rue, avec un téléobjectif de 28°). La maison de Jeannot est plus longue (x 170–690), avec ses 2 tourelles comme dans la v13 : une tour ronde à toit rouge et la tourelle à balcon en ardoise (celle de la sorcière). La maison d'Henri suit, avec son escalier côté rue qui monte vers l'ouest. Le garage est collé à la maison d'Henri (x 1000–1115), la maison de Diego est juste après (l'Estafette devant), puis un voisin et le passage à niveau, qui n'a pas bougé. Un des deux voisins côté Jeannot disparaît.",
      "etat": "a-retoucher",
-     "avis": ""
+     "avis": []
     }
    ]
   },
@@ -266,7 +266,12 @@
      "source": "tools/p01_v16.py (retouches locales sur v13) · contrôle : tools/controle_retouche.py → p01-v16-controle.jpg",
      "note": "La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle d'ardoise de la maison de Jeannot est retiré pour dégager la vue ; la tourelle est surélevée d'environ 0,55 m et son corps descend jusqu'au mur du jardin ; la sorcière est penchée à la fenêtre de la tourelle, au-dessus de la 4L ; le capot avant de la Coccinelle est ouvert, avec des outils et une caisse à outils au sol. Rien d'autre ne bouge (rue, Jeannot, Enji, 4L, maisons, Diego, Henri, Estafette). Contrôle automatique CONFORME : 0 pixel modifié hors des 2 zones, couleurs déjà présentes dans l'image, pas de grain ajouté, raccords invisibles.",
      "etat": "a-retoucher",
-     "avis": "",
+     "avis": [
+      {
+       "date": "2026-10-13 11:54",
+       "texte": "la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)"
+      }
+     ],
      "carte": {
       "plan_rev": 8,
       "lieux_rev": 6

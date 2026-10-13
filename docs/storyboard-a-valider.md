@@ -154,6 +154,10 @@ Reframe P02 with fixed 4L continuity — version en place dans le storyboard
 
 > Pan vers la maison voisine et l'escalier d'Henri, puis vers la tourelle de la sorcière et l'autre bout de la rue où se trouve Diego. Finir le mouvement sur Jeannot, prêt pour la première entrée vocale.
 
+🗺️ Carte du plan (rév. 1, 2026-10-13 13:16) :
+
+<img src="../assets/storyboards/a-valider/carte/plans/p03.png" width="420" alt="carte P03">
+
 **P03 · v1** — ⏳ à valider — ancien fil, commit 7bda9a7 (03h56) · ⚪ faite sans carte du plan  
 Add P03 street geography storyboard frame
 

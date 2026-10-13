@@ -45,6 +45,15 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 #zoom .zst{flex:1;position:relative;overflow:hidden;cursor:grab;touch-action:none} #zoom .zst.drag{cursor:grabbing}
 #zoom .zst img{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;max-height:none;user-select:none;-webkit-user-drag:none}
 #zoom .zst.pix img{image-rendering:pixelated}
+#zoom .pin{position:absolute;width:0;height:0;pointer-events:none}
+#zoom .pin i{position:absolute;left:-11px;top:-25px;width:22px;height:22px;border-radius:50%;background:#f2bf44;color:#0b111c;font:700 12px/22px system-ui;text-align:center;box-shadow:0 0 0 2px #0b111c}
+#zoom .pin:after{content:"";position:absolute;left:-1px;top:-3px;width:2px;height:12px;background:#f2bf44}
+#zpts{display:none;padding:6px 10px;background:#0b111cf0;border-top:1px solid var(--line);color:#cbd5e1;font-size:13px;max-height:32%;overflow:auto}
+#zpts .pr{display:flex;gap:6px;align-items:center;margin:3px 0}
+#zpts .pr b{color:var(--or);min-width:104px;font-variant-numeric:tabular-nums}
+#zpts input{flex:1;padding:2px 6px;background:#0f172a;color:#e6e9ef;border:1px solid var(--line);border-radius:5px}
+#zpt.on{background:#f2bf44;color:#0b111c}
+#zoom.ptmode .zst{cursor:crosshair}
 #zoomvue{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;z-index:11;padding:8px;gap:6px}
 #zoomvue .zh{display:flex;gap:10px;align-items:center;color:#cbd5e1;font-size:14px} #zoomvue .zh b{color:var(--or)}
 #zoomvue iframe{flex:1;width:100%;border:1px solid var(--line);border-radius:8px;background:#0b111c}
@@ -67,8 +76,8 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 <main id="main">Chargement…</main>
 <div id="zoom"><div class="zbar">🔍 <button data-z="fit">Ajuster</button><button data-z="1">Taille réelle</button><button data-z="2">×2</button><button data-z="4">×4</button>
 <button data-z="-">−</button><input id="zrange" type="range" min="0" max="1000" value="0"><button data-z="+">+</button><b id="zpct">100 %</b>
-<label><input id="zpix" type="checkbox"> pixels nets</label><a id="zedit" href="#" style="display:none;color:#f2bf44">✏️ modifier cette carte (carte interactive, avec zoom)</a><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici (sur une carte : passer en modifiable) · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
-<div class="zst"><img alt="" draggable="false"></div></div>
+<label><input id="zpix" type="checkbox"> pixels nets</label><button id="zpt" title="Pointer un endroit : je note les coordonnées exactes du pixel (repère 1920×1080) et je les reçois avec ton avis">📍 Pointer</button><a id="zedit" href="#" style="display:none;color:#f2bf44">✏️ modifier cette carte (carte interactive, avec zoom)</a><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici (sur une carte : passer en modifiable) · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
+<div class="zst"><img alt="" draggable="false"></div><div id="zpts"></div></div>
 <div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> <span id="zvd">vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)</span><span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
 <div id="toast"></div>
 <script>
@@ -155,14 +164,36 @@ const ZV={s:1,x:0,y:0,fit:1,min:1,max:8,pts:new Map(),pinch:null};
 function zEls(){ const z=document.getElementById('zoom'); return {z, st:z.querySelector('.zst'), img:z.querySelector('.zst img')}; }
 function zApply(){ const {img}=zEls(); img.style.transform=`translate(${ZV.x}px,${ZV.y}px) scale(${ZV.s})`;
   document.getElementById('zpct').textContent=Math.round(ZV.s*100)+' %';
-  const r=Math.log(ZV.s/ZV.min)/Math.log(ZV.max/ZV.min); document.getElementById('zrange').value=Math.round(1000*Math.max(0,Math.min(1,r))); }
+  const r=Math.log(ZV.s/ZV.min)/Math.log(ZV.max/ZV.min); document.getElementById('zrange').value=Math.round(1000*Math.max(0,Math.min(1,r))); pinsPos(); }
 function zClamp(){ const {st,img}=zEls(); const W=st.clientWidth,H=st.clientHeight, w=img.naturalWidth*ZV.s, h=img.naturalHeight*ZV.s;
   ZV.x = w<=W ? (W-w)/2 : Math.min(0,Math.max(W-w,ZV.x)); ZV.y = h<=H ? (H-h)/2 : Math.min(0,Math.max(H-h,ZV.y)); }
 function zSet(s,cx,cy){ const {st}=zEls(); s=Math.max(ZV.min,Math.min(ZV.max,s)); if(cx==null){cx=st.clientWidth/2;cy=st.clientHeight/2;}
   const ix=(cx-ZV.x)/ZV.s, iy=(cy-ZV.y)/ZV.s; ZV.s=s; ZV.x=cx-ix*s; ZV.y=cy-iy*s; zClamp(); zApply(); }
 function zFit(){ const {st,img}=zEls(); ZV.fit=Math.min(st.clientWidth/img.naturalWidth, st.clientHeight/img.naturalHeight); ZV.min=Math.min(ZV.fit,1);
   ZV.max=Math.max(8,ZV.fit*8); ZV.s=ZV.fit; ZV.x=0; ZV.y=0; zClamp(); zApply(); }
-function zOpen(src){ const {z,img}=zEls(); z.style.display='flex'; ZV.src=src;
+// --- 📍 pointage : on clique sur l'image, les coordonnées du pixel partent avec l'avis
+let PTS=[], PTMODE=false, ZKEY=null;
+function pinsPos(){ const {st}=zEls(); st.querySelectorAll('.pin').forEach(p=>{ const q=PTS[+p.dataset.i];
+  if(q){ p.style.left=(ZV.x+q.x*ZV.s)+'px'; p.style.top=(ZV.y+q.y*ZV.s)+'px'; } }); }
+function renderPts(){ const {st,img}=zEls(); st.querySelectorAll('.pin').forEach(p=>p.remove());
+  const box=document.getElementById('zpts');
+  if(!PTS.length && !PTMODE){ box.style.display='none'; return; }
+  box.style.display='block';
+  PTS.forEach((q,i)=>{ const d=document.createElement('div'); d.className='pin'; d.dataset.i=i;
+    d.innerHTML=`<i>${i+1}</i>`; st.appendChild(d); });
+  box.innerHTML=`<div style="margin-bottom:4px">${PTS.length?'📍 '+PTS.length+' point'+(PTS.length>1?'s':'')+' —':'📍 Mode pointage :'} repère de l'image : 0,0 en haut à gauche, ${img.naturalWidth||1920}×${img.naturalHeight||1080}. Clique sur l'image pour ${PTS.length?'en ajouter':'pointer un endroit'}.</div>`
+    + PTS.map((q,i)=>`<div class="pr"><b>${i+1}. (${q.x}, ${q.y})</b><input data-pi="${i}" placeholder="c'est quoi ? (ex. pieds d'Henri, haut des marches…)" value="${esc(q.quoi)}"></div>`).join('')
+    + (PTS.length?`<div class="pr" style="margin-top:6px"><button id="zpsend">📤 Envoyer ces pointages avec mon avis</button><button id="zpclear">🗑️ Effacer</button></div>`:'');
+  box.querySelectorAll('input[data-pi]').forEach(inp=>inp.oninput=e=>{ PTS[+e.target.dataset.pi].quoi=e.target.value; });
+  if(PTS.length){
+    document.getElementById('zpsend').onclick=envoyerPts;
+    document.getElementById('zpclear').onclick=()=>{ PTS=[]; renderPts(); };
+  }
+  pinsPos(); }
+async function envoyerPts(){ if(!ZKEY||!PTS.length) return; const [plan,opt]=ZKEY.split('|');
+  const t='📍 pointages sur l\'image :\n'+PTS.map((q,i)=>`${i+1}. (${q.x}, ${q.y})${q.quoi?' — '+q.quoi:''}`).join('\n');
+  try{ await post({plan, option:opt, texte:t}); PTS=[]; renderPts(); }catch(err){ toast('Erreur : '+err.message); } }
+function zOpen(src,key){ const {z,img}=zEls(); z.style.display='flex'; ZV.src=src; ZKEY=key||null; PTS=[]; renderPts();
   const mc=String(src).match(/carte\/plans\/(p\d+)[^/]*\.png/i); const ze=document.getElementById('zedit');
   ze.style.display=mc?'':'none'; if(mc) ze.href='carte.html#'+mc[1].toUpperCase(); img.onload=()=>zFit(); img.src=src; if(img.complete&&img.naturalWidth) zFit(); }
 // centre et largeur visibles, en coordonnées carte (l'image est la carte à 2 px pour 1 unité, décalée de ox)
@@ -173,13 +204,21 @@ function zVueCarte(){ const {st,img}=zEls(); if(!img.naturalWidth) return null;
 function zClose(){ zEls().z.style.display='none'; }
 (function(){ const {z,st}=zEls();
   st.addEventListener('wheel',e=>{ e.preventDefault(); const r=st.getBoundingClientRect(); zSet(ZV.s*Math.exp(-e.deltaY*0.0015*(e.deltaMode?40:1)), e.clientX-r.left, e.clientY-r.top); },{passive:false});
-  st.addEventListener('pointerdown',e=>{ st.setPointerCapture(e.pointerId); ZV.pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); st.classList.add('drag'); ZV.pinch=null; });
+  st.addEventListener('pointerdown',e=>{ st.setPointerCapture(e.pointerId); ZV.pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); st.classList.add('drag'); ZV.pinch=null; ZV.dgp={x:e.clientX,y:e.clientY,ok:true}; });
   st.addEventListener('pointermove',e=>{ const p=ZV.pts.get(e.pointerId); if(!p) return; const r=st.getBoundingClientRect();
+    if(ZV.dgp && Math.hypot(e.clientX-ZV.dgp.x, e.clientY-ZV.dgp.y)>4) ZV.dgp.ok=false;
     if(ZV.pts.size===2){ const [a,b]=[...ZV.pts.values()]; const d0=Math.hypot(a.x-b.x,a.y-b.y); p.x=e.clientX; p.y=e.clientY; const [c,d]=[...ZV.pts.values()];
       const d1=Math.hypot(c.x-d.x,c.y-d.y); if(d0>0) zSet(ZV.s*d1/d0,(c.x+d.x)/2-r.left,(c.y+d.y)/2-r.top); return; }
     ZV.x+=e.clientX-p.x; ZV.y+=e.clientY-p.y; p.x=e.clientX; p.y=e.clientY; zClamp(); zApply(); });
   const up=e=>{ ZV.pts.delete(e.pointerId); if(!ZV.pts.size) st.classList.remove('drag'); };
   st.addEventListener('pointerup',up); st.addEventListener('pointercancel',up);
+  st.addEventListener('click',e=>{ if(!PTMODE||!(ZV.dgp&&ZV.dgp.ok)) return;   // 📍 : un clic net = un point
+    const r=st.getBoundingClientRect(), im=zEls().img;
+    const x=Math.round((e.clientX-r.left-ZV.x)/ZV.s), y=Math.round((e.clientY-r.top-ZV.y)/ZV.s);
+    if(x<0||y<0||x>=(im.naturalWidth||1e9)||y>=(im.naturalHeight||1e9)) return;
+    PTS.push({x,y,quoi:''}); renderPts(); });
+  { const zp=document.getElementById('zpt'); zp.onclick=()=>{ PTMODE=!PTMODE; zp.classList.toggle('on',PTMODE);
+      z.classList.toggle('ptmode',PTMODE); renderPts(); }; }
   st.addEventListener('dblclick',e=>{ const r=st.getBoundingClientRect();
     const mc=String(ZV.src||'').match(/carte\/plans\/(p\d+)[^/]*\.png/i);   // sur une carte : double-clic = passer en modifiable
     if(mc){ const c=zVueCarte(); zClose(); ouvreCarte(mc[1].toUpperCase(), c); return; }
@@ -207,7 +246,8 @@ function allerA(h){ if(!h) return; let el=null;
 document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ fermeVue(); zClose(); } });
 document.addEventListener('click', async e=>{
   const el = e.target;
-  if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { zOpen(el.src); return; }
+  if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { const f=el.closest('figure');
+    zOpen(el.src, f && f.id.startsWith('f-') ? f.id.slice(2).replace(/^([A-Z]+\d*)-(.*)$/, '$1|$2') : null); return; }
   if (el.closest('#zoom')) return;
   const vm = el.closest('.vuemini'); if (vm) { ouvreVue(vm.dataset.vue); return; }
   if (el.id==='zvx') { fermeVue(); return; }

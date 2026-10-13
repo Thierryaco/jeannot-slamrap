@@ -67,7 +67,7 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 <main id="main">Chargement…</main>
 <div id="zoom"><div class="zbar">🔍 <button data-z="fit">Ajuster</button><button data-z="1">Taille réelle</button><button data-z="2">×2</button><button data-z="4">×4</button>
 <button data-z="-">−</button><input id="zrange" type="range" min="0" max="1000" value="0"><button data-z="+">+</button><b id="zpct">100 %</b>
-<label><input id="zpix" type="checkbox"> pixels nets</label><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
+<label><input id="zpix" type="checkbox"> pixels nets</label><a id="zedit" href="#" style="display:none;color:#f2bf44">✏️ modifier cette carte (carte interactive, avec zoom)</a><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
 <div class="zst"><img alt="" draggable="false"></div></div>
 <div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> <span id="zvd">vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)</span><span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
 <div id="toast"></div>
@@ -161,7 +161,9 @@ function zSet(s,cx,cy){ const {st}=zEls(); s=Math.max(ZV.min,Math.min(ZV.max,s))
   const ix=(cx-ZV.x)/ZV.s, iy=(cy-ZV.y)/ZV.s; ZV.s=s; ZV.x=cx-ix*s; ZV.y=cy-iy*s; zClamp(); zApply(); }
 function zFit(){ const {st,img}=zEls(); ZV.fit=Math.min(st.clientWidth/img.naturalWidth, st.clientHeight/img.naturalHeight); ZV.min=Math.min(ZV.fit,1);
   ZV.max=Math.max(8,ZV.fit*8); ZV.s=ZV.fit; ZV.x=0; ZV.y=0; zClamp(); zApply(); }
-function zOpen(src){ const {z,img}=zEls(); z.style.display='flex'; img.onload=()=>zFit(); img.src=src; if(img.complete&&img.naturalWidth) zFit(); }
+function zOpen(src){ const {z,img}=zEls(); z.style.display='flex';
+  const mc=String(src).match(/carte\/plans\/(p\d+)[^/]*\.png/i); const ze=document.getElementById('zedit');
+  ze.style.display=mc?'':'none'; if(mc) ze.href='carte.html#'+mc[1].toUpperCase(); img.onload=()=>zFit(); img.src=src; if(img.complete&&img.naturalWidth) zFit(); }
 function zClose(){ zEls().z.style.display='none'; }
 (function(){ const {z,st}=zEls();
   st.addEventListener('wheel',e=>{ e.preventDefault(); const r=st.getBoundingClientRect(); zSet(ZV.s*Math.exp(-e.deltaY*0.0015*(e.deltaMode?40:1)), e.clientX-r.left, e.clientY-r.top); },{passive:false});

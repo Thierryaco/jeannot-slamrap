@@ -16,8 +16,12 @@ button{padding:5px 10px;border-radius:6px;border:1px solid var(--line);backgroun
 button:hover{background:#233149} button.main{background:#3a3010;color:var(--or);border-color:#6b5717;font-weight:600}
 button:disabled{opacity:.4;cursor:default}
 #wrap{flex:1;display:flex;min-height:0}
-#stage{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#05080d;padding:6px;gap:6px}
+#stage{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#05080d;padding:6px;gap:6px}
 #svg{width:100%;flex:1;min-height:0;touch-action:none;user-select:none}
+#svg.pan{cursor:grabbing}
+#zbarc{position:absolute;left:10px;bottom:10px;z-index:3;display:flex;gap:4px;align-items:center;background:#0b111ce6;border:1px solid #2a3a52;border-radius:8px;padding:4px 6px;color:#cbd5e1;font-size:12px}
+#zbarc button{padding:2px 8px} #zbarc b{min-width:44px;text-align:right;color:#f2bf44}
+body.seulevue #zbarc{display:none}
 #vuebox{width:100%;display:flex;flex-direction:column;align-items:center;gap:3px}
 #vuebox .vh{font-size:12.5px;color:#cbd5e1;display:flex;gap:10px;align-items:center}
 #vue{height:min(36vh,42vw);aspect-ratio:16/9;max-width:100%;background:#1b2636;border:1px solid var(--line);border-radius:6px}
@@ -64,6 +68,7 @@ body.seulevue.mini #vue{width:100%;max-height:100vh;border:0;border-radius:0}
   <div id="stage"><div id="vuebar">👁️ <b id="vuetitre"></b><span>vue de la caméra calculée depuis la carte — lecture seule</span><span style="flex:1"></span>
       <a id="vueedit" href="#">✏️ modifier dans la carte</a><button id="vuefermer">✕ revenir à la carte</button></div>
     <svg id="svg" viewBox="-300 0 1900 1000"></svg>
+    <div id="zbarc">🔍 <button id="zm" title="dézoomer (touche −)">−</button><b id="zpc">100 %</b><button id="zp" title="zoomer (touche +)">+</button><button id="zt" title="toute la carte (touche 0)">⤢ tout voir</button><span>molette = zoom · glisser le fond = déplacer</span></div>
     <div id="vuebox"><div class="vh">👁️ <b>Vue de la caméra</b> (calculée depuis la carte : c'est ce que l'image doit montrer)
       <button id="vuegrand" title="Voir la vue caméra en plein écran, sans la carte (Échap pour revenir)">⤢ agrandir en plein écran</button><button id="vuecache">masquer</button></div>
       <svg id="vue" viewBox="0 0 1920 1080"></svg></div></div>
@@ -494,18 +499,31 @@ function pt(evt){const p=svg.createSVGPoint();p.x=evt.clientX;p.y=evt.clientY;re
 let drag=null;
 svg.addEventListener('pointerdown',e=>{
   const t=e.target.closest('[data-kind]'); const q=pt(e);
-  if(!t){sel=null;drawItems();updatePanel(true);return;}
+  if(!t || e.button===1){ pan={x:e.clientX,y:e.clientY,moved:false,vb:VB.slice(),k:svg.getScreenCTM().a}; svg.setPointerCapture(e.pointerId); svg.classList.add('pan'); e.preventDefault(); return; }
   if(t.dataset.kind==='handle'){drag={mode:'rot'};}
   else{ sel={kind:t.dataset.kind,id:t.dataset.kind==='cam'?+t.dataset.id:t.dataset.id}; const o=selObj(); drag={mode:'move',dx:q.x-o.x,dy:q.y-o.y}; updatePanel(true);}
   svg.setPointerCapture(e.pointerId); drawItems(); e.preventDefault();
 });
 svg.addEventListener('pointermove',e=>{
+  if(pan){ const dx=e.clientX-pan.x, dy=e.clientY-pan.y; if(Math.abs(dx)+Math.abs(dy)>3) pan.moved=true;
+    if(pan.moved){ VB[0]=pan.vb[0]-dx/pan.k; VB[1]=pan.vb[1]-dy/pan.k; setVB(); } return; }
   if(!drag||!sel) return; const q=pt(e), o=selObj();
   if(drag.mode==='move'){o.x=Math.round(q.x-drag.dx);o.y=Math.round(q.y-drag.dy);}
   else{let a=Math.atan2(q.y-o.y,q.x-o.x)*180/Math.PI; if(e.shiftKey) a=Math.round(a/15)*15; o.angle=Math.round(a);}
   setDirty(true); drawItems();
 });
-svg.addEventListener('pointerup',()=>{ if(drag){drag=null; snap();} });
+svg.addEventListener('pointerup',()=>{ if(pan){ const clic=!pan.moved; pan=null; svg.classList.remove('pan'); if(clic){sel=null;drawItems();updatePanel(true);} return; }
+  if(drag){drag=null; snap();} });
+// --- zoom de la carte (la sélection, le glisser et la rotation restent actifs à tous les niveaux de zoom)
+const VB0=[-300,0,1900,1000]; let VB=VB0.slice(), pan=null;
+function setVB(){ svg.setAttribute('viewBox',VB.map(v=>Math.round(v*10)/10).join(' ')); $('zpc').textContent=Math.round(100*VB0[2]/VB[2])+' %'; }
+function zoomCarte(f,cx,cy){ const w=Math.max(120,Math.min(VB0[2]*1.5,VB[2]/f)); f=VB[2]/w;
+  if(cx==null){cx=VB[0]+VB[2]/2; cy=VB[1]+VB[3]/2;}
+  VB=[cx-(cx-VB[0])/f, cy-(cy-VB[1])/f, VB[2]/f, VB[3]/f]; setVB(); }
+svg.addEventListener('wheel',e=>{ e.preventDefault(); const q=pt(e); zoomCarte(Math.exp(-e.deltaY*0.0015*(e.deltaMode?40:1)),q.x,q.y); },{passive:false});
+$('zp').onclick=()=>zoomCarte(1.5); $('zm').onclick=()=>zoomCarte(1/1.5); $('zt').onclick=()=>{VB=VB0.slice(); setVB();};
+document.addEventListener('keydown',e=>{ const t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA'||t==='SELECT'||e.ctrlKey||e.metaKey) return;
+  if(e.key==='+'||e.key==='=') zoomCarte(1.5); else if(e.key==='-') zoomCarte(1/1.5); else if(e.key==='0'){VB=VB0.slice(); setVB();} });
 
 // --- boutons
 $('plan').onchange=e=>load(e.target.value);

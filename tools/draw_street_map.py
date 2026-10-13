@@ -101,7 +101,7 @@ def draw_base(c, L):
             n = 9
             for i in range(1, n):
                 c.line(d["x"] + i * d["w"] / n, d["y"], d["x"] + i * d["w"] / n, d["y"] + d["h"], "#6e6658", 1)
-            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 + 5, "monte →", 11, "#3b352b", True)
+            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 + 5, ("monte →" if d.get("montee", "est") == "est" else "← monte"), 11, "#3b352b", True)
             pa = d.get("palier")
             if pa:
                 c.rect(pa["x"], pa["y"], pa["w"], pa["h"], "#d8cfbd", "#33404f", 2)

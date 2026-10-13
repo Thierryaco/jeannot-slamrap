@@ -86,7 +86,7 @@ D'après ton avis sur la v4 : le fond du garage est aligné sur le fond des mais
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 9, 2026-10-13 10:12) :
+🗺️ Carte du plan (rév. 10, 2026-10-13 10:12) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
@@ -106,7 +106,7 @@ La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle
 
 - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
 
-**P01 · v17** — ⏳ à valider — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg · 🟢 conforme à la carte actuelle (rév. 9)  
+**P01 · v17** — ⏳ à valider — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg · 🟠 faite d'après la carte rév. 9 — la carte a changé depuis  
 La v16 avec seulement tes corrections : la sorcière est environ 2 fois plus grande, penchée à une fenêtre ronde plus grande de la tourelle, et elle fume (une seule volute) ; Diego est à genoux devant sa caisse à outils, devant la Coccinelle au capot ouvert. Rien d'autre ne bouge. Carte P01 rév. 9 (Coccinelle, Diego et Estafette recalés sur l'image) et lieux rév. 7 (garage aligné). Contrôle automatique CONFORME (0 pixel modifié hors des 2 zones) ; la zone de Diego a été refaite une fois car elle était trop nette/granuleuse (×1,18) par rapport à la v16.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png" width="640" alt="P01 v17">

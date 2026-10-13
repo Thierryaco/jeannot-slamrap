@@ -54,6 +54,7 @@ body.seulevue.mini #vue{width:100%;max-height:100vh;border:0;border-radius:0}
   <h1>Carte interactive</h1>
   <select id="plan"></select>
   <button id="prev">◀</button><button id="next">▶</button>
+  <button id="undo" title="Annuler la dernière modification (Ctrl+Z)" disabled>↶ Annuler</button><button id="redo" title="Rétablir (Ctrl+Y ou Ctrl+Maj+Z)" disabled>↷ Rétablir</button>
   <button class="main" id="save">💾 Enregistrer le plan</button>
   <span id="status"></span>
   <span style="flex:1"></span>
@@ -95,7 +96,17 @@ const clone=o=>JSON.parse(JSON.stringify(o));
 const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
 const $=id=>document.getElementById(id);
 
-function setDirty(v){dirty=v;const s=$('status');s.className=v?'dirty':'';s.textContent=v?'● modifications non enregistrées':'';}
+// --- historique annuler / rétablir (un pas par modification ; un glisser-déposer = un seul pas)
+let UNDO=[], REDO=[], lastSnap=null;
+function histBtns(){const u=$('undo'),r=$('redo'); if(u){u.disabled=!UNDO.length; u.title=`Annuler la dernière modification (Ctrl+Z) — ${UNDO.length} pas`;} if(r) r.disabled=!REDO.length;}
+function histReset(){UNDO=[];REDO=[];lastSnap=JSON.stringify(data);histBtns();}
+function snap(){const j=JSON.stringify(data); if(lastSnap!==null&&j!==lastSnap){UNDO.push(lastSnap); if(UNDO.length>300) UNDO.shift(); REDO=[];} lastSnap=j; histBtns();}
+function histGo(from,to){ if(!from.length) return; to.push(JSON.stringify(data)); const s=from.pop(); data=JSON.parse(s); lastSnap=s;
+  if(sel&&!(sel.kind==='cam'?data.cameras[sel.id]:data.elements[sel.id])) sel=null;
+  dirty=true; const st=$('status'); st.className='dirty'; st.textContent='● modifications non enregistrées';
+  renderEls(); drawItems(); updatePanel(true); histBtns(); }
+function undo(){histGo(UNDO,REDO);} function redo(){histGo(REDO,UNDO);}
+function setDirty(v){ if(v&&!(typeof drag!=='undefined'&&drag)) snap(); dirty=v;const s=$('status');s.className=v?'dirty':'';s.textContent=v?'● modifications non enregistrées':'';}
 
 function drawBase(){
   svg.innerHTML='';
@@ -118,7 +129,7 @@ function drawBase(){
     if(d.type==='tourelle'){el('circle',{cx:d.x,cy:d.y,r:d.r,fill:'#c9b6e8',stroke:'#1b2430','stroke-width':2},g);}
     if(d.type==='escalier'){el('rect',{x:d.x,y:d.y,width:d.w,height:d.h,fill:'#bfb7a8',stroke:'#33404f'},g);
       for(let i=1;i<9;i++)el('line',{x1:d.x+i*d.w/9,y1:d.y,x2:d.x+i*d.w/9,y2:d.y+d.h,stroke:'#6e6658'},g);
-      {const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+4,'font-size':11,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent='monte →';}
+      {const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+4,'font-size':11,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent=(d.montee||'est')==='est'?'monte →':'← monte';}
       if(d.palier){const p=d.palier;el('rect',{x:p.x,y:p.y,width:p.w,height:p.h,fill:'#d8cfbd',stroke:'#33404f','stroke-width':2},g);
         const t=el('text',{x:p.x+p.w/2,y:p.y+p.h/2+4,'font-size':10,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent='palier';}
       const t=el('text',{x:d.x+d.w/2,y:d.y+d.h+15,'font-size':12,'text-anchor':'middle',fill:'#4a5566'},g);t.textContent="escalier d'Henri";}
@@ -467,7 +478,7 @@ function fresh(planId){
 
 function load(planId){
   if(dirty&&!confirm('Des modifications ne sont pas enregistrées. Changer de plan quand même ?')){ $('plan').value=cur; return; }
-  cur=planId; data=fresh(planId); sel=null; setDirty(false);
+  cur=planId; data=fresh(planId); sel=null; setDirty(false); histReset();
   for(const k of L.catalogue) if(!data.elements[k.id]) data.elements[k.id]={...clone(L.defaut.elements[k.id]),visible:false};
   const m=META.find(x=>x.plan===planId)||{};
   $('lyr').textContent=`${planId} · ${m.temps||''} · ${m.paroles||''}`; $('brief').textContent=m.brief||'';
@@ -494,7 +505,7 @@ svg.addEventListener('pointermove',e=>{
   else{let a=Math.atan2(q.y-o.y,q.x-o.x)*180/Math.PI; if(e.shiftKey) a=Math.round(a/15)*15; o.angle=Math.round(a);}
   setDirty(true); drawItems();
 });
-svg.addEventListener('pointerup',()=>{drag=null;});
+svg.addEventListener('pointerup',()=>{ if(drag){drag=null; snap();} });
 
 // --- boutons
 $('plan').onchange=e=>load(e.target.value);
@@ -509,6 +520,9 @@ $('copyprev').onclick=()=>{const ids=META.map(m=>m.plan);const i=ids.indexOf(cur
 $('reset').onclick=()=>{ if(!confirm('Remettre le placement par défaut pour ce plan ?')) return; const note=data.note; data={cameras:clone(L.defaut.cameras),elements:clone(L.defaut.elements),note}; sel=null; setDirty(true); renderEls(); drawItems(); updatePanel(true); };
 $('save').onclick=save;
 document.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();save();} });
+document.addEventListener('keydown',e=>{ if(!(e.ctrlKey||e.metaKey)) return; const t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA') return;
+  const k=e.key.toLowerCase(); if(k==='z'&&!e.shiftKey){e.preventDefault();undo();} else if(k==='y'||(k==='z'&&e.shiftKey)){e.preventDefault();redo();} });
+$('undo').onclick=undo; $('redo').onclick=redo;
 window.addEventListener('beforeunload',e=>{ if(dirty){e.preventDefault();e.returnValue='';} });
 
 async function save(){

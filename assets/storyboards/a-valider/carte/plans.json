@@ -21,16 +21,17 @@
    },
    "estafette": {
     "x": 1182,
-    "y": 494,
+    "y": 450,
     "angle": 180,
-    "visible": true
+    "visible": true,
+    "action": "garée contre le trottoir côté Jeannot, devant la maison de Diego, l'avant vers la caméra"
    },
    "coccinelle": {
-    "x": 1068,
-    "y": 446,
+    "x": 1060,
+    "y": 398,
     "angle": 135,
     "visible": true,
-    "action": "capot avant ouvert, sort du garage vers la rue ; outils au sol"
+    "action": "sort du garage, capot avant ouvert, le nez sur le trottoir au ras de la bordure ; outils au sol"
    },
    "jeannot": {
     "x": 285,
@@ -58,12 +59,12 @@
     "visible": true
    },
    "diego": {
-    "x": 1008,
-    "y": 470,
+    "x": 1048,
+    "y": 421,
     "angle": -110,
     "visible": true,
     "pose": "accroupi",
-    "action": "à genoux devant sa caisse à outils, devant la Coccinelle"
+    "action": "à genoux sur le trottoir devant sa caisse à outils, au bord de la bordure, devant le nez de la Coccinelle"
    },
    "marco": {
     "x": 1265.0,
@@ -78,8 +79,8 @@
     "visible": false
    }
   },
-  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).\nRév. 9 : Coccinelle, Diego et Estafette recalés sur l'image P01 v16 (point de contact au sol + sens).",
-  "rev": 9,
+  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).\nRév. 9 : Coccinelle, Diego et Estafette recalés sur l'image P01 v16 (point de contact au sol + sens).\nRév. 10 : d'après l'image (avis) — Coccinelle qui sort du garage sur le trottoir, Diego à genoux sur le trottoir au bord de la bordure, Estafette garée contre le trottoir côté Jeannot.",
+  "rev": 10,
   "maj": "2026-10-13 10:12"
  }
 }

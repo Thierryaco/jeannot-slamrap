@@ -572,6 +572,10 @@ function buildSelect(){
   L=api.lieux; PLANS=api.plans||{}; META=api.meta;
   drawBase(); buildSelect();
   const h=location.hash.slice(1).toUpperCase(); load(META.some(m=>m.plan===h)?h:META[0].plan);
+  // ?c=cx,cy,w : ouverture centrée sur la zone regardée dans la visionneuse (double-clic sur la carte)
+  { const c=(new URLSearchParams(location.search).get('c')||'').split(',').map(Number);
+    if(c.length===3&&c.every(v=>isFinite(v))){ const w=Math.max(120,Math.min(VB0[2]*1.5,c[2])), hh=w*VB0[3]/VB0[2];
+      VB=[c[0]-w/2, c[1]-hh/2, w, hh]; setVB(); } }
   window.addEventListener('hashchange',()=>{const h=location.hash.slice(1).toUpperCase(); if(h!==cur&&META.some(m=>m.plan===h)) load(h);});
 })();
 </script>

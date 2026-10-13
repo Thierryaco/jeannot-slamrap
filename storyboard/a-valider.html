@@ -67,7 +67,7 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 <main id="main">Chargement…</main>
 <div id="zoom"><div class="zbar">🔍 <button data-z="fit">Ajuster</button><button data-z="1">Taille réelle</button><button data-z="2">×2</button><button data-z="4">×4</button>
 <button data-z="-">−</button><input id="zrange" type="range" min="0" max="1000" value="0"><button data-z="+">+</button><b id="zpct">100 %</b>
-<label><input id="zpix" type="checkbox"> pixels nets</label><a id="zedit" href="#" style="display:none;color:#f2bf44">✏️ modifier cette carte (carte interactive, avec zoom)</a><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
+<label><input id="zpix" type="checkbox"> pixels nets</label><a id="zedit" href="#" style="display:none;color:#f2bf44">✏️ modifier cette carte (carte interactive, avec zoom)</a><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici (sur une carte : passer en modifiable) · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
 <div class="zst"><img alt="" draggable="false"></div></div>
 <div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> <span id="zvd">vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)</span><span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
 <div id="toast"></div>
@@ -141,9 +141,10 @@ async function post(body){
 
 function ouvreVue(plan){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; document.getElementById('zvt').textContent=plan;
   z.querySelector('iframe').src='carte.html?vue&t='+Date.now()+'#'+plan; z.style.display='flex'; }
-function ouvreCarte(plan){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; z.dataset.mode='carte'; document.getElementById('zvt').textContent=plan;
+function ouvreCarte(plan, c){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; z.dataset.mode='carte'; document.getElementById('zvt').textContent=plan;
   document.getElementById('zvd').textContent='carte interactive du plan — modifiable (pense à 💾 Enregistrer ; ↶ Annuler si besoin)';
-  z.querySelector('iframe').src='carte.html?t='+Date.now()+'#'+plan; z.style.display='flex'; }
+  const q = c ? `&c=${Math.round(c.x)},${Math.round(c.y)},${Math.round(c.w)}` : '';
+  z.querySelector('iframe').src='carte.html?t='+Date.now()+q+'#'+plan; z.style.display='flex'; }
 async function rechargeCarte(){ try{ const [cp,lx]=await Promise.all([`${CARTE_DIR}/plans.json`,`${CARTE_DIR}/lieux.json`].map(u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():{})));
   CPLANS=cp||{}; LREV=(lx&&lx.rev)||1; render(); }catch{} }
 function fermeVue(){ const z=document.getElementById('zoomvue'); const etaitCarte=z.dataset.mode==='carte'; z.dataset.mode=''; z.style.display='none'; z.querySelector('iframe').src='about:blank';
@@ -161,9 +162,14 @@ function zSet(s,cx,cy){ const {st}=zEls(); s=Math.max(ZV.min,Math.min(ZV.max,s))
   const ix=(cx-ZV.x)/ZV.s, iy=(cy-ZV.y)/ZV.s; ZV.s=s; ZV.x=cx-ix*s; ZV.y=cy-iy*s; zClamp(); zApply(); }
 function zFit(){ const {st,img}=zEls(); ZV.fit=Math.min(st.clientWidth/img.naturalWidth, st.clientHeight/img.naturalHeight); ZV.min=Math.min(ZV.fit,1);
   ZV.max=Math.max(8,ZV.fit*8); ZV.s=ZV.fit; ZV.x=0; ZV.y=0; zClamp(); zApply(); }
-function zOpen(src){ const {z,img}=zEls(); z.style.display='flex';
+function zOpen(src){ const {z,img}=zEls(); z.style.display='flex'; ZV.src=src;
   const mc=String(src).match(/carte\/plans\/(p\d+)[^/]*\.png/i); const ze=document.getElementById('zedit');
   ze.style.display=mc?'':'none'; if(mc) ze.href='carte.html#'+mc[1].toUpperCase(); img.onload=()=>zFit(); img.src=src; if(img.complete&&img.naturalWidth) zFit(); }
+// centre et largeur visibles, en coordonnées carte (l'image est la carte à 2 px pour 1 unité, décalée de ox)
+function zVueCarte(){ const {st,img}=zEls(); if(!img.naturalWidth) return null;
+  const ox = 1600 - img.naturalWidth/2;   // la rue prolongée vers l'ouest décale la vue de ox
+  const x = ((st.clientWidth/2 - ZV.x)/ZV.s)/2 + ox, y = ((st.clientHeight/2 - ZV.y)/ZV.s)/2;
+  return {x, y, w: Math.max(st.clientWidth/ZV.s/2, (st.clientHeight/ZV.s/2)*1.9)}; }
 function zClose(){ zEls().z.style.display='none'; }
 (function(){ const {z,st}=zEls();
   st.addEventListener('wheel',e=>{ e.preventDefault(); const r=st.getBoundingClientRect(); zSet(ZV.s*Math.exp(-e.deltaY*0.0015*(e.deltaMode?40:1)), e.clientX-r.left, e.clientY-r.top); },{passive:false});
@@ -174,7 +180,10 @@ function zClose(){ zEls().z.style.display='none'; }
     ZV.x+=e.clientX-p.x; ZV.y+=e.clientY-p.y; p.x=e.clientX; p.y=e.clientY; zClamp(); zApply(); });
   const up=e=>{ ZV.pts.delete(e.pointerId); if(!ZV.pts.size) st.classList.remove('drag'); };
   st.addEventListener('pointerup',up); st.addEventListener('pointercancel',up);
-  st.addEventListener('dblclick',e=>{ const r=st.getBoundingClientRect(); zSet(ZV.s<ZV.fit*2.5?ZV.s*3:ZV.fit, e.clientX-r.left, e.clientY-r.top); });
+  st.addEventListener('dblclick',e=>{ const r=st.getBoundingClientRect();
+    const mc=String(ZV.src||'').match(/carte\/plans\/(p\d+)[^/]*\.png/i);   // sur une carte : double-clic = passer en modifiable
+    if(mc){ const c=zVueCarte(); zClose(); ouvreCarte(mc[1].toUpperCase(), c); return; }
+    zSet(ZV.s<ZV.fit*2.5?ZV.s*3:ZV.fit, e.clientX-r.left, e.clientY-r.top); });
   document.getElementById('zrange').addEventListener('input',e=>zSet(ZV.min*Math.pow(ZV.max/ZV.min,e.target.value/1000)));
   document.getElementById('zpix').addEventListener('change',e=>st.classList.toggle('pix',e.target.checked));
   z.querySelector('.zbar').addEventListener('click',e=>{ const k=e.target.dataset&&e.target.dataset.z; if(!k) return; e.stopPropagation();

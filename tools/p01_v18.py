@@ -84,11 +84,47 @@ def estafette(a):
     return a
 
 
+def tourelle(a):
+    """Avis v17 : tourelle et sorcière légèrement plus grandes, tête plus sortie ; + vérif. « à côté » :
+    double débord de toit / marche / plaque pâle à gauche (traînés par le décalage v16) remplacés par un seul débord.
+    Crop-edit work/v18-tourelle-edit2.png (crop v18 x 250-610, y 0-360, x3). Le cône et l'antenne restent ceux de v18.
+    Le fût élargi (bord gauche x 343) est prolongé jusqu'au haut du mur (y ~470)."""
+    from scipy import ndimage
+    W = os.path.join(BASE, 'work')
+    X0, Y0, S = 250, 0, 360
+    e = Image.open(os.path.join(W, 'v18-tourelle-edit2.png')).convert('RGB').resize((S, S), Image.LANCZOS)
+    e = np.asarray(e.filter(ImageFilter.GaussianBlur(1.2))).astype(float)
+    v = a[Y0:Y0 + S, X0:X0 + S]
+    d = np.abs(ndimage.gaussian_filter(e, (2, 2, 0)) - ndimage.gaussian_filter(v, (2, 2, 0))).mean(2)
+    diff = ndimage.binary_closing(ndimage.binary_opening(d > 14, np.ones((3, 3))), np.ones((9, 9)))
+    m = np.zeros((S, S), bool)
+    def r(x0, x1, y0, y1): m[y0 - Y0:y1 - Y0, x0 - X0:x1 - X0] = True
+    r(340, 456, 172, 358)          # fût + fenêtre + sorcière
+    r(300, 466, 145, 190)          # corniche (raccord fût)
+    r(262, 345, 150, 262)          # débord de toit à gauche (un seul)
+    zone = np.zeros_like(m); zone[190:305, 440 - X0:505 - X0] = True
+    m |= diff & zone               # cheveux, main, fumée qui dépassent à droite
+    mf = ndimage.gaussian_filter(m.astype(float), 1.5)[..., None]
+    a[Y0:Y0 + S, X0:X0 + S] = v * (1 - mf) + e * mf
+    # prolongement du fût jusqu'au mur
+    prof = np.median(e[322:332, 340 - X0:453 - X0], axis=0)
+    prof = ndimage.uniform_filter1d(prof, 3, axis=0)
+    for i, x in enumerate(range(340, 453)):
+        for y in range(326, 472):
+            px = a[y, x]
+            if y >= 466 and px.mean() > 185:
+                break
+            t = min(1.0, (y - 326) / 22.0)
+            a[y, x] = a[y, x] * (1 - t) + prof[i] * t
+    return a
+
+
 def build():
     a = np.array(Image.open(V17).convert("RGB")).astype(float)
     o = np.array(Image.open(V13).convert("RGB")).astype(float)
     a = corrige_toit(a, o)
     a = estafette(a)
+    a = tourelle(a)
     return Image.fromarray(np.clip(a, 0, 255).astype("uint8"))
 
 

@@ -290,6 +290,18 @@
       "plan_rev": 11,
       "lieux_rev": 8
      }
+    },
+    {
+     "id": "v18",
+     "fichier": "p01-v18-retouche-v17.png",
+     "source": "tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg",
+     "note": "La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault Estafette de face (calandre basse à lamelles, phares ronds, clignotants orange, pare-chocs chromé, d'après P02 v2 / P03) avec le losange Renault devant, même place, même largeur, même bleu-gris ; la tourelle est un peu plus large, la fenêtre plus grande et bien dans le mur, la sorcière plus grande, penchée dehors (tête et cheveux hors de la fenêtre), elle fume toujours. Toit vérifié : les morceaux de toit rouges remontés avec le cône en v16 (au-dessus du faîtage à gauche, au bout de la corniche à droite) sont enlevés, l'antenne est revenue comme en v13, et le double débord de toit / la marche / la plaque pâle à gauche de la tourelle sont remplacés par un seul débord. Rien d'autre ne bouge. Contrôle automatique CONFORME (0 pixel modifié hors des 3 zones : toit, tourelle, Estafette).",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 11,
+      "lieux_rev": 8
+     },
+     "avis": []
     }
    ]
   },

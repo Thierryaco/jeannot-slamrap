@@ -107,8 +107,20 @@ def compose(cam, plate_path, out):
     P = placement(cam)
     plate = Image.open(plate_path).convert("RGBA")
     img = plate.copy()
-    tourelle_et_mur(img, P, plate)
+    u0, u1, vb = tourelle_et_mur(img, P, plate)
     bx = boxes(P)
+    # la sorcière à une fenêtre de la tourelle, centrée sur sa boîte, tête en haut de la boîte
+    x0, y0, x1, y1 = bx["sorciere"]
+    win = Image.open(WK / "patch-sorciere-fenetre.png")
+    a = np.array(win.getchannel("A")).astype(float)
+    ramp = np.minimum.outer(np.minimum(np.arange(win.height), np.arange(win.height)[::-1]), np.minimum(np.arange(win.width), np.arange(win.width)[::-1]))
+    rgb = np.array(win.convert("RGB")).astype(int)
+    creme = (np.abs(rgb - np.array([235, 229, 205])).sum(2) < 40)  # fond crème du patch -> transparent (on garde le mur de la tourelle)
+    alpha = np.clip(ramp / 7, 0, 1) * np.where(creme, 0, 1)
+    win.putalpha(Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8)))
+    base_top = vb - 0.255 * (vb - 0)  # haut du soubassement de pierre (≈ 25 % de la hauteur visible au-dessus du pied)
+    wy = int(min(y0 - 55, base_top - win.height - 8))  # au-dessus du soubassement
+    img.alpha_composite(win, (int((x0 + x1) / 2 - win.width / 2), wy))
     # Henri sur le palier (sprite de profil vers la droite)
     x0, y0, x1, y1 = bx["henri"]
     put(img, Image.open(Path(__file__).resolve().parents[1] / "assets/art/sprites/henri-profil-droite.png"), bx["henri"])

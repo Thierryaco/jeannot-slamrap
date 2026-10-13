@@ -111,7 +111,7 @@ Sauf demande explicite, toute génération ou retouche doit **respecter le style
 
     python3 tools/controle_retouche.py REFERENCE.png RESULTAT.png --zones "x0,y0,x1,y1;…" --plan PXX --sortie CONTROLE.jpg
 
-Le contrôle vérifie : (1) rien n'a bougé hors des zones autorisées ; (2) les nouvelles couleurs existent déjà dans l'image ; (3) pas de grain ou de texture étrangère au style (tuile par tuile) ; (4) pas de raccord visible ; (5) image de contrôle avec le calque de la carte. **Si le résultat est « À REFAIRE », on ne livre pas : on recommence jusqu'à obtenir « CONFORME ».** Le contrôle a été testé sur des contre-exemples (grain collé, couleur étrangère, changement hors zone) : il les refuse tous.
+Le contrôle vérifie : (1) rien n'a bougé hors des zones autorisées ; (2) les nouvelles couleurs existent déjà dans l'image ; (3) **netteté** : les ajouts ne sont pas plus flous que les éléments voisins (on ne floute jamais un ajout pour passer le contrôle — l'ancien critère « grain » qui y poussait a été retiré le 13/10) ; (4) pas de raccord visible ; (5) image de contrôle avec le calque de la carte. **Si le résultat est « À REFAIRE », on ne livre pas : on recommence jusqu'à obtenir « CONFORME ».** Le contrôle a été testé sur des contre-exemples (grain collé, couleur étrangère, changement hors zone) : il les refuse tous.
 
 ### Modifier une version : carte + storyboard, et seulement la partie qui ne va pas (demande de l'utilisateur)
 

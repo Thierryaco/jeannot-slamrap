@@ -1,0 +1,81 @@
+{
+ "cameras": [
+  {
+   "x": -175.4,
+   "y": 500.3,
+   "angle": -1.88,
+   "fov": 28.1,
+   "portee": 2000,
+   "hauteur": "à hauteur d'yeux",
+   "oeil": 1.9,
+   "inclinaison": -1.61
+  }
+ ],
+ "elements": {
+  "4l": {
+   "x": 328,
+   "y": 433,
+   "angle": 0,
+   "visible": true
+  },
+  "estafette": {
+   "x": 1171,
+   "y": 494,
+   "angle": 180,
+   "visible": true
+  },
+  "coccinelle": {
+   "x": 1112,
+   "y": 440,
+   "angle": 165,
+   "visible": true
+  },
+  "jeannot": {
+   "x": 285,
+   "y": 404,
+   "angle": 90.0,
+   "visible": true
+  },
+  "enji": {
+   "x": 239,
+   "y": 397,
+   "angle": 90.0,
+   "visible": true,
+   "pose": "assis"
+  },
+  "sorciere": {
+   "x": 280.0,
+   "y": 332.0,
+   "angle": 90.0,
+   "visible": true
+  },
+  "henri": {
+   "x": 528.0,
+   "y": 364.0,
+   "angle": 90.0,
+   "visible": true
+  },
+  "diego": {
+   "x": 1019,
+   "y": 469,
+   "angle": 90.0,
+   "visible": true
+  },
+  "marco": {
+   "x": 1265.0,
+   "y": 300.0,
+   "angle": 180.0,
+   "visible": false
+  },
+  "narrateur": {
+   "x": 205.0,
+   "y": 609.0,
+   "angle": -90.0,
+   "visible": false
+  }
+ },
+ "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\n",
+ "rev": 7,
+ "maj": "2026-10-13 10:12",
+ "note_calage": "Calage sur P01 v13 (étape 1) : caméra et positions au sol mesurées sur l image (point de fuite 1086,432 ; bords de chaussée ; passage à niveau ; pieds des personnages)."
+}

@@ -55,6 +55,10 @@ class Cam:
         self.fx, self.fy = math.cos(a), math.sin(a)        # vers l'avant (carte)
         self.rx, self.ry = -math.sin(a), math.cos(a)       # vers la droite de l'image
         self.eye, pitch = HAUTEURS.get(c.get("hauteur", ""), (1.6, 0.0))
+        if c.get("oeil") is not None:  # hauteur d'œil précise (m), prioritaire sur le préréglage
+            self.eye = float(c["oeil"])
+        if c.get("inclinaison") is not None:  # inclinaison précise (°, négatif = vers le bas)
+            pitch = float(c["inclinaison"])
         self.p = math.radians(pitch)
         self.F = (W / 2) / math.tan(math.radians(c.get("fov", 60)) / 2)
 

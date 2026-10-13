@@ -78,13 +78,6 @@ D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit 
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v8** — 🔁 à retoucher — nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente) · ⚪ faite sans carte du plan  
-La rue continue tout droit (elle ne finit plus sur le garage) ; on distingue juste une ouverture de garage sombre sur la gauche, sans voiture visible. Écarts avec la carte : le garage arrive trop tôt (juste après la maison d'Henri au lieu d'être après deux voisins), et l'Estafette est encore au milieu de la chaussée au lieu d'être garée à gauche devant la maison de Diego.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v8-nouveau.png" width="640" alt="P01 v8">
-
-- 💬 *2026-10-11 11:50* — la rue se termine après l'estafette de diego  par un passage à niveau de train  elle descend ensuite donc on plus des collines au fond
-
 **P01 · v10** — ⏳ à valider — nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji) · 🟠 faite d'après la carte rév. 2 — la carte a changé depuis  
 Suit la carte rév. 2 : Enji ajouté sur la chaussée à côté de la 4L, Henri en haut de son escalier, après le passage à niveau la route descend et on ne voit plus que des collines. Écarts restants : Enji est trop grand pour sa distance, l'Estafette reste au milieu de la chaussée (au lieu de garée à gauche devant chez Diego), le garage arrive juste après la maison d'Henri.
 
@@ -113,7 +106,7 @@ Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons vienn
 - 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
 - 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
 
-<details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v9</summary>
+<details><summary>🗄️ 9 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -127,6 +120,8 @@ Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons vienn
 Pour le garage de diego
 - **v7** — nouveau fil, retouche de v6 avec la carte v2 — ../assets/storyboards/a-valider/p01/p01-v7-nouveau.png
   - 💬 *2026-10-11 11:26* — Pour  le garage je préfère  devant l'estafette  qu'on puisse juste distingué une ouverture  ça sera juste pour les plan  ou il faudra voir le garage  mais que ça soit cohérent avec la rue
+- **v8** — nouveau fil, retouche de v6 d'après ton avis sur v7 (garage = simple ouverture, rue cohérente) — ../assets/storyboards/a-valider/p01/p01-v8-nouveau.png
+  - 💬 *2026-10-11 11:50* — la rue se termine après l'estafette de diego  par un passage à niveau de train  elle descend ensuite donc on plus des collines au fond
 - **v9** — nouveau fil, générée d'après ta carte P01 rév. 1 + v8 (style) + photo de référence — ../assets/storyboards/a-valider/p01/p01-v9-carte-rev1.png
   - 💬 *2026-10-11 12:08* — (remarque donnée dans le chat) J’ai choisi l’image du passage à niveau. Il faut qu’il soit ouvert, avec les rails de chemin de fer entre les 2 barrières, sinon c’est bizarre juste la route. Après, la route descend à 45°, on ne la voit plus.
 

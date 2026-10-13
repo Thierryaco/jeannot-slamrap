@@ -39,8 +39,12 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 .libre{margin-top:12px;background:#111a29;border:1px dashed #44536a;border-radius:9px;padding:10px;max-width:1150px}
 .libre h3{margin:0 0 6px;font-size:14px;color:var(--or)}
 .row{display:flex;gap:6px;align-items:flex-end} .row textarea{flex:1}
-#zoom{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:10;cursor:zoom-out}
-#zoom img{max-width:98vw;max-height:96vh}
+#zoom{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;z-index:10}
+#zoom .zbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:6px 10px;color:#cbd5e1;font-size:13px;background:#0b111cf0;border-bottom:1px solid var(--line)}
+#zoom .zbar button{padding:3px 9px} #zoom .zbar input[type=range]{width:180px} #zoom .zbar b{color:var(--or);min-width:58px;display:inline-block;text-align:right}
+#zoom .zst{flex:1;position:relative;overflow:hidden;cursor:grab;touch-action:none} #zoom .zst.drag{cursor:grabbing}
+#zoom .zst img{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;max-height:none;user-select:none;-webkit-user-drag:none}
+#zoom .zst.pix img{image-rendering:pixelated}
 #zoomvue{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;z-index:11;padding:8px;gap:6px}
 #zoomvue .zh{display:flex;gap:10px;align-items:center;color:#cbd5e1;font-size:14px} #zoomvue .zh b{color:var(--or)}
 #zoomvue iframe{flex:1;width:100%;border:1px solid var(--line);border-radius:8px;background:#0b111c}
@@ -61,7 +65,10 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
   <nav id="nav"></nav>
 </header>
 <main id="main">Chargement…</main>
-<div id="zoom"><img alt=""></div>
+<div id="zoom"><div class="zbar">🔍 <button data-z="fit">Ajuster</button><button data-z="1">Taille réelle</button><button data-z="2">×2</button><button data-z="4">×4</button>
+<button data-z="-">−</button><input id="zrange" type="range" min="0" max="1000" value="0"><button data-z="+">+</button><b id="zpct">100 %</b>
+<label><input id="zpix" type="checkbox"> pixels nets</label><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
+<div class="zst"><img alt="" draggable="false"></div></div>
 <div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> <span id="zvd">vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)</span><span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
 <div id="toast"></div>
 <script>
@@ -141,11 +148,44 @@ async function rechargeCarte(){ try{ const [cp,lx]=await Promise.all([`${CARTE_D
   CPLANS=cp||{}; LREV=(lx&&lx.rev)||1; render(); }catch{} }
 function fermeVue(){ const z=document.getElementById('zoomvue'); const etaitCarte=z.dataset.mode==='carte'; z.dataset.mode=''; z.style.display='none'; z.querySelector('iframe').src='about:blank';
   document.getElementById('zvd').textContent="vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)"; if(etaitCarte) rechargeCarte(); }
-document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ fermeVue(); document.getElementById('zoom').style.display='none'; } });
+
+// --- visionneuse zoomable (molette, glisser, curseur, double-clic, pincement) ---
+const ZV={s:1,x:0,y:0,fit:1,min:1,max:8,pts:new Map(),pinch:null};
+function zEls(){ const z=document.getElementById('zoom'); return {z, st:z.querySelector('.zst'), img:z.querySelector('.zst img')}; }
+function zApply(){ const {img}=zEls(); img.style.transform=`translate(${ZV.x}px,${ZV.y}px) scale(${ZV.s})`;
+  document.getElementById('zpct').textContent=Math.round(ZV.s*100)+' %';
+  const r=Math.log(ZV.s/ZV.min)/Math.log(ZV.max/ZV.min); document.getElementById('zrange').value=Math.round(1000*Math.max(0,Math.min(1,r))); }
+function zClamp(){ const {st,img}=zEls(); const W=st.clientWidth,H=st.clientHeight, w=img.naturalWidth*ZV.s, h=img.naturalHeight*ZV.s;
+  ZV.x = w<=W ? (W-w)/2 : Math.min(0,Math.max(W-w,ZV.x)); ZV.y = h<=H ? (H-h)/2 : Math.min(0,Math.max(H-h,ZV.y)); }
+function zSet(s,cx,cy){ const {st}=zEls(); s=Math.max(ZV.min,Math.min(ZV.max,s)); if(cx==null){cx=st.clientWidth/2;cy=st.clientHeight/2;}
+  const ix=(cx-ZV.x)/ZV.s, iy=(cy-ZV.y)/ZV.s; ZV.s=s; ZV.x=cx-ix*s; ZV.y=cy-iy*s; zClamp(); zApply(); }
+function zFit(){ const {st,img}=zEls(); ZV.fit=Math.min(st.clientWidth/img.naturalWidth, st.clientHeight/img.naturalHeight); ZV.min=Math.min(ZV.fit,1);
+  ZV.max=Math.max(8,ZV.fit*8); ZV.s=ZV.fit; ZV.x=0; ZV.y=0; zClamp(); zApply(); }
+function zOpen(src){ const {z,img}=zEls(); z.style.display='flex'; img.onload=()=>zFit(); img.src=src; if(img.complete&&img.naturalWidth) zFit(); }
+function zClose(){ zEls().z.style.display='none'; }
+(function(){ const {z,st}=zEls();
+  st.addEventListener('wheel',e=>{ e.preventDefault(); const r=st.getBoundingClientRect(); zSet(ZV.s*Math.exp(-e.deltaY*0.0015*(e.deltaMode?40:1)), e.clientX-r.left, e.clientY-r.top); },{passive:false});
+  st.addEventListener('pointerdown',e=>{ st.setPointerCapture(e.pointerId); ZV.pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); st.classList.add('drag'); ZV.pinch=null; });
+  st.addEventListener('pointermove',e=>{ const p=ZV.pts.get(e.pointerId); if(!p) return; const r=st.getBoundingClientRect();
+    if(ZV.pts.size===2){ const [a,b]=[...ZV.pts.values()]; const d0=Math.hypot(a.x-b.x,a.y-b.y); p.x=e.clientX; p.y=e.clientY; const [c,d]=[...ZV.pts.values()];
+      const d1=Math.hypot(c.x-d.x,c.y-d.y); if(d0>0) zSet(ZV.s*d1/d0,(c.x+d.x)/2-r.left,(c.y+d.y)/2-r.top); return; }
+    ZV.x+=e.clientX-p.x; ZV.y+=e.clientY-p.y; p.x=e.clientX; p.y=e.clientY; zClamp(); zApply(); });
+  const up=e=>{ ZV.pts.delete(e.pointerId); if(!ZV.pts.size) st.classList.remove('drag'); };
+  st.addEventListener('pointerup',up); st.addEventListener('pointercancel',up);
+  st.addEventListener('dblclick',e=>{ const r=st.getBoundingClientRect(); zSet(ZV.s<ZV.fit*2.5?ZV.s*3:ZV.fit, e.clientX-r.left, e.clientY-r.top); });
+  document.getElementById('zrange').addEventListener('input',e=>zSet(ZV.min*Math.pow(ZV.max/ZV.min,e.target.value/1000)));
+  document.getElementById('zpix').addEventListener('change',e=>st.classList.toggle('pix',e.target.checked));
+  z.querySelector('.zbar').addEventListener('click',e=>{ const k=e.target.dataset&&e.target.dataset.z; if(!k) return; e.stopPropagation();
+    if(k==='x') zClose(); else if(k==='fit') zFit(); else if(k==='+') zSet(ZV.s*1.5); else if(k==='-') zSet(ZV.s/1.5); else zSet(parseFloat(k)); });
+  document.addEventListener('keydown',e=>{ if(z.style.display!=='flex'||e.target.tagName==='TEXTAREA'||e.target.tagName==='INPUT') return;
+    if(e.key==='+'||e.key==='=') zSet(ZV.s*1.5); else if(e.key==='-') zSet(ZV.s/1.5); else if(e.key==='0') zFit(); });
+  window.addEventListener('resize',()=>{ if(z.style.display==='flex'){ zClamp(); zApply(); } });
+})();
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ fermeVue(); zClose(); } });
 document.addEventListener('click', async e=>{
   const el = e.target;
-  if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { const z=document.getElementById('zoom'); z.querySelector('img').src=el.src; z.style.display='flex'; return; }
-  if (el.closest('#zoom')) { document.getElementById('zoom').style.display='none'; return; }
+  if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { zOpen(el.src); return; }
+  if (el.closest('#zoom')) return;
   const vm = el.closest('.vuemini'); if (vm) { ouvreVue(vm.dataset.vue); return; }
   if (el.id==='zvx') { fermeVue(); return; }
   if (el.id==='zve') { e.preventDefault(); location.href='carte.html#'+document.getElementById('zoomvue').dataset.plan; return; }

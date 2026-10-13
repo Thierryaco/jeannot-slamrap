@@ -73,6 +73,8 @@ Carte recalée sur l'image P01 v13 (la carte suit l'image, pas l'inverse). La ru
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v4.png" width="640" alt="CARTE v4">
 
+- 💬 *2026-10-13 11:54* — le garage doit être aligné au fond des 2 autres maisons et l ouverture de celui-ci doit être alignée au début du trottoir ou à l escalier d Henri (c est le même résultat). (avis transmis dans le chat : l envoi avait échoué)
+
 ## P01
 
 **00:00–00:05** · Instrumental · 🛠️ En cours

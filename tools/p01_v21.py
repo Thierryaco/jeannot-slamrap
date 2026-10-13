@@ -27,7 +27,9 @@ VISAGE = (0.69, 0.12)               # position de la bouche dans la silhouette (
 FUMEE = 44                          # longueur du filet de fumée (px)
 
 
-def build(pieds=PIEDS, pencer=PENCHE, retourner=True, fumer=True):
+def build(pieds=PIEDS, pencer=PENCHE, retourner=False, fumer=True):
+    """pieds=None : Henri ne bouge pas (on ajoute seulement la cigarette et la fumée)."""
+    deplacer = pieds is not None
     a = np.array(V20.build()).astype(float)
     zone0 = a[BY:BY + BW, BX:BX + BW].copy()                      # v20 dans le recadrage
     brut = Image.open(ED_B).convert("RGB").resize((BW, BW), Image.LANCZOS)
@@ -57,10 +59,27 @@ def build(pieds=PIEDS, pencer=PENCHE, retourner=True, fumer=True):
     cx, cy = (x0 + x1) / 2.0, float(y1)                            # pieds = bas de la silhouette
     bouche = np.array([x0 + VISAGE[0] * (x1 - x0), y0 + VISAGE[1] * (y1 - y0)])
 
+    if not deplacer:                                               # Henri reste où il est dans la v20
+        bouche = bouche + np.array([BX, BY])
+        bx, by = float(bouche[0]), float(bouche[1])
+        sens = 1                                                   # il regarde vers la droite (la rue)
+        im = Image.fromarray(np.clip(a, 0, 255).astype("uint8"))
+        d = ImageDraw.Draw(im)
+        d.line([(bx, by), (bx + 7 * sens, by - 1)], fill=(238, 236, 230), width=2)
+        d.ellipse((bx + 5 * sens, by - 3, bx + 9 * sens, by + 1), fill=(250, 150, 55))
+        sm = Image.new("L", im.size, 0)
+        ImageDraw.Draw(sm).line(
+            [(bx + 8 * sens + 2.2 * np.sin(k / 9.0) * sens + k * 0.045 * sens, by - 2 - k) for k in range(FUMEE)],
+            fill=200, width=2)
+        sm = np.array(sm.filter(ImageFilter.GaussianBlur(1.0)))[..., None] / 255.0
+        a = np.array(im).astype(float) * (1 - sm) + np.array([206, 205, 202]) * sm
+        return Image.fromarray(np.clip(a, 0, 255).astype("uint8"))
+
     img = Image.fromarray(np.clip(zone0, 0, 255).astype("uint8"))
     img.putalpha(Image.fromarray((np.clip(masque, 0, 1) * 255).astype("uint8")))
-    if retourner:                                                  # visage vers la 4L (la gauche de l'image)
-        img = img.transpose(Image.FLIP_LEFT_RIGHT)                 # miroir autour de l'axe de l'image
+    sens = -1 if retourner else 1
+    if retourner:                                                  # miroir autour de l'axe de l'image
+        img = img.transpose(Image.FLIP_LEFT_RIGHT)
         cx, bouche[0] = (BW - 1) - cx, (BW - 1) - bouche[0]
     t = np.radians(pencer)
     R = np.array([[np.cos(t), -np.sin(t)], [np.sin(t), np.cos(t)]])   # sens horaire : le haut part vers la droite
@@ -88,11 +107,11 @@ def build(pieds=PIEDS, pencer=PENCHE, retourner=True, fumer=True):
         bx, by = bouche[0] + BX + dx, bouche[1] + BY + dy
         im = Image.fromarray(np.clip(a, 0, 255).astype("uint8"))
         d = ImageDraw.Draw(im)
-        d.line([(bx, by), (bx - 7, by - 1)], fill=(238, 236, 230), width=2)   # dépasse vers la gauche
-        d.ellipse((bx - 9, by - 3, bx - 5, by + 1), fill=(250, 150, 55))      # bout incandescent
+        d.line([(bx, by), (bx + 7 * sens, by - 1)], fill=(238, 236, 230), width=2)
+        d.ellipse((bx + 5 * sens, by - 3, bx + 9 * sens, by + 1), fill=(250, 150, 55))
         sm = Image.new("L", im.size, 0)
         ds = ImageDraw.Draw(sm)
-        pts = [(bx - 8 + 2.2 * np.sin(k / 9.0) + k * 0.045, by - 2 - k) for k in range(FUMEE)]
+        pts = [(bx + 8 * sens + (2.2 * np.sin(k / 9.0) + k * 0.045) * sens, by - 2 - k) for k in range(FUMEE)]
         ds.line(pts[:FUMEE // 2], fill=235, width=3)               # plus dense près de la cigarette
         ds.line(pts[FUMEE // 2 - 1:], fill=150, width=2)           # s'étire et s'efface en montant
         sm = np.array(sm.filter(ImageFilter.GaussianBlur(1.0)))[..., None] / 255.0

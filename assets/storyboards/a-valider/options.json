@@ -375,7 +375,12 @@
      "source": "tools/p01_v21.py : Henri remonté de 109 px sur son escalier (pieds à y 450) + cigarette et fumée",
      "note": "Henri remonté de 109 px (pieds à y 450), toujours à la verticale de sa position de la v20. Regard vers la rue, cigarette et fumée. Si le palier est encore plus haut, dis-le-moi ou utilise 📍 Pointer pour me donner le pixel exact.",
      "etat": "a-valider",
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-13 20:40",
+       "texte": "📍 pointages sur l'image :\n1. (819, 440) — c'est l'emplacement des pieds d'henri derriere le muret"
+      }
+     ]
     }
    ]
   },

@@ -126,6 +126,9 @@ Henri remonté de 109 px (pieds à y 450), toujours à la verticale de sa positi
 
 <img src="../assets/storyboards/a-valider/p01/p01-v23-haut.png" width="640" alt="P01 v23">
 
+- 💬 *2026-10-13 20:40* — 📍 pointages sur l'image :
+1. (819, 440) — c'est l'emplacement des pieds d'henri derriere le muret
+
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png

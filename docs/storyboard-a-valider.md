@@ -86,13 +86,6 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v16** — 🔁 à retoucher — tools/p01_v16.py (retouches locales sur v13) · contrôle : tools/controle_retouche.py → p01-v16-controle.jpg · 🟠 faite d'après la carte rév. 8 — la carte a changé depuis  
-La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle d'ardoise de la maison de Jeannot est retiré pour dégager la vue ; la tourelle est surélevée d'environ 0,55 m et son corps descend jusqu'au mur du jardin ; la sorcière est penchée à la fenêtre de la tourelle, au-dessus de la 4L ; le capot avant de la Coccinelle est ouvert, avec des outils et une caisse à outils au sol. Rien d'autre ne bouge (rue, Jeannot, Enji, 4L, maisons, Diego, Henri, Estafette). Contrôle automatique CONFORME : 0 pixel modifié hors des 2 zones, couleurs déjà présentes dans l'image, pas de grain ajouté, raccords invisibles.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v16-retouche-v13.png" width="640" alt="P01 v16">
-
-- 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
-
 **P01 · v18** — 🔁 à retoucher — tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg · 🟠 faite d'après la carte rév. 11 — la carte a changé depuis  
 La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault Estafette de face (calandre basse à lamelles, phares ronds, clignotants orange, pare-chocs chromé, d'après P02 v2 / P03) avec le losange Renault devant, même place, même largeur, même bleu-gris ; la tourelle est un peu plus large, la fenêtre plus grande et bien dans le mur, la sorcière plus grande, penchée dehors (tête et cheveux hors de la fenêtre), elle fume toujours. Toit vérifié : les morceaux de toit rouges remontés avec le cône en v16 (au-dessus du faîtage à gauche, au bout de la corniche à droite) sont enlevés, l'antenne est revenue comme en v13, et le double débord de toit / la marche / la plaque pâle à gauche de la tourelle sont remplacés par un seul débord. Rien d'autre ne bouge. Contrôle automatique CONFORME (0 pixel modifié hors des 3 zones : toit, tourelle, Estafette).
 
@@ -105,7 +98,7 @@ La v18 avec seulement tes corrections : la sorcière est de nouveau nette (trait
 
 <img src="../assets/storyboards/a-valider/p01/p01-v19-retouche-v18.png" width="640" alt="P01 v19">
 
-<details><summary>🗄️ 14 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v17</summary>
+<details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -132,6 +125,8 @@ Pour le garage de diego
   - 💬 *2026-10-11 12:50* — l'estafette ne ressemble plus trop  celle du début et il y a un souci de corrélation des postions sur la carte et celle généré la coccinelle à le bout  du nez à la limite de la sortie du garage sur le plan et là elle sort sur le trottoire
   - 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
   - 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
+- **v16** — tools/p01_v16.py (retouches locales sur v13) · contrôle : tools/controle_retouche.py → p01-v16-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v16-retouche-v13.png
+  - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
 - **v17** — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png
   - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
 

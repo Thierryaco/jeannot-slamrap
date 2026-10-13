@@ -41,32 +41,47 @@ def turret_box(P):
     return min(us), max(us), max(vb)
 
 
-def sidewalk_edge(x):  # bord herbe/trottoir de la plaque (côté Jeannot), mesuré sur plate2
-    return 915 - x * (225 / 580)
+GEO_A = dict(corner=487, top=151, bottom=690, edge=((0, 915), (580, 690)))  # mesuré sur plate2 (caméra A)
 
 
-def tourelle_et_mur(img, P, plate):
+def geo_for(cam):
+    """Repères de la plaque (coin de la façade d'Henri, bord herbe/trottoir) dans la caméra voulue."""
+    if cam == "A":
+        return GEO_A
+    import warp_camera as wc
+    A = dsm.load_plans()["P01"]["cameras"][0]
+    B = placement("B")["cameras"][0]
+    c_top = wc.a_to_b(A, B, GEO_A["corner"], GEO_A["top"], ("y", 340))
+    c_bot = wc.a_to_b(A, B, GEO_A["corner"], GEO_A["bottom"], ("y", 340))
+    e = [wc.a_to_b(A, B, x, y, "sol") for x, y in GEO_A["edge"]]
+    return dict(corner=round((c_top[0] + c_bot[0]) / 2), top=round(c_top[1]), bottom=round(c_bot[1]), edge=tuple(e))
+
+
+def tourelle_et_mur(img, P, plate, geo=GEO_A):
     """Replace la tourelle à sa position calculée, et peint le mur latéral d'Henri dans l'espace libéré."""
     u0, u1, vb = turret_box(P)
     W, H = img.size
     d = ImageDraw.Draw(img)
-    corner = 487  # coin avant-gauche de la façade d'Henri dans la plaque
-    top_side = 151
+    corner, top_side, bottom = geo["corner"], geo["top"], geo["bottom"]
+    (ex0, ey0), (ex1, ey1) = geo["edge"]
+
+    def sidewalk_edge(x):
+        return ey0 + (x - ex0) * (ey1 - ey0) / (ex1 - ex0)
     # ciel au-dessus du mur latéral (colonne de ciel de la plaque)
     sky = plate.crop((820, 0, 821, H)).resize((corner - int(u1) + 40, H))
     img.paste(sky.crop((0, 0, sky.width, top_side)), (int(u1) - 40, 0))
     # mur latéral (pignon vu de face : rectangle)
     side = tuple(int(c * 0.9) for c in LILAC)
-    d.rectangle([int(u1) - 40, top_side, corner, 690], fill=side)
+    d.rectangle([int(u1) - 40, top_side, corner, bottom], fill=side)
     d.rectangle([int(u1) - 40, top_side - 9, corner + 2, top_side], fill=(120, 84, 70), outline=(40, 34, 38), width=2)
-    d.line([(corner, top_side), (corner, 690)], fill=(40, 34, 38), width=3)
+    d.line([(corner, top_side), (corner, bottom)], fill=(40, 34, 38), width=3)
     # sol : herbe entre les maisons, et sous la tourelle
     for x in range(0, corner + 1):
         y1 = int(sidewalk_edge(x))
-        d.line([(x, 688 if x > u1 - 40 else 640), (x, y1 - 2)], fill=GRASS)
+        d.line([(x, bottom - 2 if x > u1 - 40 else 640), (x, y1 - 2)], fill=GRASS)
     # tourelle : corps de la tourelle de la plaque, mis à l'échelle
     sx0, sx1, sy0, sy1 = 279, 486, 175, 742
-    src = plate.crop((sx0, sy0, sx1, sy1)).convert("RGBA")
+    src = Image.open(WK / "plate2-sans-figurant.png").crop((sx0, sy0, sx1, sy1)).convert("RGBA")  # tourelle d'origine (caméra A)
     m = Image.new("L", src.size, 0)
     curve = [(278, 728), (330, 734), (380, 737), (430, 727), (478, 702), (490, 690)]
     ImageDraw.Draw(m).polygon([(x - sx0, y - sy0) for x, y in [(sx0, sy0), (sx1, sy0)] + curve[::-1]], fill=255)
@@ -107,7 +122,7 @@ def compose(cam, plate_path, out):
     P = placement(cam)
     plate = Image.open(plate_path).convert("RGBA")
     img = plate.copy()
-    u0, u1, vb = tourelle_et_mur(img, P, plate)
+    u0, u1, vb = tourelle_et_mur(img, P, plate, geo_for(cam))
     bx = boxes(P)
     # la sorcière à une fenêtre de la tourelle, centrée sur sa boîte, tête en haut de la boîte
     x0, y0, x1, y1 = bx["sorciere"]
@@ -146,5 +161,5 @@ def compose(cam, plate_path, out):
 
 if __name__ == "__main__":
     cam, out = sys.argv[1], sys.argv[2]
-    plate = sys.argv[3] if len(sys.argv) > 3 else WK / "plate2-sans-figurant.png"
+    plate = sys.argv[3] if len(sys.argv) > 3 else WK / ("plate2-sans-figurant.png" if cam == "A" else "plateB.png")
     print(compose(cam, plate, out))

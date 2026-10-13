@@ -61,6 +61,7 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v2.png" width="640" alt="CARTE v2">
 
 - 💬 *2026-10-11 11:25* — C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé
+- 💬 *2026-10-13 09:58* — il faut que la tourelle soit à la droite de la maison  c'est le coté opposé
 
 ## P01
 

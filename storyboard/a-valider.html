@@ -23,6 +23,7 @@ figure{margin:0;background:#121a28;border:2px solid var(--line);border-radius:9p
 button.del{background:#fff;border:1px solid #c0392b;color:#c0392b} figure.retenue{border-color:var(--ok);box-shadow:0 0 0 2px #3cb37155} figure.ecartee{opacity:.5} figure.a-retoucher{border-color:var(--warn)}
 figure img{width:100%;display:block;cursor:zoom-in;background:#05080d}
 .imgw{position:relative} .imgw img.cq{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none} .imgw.cqon img.cq{display:block}
+.imgw img.cm{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#f4efe4;display:none;cursor:zoom-in} .imgw.cmon img.cm{display:block}
 button.cqb{font-size:12px;padding:2px 8px}
 figcaption{padding:9px;font-size:13px;color:#cbd5e1;display:flex;flex-direction:column;gap:7px;flex:1}
 .head{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
@@ -98,12 +99,12 @@ function render(){
       const key = `${p.plan}-${o.id}`;
       const b = (etat, cls, label) => `<button class="${cls} ${o.etat===etat?'on':''}" data-plan="${p.plan}" data-opt="${o.id}" data-etat="${etat}">${label}</button>`;
       return `<figure class="${o.etat}" id="f-${key}">
-        <div class="imgw" id="w-${key}"><img loading="lazy" src="${esc(src)}" alt="${key}">${CPLANS[p.plan]?`<img class="cq" src="${CARTE_DIR}/plans/${p.plan.toLowerCase()}-calque.png?r=${CPLANS[p.plan].rev}-${LREV}" alt="">`:''}</div>
+        <div class="imgw" id="w-${key}"><img loading="lazy" src="${esc(src)}" alt="${key}">${CPLANS[p.plan]?`<img class="cq" src="${CARTE_DIR}/plans/${p.plan.toLowerCase()}-calque.png?r=${CPLANS[p.plan].rev}-${LREV}" alt="">`:''}${CPLANS[p.plan]?`<img class="cm" loading="lazy" src="${CARTE_DIR}/plans/${p.plan.toLowerCase()}.png?r=${CPLANS[p.plan].rev}-${LREV}" alt="carte du plan">`:''}</div>
         <figcaption>
           <div class="head"><b>${esc(o.id)}</b><span>${ET[o.etat]||esc(o.etat)}</span></div>
           <small>${esc(o.source)}</small>
           ${badge(p, o)}
-          ${CPLANS[p.plan]?`<div><button class="cqb" data-cq="${key}" title="Superpose ce que la caméra de la carte doit voir : position et taille de chaque élément">📐 Calque de la carte (rév. ${CPLANS[p.plan].rev})</button> <button class="carteb" data-carte="${p.plan}" title="Ouvre la carte interactive de ce plan (vue de dessus + vue caméra), modifiable">🗺️ Carte interactive</button></div>`:`<div><button class="carteb" data-carte="${p.plan}" title="Ouvre la carte interactive de ce plan pour placer caméra et éléments">🗺️ Carte interactive</button></div>`}
+          ${CPLANS[p.plan]?`<div><button class="cqb" data-cq="${key}" title="Superpose ce que la caméra de la carte doit voir : position et taille de chaque élément">📐 Calque de la carte (rév. ${CPLANS[p.plan].rev})</button> <button class="cqb" data-cm="${key}" title="Affiche à la place de l'image la carte du plan vue de dessus (caméra, véhicules, personnages) ; re-cliquer pour revenir à l'image ; cliquer sur la carte pour l'agrandir">🗺️ Carte (rév. ${CPLANS[p.plan].rev})</button></div>`:''}
           <div>${esc(o.note)}</div>
           ${avisList(o.avis)}
           ${canWrite ? `<div class="btns">${b('retenue','ok','✅ Je choisis')}${b('a-retoucher','warn','🔁 À retoucher')}${b('ecartee','ko','❌ Écarter')}${b('a-valider','','⏳ Remettre')}<button class="del" data-plan="${p.plan}" data-opt="${o.id}" title="Supprimer définitivement cette version (image effacée, plus dans l'historique)">🗑️ Supprimer</button></div>
@@ -149,7 +150,7 @@ document.addEventListener('click', async e=>{
   if (el.id==='zvx') { fermeVue(); return; }
   if (el.id==='zve') { e.preventDefault(); location.href='carte.html#'+document.getElementById('zoomvue').dataset.plan; return; }
   if (el.tagName!=='BUTTON') return;
-  if (el.dataset.carte) { ouvreCarte(el.dataset.carte); return; }
+  if (el.dataset.cm) { const w=document.getElementById('w-'+el.dataset.cm); w.classList.toggle('cmon'); el.classList.toggle('on'); return; }
   if (el.dataset.cq) { const w=document.getElementById('w-'+el.dataset.cq); w.classList.toggle('cqon'); el.classList.toggle('on'); return; }
   if (el.classList.contains('toggle-ec')) { const p=el.dataset.plan; SHOW_EC.has(p)?SHOW_EC.delete(p):SHOW_EC.add(p); render(); return; }
   const plan=el.dataset.plan, option=el.dataset.opt||null;

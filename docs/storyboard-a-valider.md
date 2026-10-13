@@ -82,7 +82,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 12, 2026-10-13 14:54) :
+🗺️ Carte du plan (rév. 13, 2026-10-13 15:51) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 

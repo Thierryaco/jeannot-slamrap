@@ -53,8 +53,8 @@
     "visible": true
    },
    "henri": {
-    "x": 977.0,
-    "y": 364.0,
+    "x": 976.0,
+    "y": 366.0,
     "angle": 90.0,
     "visible": true
    },
@@ -80,8 +80,8 @@
    }
   },
   "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).\nRév. 9 : Coccinelle, Diego et Estafette recalés sur l'image P01 v16 (point de contact au sol + sens).\nRév. 10 : d'après l'image (avis) — Coccinelle qui sort du garage sur le trottoir, Diego à genoux sur le trottoir au bord de la bordure, Estafette garée contre le trottoir côté Jeannot.\nRév. 11 (avis) : Coccinelle à 90° jusqu'au bord du trottoir, Diego juste devant elle au début de la chaussée, 4L et Estafette alignées contre le trottoir ; dimensions réelles des véhicules.\nCaméra réajustée sur l'image (moindres carrés : bordures proches et lointaines, 4L/Estafette contre le trottoir, Diego, Coccinelle, Jeannot, passage à niveau) — tools/fit_camera_p01.py.",
-  "rev": 12,
-  "maj": "2026-10-13 14:54"
+  "rev": 13,
+  "maj": "2026-10-13 15:51"
  },
  "P03": {
   "cameras": [

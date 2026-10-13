@@ -97,13 +97,6 @@ La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle
 
 - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
 
-**P01 · v17** — 🔁 à retoucher — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg · 🟢 conforme à la carte actuelle (rév. 11)  
-La v16 avec seulement tes corrections : la sorcière est environ 2 fois plus grande, penchée à une fenêtre ronde plus grande de la tourelle, et elle fume (une seule volute) ; Diego est à genoux devant sa caisse à outils, devant la Coccinelle au capot ouvert. Rien d'autre ne bouge. Carte P01 rév. 9 (Coccinelle, Diego et Estafette recalés sur l'image) et lieux rév. 7 (garage aligné). Contrôle automatique CONFORME (0 pixel modifié hors des 2 zones) ; la zone de Diego a été refaite une fois car elle était trop nette/granuleuse (×1,18) par rapport à la v16.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png" width="640" alt="P01 v17">
-
-- 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
-
 **P01 · v18** — 🔁 à retoucher — tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg · 🟢 conforme à la carte actuelle (rév. 11)  
 La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault Estafette de face (calandre basse à lamelles, phares ronds, clignotants orange, pare-chocs chromé, d'après P02 v2 / P03) avec le losange Renault devant, même place, même largeur, même bleu-gris ; la tourelle est un peu plus large, la fenêtre plus grande et bien dans le mur, la sorcière plus grande, penchée dehors (tête et cheveux hors de la fenêtre), elle fume toujours. Toit vérifié : les morceaux de toit rouges remontés avec le cône en v16 (au-dessus du faîtage à gauche, au bout de la corniche à droite) sont enlevés, l'antenne est revenue comme en v13, et le double débord de toit / la marche / la plaque pâle à gauche de la tourelle sont remplacés par un seul débord. Rien d'autre ne bouge. Contrôle automatique CONFORME (0 pixel modifié hors des 3 zones : toit, tourelle, Estafette).
 
@@ -111,7 +104,7 @@ La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault
 
 - 💬 *2026-10-13 13:12* — un problème avec la sorcière  elle est flou et pas défini et la couleur de la façade de la tourelle fait plus proppre que le reste de la maison
 
-<details><summary>🗄️ 12 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12</summary>
+<details><summary>🗄️ 13 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v17</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -134,6 +127,8 @@ Pour le garage de diego
   - 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
 - **v12** — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 — ../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png
   - 💬 *2026-10-11 12:40* — le fond de la rue n'est plus bon il faut reprendre celui de la V11 vérifier que henri ressemble bien à henri  ce qui n'est pas du tout le cas de même pour Diego au fond
+- **v17** — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png
+  - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
 
 </details>
 

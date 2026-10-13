@@ -20,7 +20,7 @@ h2{margin:0;font-size:21px} h2 .t{color:#8fa0b5;font-weight:400;font-size:15px} 
 .lyr{color:var(--or);margin:6px 0} .brief{color:#b5c0cf;margin:0 0 12px;max-width:1150px;line-height:1.45}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px}
 figure{margin:0;background:#121a28;border:2px solid var(--line);border-radius:9px;overflow:hidden;display:flex;flex-direction:column}
-figure.retenue{border-color:var(--ok);box-shadow:0 0 0 2px #3cb37155} figure.ecartee{opacity:.5} figure.a-retoucher{border-color:var(--warn)}
+button.del{background:#fff;border:1px solid #c0392b;color:#c0392b} figure.retenue{border-color:var(--ok);box-shadow:0 0 0 2px #3cb37155} figure.ecartee{opacity:.5} figure.a-retoucher{border-color:var(--warn)}
 figure img{width:100%;display:block;cursor:zoom-in;background:#05080d}
 .imgw{position:relative} .imgw img.cq{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none} .imgw.cqon img.cq{display:block}
 button.cqb{font-size:12px;padding:2px 8px}
@@ -106,7 +106,7 @@ function render(){
           ${CPLANS[p.plan]?`<div><button class="cqb" data-cq="${key}" title="Superpose ce que la caméra de la carte doit voir : position et taille de chaque élément">📐 Calque de la carte (rév. ${CPLANS[p.plan].rev})</button></div>`:''}
           <div>${esc(o.note)}</div>
           ${avisList(o.avis)}
-          ${canWrite ? `<div class="btns">${b('retenue','ok','✅ Je choisis')}${b('a-retoucher','warn','🔁 À retoucher')}${b('ecartee','ko','❌ Écarter')}${b('a-valider','','⏳ Remettre')}</div>
+          ${canWrite ? `<div class="btns">${b('retenue','ok','✅ Je choisis')}${b('a-retoucher','warn','🔁 À retoucher')}${b('ecartee','ko','❌ Écarter')}${b('a-valider','','⏳ Remettre')}<button class="del" data-plan="${p.plan}" data-opt="${o.id}" title="Supprimer définitivement cette version (image effacée, plus dans l'historique)">🗑️ Supprimer</button></div>
           <div class="row"><textarea id="t-${key}" placeholder="Ton avis, les détails à changer…"></textarea><button class="send" data-plan="${p.plan}" data-opt="${o.id}">Envoyer</button></div>` : ''}
         </figcaption></figure>`;
     }).join('');
@@ -146,6 +146,11 @@ document.addEventListener('click', async e=>{
   if (el.dataset.cq) { const w=document.getElementById('w-'+el.dataset.cq); w.classList.toggle('cqon'); el.classList.toggle('on'); return; }
   if (el.classList.contains('toggle-ec')) { const p=el.dataset.plan; SHOW_EC.has(p)?SHOW_EC.delete(p):SHOW_EC.add(p); render(); return; }
   const plan=el.dataset.plan, option=el.dataset.opt||null;
+  if (el.classList.contains('del')) {
+    if (!confirm(`Supprimer définitivement ${plan} ${option} ?\nL'image est effacée et la version disparaît aussi de l'historique des écartées.`)) return;
+    try{ await post({plan, option, supprimer:true}); toast(`${plan} ${option} supprimée ✔`); }catch(err){ toast('Erreur : '+err.message); }
+    return;
+  }
   try{
     if (el.dataset.etat) {
       const t=document.getElementById(`t-${plan}-${option}`);

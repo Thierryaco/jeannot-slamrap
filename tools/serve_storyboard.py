@@ -90,11 +90,17 @@ def apply(data):
                     plan["statut"] = "en-cours"
                 opt["etat"] = etat
                 resume.append(etat)
+            if data.get("supprimer"):
+                return supprimer(man, plan, opt)
             if texte:
-                opt.setdefault("avis", []).append({"date": now(), "texte": texte})
+                if not isinstance(opt.get("avis"), list):  # champ vide mal typé ("") -> liste
+                    opt["avis"] = []
+                opt["avis"].append({"date": now(), "texte": texte})
                 resume.append("avis")
         elif texte:
-            plan.setdefault("avis", []).append({"date": now(), "texte": texte})
+            if not isinstance(plan.get("avis"), list):
+                plan["avis"] = []
+            plan["avis"].append({"date": now(), "texte": texte})
             if plan["statut"] == "a-valider":
                 plan["statut"] = "en-cours"
             resume.append("idée/avis libre")
@@ -103,6 +109,26 @@ def apply(data):
         MANIFEST.write_text(json.dumps(man, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         build_a_valider.main(html=False)
     git_save("Avis storyboard : " + " · ".join(resume))
+    return man
+
+
+def supprimer(man, plan, opt):
+    """Supprime définitivement une version : retirée du manifeste ET son image effacée du dépôt.
+    (Appelée sous LOCK depuis apply.)"""
+    if opt.get("etat") == "retenue" or plan.get("choix") == opt["id"]:
+        raise ValueError("version retenue : la remettre « à valider » avant de la supprimer")
+    plan["options"] = [o for o in plan["options"] if o is not opt]
+    rel = f"assets/storyboards/a-valider/{plan['plan'].lower()}/{opt['fichier']}"
+    f = ROOT / rel
+    encore = any(o.get("fichier") == opt["fichier"] for p in man["plans"] for o in p["options"]
+                 if p["plan"] == plan["plan"])
+    MANIFEST.write_text(json.dumps(man, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    build_a_valider.main(html=False)
+    files = [str(MANIFEST.relative_to(ROOT)), "docs/storyboard-a-valider.md"]
+    if f.exists() and not encore:
+        f.unlink()
+        files.append(rel)
+    git_save(f"Storyboard : version {plan['plan']} {opt['id']} supprimée définitivement", files)
     return man
 
 

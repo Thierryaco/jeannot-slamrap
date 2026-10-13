@@ -25,11 +25,11 @@
 <text x="857.5" y="277.0" font-size="13" fill="#4a5566" text-anchor="middle">escalier côté rue</text>
 <rect x="1350.0" y="165.0" width="165.0" height="175.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
 <text x="1432.5" y="252.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
-<rect x="1000.0" y="200.0" width="115.0" height="205.0" rx="0" fill="#d7d2c8" stroke="#33404f" stroke-width="2"/>
-<line x1="1010.0" y1="405.0" x2="1105.0" y2="405.0" stroke="#d7d2c8" stroke-width="6"/>
-<line x1="1000.0" y1="405.0" x2="1115.0" y2="405.0" stroke="#e04f5f" stroke-width="3" stroke-dasharray="10 6"/>
-<text x="1057.5" y="228.0" font-size="14" fill="#1b2430" text-anchor="middle" font-weight="bold">garage / atelier</text>
-<text x="1057.5" y="250.0" font-size="13" fill="#4a5566" text-anchor="middle">porte ouverte côté rue</text>
+<rect x="1000.0" y="165.0" width="115.0" height="218.0" rx="0" fill="#d7d2c8" stroke="#33404f" stroke-width="2"/>
+<line x1="1010.0" y1="383.0" x2="1105.0" y2="383.0" stroke="#d7d2c8" stroke-width="6"/>
+<line x1="1000.0" y1="383.0" x2="1115.0" y2="383.0" stroke="#e04f5f" stroke-width="3" stroke-dasharray="10 6"/>
+<text x="1057.5" y="193.0" font-size="14" fill="#1b2430" text-anchor="middle" font-weight="bold">garage / atelier</text>
+<text x="1057.5" y="215.0" font-size="13" fill="#4a5566" text-anchor="middle">porte ouverte côté rue, au début du trottoir</text>
 <rect x="1125.0" y="165.0" width="210.0" height="180.0" rx="0" fill="#cfe0f2" stroke="#33404f" stroke-width="2"/>
 <text x="1230.0" y="255.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">Maison de DIEGO</text>
 <text x="1230.0" y="277.0" font-size="13" fill="#4a5566" text-anchor="middle">l'Estafette devant</text>

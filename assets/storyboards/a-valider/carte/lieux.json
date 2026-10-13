@@ -116,11 +116,11 @@
   {
    "id": "garage-diego",
    "nom": "garage / atelier",
-   "sous": "porte ouverte côté rue",
+   "sous": "porte ouverte côté rue, au début du trottoir",
    "x": 1000,
-   "y": 200,
+   "y": 165,
    "w": 115,
-   "h": 205,
+   "h": 218,
    "couleur": "#d7d2c8",
    "ouverture": "sud"
   },
@@ -388,7 +388,7 @@
    }
   }
  },
- "rev": 6,
+ "rev": 7,
  "poses": {
   "perso": [
    "debout",

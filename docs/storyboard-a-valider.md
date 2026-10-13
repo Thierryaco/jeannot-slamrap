@@ -94,12 +94,12 @@ Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons vienn
 - 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
 - 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
 
-**P01 · v14** — ⏳ à valider — nouveau fil, montage au calque de la carte P01 rév. 7 (ta caméra telle quelle) : outils/compose_p01.py · 🟢 conforme à la carte actuelle (rév. 7)  
+**P01 · v14** — ⏳ à valider — nouveau fil, montage au calque de la carte P01 rév. 7 (ta caméra telle quelle) : tools/compose_p01.py · 🟢 conforme à la carte actuelle (rév. 7)  
 Ta caméra rév. 7 sans aucun changement ; chaque perso et véhicule est collé dans sa boîte exacte du calque (contrôle : p01-v14-v15-controle-calque.jpg). Tourelle de la sorcière à droite de la maison de Jeannot, à 5 m de la caméra : elle remplit le bord gauche, son toit sort du cadre (c'est ce que voit un 100° à cette distance) ; la sorcière se penche à une fenêtre de la tourelle (d'après sa fiche). Henri (d'après sa fiche) sur le palier de son escalier. 4L vue de dos, très rouillée, au bord du trottoir ; Jeannot (barbe brune, chapeau jaune, bleu de travail, une seule fumée) ; Enji (berger noir et feu) au milieu de la chaussée. Au fond : garage ouvert, Coccinelle capot ouvert avec outils au sol, Diego, et l'Estafette d'origine (bleu-gris, d'après P03/P02). Comme le calcule la carte, la 4L cache la Coccinelle et Diego (≈ 82 %) depuis cette caméra.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v14-camera-rev7.png" width="640" alt="P01 v14">
 
-**P01 · v15** — ⏳ à valider — nouveau fil, même montage + fond reprojeté vers la caméra B (outils/warp_camera.py) · 🟠 faite d'après la carte rév. 7 + caméra B — la carte a changé depuis  
+**P01 · v15** — ⏳ à valider — nouveau fil, même montage + fond reprojeté vers la caméra B (tools/warp_camera.py) · 🟠 faite d'après la carte rév. 7 + caméra B — la carte a changé depuis  
 Toutes les modifs de la v14 + la caméra B : 1,5 m plus à droite (vers le milieu de la chaussée), tournée de 6° vers les maisons, portée 48 m. La Coccinelle (capot ouvert, outils) et Diego ne sont plus cachés par la 4L ; tourelle et sorcière toujours dans le champ. Le fond a été reprojeté en 3D pour cette caméra (pas un simple décalage). Cette caméra n'est PAS enregistrée dans la carte (ta rév. 7 reste intacte) : si tu choisis la v15, je l'enregistre dans la carte.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v15-camera-b.png" width="640" alt="P01 v15">

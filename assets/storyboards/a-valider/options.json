@@ -231,7 +231,7 @@
     {
      "id": "v14",
      "fichier": "p01-v14-camera-rev7.png",
-     "source": "nouveau fil, montage au calque de la carte P01 rév. 7 (ta caméra telle quelle) : outils/compose_p01.py",
+     "source": "nouveau fil, montage au calque de la carte P01 rév. 7 (ta caméra telle quelle) : tools/compose_p01.py",
      "carte": {
       "plan_rev": 7,
       "lieux_rev": 5
@@ -243,7 +243,7 @@
     {
      "id": "v15",
      "fichier": "p01-v15-camera-b.png",
-     "source": "nouveau fil, même montage + fond reprojeté vers la caméra B (outils/warp_camera.py)",
+     "source": "nouveau fil, même montage + fond reprojeté vers la caméra B (tools/warp_camera.py)",
      "carte": {
       "plan_rev": "7 + caméra B",
       "lieux_rev": 5

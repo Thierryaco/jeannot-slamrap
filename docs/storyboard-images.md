@@ -17,7 +17,7 @@
 | P04 | [`assets/storyboards/p04-jeannot-first-verse.png`](../assets/storyboards/p04-jeannot-first-verse.png) | 🔁 Reprise — geste de cigarette, 4L fixée à l'échelle et au repère P01 |
 | P05 | [`assets/storyboards/p05-witch-leaves.png`](../assets/storyboards/p05-witch-leaves.png) | 🔁 Reprise sur P01 — 4L à taille et place fixes ; sorcière tient Enji en laisse |
 | P06 | [`assets/storyboards/p06-henri-runs.png`](../assets/storyboards/p06-henri-runs.png) | 🔁 Reprise sur P01 — une seule 4L fixe, course d'Henri lisible |
-| P07 | [`assets/storyboards/p07-witch-returns.png`](../assets/storyboards/p07-witch-returns.png) | ✅ Poussée — retour à la tourelle |
+| P07 | [`assets/storyboards/p07-witch-returns.png`](../assets/storyboards/p07-witch-returns.png) | 🔁 Reprise sur P01 — tourelle et 4L à leurs repères fixes |
 | P08 | [`assets/storyboards/p08-henri-stair-fall.png`](../assets/storyboards/p08-henri-stair-fall.png) | ✅ Poussée — appui main/genou, sans rotation ni gore |
 | P09 | [`assets/storyboards/p09-jeannot-victory-pose.png`](../assets/storyboards/p09-jeannot-victory-pose.png) | ✅ Poussée — pose héroïque, 4L intacte |
 | P10 | [`assets/storyboards/p10-jeannot-stays.png`](../assets/storyboards/p10-jeannot-stays.png) | ✅ Poussée — gros plan, Jeannot reste dans la rue |

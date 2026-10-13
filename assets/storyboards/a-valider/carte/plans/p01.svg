@@ -110,14 +110,14 @@
 <polygon points="281.0,415.0 375.0,415.0 375.0,451.0 281.0,451.0" fill="#a8dcc0" fill-opacity="1.0"/>
 <polygon points="376.0,420.0 394.0,433.0 376.0,446.0" fill="#2c5f47" fill-opacity="1.0"/>
 <text x="328.0" y="438.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">4L</text>
-<polygon points="1230.0,517.0 1112.0,517.0 1112.0,471.0 1230.0,471.0" fill="#33475c" fill-opacity="1.0"/>
-<polygon points="1227.0,514.0 1115.0,514.0 1115.0,474.0 1227.0,474.0" fill="#8fa3b8" fill-opacity="1.0"/>
-<polygon points="1114.0,509.0 1096.0,494.0 1114.0,479.0" fill="#33475c" fill-opacity="1.0"/>
-<text x="1171.0" y="499.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Estafette</text>
-<polygon points="1114.0,433.0 1023.8,465.8 1006.0,417.0 1096.2,384.2" fill="#8a4510" fill-opacity="1.0"/>
-<polygon points="1110.2,431.2 1025.6,462.0 1009.8,418.8 1094.4,388.0" fill="#f08a2c" fill-opacity="1.0"/>
-<polygon points="1022.9,457.6 999.9,446.9 1010.6,423.8" fill="#8a4510" fill-opacity="1.0"/>
-<text x="1060.0" y="430.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
+<polygon points="1241.0,517.0 1123.0,517.0 1123.0,471.0 1241.0,471.0" fill="#33475c" fill-opacity="1.0"/>
+<polygon points="1238.0,514.0 1126.0,514.0 1126.0,474.0 1238.0,474.0" fill="#8fa3b8" fill-opacity="1.0"/>
+<polygon points="1125.0,509.0 1107.0,494.0 1125.0,479.0" fill="#33475c" fill-opacity="1.0"/>
+<text x="1182.0" y="499.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Estafette</text>
+<polygon points="1120.3,430.4 1052.4,498.3 1015.7,461.6 1083.6,393.7" fill="#8a4510" fill-opacity="1.0"/>
+<polygon points="1116.1,430.4 1052.4,494.1 1019.9,461.6 1083.6,397.9" fill="#f08a2c" fill-opacity="1.0"/>
+<polygon points="1048.2,491.3 1022.7,491.3 1022.7,465.8" fill="#8a4510" fill-opacity="1.0"/>
+<text x="1068.0" y="451.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
 <polygon points="293.0,414.0 285.0,430.0 277.0,414.0" fill="#1b2430" fill-opacity="1.0"/>
 <circle cx="285.0" cy="404.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
 <text x="285.0" y="409.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>
@@ -131,16 +131,17 @@
 <polygon points="905.0,374.0 897.0,390.0 889.0,374.0" fill="#1b2430" fill-opacity="1.0"/>
 <circle cx="897.0" cy="364.0" r="13" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
 <text x="897.0" y="369.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">H</text>
-<polygon points="1027.0,479.0 1019.0,495.0 1011.0,479.0" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="1019.0" cy="469.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
-<text x="1019.0" y="474.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
+<polygon points="997.1,463.3 999.1,445.6 1012.1,457.9" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="1008.0" cy="470.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
+<text x="1008.0" y="475.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
+<text x="1008.0" y="500.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">accroupi · à genoux devant sa caisse à …</text>
 <polygon points="-175.4,500.3 1747.8,-48.6 1779.7,921.9" fill="#e04f5f" fill-opacity="0.14" clip-path="url(#zone)"/>
 <line x1="-175.4" y1="500.3" x2="1262.1" y2="90.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
 <line x1="-175.4" y1="500.3" x2="1538.9" y2="870.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
 <polygon points="-191.8,489.8 -165.8,489.0 -165.0,511.0 -191.0,511.8" fill="#e04f5f" fill-opacity="1.0"/>
 <polygon points="-165.6,494.0 -154.8,487.6 -154.0,511.6 -165.2,506.0" fill="#1b2430" fill-opacity="1.0"/>
 <text x="-175.4" y="534.3" font-size="13" fill="#e04f5f" text-anchor="middle" font-weight="bold">P01</text>
-<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 8)</text>
+<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 9)</text>
 <text x="800.0" y="72.0" font-size="15" fill="#4a5566" text-anchor="middle">Instrumental</text>
 <text x="70.0" y="895.0" font-size="16" fill="#1b2430" text-anchor="start" font-weight="bold">Légende :</text>
 <circle cx="180.0" cy="889.0" r="10" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>

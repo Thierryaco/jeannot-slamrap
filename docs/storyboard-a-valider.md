@@ -86,7 +86,7 @@ D'après ton avis sur la v4 : le fond du garage est aligné sur le fond des mais
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 8, 2026-10-13 10:12) :
+🗺️ Carte du plan (rév. 9, 2026-10-13 10:12) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 

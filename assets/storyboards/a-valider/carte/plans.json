@@ -20,16 +20,17 @@
     "visible": true
    },
    "estafette": {
-    "x": 1171,
+    "x": 1182,
     "y": 494,
     "angle": 180,
     "visible": true
    },
    "coccinelle": {
-    "x": 1060,
-    "y": 425,
-    "angle": 160,
-    "visible": true
+    "x": 1068,
+    "y": 446,
+    "angle": 135,
+    "visible": true,
+    "action": "capot avant ouvert, sort du garage vers la rue ; outils au sol"
    },
    "jeannot": {
     "x": 285,
@@ -57,10 +58,12 @@
     "visible": true
    },
    "diego": {
-    "x": 1019,
-    "y": 469,
-    "angle": 90.0,
-    "visible": true
+    "x": 1008,
+    "y": 470,
+    "angle": -110,
+    "visible": true,
+    "pose": "accroupi",
+    "action": "à genoux devant sa caisse à outils, devant la Coccinelle"
    },
    "marco": {
     "x": 1265.0,
@@ -75,8 +78,8 @@
     "visible": false
    }
   },
-  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).",
-  "rev": 8,
+  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).\nRév. 9 : Coccinelle, Diego et Estafette recalés sur l'image P01 v16 (point de contact au sol + sens).",
+  "rev": 9,
   "maj": "2026-10-13 10:12"
  }
 }

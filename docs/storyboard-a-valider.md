@@ -78,13 +78,6 @@ D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit 
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v11** — 🔁 à retoucher — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) · 🟠 faite d'après la carte rév. 4 — la carte a changé depuis  
-Suit la carte rév. 4 : Jeannot sur le trottoir contre l'arrière de la 4L (une seule fumée), Enji à la bonne taille sur le trottoir, Coccinelle orange bien visible dans le garage ouvert avec Diego à côté, passage à niveau ouvert (barrières levées), la route plonge, collines seulement. Écarts restants : l'Estafette est sur la chaussée au centre-droit au lieu d'être collée au trottoir gauche devant le garage ; Enji est à gauche de Jeannot (contre le mur) plutôt qu'entre lui et la voiture ; les rails sont peu lisibles entre les barrières ; Jeannot est de 3/4 plutôt que de profil strict ; le garage arrive toujours juste après la maison d'Henri.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v11-carte-rev4.png" width="640" alt="P01 v11">
-
-- 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
-
 **P01 · v12** — 🔁 à retoucher — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 · 🟠 faite d'après la carte rév. 4 — la carte a changé depuis  
 Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe brune, combinaison bleue). Coccinelle visible dans le garage ouvert avec Diego, Enji assis sur le trottoir. Écarts : Henri est sur le balcon de la tourelle au lieu du haut de son escalier ; 4 barrières levées et la rue continue avec des maisons au-delà (pas de rails visibles, pas de descente) ; Estafette pas collée au trottoir ; Enji à gauche de Jeannot. Une 2e tentative (2 propositions) a été refusée.
 
@@ -101,7 +94,7 @@ Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons vienn
 - 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
 - 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
 
-<details><summary>🗄️ 10 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10</summary>
+<details><summary>🗄️ 11 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -120,6 +113,8 @@ Pour le garage de diego
 - **v9** — nouveau fil, générée d'après ta carte P01 rév. 1 + v8 (style) + photo de référence — ../assets/storyboards/a-valider/p01/p01-v9-carte-rev1.png
   - 💬 *2026-10-11 12:08* — (remarque donnée dans le chat) J’ai choisi l’image du passage à niveau. Il faut qu’il soit ouvert, avec les rails de chemin de fer entre les 2 barrières, sinon c’est bizarre juste la route. Après, la route descend à 45°, on ne la voit plus.
 - **v10** — nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji) — ../assets/storyboards/a-valider/p01/p01-v10-carte-rev2.png
+- **v11** — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) — ../assets/storyboards/a-valider/p01/p01-v11-carte-rev4.png
+  - 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
 
 </details>
 

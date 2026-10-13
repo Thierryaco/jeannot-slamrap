@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | ✅ Validé | 3 | v3 |
+| [CARTE](#carte) | référence | ✅ Validé | 4 | v3 |
 | [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 15 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -68,13 +68,18 @@ D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit 
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v3.png" width="640" alt="CARTE v3">
 
+**CARTE · v4** — ⏳ à valider — tools/draw_street_map.py base v4 (lieux rév. 6)  
+Carte recalée sur l'image P01 v13 (la carte suit l'image, pas l'inverse). La rue est prolongée de 12 m vers l'ouest (la caméra de la v13 est 6,5 m avant le début de la rue, avec un téléobjectif de 28°). La maison de Jeannot est plus longue (x 170–690), avec ses 2 tourelles comme dans la v13 : une tour ronde à toit rouge et la tourelle à balcon en ardoise (celle de la sorcière). La maison d'Henri suit, avec son escalier côté rue qui monte vers l'ouest. Le garage est collé à la maison d'Henri (x 1000–1115), la maison de Diego est juste après (l'Estafette devant), puis un voisin et le passage à niveau, qui n'a pas bougé. Un des deux voisins côté Jeannot disparaît.
+
+<img src="../assets/storyboards/a-valider/carte/carte-rue-v4.png" width="640" alt="CARTE v4">
+
 ## P01
 
 **00:00–00:05** · Instrumental · 🛠️ En cours
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 7, 2026-10-13 10:12) :
+🗺️ Carte du plan (rév. 8, 2026-10-13 10:12) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
@@ -94,7 +99,7 @@ Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons vienn
 - 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
 - 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
 
-**P01 · v14** — ⏳ à valider — nouveau fil, montage au calque de la carte P01 rév. 7 (ta caméra telle quelle) : tools/compose_p01.py · 🟢 conforme à la carte actuelle (rév. 7)  
+**P01 · v14** — ⏳ à valider — nouveau fil, montage au calque de la carte P01 rév. 7 (ta caméra telle quelle) : tools/compose_p01.py · 🟠 faite d'après la carte rév. 7 — la carte a changé depuis  
 Ta caméra rév. 7 sans aucun changement ; chaque perso et véhicule est collé dans sa boîte exacte du calque (contrôle : p01-v14-v15-controle-calque.jpg). Tourelle de la sorcière à droite de la maison de Jeannot, à 5 m de la caméra : elle remplit le bord gauche, son toit sort du cadre (c'est ce que voit un 100° à cette distance) ; la sorcière se penche à une fenêtre de la tourelle (d'après sa fiche). Henri (d'après sa fiche) sur le palier de son escalier. 4L vue de dos, très rouillée, au bord du trottoir ; Jeannot (barbe brune, chapeau jaune, bleu de travail, une seule fumée) ; Enji (berger noir et feu) au milieu de la chaussée. Au fond : garage ouvert, Coccinelle capot ouvert avec outils au sol, Diego, et l'Estafette d'origine (bleu-gris, d'après P03/P02). Comme le calcule la carte, la 4L cache la Coccinelle et Diego (≈ 82 %) depuis cette caméra.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v14-camera-rev7.png" width="640" alt="P01 v14">

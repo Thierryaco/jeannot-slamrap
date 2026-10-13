@@ -62,7 +62,7 @@ body.seulevue.mini #vue{width:100%;max-height:100vh;border:0;border-radius:0}
 <div id="wrap">
   <div id="stage"><div id="vuebar">👁️ <b id="vuetitre"></b><span>vue de la caméra calculée depuis la carte — lecture seule</span><span style="flex:1"></span>
       <a id="vueedit" href="#">✏️ modifier dans la carte</a><button id="vuefermer">✕ revenir à la carte</button></div>
-    <svg id="svg" viewBox="0 0 1600 1000"></svg>
+    <svg id="svg" viewBox="-300 0 1900 1000"></svg>
     <div id="vuebox"><div class="vh">👁️ <b>Vue de la caméra</b> (calculée depuis la carte : c'est ce que l'image doit montrer)
       <button id="vuegrand" title="Voir la vue caméra en plein écran, sans la carte (Échap pour revenir)">⤢ agrandir en plein écran</button><button id="vuecache">masquer</button></div>
       <svg id="vue" viewBox="0 0 1920 1080"></svg></div></div>
@@ -100,7 +100,7 @@ function setDirty(v){dirty=v;const s=$('status');s.className=v?'dirty':'';s.text
 function drawBase(){
   svg.innerHTML='';
   const r=L.rue, g=el('g',{},svg);
-  el('rect',{x:0,y:0,width:1600,height:1000,fill:'#f4efe4'},g);
+  el('rect',{x:-300,y:0,width:1900,height:1000,fill:'#f4efe4'},g);
   el('rect',{x:r.x0,y:r.nord_trottoir,width:r.x1-r.x0,height:r.chaussee_haut-r.nord_trottoir,fill:'#d9d4ca',stroke:'#33404f'},g);
   el('rect',{x:r.x0,y:r.chaussee_haut,width:r.x1-r.x0,height:r.chaussee_bas-r.chaussee_haut,fill:'#8e939a',stroke:'#33404f'},g);
   el('rect',{x:r.x0,y:r.chaussee_bas,width:r.x1-r.x0,height:r.sud_trottoir-r.chaussee_bas,fill:'#d9d4ca',stroke:'#33404f'},g);
@@ -132,7 +132,7 @@ function drawBase(){
   }
   {const t=el('text',{x:r.x0-30,y:mid+6,'font-size':22,'font-weight':'bold','text-anchor':'middle',fill:'#4a5566'},g);t.textContent='O';
    const e=el('text',{x:1592,y:100,'font-size':16,'font-weight':'bold','text-anchor':'end',fill:'#4a5566'},g);e.textContent='E →';}
-  const defs=el('defs',{},svg);const cp=el('clipPath',{id:'zone'},defs);el('rect',{x:0,y:90,width:1600,height:780},cp);
+  const defs=el('defs',{},svg);const cp=el('clipPath',{id:'zone'},defs);el('rect',{x:-300,y:90,width:1900,height:780},cp);
   el('g',{id:'cones','clip-path':'url(#zone)'},svg);
   el('g',{id:'items'},svg);
   el('g',{id:'handles'},svg);
@@ -212,7 +212,7 @@ const VHAUT={"à hauteur d'yeux":[1.6,0],"plongée (vue d'en haut)":[4.5,-14],"c
 const VHVEH={'4l':1.55,estafette:1.95,coccinelle:1.7};
 const VPOSE={debout:1,marche:1,court:.95,assis:.72,accroupi:.6,'couché':.3,'appuyé':1,'penché':.85,tombe:.6,saute:1.1,renifle:.75,aboie:1,dort:.45};
 const VPOSEC={assis:1.15,'couché':.55,dort:.5,renifle:.8};
-function vCam(c){const a=c.angle*Math.PI/180,[eye,p]=VHAUT[c.hauteur]||[1.6,0];
+function vCam(c){const a=c.angle*Math.PI/180,[eye0,p0]=VHAUT[c.hauteur]||[1.6,0],eye=(c.oeil!=null&&c.oeil!=='')?+c.oeil:eye0,p=(c.inclinaison!=null&&c.inclinaison!=='')?+c.inclinaison:p0;
   return {x:c.x,y:c.y,fx:Math.cos(a),fy:Math.sin(a),rx:-Math.sin(a),ry:Math.cos(a),eye,p:p*Math.PI/180,F:(VW/2)/Math.tan(c.fov*Math.PI/360)};}
 function vC(k,mx,my,h){const dx=(mx-k.x)*VM,dy=(my-k.y)*VM,f=dx*k.fx+dy*k.fy,r=dx*k.rx+dy*k.ry,u=h-k.eye;
   return [r,-f*Math.sin(k.p)+u*Math.cos(k.p),f*Math.cos(k.p)+u*Math.sin(k.p)];}
@@ -224,7 +224,7 @@ function vBox(cx,cy,w,h,ang,z0,z1){const a=ang*Math.PI/180,c=Math.cos(a),s=Math.
   const p=[[w/2,-h/2],[w/2,h/2],[-w/2,h/2],[-w/2,-h/2]].map(([u,v])=>[cx+c*u-s*v,cy+s*u+c*v]);
   const B=p.map(q=>[...q,z0]),T=p.map(q=>[...q,z1]),E=[];for(let i=0;i<4;i++){E.push([B[i],B[(i+1)%4]],[T[i],T[(i+1)%4]],[B[i],T[i]]);}
   return {E,front:[B[0],B[1],T[1],T[0]]};}
-function vEsc(x,y){for(const d of L.details){ if(d.type!=='escalier') continue; const hm=d.hauteur||2.8,pa=d.palier;
+function vEsc(x,y){for(const d of L.details){ if(d.type==='tourelle'&&d.balcon&&(x-d.x)**2+(y-d.y)**2<=(d.r+4)**2) return {t:`au balcon de la ${d.nom} (à ${(+d.balcon).toFixed(1).replace('.',',')} m du sol)`,h:+d.balcon}; if(d.type!=='escalier') continue; const hm=d.hauteur||2.8,pa=d.palier;
     if(pa&&x>=pa.x-3&&x<=pa.x+pa.w+3&&y>=pa.y-3&&y<=pa.y+pa.h+3) return {t:`sur le palier en haut de l'${d.nom} (à ${hm.toFixed(1).replace('.',',')} m du sol)`,h:hm};
     if(x>=d.x&&x<=d.x+d.w&&y>=d.y-3&&y<=d.y+d.h+3){const f=(d.montee||'est')==='est'?(x-d.x)/d.w:(d.x+d.w-x)/d.w;
       return {t:`${f<.25?'en bas de':f>.75?'presque en haut de':'au milieu de'} l'${d.nom} (à ${(f*hm).toFixed(1).replace('.',',')} m du sol)`,h:f*hm};}}
@@ -411,6 +411,7 @@ function updatePanel(rebuild=true){
     <div class="row">Portée (net) <input type="range" name="portee" min="100" max="2200" step="10" value="${o.portee}"><span id="porv">${vLimM(o).toFixed(0)} m</span></div>
     <div class="help">= longueur du cône. Tout ce qui est dans le cône coloré est <b>net</b> ; au-delà de son bord du fond, la vue caméra le montre <b>flou, dans la brume</b> (ligne rouge pointillée « portée » au sol), et la liste le range « au-delà de la portée ».</div>
     <div class="row">Hauteur <select name="hauteur">${HAUTEURS.map(h=>`<option ${o.hauteur===h?'selected':''}>${h}</option>`).join('')}</select></div>
+    <div class="row">Réglage fin : œil <input type="number" name="oeil" step="0.05" min="0" max="60" value="${o.oeil??''}" placeholder="auto" style="width:62px"> m · inclinaison <input type="number" name="inclinaison" step="0.1" min="-89" max="89" value="${o.inclinaison??''}" placeholder="auto" style="width:62px">°</div>
     <div class="row">Position <input type="number" name="xm" step="0.1" style="width:78px"> m → est <input type="number" name="ym" step="0.1" style="width:72px"> m ↓ sud</div>
     <div class="help">📍 <span id="ou"></span><br>Flèches du clavier : déplacer de 10 cm (Maj + flèche : 50 cm).</div>`;
   }else{
@@ -439,6 +440,7 @@ function updatePanel(rebuild=true){
     if(inp.name==='portee') o.portee=+v;
     if(inp.name==='fov'||inp.name==='portee'||inp.name==='focale'){const pv=$('porv'); if(pv) pv.textContent=vLimM(o).toFixed(0)+' m';}
     if(inp.name==='hauteur') o.hauteur=v;
+    if(inp.name==='oeil'||inp.name==='inclinaison'){ if(v==='') delete o[inp.name]; else o[inp.name]=+v; }
     if(inp.name==='pose'){ if(v) o.pose=v; else delete o.pose; }
     if(inp.name==='action'){ if(v.trim()) o.action=v; else delete o.action; }
     setDirty(true); drawItems();

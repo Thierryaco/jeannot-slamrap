@@ -148,7 +148,7 @@ def elements_attendus(L, placement, cam_i=0):
                     if q:
                         pts.append(q)
         else:
-            z0 = stairs_elev(L, e["x"], e["y"])
+            z0 = float(e["altitude"]) if e.get("altitude") is not None else stairs_elev(L, e["x"], e["y"])
             hh = perso_h(k, e)
             for dx, dy in ((-7, 0), (7, 0), (0, -7), (0, 7)):
                 for z in (z0, z0 + hh):
@@ -267,7 +267,7 @@ def calque(plan_id, cam_i=0):
                 line(a, b, col + (255,), 3)
             label(cam.proj(e["x"], e["y"], hv + 0.5), k["nom"].replace(" (sur parpaings)", "") + (" (flou)" if loin else ""), col + (255,), f_b)
         else:
-            z0 = stairs_elev(L, e["x"], e["y"])
+            z0 = float(e["altitude"]) if e.get("altitude") is not None else stairs_elev(L, e["x"], e["y"])
             hh = perso_h(k, e)
             pb, pt = cam.proj(e["x"], e["y"], z0), cam.proj(e["x"], e["y"], z0 + hh)
             if not pb or not pt:

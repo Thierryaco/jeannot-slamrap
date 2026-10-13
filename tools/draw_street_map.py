@@ -44,6 +44,7 @@ def load_plans():
 class Canvas:
     def __init__(self, w, h):
         self.w, self.h, self.shapes = w, h, []
+        self.ox = 0  # bord gauche de la vue (négatif si la rue est prolongée vers l'ouest)
 
     def rect(self, x, y, w, h, fill, stroke="#33404f", sw=2, rx=0, dash=None, rot=None):
         self.shapes.append(("rect", dict(x=x, y=y, w=w, h=h, fill=fill, stroke=stroke, sw=sw, rx=rx, dash=dash, rot=rot)))
@@ -71,7 +72,8 @@ def rot_pts(cx, cy, pts, ang):
 def draw_base(c, L):
     r = L["rue"]
     W, H = L["taille"]
-    c.rect(0, 0, W, H, "#f4efe4", stroke=None, sw=0)
+    c.ox = min(0, L["rue"]["x0"] - 40)
+    c.rect(c.ox, 0, W - c.ox, H, "#f4efe4", stroke=None, sw=0)
     c.rect(r["x0"], r["nord_trottoir"], r["x1"] - r["x0"], r["chaussee_haut"] - r["nord_trottoir"], "#d9d4ca", sw=1)
     c.rect(r["x0"], r["chaussee_haut"], r["x1"] - r["x0"], r["chaussee_bas"] - r["chaussee_haut"], "#8e939a", sw=1)
     c.rect(r["x0"], r["chaussee_bas"], r["x1"] - r["x0"], r["sud_trottoir"] - r["chaussee_bas"], "#d9d4ca", sw=1)
@@ -188,9 +190,10 @@ def draw_cameras(c, L, placement, label="P"):
     for i, cam in enumerate(cams):
         col = CAM_COLORS[i % 2]
         pts = cone(cam)
-        c.poly(pts, col, opacity=0.14, clip=(0, 90, W, 870))
-        c.line(*pts[0], *clip_seg(*pts[0], *pts[1]), col, 2, dash=(6, 5))
-        c.line(*pts[0], *clip_seg(*pts[0], *pts[2]), col, 2, dash=(6, 5))
+        box = (c.ox, 90, W, 870)
+        c.poly(pts, col, opacity=0.14, clip=box)
+        c.line(*pts[0], *clip_seg(*pts[0], *pts[1], box), col, 2, dash=(6, 5))
+        c.line(*pts[0], *clip_seg(*pts[0], *pts[2], box), col, 2, dash=(6, 5))
     if len(cams) == 2:
         c.line(cams[0]["x"], cams[0]["y"], cams[1]["x"], cams[1]["y"], "#2f7fd8", 3, dash=(4, 4))
     for i, cam in enumerate(cams):
@@ -244,6 +247,8 @@ def portee_px(cam):
 def sur_escalier(L, x, y):
     """(texte, hauteur en m) si le point est sur un escalier extérieur ou son palier, sinon None."""
     for d in L["details"]:
+        if d["type"] == "tourelle" and d.get("balcon") and (x - d["x"]) ** 2 + (y - d["y"]) ** 2 <= (d["r"] + 4) ** 2:
+            return f"au balcon de la {d['nom']} (à {d['balcon']:.1f} m du sol)".replace(".", ",", 1), float(d["balcon"])
         if d["type"] != "escalier":
             continue
         hmax = d.get("hauteur", 2.8)
@@ -379,8 +384,8 @@ def to_svg(c):
     def col(v):
         return v if v else "none"
 
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{c.w}" height="{c.h}" viewBox="0 0 {c.w} {c.h}" '
-           f'font-family="DejaVu Sans, Arial, sans-serif">', '<defs><clipPath id="zone"><rect x="0" y="90" width="1600" height="780"/></clipPath></defs>']
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{c.w - c.ox}" height="{c.h}" viewBox="{c.ox} 0 {c.w - c.ox} {c.h}" '
+           f'font-family="DejaVu Sans, Arial, sans-serif">', f'<defs><clipPath id="zone"><rect x="{c.ox}" y="90" width="{c.w - c.ox}" height="780"/></clipPath></defs>']
     for kind, p in c.shapes:
         if kind == "rect":
             dash = f' stroke-dasharray="{p["dash"][0]} {p["dash"][1]}"' if p["dash"] else ""
@@ -426,10 +431,31 @@ def _dashed(d, x1, y1, x2, y2, fill, width, dash):
         t += on + off
 
 
-def to_png(c, path, s=2):
-    img = Image.new("RGBA", (c.w * s, c.h * s), (255, 255, 255, 255))
-    d = ImageDraw.Draw(img)
+def _decale(c):
+    """Formes décalées de -ox en x (rue prolongée vers l'ouest : x négatifs)."""
+    ox = getattr(c, "ox", 0)
+    if not ox:
+        return c.w, c.shapes
+    out = []
     for kind, p in c.shapes:
+        q = dict(p)
+        for k in ("x", "cx", "x1", "x2"):
+            if k in q:
+                q[k] = q[k] - ox
+        if "pts" in q:
+            q["pts"] = [(x - ox, y) for x, y in q["pts"]]
+        if q.get("clip"):
+            x0, y0, x1, y1 = q["clip"]
+            q["clip"] = (x0 - ox, y0, x1 - ox, y1)
+        out.append((kind, q))
+    return c.w - ox, out
+
+
+def to_png(c, path, s=2):
+    cw, shapes = _decale(c)
+    img = Image.new("RGBA", (int(cw * s), c.h * s), (255, 255, 255, 255))
+    d = ImageDraw.Draw(img)
+    for kind, p in shapes:
         if kind == "poly" and p["opacity"] < 1:
             layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
             ImageDraw.Draw(layer).polygon([(x * s, y * s) for x, y in p["pts"]], fill=hexrgb(p["fill"], int(255 * p["opacity"])))

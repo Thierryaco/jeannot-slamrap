@@ -133,6 +133,10 @@ def save_carte(data):
         cams.append({"x": _num(c["x"]), "y": _num(c["y"]), "angle": _num(c["angle"], -720, 720),
                      "fov": _num(c["fov"], 1, 180), "portee": _num(c["portee"], 10, 3000),
                      "hauteur": str(c.get("hauteur", ""))[:60]})
+        if c.get("oeil") not in (None, ""):
+            cams[-1]["oeil"] = _num(c["oeil"], 0, 60)
+        if c.get("inclinaison") not in (None, ""):
+            cams[-1]["inclinaison"] = _num(c["inclinaison"], -89, 89)
     if not cams:
         raise ValueError("il faut au moins une caméra")
     els = {}

@@ -2,60 +2,63 @@
  "P01": {
   "cameras": [
    {
-    "x": 126.8,
-    "y": 495.0,
-    "angle": 0.0,
-    "fov": 100.0,
-    "portee": 1720.0,
-    "hauteur": "à hauteur d'yeux"
+    "x": -175.4,
+    "y": 500.3,
+    "angle": -1.88,
+    "fov": 28.1,
+    "portee": 2000,
+    "hauteur": "à hauteur d'yeux",
+    "oeil": 1.9,
+    "inclinaison": -1.61
    }
   ],
   "elements": {
    "4l": {
-    "x": 333.0,
-    "y": 455.0,
-    "angle": 0.0,
+    "x": 328,
+    "y": 433,
+    "angle": 0,
     "visible": true
    },
    "estafette": {
-    "x": 1220.0,
-    "y": 447.0,
-    "angle": 180.0,
+    "x": 1171,
+    "y": 494,
+    "angle": 180,
     "visible": true
    },
    "coccinelle": {
-    "x": 1216.0,
-    "y": 309.0,
-    "angle": 90.0,
+    "x": 1060,
+    "y": 425,
+    "angle": 160,
     "visible": true
    },
    "jeannot": {
-    "x": 285.0,
-    "y": 421.0,
+    "x": 285,
+    "y": 404,
     "angle": 90.0,
     "visible": true
    },
    "enji": {
-    "x": 251.0,
-    "y": 473.0,
+    "x": 239,
+    "y": 397,
     "angle": 90.0,
-    "visible": true
+    "visible": true,
+    "pose": "assis"
    },
    "sorciere": {
-    "x": 280.0,
-    "y": 332.0,
+    "x": 620,
+    "y": 372,
     "angle": 90.0,
     "visible": true
    },
    "henri": {
-    "x": 528.0,
-    "y": 364.0,
+    "x": 897,
+    "y": 364,
     "angle": 90.0,
     "visible": true
    },
    "diego": {
-    "x": 1164.0,
-    "y": 349.0,
+    "x": 1019,
+    "y": 469,
     "angle": 90.0,
     "visible": true
    },
@@ -72,8 +75,8 @@
     "visible": false
    }
   },
-  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\n",
-  "rev": 7,
+  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).",
+  "rev": 8,
   "maj": "2026-10-13 10:12"
  }
 }

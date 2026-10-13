@@ -46,6 +46,14 @@
      "note": "D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit de la maison de Jeannot (côté Henri). Tout le reste de la v2 validée est inchangé (longueur de rue, maisons, garage, Estafette, passage à niveau), en plus de l'escalier d'Henri avec son palier (lieux rév. 4). La sorcière de P01 a suivi la tourelle.",
      "etat": "retenue",
      "avis": []
+    },
+    {
+     "id": "v4",
+     "fichier": "carte-rue-v4.png",
+     "source": "tools/draw_street_map.py base v4 (lieux rév. 6)",
+     "note": "Carte recalée sur l'image P01 v13 (la carte suit l'image, pas l'inverse). La rue est prolongée de 12 m vers l'ouest (la caméra de la v13 est 6,5 m avant le début de la rue, avec un téléobjectif de 28°). La maison de Jeannot est plus longue (x 170–690), avec ses 2 tourelles comme dans la v13 : une tour ronde à toit rouge et la tourelle à balcon en ardoise (celle de la sorcière). La maison d'Henri suit, avec son escalier côté rue qui monte vers l'ouest. Le garage est collé à la maison d'Henri (x 1000–1115), la maison de Diego est juste après (l'Estafette devant), puis un voisin et le passage à niveau, qui n'a pas bougé. Un des deux voisins côté Jeannot disparaît.",
+     "etat": "a-valider",
+     "avis": ""
     }
    ]
   },

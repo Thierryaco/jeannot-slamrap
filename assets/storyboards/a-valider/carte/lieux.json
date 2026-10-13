@@ -1,0 +1,416 @@
+{
+ "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes. Escalier d'Henri : il longe la façade et monte vers l'ouest (rév. 6, d'après P01 v13) jusqu'au palier du 1er étage (≈ 2,8 m) ; un personnage posé sur l'escalier ou le palier est surélevé d'autant.",
+ "taille": [
+  1600,
+  1000
+ ],
+ "rue": {
+  "x0": -260,
+  "x1": 1530,
+  "nord_lot": 110,
+  "nord_trottoir": 385,
+  "chaussee_haut": 425,
+  "chaussee_bas": 565,
+  "sud_trottoir": 605,
+  "sud_lot": 860
+ },
+ "parcelles": [
+  {
+   "x": -250,
+   "y": 110,
+   "w": 410,
+   "h": 267
+  },
+  {
+   "x": 170,
+   "y": 110,
+   "w": 530,
+   "h": 267
+  },
+  {
+   "x": 710,
+   "y": 110,
+   "w": 285,
+   "h": 267
+  },
+  {
+   "x": 1000,
+   "y": 110,
+   "w": 345,
+   "h": 267
+  },
+  {
+   "x": 1355,
+   "y": 110,
+   "w": 165,
+   "h": 267
+  },
+  {
+   "x": -250,
+   "y": 613,
+   "w": 320,
+   "h": 247
+  },
+  {
+   "x": 80,
+   "y": 613,
+   "w": 250,
+   "h": 247
+  },
+  {
+   "x": 340,
+   "y": 613,
+   "w": 240,
+   "h": 247
+  },
+  {
+   "x": 590,
+   "y": 613,
+   "w": 250,
+   "h": 247
+  },
+  {
+   "x": 850,
+   "y": 613,
+   "w": 250,
+   "h": 247
+  },
+  {
+   "x": 1110,
+   "y": 613,
+   "w": 410,
+   "h": 247
+  }
+ ],
+ "batiments": [
+  {
+   "id": "maison-jeannot",
+   "nom": "Maison de JEANNOT",
+   "sous": "+ la sorcière + Enji · 2 tourelles",
+   "x": 170,
+   "y": 165,
+   "w": 520,
+   "h": 195,
+   "couleur": "#f7d9a8"
+  },
+  {
+   "id": "maison-henri",
+   "nom": "Maison d'HENRI",
+   "sous": "escalier côté rue",
+   "x": 720,
+   "y": 165,
+   "w": 275,
+   "h": 180,
+   "couleur": "#e7e0f5"
+  },
+  {
+   "id": "voisin-n1",
+   "nom": "voisin",
+   "sous": "",
+   "x": 1350,
+   "y": 165,
+   "w": 165,
+   "h": 175,
+   "couleur": "#ebe7df"
+  },
+  {
+   "id": "garage-diego",
+   "nom": "garage / atelier",
+   "sous": "porte ouverte côté rue, au début du trottoir",
+   "x": 1000,
+   "y": 165,
+   "w": 115,
+   "h": 218,
+   "couleur": "#d7d2c8",
+   "ouverture": "sud"
+  },
+  {
+   "id": "maison-diego",
+   "nom": "Maison de DIEGO",
+   "sous": "l'Estafette devant",
+   "x": 1125,
+   "y": 165,
+   "w": 210,
+   "h": 180,
+   "couleur": "#cfe0f2"
+  },
+  {
+   "id": "maison-narrateur",
+   "nom": "NARRATEUR",
+   "sous": "en face de Jeannot",
+   "x": 100,
+   "y": 635,
+   "w": 210,
+   "h": 165,
+   "couleur": "#d8ecf7"
+  },
+  {
+   "id": "voisin-s1",
+   "nom": "voisin",
+   "sous": "",
+   "x": 360,
+   "y": 635,
+   "w": 200,
+   "h": 165,
+   "couleur": "#ebe7df"
+  },
+  {
+   "id": "voisin-s2",
+   "nom": "voisin",
+   "sous": "",
+   "x": 610,
+   "y": 635,
+   "w": 210,
+   "h": 165,
+   "couleur": "#ebe7df"
+  },
+  {
+   "id": "voisin-s3",
+   "nom": "voisin",
+   "sous": "",
+   "x": 870,
+   "y": 635,
+   "w": 210,
+   "h": 165,
+   "couleur": "#ebe7df"
+  },
+  {
+   "id": "voisins-s4",
+   "nom": "voisins",
+   "sous": "en face de Diego",
+   "x": 1130,
+   "y": 635,
+   "w": 370,
+   "h": 165,
+   "couleur": "#ebe7df"
+  }
+ ],
+ "details": [
+  {
+   "id": "tour-ronde",
+   "type": "tourelle",
+   "nom": "tour ronde (toit rouge) de la maison de Jeannot",
+   "x": 330,
+   "y": 302,
+   "r": 58
+  },
+  {
+   "id": "tourelle",
+   "type": "tourelle",
+   "nom": "tourelle de la sorcière (toit d'ardoise)",
+   "x": 525,
+   "y": 327,
+   "r": 56,
+   "balcon": 3.2
+  },
+  {
+   "id": "escalier-henri",
+   "type": "escalier",
+   "nom": "escalier extérieur d'Henri",
+   "x": 880,
+   "y": 345,
+   "w": 80,
+   "h": 38,
+   "montee": "est",
+   "hauteur": 2.8,
+   "palier": {
+    "x": 960,
+    "y": 345,
+    "w": 35,
+    "h": 38
+   }
+  },
+  {
+   "id": "passage-a-niveau",
+   "type": "passage_niveau",
+   "nom": "passage à niveau (voie ferrée)",
+   "x": 1538,
+   "y": 385,
+   "w": 44,
+   "h": 220,
+   "apres": "juste après les rails, la route plonge en pente très raide (environ 45°) et disparaît de la vue : on ne la voit plus, ni aucune maison, seulement des collines au loin",
+   "etat": "ouvert : barrières levées des deux côtés, et les rails de chemin de fer bien visibles qui traversent la chaussée entre les deux barrières"
+  }
+ ],
+ "catalogue": [
+  {
+   "id": "jeannot",
+   "type": "perso",
+   "nom": "Jeannot",
+   "lettre": "J",
+   "couleur": "#f2bf44"
+  },
+  {
+   "id": "sorciere",
+   "type": "perso",
+   "nom": "la sorcière",
+   "lettre": "S",
+   "couleur": "#7d5cc0"
+  },
+  {
+   "id": "henri",
+   "type": "perso",
+   "nom": "Henri",
+   "lettre": "H",
+   "couleur": "#c9b6e8"
+  },
+  {
+   "id": "diego",
+   "type": "perso",
+   "nom": "Diego",
+   "lettre": "D",
+   "couleur": "#5d8fd6"
+  },
+  {
+   "id": "marco",
+   "type": "perso",
+   "nom": "Marco",
+   "lettre": "M",
+   "couleur": "#e98b5a"
+  },
+  {
+   "id": "enji",
+   "type": "perso",
+   "nom": "Enji",
+   "lettre": "E",
+   "couleur": "#b08a5a",
+   "espece": "chien"
+  },
+  {
+   "id": "narrateur",
+   "type": "perso",
+   "nom": "le narrateur",
+   "lettre": "N",
+   "couleur": "#9fd1ee"
+  },
+  {
+   "id": "4l",
+   "type": "vehicule",
+   "nom": "la 4L",
+   "lettre": "4L",
+   "couleur": "#a8dcc0",
+   "contour": "#2c5f47",
+   "w": 99,
+   "h": 40
+  },
+  {
+   "id": "estafette",
+   "type": "vehicule",
+   "nom": "l'Estafette",
+   "lettre": "Estafette",
+   "couleur": "#8fa3b8",
+   "contour": "#33475c",
+   "w": 116,
+   "h": 49
+  },
+  {
+   "id": "coccinelle",
+   "type": "vehicule",
+   "nom": "la Coccinelle (sur parpaings)",
+   "lettre": "Cox",
+   "couleur": "#f08a2c",
+   "contour": "#8a4510",
+   "w": 110,
+   "h": 42
+  }
+ ],
+ "defaut": {
+  "cameras": [
+   {
+    "x": 92,
+    "y": 495,
+    "angle": -2,
+    "fov": 60,
+    "portee": 1300,
+    "hauteur": "à hauteur d'yeux"
+   }
+  ],
+  "elements": {
+   "4l": {
+    "x": 230,
+    "y": 452,
+    "angle": 0,
+    "visible": true
+   },
+   "estafette": {
+    "x": 1424,
+    "y": 454,
+    "angle": 180,
+    "visible": true
+   },
+   "coccinelle": {
+    "x": 1057,
+    "y": 300,
+    "angle": 0,
+    "visible": true
+   },
+   "jeannot": {
+    "x": 300,
+    "y": 389,
+    "angle": 90,
+    "visible": true
+   },
+   "enji": {
+    "x": 332,
+    "y": 393,
+    "angle": 90,
+    "visible": true
+   },
+   "sorciere": {
+    "x": 280,
+    "y": 332,
+    "angle": 90,
+    "visible": true
+   },
+   "henri": {
+    "x": 525,
+    "y": 324,
+    "angle": 90,
+    "visible": true
+   },
+   "diego": {
+    "x": 1215,
+    "y": 389,
+    "angle": 90,
+    "visible": true
+   },
+   "marco": {
+    "x": 1265,
+    "y": 300,
+    "angle": 180,
+    "visible": false
+   },
+   "narrateur": {
+    "x": 205,
+    "y": 609,
+    "angle": -90,
+    "visible": false
+   }
+  }
+ },
+ "rev": 10,
+ "poses": {
+  "perso": [
+   "debout",
+   "marche",
+   "court",
+   "assis",
+   "accroupi",
+   "couché",
+   "appuyé",
+   "penché",
+   "tombe",
+   "saute"
+  ],
+  "chien": [
+   "debout",
+   "marche",
+   "court",
+   "assis",
+   "couché",
+   "renifle",
+   "aboie",
+   "dort"
+  ]
+ }
+}

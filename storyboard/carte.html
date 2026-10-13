@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeannot slamrap — carte interactive par plan</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;--or:#f2bf44;--line:#2a3647;--ok:#3cb371}
+*{box-sizing:border-box}
+body{margin:0;background:#0b111c;color:#edf2f8;display:flex;flex-direction:column;height:100vh}
+header{display:flex;align-items:center;gap:12px;padding:8px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+header h1{font-size:17px;margin:0} header a{color:var(--or);font-size:13px}
+select,button,input,textarea{font:inherit;font-size:13px}
+select,input[type=number],input[type=text]{background:#121a28;color:#edf2f8;border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+button{padding:5px 10px;border-radius:6px;border:1px solid var(--line);background:#1a2435;color:#e6edf6;cursor:pointer}
+button:hover{background:#233149} button.main{background:#3a3010;color:var(--or);border-color:#6b5717;font-weight:600}
+button:disabled{opacity:.4;cursor:default}
+#wrap{flex:1;display:flex;min-height:0}
+#stage{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#05080d;padding:6px;gap:6px}
+#svg{width:100%;flex:1;min-height:0;touch-action:none;user-select:none}
+#svg.pan{cursor:grabbing}
+#zbarc{position:absolute;left:10px;bottom:10px;z-index:3;display:flex;gap:4px;align-items:center;background:#0b111ce6;border:1px solid #2a3a52;border-radius:8px;padding:4px 6px;color:#cbd5e1;font-size:12px}
+#zbarc button{padding:2px 8px} #zbarc b{min-width:44px;text-align:right;color:#f2bf44}
+body.seulevue #zbarc{display:none}
+#vuebox{width:100%;display:flex;flex-direction:column;align-items:center;gap:3px}
+#vuebox .vh{font-size:12.5px;color:#cbd5e1;display:flex;gap:10px;align-items:center}
+#vue{height:min(36vh,42vw);aspect-ratio:16/9;max-width:100%;background:#1b2636;border:1px solid var(--line);border-radius:6px}
+#vuebox.grand #vue{height:min(62vh,52vw)} #vuebox.cache #vue{display:none}
+aside{width:360px;border-left:1px solid var(--line);overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:12px}
+h3{margin:0 0 6px;font-size:14px;color:var(--or)}
+.lyr{color:var(--or);font-size:13px;margin:2px 0} .brief{color:#b5c0cf;font-size:12px;line-height:1.4;margin:0}
+.box{background:#111a29;border:1px solid var(--line);border-radius:8px;padding:9px}
+.els{display:grid;grid-template-columns:1fr 1fr;gap:3px 8px;font-size:13px}
+.els label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block;border:1px solid #000}
+.row{display:flex;gap:8px;align-items:center;margin:4px 0;font-size:13px} .row input[type=range]{flex:1}
+textarea{width:100%;min-height:70px;background:#0d1420;color:#edf2f8;border:1px solid var(--line);border-radius:6px;padding:6px;resize:vertical}
+#champ{font-size:12.5px;line-height:1.5;color:#cbd5e1} #champ b{color:#edf2f8}
+#status{font-size:12px;color:#8fa0b5} #status.dirty{color:#f5c56a} #status.saved{color:var(--ok)}
+.help{font-size:12px;color:#8fa0b5;line-height:1.45}
+.sel{outline:none} .handle{cursor:grab;fill:#ffb347;stroke:#111;stroke-width:2} .handle-g{cursor:grab}
+.item{cursor:move}
+/* vue caméra seule, en grand, sans rien modifier (carte.html?vue#P01, ou bouton « agrandir ») */
+#vuebar{display:none}
+body.seulevue header,body.seulevue #svg,body.seulevue #vuebox .vh,body.seulevue aside>.box:not(#champbox){display:none}
+body.seulevue #vuebar{display:flex;gap:12px;align-items:center;font-size:13px;color:#cbd5e1;width:100%;padding:2px 4px}
+body.seulevue #vuebar b{color:var(--or)} body.seulevue #vuebar a{color:var(--or)}
+body.seulevue #stage{justify-content:flex-start} body.seulevue #vuebox.cache #vue{display:block}
+body.seulevue #vue{height:auto;width:min(100%, calc((100vh - 46px) * 16 / 9));max-height:calc(100vh - 46px)}
+body.seulevue aside{width:300px}
+body.seulevue.mini aside,body.seulevue.mini #vuebar{display:none} body.seulevue.mini #stage{padding:0;background:#1b2636}
+body.seulevue.mini #vue{width:100%;max-height:100vh;border:0;border-radius:0}
+@media (max-width:900px){#wrap{flex-direction:column} aside{width:auto;border-left:0;border-top:1px solid var(--line)} #stage{min-height:55vh}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Carte interactive</h1>
+  <select id="plan"></select>
+  <button id="prev">◀</button><button id="next">▶</button>
+  <button id="undo" title="Annuler la dernière modification (Ctrl+Z)" disabled>↶ Annuler</button><button id="redo" title="Rétablir (Ctrl+Y ou Ctrl+Maj+Z)" disabled>↷ Rétablir</button>
+  <button class="main" id="save">💾 Enregistrer le plan</button>
+  <span id="status"></span>
+  <span style="flex:1"></span>
+  <a id="retour" href="a-valider.html" title="revenir sur la dernière version du plan en cours">← Storyboard à valider</a>
+</header>
+<div id="wrap">
+  <div id="stage"><div id="vuebar">👁️ <b id="vuetitre"></b><span>vue de la caméra calculée depuis la carte — lecture seule</span><span style="flex:1"></span>
+      <a id="vueedit" href="#">✏️ modifier dans la carte</a><button id="vuefermer">✕ revenir à la carte</button></div>
+    <svg id="svg" viewBox="-300 0 1900 1000"></svg>
+    <div id="zbarc">🔍 <button id="zm" title="dézoomer (touche −)">−</button><b id="zpc">100 %</b><button id="zp" title="zoomer (touche +)">+</button><button id="zt" title="toute la carte (touche 0)">⤢ tout voir</button><span>molette = zoom · glisser le fond = déplacer</span></div>
+    <div id="vuebox"><div class="vh">👁️ <b>Vue de la caméra</b> (calculée depuis la carte : c'est ce que l'image doit montrer)
+      <button id="vuegrand" title="Voir la vue caméra en plein écran, sans la carte (Échap pour revenir)">⤢ agrandir en plein écran</button><button id="vuecache">masquer</button></div>
+      <svg id="vue" viewBox="0 0 1920 1080"></svg></div></div>
+  <aside>
+    <div class="box"><div class="lyr" id="lyr"></div><p class="brief" id="brief"></p></div>
+    <div class="box" id="selbox"><h3>Sélection</h3><div id="selpanel" class="help">Clique sur la caméra, un personnage ou un véhicule.<br>Position = le rond de couleur · pointe noire = sens du regard · ↻ orange = poignée pour tourner.</div></div>
+    <div class="box" id="champbox"><h3>🎥 Ce que voit la caméra</h3><div id="champ"></div></div>
+    <div class="box"><h3>Présents dans le plan</h3><div class="els" id="els"></div></div>
+    <div class="box"><h3>Caméra</h3>
+      <button id="addcam">➕ Caméra de fin (mouvement)</button>
+      <button id="delcam">➖ Enlever la caméra de fin</button>
+      <p class="help">Pour un panoramique ou un travelling : la caméra rouge = début, la bleue = fin du mouvement.</p>
+    </div>
+    <div class="box"><h3>📝 Note pour ce plan</h3><textarea id="note" placeholder="Ce que tu veux préciser : action, regard, détail du décor…"></textarea></div>
+    <div class="box"><h3>Outils</h3>
+      <button id="copyprev">Copier le placement du plan précédent</button>
+      <button id="reset">Placement par défaut</button>
+      <p class="help"><b>Mode d'emploi :</b> la <b>position</b> d'un personnage, c'est le <b>rond de couleur avec sa lettre</b> ; la petite <b>pointe noire</b> montre où il regarde. Glisse le rond pour le déplacer. Quand il est sélectionné, une <b>poignée orange ↻</b> apparaît au bout d'un pointillé : elle sert seulement à le tourner (pour la caméra : la direction du regard). Un élément <b>en transparent</b> est hors champ. Les véhicules ont le nez du côté de la flèche, les personnages regardent dans le sens de leur petite flèche. N'oublie pas <b>💾 Enregistrer</b> : c'est poussé sur GitHub et je génère l'image de la carte du plan.</p>
+    </div>
+  </aside>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+const svg=document.getElementById('svg');
+let L=null, PLANS={}, META=[], cur=null, data=null, sel=null, dirty=false, canWrite=false;
+const CAMCOL=['#e04f5f','#2f7fd8'];
+const HAUTEURS=["à hauteur d'yeux","plongée (vue d'en haut)","contre-plongée (vue d'en bas)","vue aérienne / drone","au ras du sol"];
+const FOCALES=[["très grand angle",80],["grand angle",60],["normal",40],["serré",25],["téléobjectif",12]];
+const clone=o=>JSON.parse(JSON.stringify(o));
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const $=id=>document.getElementById(id);
+
+// --- historique annuler / rétablir (un pas par modification ; un glisser-déposer = un seul pas)
+let UNDO=[], REDO=[], lastSnap=null;
+function histBtns(){const u=$('undo'),r=$('redo'); if(u){u.disabled=!UNDO.length; u.title=`Annuler la dernière modification (Ctrl+Z) — ${UNDO.length} pas`;} if(r) r.disabled=!REDO.length;}
+function histReset(){UNDO=[];REDO=[];lastSnap=JSON.stringify(data);histBtns();}
+function snap(){const j=JSON.stringify(data); if(lastSnap!==null&&j!==lastSnap){UNDO.push(lastSnap); if(UNDO.length>300) UNDO.shift(); REDO=[];} lastSnap=j; histBtns();}
+function histGo(from,to){ if(!from.length) return; to.push(JSON.stringify(data)); const s=from.pop(); data=JSON.parse(s); lastSnap=s;
+  if(sel&&!(sel.kind==='cam'?data.cameras[sel.id]:data.elements[sel.id])) sel=null;
+  dirty=true; const st=$('status'); st.className='dirty'; st.textContent='● modifications non enregistrées';
+  renderEls(); drawItems(); updatePanel(true); histBtns(); }
+function undo(){histGo(UNDO,REDO);} function redo(){histGo(REDO,UNDO);}
+function setDirty(v){ if(v&&!(typeof drag!=='undefined'&&drag)) snap(); dirty=v;const s=$('status');s.className=v?'dirty':'';s.textContent=v?'● modifications non enregistrées':'';}
+
+function drawBase(){
+  svg.innerHTML='';
+  const r=L.rue, g=el('g',{},svg);
+  el('rect',{x:-300,y:0,width:1900,height:1000,fill:'#f4efe4'},g);
+  el('rect',{x:r.x0,y:r.nord_trottoir,width:r.x1-r.x0,height:r.chaussee_haut-r.nord_trottoir,fill:'#d9d4ca',stroke:'#33404f'},g);
+  el('rect',{x:r.x0,y:r.chaussee_haut,width:r.x1-r.x0,height:r.chaussee_bas-r.chaussee_haut,fill:'#8e939a',stroke:'#33404f'},g);
+  el('rect',{x:r.x0,y:r.chaussee_bas,width:r.x1-r.x0,height:r.sud_trottoir-r.chaussee_bas,fill:'#d9d4ca',stroke:'#33404f'},g);
+  const mid=(r.chaussee_haut+r.chaussee_bas)/2;
+  el('line',{x1:r.x0+20,y1:mid,x2:r.x1-20,y2:mid,stroke:'#e8e8e8','stroke-width':2,'stroke-dasharray':'18 16'},g);
+  for(const p of L.parcelles) el('rect',{x:p.x,y:p.y,width:p.w,height:p.h,fill:'#e9f0dc',stroke:'#9aa58a'},g);
+  for(const b of L.batiments){
+    el('rect',{x:b.x,y:b.y,width:b.w,height:b.h,fill:b.couleur,stroke:'#33404f','stroke-width':2},g);
+    let cy=b.y+b.h/2;
+    if(b.ouverture==='sud'){el('line',{x1:b.x,y1:b.y+b.h,x2:b.x+b.w,y2:b.y+b.h,stroke:'#e04f5f','stroke-width':4,'stroke-dasharray':'10 6'},g);cy=b.y+28;}
+    const t=el('text',{x:b.x+b.w/2,y:cy,'font-size':b.w>150?17:14,'font-weight':'bold','text-anchor':'middle',fill:'#1b2430'},g);t.textContent=b.nom;
+    if(b.sous){const s=el('text',{x:b.x+b.w/2,y:cy+22,'font-size':13,'text-anchor':'middle',fill:'#4a5566'},g);s.textContent=b.sous;}
+  }
+  for(const d of L.details){
+    if(d.type==='tourelle'){el('circle',{cx:d.x,cy:d.y,r:d.r,fill:'#c9b6e8',stroke:'#1b2430','stroke-width':2},g);}
+    if(d.type==='escalier'){el('rect',{x:d.x,y:d.y,width:d.w,height:d.h,fill:'#bfb7a8',stroke:'#33404f'},g);
+      for(let i=1;i<9;i++)el('line',{x1:d.x+i*d.w/9,y1:d.y,x2:d.x+i*d.w/9,y2:d.y+d.h,stroke:'#6e6658'},g);
+      {const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+4,'font-size':11,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent=(d.montee||'est')==='est'?'monte →':'← monte';}
+      if(d.palier){const p=d.palier;el('rect',{x:p.x,y:p.y,width:p.w,height:p.h,fill:'#d8cfbd',stroke:'#33404f','stroke-width':2},g);
+        const t=el('text',{x:p.x+p.w/2,y:p.y+p.h/2+4,'font-size':10,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent='palier';}
+      const t=el('text',{x:d.x+d.w/2,y:d.y+d.h+15,'font-size':12,'text-anchor':'middle',fill:'#4a5566'},g);t.textContent="escalier d'Henri";}
+    if(d.type==='passage_niveau'){const x=d.x,y=d.y-120,w=d.w,h=d.h+240;
+      el('rect',{x,y,width:w,height:h,fill:'#b9ab95'},g);
+      for(let yy=y+6;yy<y+h;yy+=14) el('line',{x1:x+4,y1:yy,x2:x+w-4,y2:yy,stroke:'#7a5c3a','stroke-width':4},g);
+      for(const xx of [x+12,x+w-12]) el('line',{x1:xx,y1:y,x2:xx,y2:y+h,stroke:'#4b4f55','stroke-width':3},g);
+      for(const by of [r.chaussee_haut-6,r.chaussee_bas+6]) el('line',{x1:x-4,y1:by,x2:x-38,y2:by,stroke:'#d9363e','stroke-width':6},g);
+      [['passage',y-24,12,'#7a1d27','bold'],['à niveau',y-9,12,'#7a1d27','bold'],['puis descente,',y+h+16,11,'#4a5566','normal'],['collines au fond',y+h+30,11,'#4a5566','normal']]
+        .forEach(([txt,yy,fs,col,fw])=>{const t=el('text',{x:1596,y:yy,'font-size':fs,'font-weight':fw,'text-anchor':'end',fill:col},g);t.textContent=txt;});}
+  }
+  {const t=el('text',{x:r.x0-30,y:mid+6,'font-size':22,'font-weight':'bold','text-anchor':'middle',fill:'#4a5566'},g);t.textContent='O';
+   const e=el('text',{x:1592,y:100,'font-size':16,'font-weight':'bold','text-anchor':'end',fill:'#4a5566'},g);e.textContent='E →';}
+  const defs=el('defs',{},svg);const cp=el('clipPath',{id:'zone'},defs);el('rect',{x:-300,y:90,width:1900,height:780},cp);
+  el('g',{id:'cones','clip-path':'url(#zone)'},svg);
+  el('g',{id:'items'},svg);
+  el('g',{id:'handles'},svg);
+}
+
+const rot=(x,y,pts,a)=>{const r=a*Math.PI/180,c=Math.cos(r),s=Math.sin(r);return pts.map(([px,py])=>[x+px*c-py*s,y+px*s+py*c]);};
+const P=pts=>pts.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ');
+
+function drawItems(){
+  const cones=$('cones'), items=$('items'), hs=$('handles');
+  cones.innerHTML=items.innerHTML=hs.innerHTML='';
+  const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
+  data.cameras.forEach((c,i)=>{
+    const a1=(c.angle-c.fov/2)*Math.PI/180,a2=(c.angle+c.fov/2)*Math.PI/180;
+    el('polygon',{points:P([[c.x,c.y],[c.x+c.portee*Math.cos(a1),c.y+c.portee*Math.sin(a1)],[c.x+c.portee*Math.cos(a2),c.y+c.portee*Math.sin(a2)]]),fill:CAMCOL[i],'fill-opacity':.15,stroke:CAMCOL[i],'stroke-dasharray':'6 5','stroke-width':2},cones);
+  });
+  if(data.cameras.length===2){const [a,b]=data.cameras;el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'#2f7fd8','stroke-width':3,'stroke-dasharray':'4 4'},items);}
+  const order=Object.entries(data.elements).filter(([id,e])=>e.visible&&cat[id]).sort((a,b)=>(cat[a[0]].type==='vehicule'?0:1)-(cat[b[0]].type==='vehicule'?0:1));
+  const vus=new Set(); data.cameras.forEach((c,i)=>champ(i).forEach(x=>vus.add(x.n)));
+  const occ0=vOcc(0);
+  for(const [id,e] of order){
+    const k=cat[id], horsChamp=!vus.has(k.nom), cache=occ0[id];
+    const g=el('g',{class:'item','data-kind':'el','data-id':id,opacity:horsChamp?0.45:(cache&&cache[0]>=.7?0.6:1)},items);
+    if(horsChamp) el('title',{},g).textContent=k.nom+' — hors champ (la caméra ne le voit pas)';
+    else if(cache) el('title',{},g).textContent=`${k.nom} — ${cache[0]>=.7?'caché':'en partie caché'} par ${cache[1]} dans la vue caméra (≈ ${Math.round(cache[0]*100)} %)`;
+    if(k.type==='vehicule'){
+      const w=k.w,h=k.h;
+      el('polygon',{points:P(rot(e.x,e.y,[[-w/2,-h/2],[w/2,-h/2],[w/2,h/2],[-w/2,h/2]],e.angle)),fill:k.couleur,stroke:k.contour,'stroke-width':3},g);
+      el('polygon',{points:P(rot(e.x,e.y,[[w/2-2,-h/2+8],[w/2+16,0],[w/2-2,h/2-8]],e.angle)),fill:k.contour},g);
+      const t=el('text',{x:e.x,y:e.y+5,'font-size':14,'font-weight':'bold','text-anchor':'middle',fill:'#111','pointer-events':'none'},g);t.textContent=k.lettre;
+    }else{
+      el('polygon',{points:P(rot(e.x,e.y,[[10,-8],[27,0],[10,8]],e.angle)),fill:'#1b2430'},g);
+      el('circle',{cx:e.x,cy:e.y,r:14,fill:k.couleur,stroke:'#1b2430','stroke-width':2},g);
+      const t=el('text',{x:e.x,y:e.y+5,'font-size':14,'font-weight':'bold','text-anchor':'middle',fill:k.lettre==='S'?'#fff':'#111','pointer-events':'none'},g);t.textContent=k.lettre;
+      const lab=[e.pose&&e.pose!=='debout'?e.pose:'',e.action?(e.action.length>28?e.action.slice(0,28)+'…':e.action):''].filter(Boolean).join(' · ');
+      if(lab){const t2=el('text',{x:e.x,y:e.y+30,'font-size':11,'font-weight':'bold','text-anchor':'middle',fill:'#1b2430',stroke:'#fff','stroke-width':3,'paint-order':'stroke','pointer-events':'none'},g);t2.textContent=lab;}
+    }
+    if(sel&&sel.kind==='el'&&sel.id===id) el('circle',{cx:e.x,cy:e.y,r:k.type==='vehicule'?Math.max(k.w,k.h)/2+12:22,fill:'none',stroke:'#fff','stroke-width':2,'stroke-dasharray':'4 3','pointer-events':'none'},g);
+  }
+  data.cameras.forEach((c,i)=>{
+    const g=el('g',{class:'item','data-kind':'cam','data-id':i},items);
+    el('polygon',{points:P(rot(c.x,c.y,[[-18,-12],[10,-12],[10,12],[-18,12]],c.angle)),fill:CAMCOL[i],stroke:'#111','stroke-width':2},g);
+    el('polygon',{points:P(rot(c.x,c.y,[[10,-6],[22,-13],[22,13],[10,6]],c.angle)),fill:'#1b2430'},g);
+    const t=el('text',{x:c.x,y:c.y+36,'font-size':14,'font-weight':'bold','text-anchor':'middle',fill:CAMCOL[i],'pointer-events':'none'},g);
+    t.textContent=data.cameras.length===2?(i?'fin':'début'):cur;
+    if(sel&&sel.kind==='cam'&&sel.id===i) el('circle',{cx:c.x,cy:c.y,r:26,fill:'none',stroke:'#fff','stroke-width':2,'stroke-dasharray':'4 3','pointer-events':'none'},g);
+  });
+  if(sel){
+    const o=selObj(); if(o){
+      const d=sel.kind==='cam'?110:(cat[sel.id]?.type==='vehicule'?95:60);
+      const hx=o.x+d*Math.cos(o.angle*Math.PI/180), hy=o.y+d*Math.sin(o.angle*Math.PI/180);
+      el('line',{x1:o.x,y1:o.y,x2:hx,y2:hy,stroke:'#fff','stroke-width':2,'stroke-dasharray':'3 3','pointer-events':'none'},hs);
+      const hg=el('g',{'data-kind':'handle',class:'handle-g'},hs);
+      el('circle',{cx:hx,cy:hy,r:13,class:'handle','data-kind':'handle'},hg);
+      const ht=el('text',{x:hx,y:hy+6,'font-size':17,'font-weight':'bold','text-anchor':'middle',fill:'#111','pointer-events':'none'},hg); ht.textContent='↻';
+      el('title',{},hg).textContent='Poignée pour tourner (ce n\'est pas la position)';
+    }
+  }
+  updateChamp(); updatePanel(false); drawVue();
+}
+const SEULE=new URLSearchParams(location.search).has('vue'), MINI=new URLSearchParams(location.search).get('vue')==='mini';
+if(SEULE){document.body.classList.add('seulevue'); if(MINI) document.body.classList.add('mini');}
+function pleinEcran(on){document.body.classList.toggle('seulevue',on); sel=null; if(data){drawItems(); updatePanel(true);}}
+document.getElementById('vuegrand').onclick=()=>pleinEcran(true);
+document.getElementById('vuefermer').onclick=()=>{ if(SEULE){location.href='carte.html#'+cur;} else pleinEcran(false); };
+document.getElementById('vueedit').onclick=e=>{e.preventDefault(); if(window.top!==window) window.top.location.href=new URL('carte.html#'+cur,location.href).href; else if(SEULE) location.href='carte.html#'+cur; else pleinEcran(false);};
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&document.body.classList.contains('seulevue')&&!SEULE) pleinEcran(false); });
+document.getElementById('vuecache').onclick=e=>{const b=document.getElementById('vuebox');b.classList.toggle('cache');e.target.textContent=b.classList.contains('cache')?'afficher':'masquer';};
+
+
+// ---------- Vue caméra (projection perspective de la carte) ----------
+const VM=0.037, VW=1920, VH=1080, VNEAR=0.6;
+// portée : ce qui est dans le cône coloré (jusqu'à son bord du fond) est net ; au-delà = flou, dans la brume
+const vLim=c=>c.portee*Math.cos(c.fov*Math.PI/360); // en px de carte, profondeur devant la caméra
+const vLimM=c=>vLim(c)*VM;
+const VHAUT={"à hauteur d'yeux":[1.6,0],"plongée (vue d'en haut)":[4.5,-14],"contre-plongée (vue d'en bas)":[0.6,12],"vue aérienne / drone":[18,-38],"au ras du sol":[0.3,2]};
+const VHVEH={'4l':1.55,estafette:1.95,coccinelle:1.5};
+const VPOSE={debout:1,marche:1,court:.95,assis:.72,accroupi:.6,'couché':.3,'appuyé':1,'penché':.85,tombe:.6,saute:1.1,renifle:.75,aboie:1,dort:.45};
+const VPOSEC={assis:1.15,'couché':.55,dort:.5,renifle:.8};
+function vCam(c){const a=c.angle*Math.PI/180,[eye0,p0]=VHAUT[c.hauteur]||[1.6,0],eye=(c.oeil!=null&&c.oeil!=='')?+c.oeil:eye0,p=(c.inclinaison!=null&&c.inclinaison!=='')?+c.inclinaison:p0;
+  return {x:c.x,y:c.y,fx:Math.cos(a),fy:Math.sin(a),rx:-Math.sin(a),ry:Math.cos(a),eye,p:p*Math.PI/180,F:(VW/2)/Math.tan(c.fov*Math.PI/360)};}
+function vC(k,mx,my,h){const dx=(mx-k.x)*VM,dy=(my-k.y)*VM,f=dx*k.fx+dy*k.fy,r=dx*k.rx+dy*k.ry,u=h-k.eye;
+  return [r,-f*Math.sin(k.p)+u*Math.cos(k.p),f*Math.cos(k.p)+u*Math.sin(k.p)];}
+const vPc=(k,c)=>[VW/2+k.F*c[0]/c[2],VH/2-k.F*c[1]/c[2]];
+const vP=(k,mx,my,h=0)=>{const c=vC(k,mx,my,h);return c[2]>VNEAR?vPc(k,c):null;};
+function vSeg(k,a,b){let A=vC(k,...a),B=vC(k,...b);if(A[2]<VNEAR&&B[2]<VNEAR)return null;
+  if(A[2]<VNEAR||B[2]<VNEAR){const t=(VNEAR-A[2])/(B[2]-A[2]),P=A.map((v,i)=>v+t*(B[i]-v));if(A[2]<VNEAR)A=P;else B=P;}return [vPc(k,A),vPc(k,B)];}
+function vBox(cx,cy,w,h,ang,z0,z1){const a=ang*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+  const p=[[w/2,-h/2],[w/2,h/2],[-w/2,h/2],[-w/2,-h/2]].map(([u,v])=>[cx+c*u-s*v,cy+s*u+c*v]);
+  const B=p.map(q=>[...q,z0]),T=p.map(q=>[...q,z1]),E=[];for(let i=0;i<4;i++){E.push([B[i],B[(i+1)%4]],[T[i],T[(i+1)%4]],[B[i],T[i]]);}
+  return {E,front:[B[0],B[1],T[1],T[0]]};}
+function vEsc(x,y){for(const d of L.details){ if(d.type==='tourelle'&&d.balcon&&(x-d.x)**2+(y-d.y)**2<=(d.r+4)**2) return {t:`au balcon de la ${d.nom} (à ${(+d.balcon).toFixed(1).replace('.',',')} m du sol)`,h:+d.balcon}; if(d.type!=='escalier') continue; const hm=d.hauteur||2.8,pa=d.palier;
+    if(pa&&x>=pa.x-3&&x<=pa.x+pa.w+3&&y>=pa.y-3&&y<=pa.y+pa.h+3) return {t:`sur le palier en haut de l'${d.nom} (à ${hm.toFixed(1).replace('.',',')} m du sol)`,h:hm};
+    if(x>=d.x&&x<=d.x+d.w&&y>=d.y-3&&y<=d.y+d.h+3){const f=(d.montee||'est')==='est'?(x-d.x)/d.w:(d.x+d.w-x)/d.w;
+      return {t:`${f<.25?'en bas de':f>.75?'presque en haut de':'au milieu de'} l'${d.nom} (à ${(f*hm).toFixed(1).replace('.',',')} m du sol)`,h:f*hm};}}
+  return null;}
+function vStairs(x,y){const e=vEsc(x,y);return e?e.h:0;}
+function vOu(x,y){ // où est ce point, en mots (comme la description du plan)
+  const e=vEsc(x,y); if(e) return e.t; const r=L.rue;
+  const nomL=b=>{const n=b.nom===b.nom.toUpperCase()?b.nom.toLowerCase():b.nom; return /^voisin/i.test(n)?n+(b.y<495?' (côté Jeannot)':' (côté narrateur)'):n;};
+  if(y<r.nord_trottoir||y>r.sud_trottoir){const cote=y<r.nord_trottoir?'côté Jeannot':'côté narrateur';
+    for(const b of L.batiments) if(b.x-12<=x&&x<=b.x+b.w+12&&((y<495)===(b.y<495))) return (b.y<=y&&y<=b.y+b.h?'dans/contre ':'devant ')+nomL(b)+(b.y<=y&&y<=b.y+b.h?'':', dans la cour/le jardin')+` (${cote})`;
+    return 'parcelle '+cote;}
+  const zone=y<r.chaussee_haut?'sur le trottoir côté Jeannot':y>r.chaussee_bas?'sur le trottoir côté narrateur':y<r.chaussee_haut+40?'sur la chaussée contre le trottoir côté Jeannot':y>r.chaussee_bas-40?'sur la chaussée contre le trottoir côté narrateur':'au milieu de la chaussée';
+  const north=L.batiments.filter(b=>b.y<495); const near=north.reduce((a,b)=>Math.abs(b.x+b.w/2-x)<Math.abs(a.x+a.w/2-x)?b:a);
+  return `${zone}, à hauteur de ${nomL(near)}`;}
+function vBoxes(ci){ // rectangles projetés des éléments, du plus loin au plus près
+  const k=vCam(data.cameras[ci]); const cat=Object.fromEntries(L.catalogue.map(c=>[c.id,c])); const out=[];
+  for(const [id,e] of Object.entries(data.elements)){const c=cat[id]; if(!e.visible||!c) continue; const pts=[];
+    if(c.type==='vehicule'){const hv=VHVEH[id]||1.6; vBox(e.x,e.y,c.w,c.h,e.angle,0,hv).E.forEach(([a,b])=>[a,b].forEach(p=>{const q=vP(k,...p);if(q)pts.push(q);}));}
+    else{const z0=vStairs(e.x,e.y),hh=c.espece==='chien'?0.62*(VPOSEC[e.pose]||1):1.75*(VPOSE[e.pose]||1);
+      for(const [dx,dy] of [[-7,0],[7,0],[0,-7],[0,7]]) for(const z of [z0,z0+hh]){const q=vP(k,e.x+dx,e.y+dy,z);if(q)pts.push(q);}}
+    if(!pts.length) continue; const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+    const bb=[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)]; if(bb[2]<0||bb[0]>VW||bb[3]<0||bb[1]>VH) continue;
+    const cc=vC(k,e.x,e.y,0); out.push({id,nom:c.nom,bb,dist:Math.hypot(cc[0],cc[2])});}
+  return out.sort((a,b)=>b.dist-a.dist);}
+function vOcc(ci){ // {id:[fraction cachée, par qui]} (même calcul que la description du plan)
+  const L2=vBoxes(ci),out={};
+  L2.forEach((a,i)=>{const area=Math.max(1,(a.bb[2]-a.bb[0])*(a.bb[3]-a.bb[1]));let best=[0,''];
+    for(const o of L2.slice(i+1)){ if(o.dist>=a.dist-0.3) continue;
+      const ix=Math.max(0,Math.min(a.bb[2],o.bb[2])-Math.max(a.bb[0],o.bb[0])),iy=Math.max(0,Math.min(a.bb[3],o.bb[3])-Math.max(a.bb[1],o.bb[1]));
+      const f=ix*iy/area; if(f>best[0]) best=[f,o.nom];}
+    if(best[0]>=.25) out[a.id]=best;});
+  return out;}
+function vClip(k,poly){ // polygone 3D (carte) -> polygone image coupé au plan proche
+  const C=poly.map(p=>vC(k,...p)); const out=[];
+  for(let i=0;i<C.length;i++){const A=C[i],B=C[(i+1)%C.length],ia=A[2]>=VNEAR,ib=B[2]>=VNEAR;
+    if(ia) out.push(A);
+    if(ia!==ib){const t=(VNEAR-A[2])/(B[2]-A[2]); out.push(A.map((v,j)=>v+t*(B[j]-v)));}}
+  if(out.length<3) return null;
+  return {pts:out.map(c=>vPc(k,c)), z:C.reduce((s,c)=>s+c[2],0)/C.length};
+}
+function drawVue(){
+  const v=document.getElementById('vue'); if(!v||!data||!L) return; v.innerHTML='';
+  const k=vCam(data.cameras[0]), FF='DejaVu Sans, Arial, sans-serif', DL=vLimM(data.cameras[0]); // DL = portée (m)
+  const defs=el('defs',{},v), flt=el('filter',{id:'flou',x:'-20%',y:'-20%',width:'140%',height:'140%'},defs); el('feGaussianBlur',{stdDeviation:4},flt);
+  const loinD=z=>z>DL; // au-delà de la portée ?
+  const hz=VH/2-k.F*Math.tan(k.p);
+  el('rect',{x:0,y:0,width:VW,height:VH,fill:'#9cc0e0'},v);
+  el('rect',{x:0,y:Math.max(0,Math.min(VH,hz)),width:VW,height:VH,fill:'#7d8a6a'},v);
+  const R=L.rue, ym=(R.chaussee_haut+R.chaussee_bas)/2, faces=[], labels=[];
+  const camxy=[k.x,k.y];
+  const addBox=(cx,cy,w,h,ang,z0,z1,col,stroke,frontCol)=>{const a=ang*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+    const p=[[w/2,-h/2],[w/2,h/2],[-w/2,h/2],[-w/2,-h/2]].map(([u,q])=>[cx+c*u-s*q,cy+s*u+c*q]);
+    for(let i=0;i<4;i++){const A=p[i],B=p[(i+1)%4],mx=(A[0]+B[0])/2,my=(A[1]+B[1])/2,nx=mx-cx,ny=my-cy;
+      if((camxy[0]-mx)*nx+(camxy[1]-my)*ny<=0) continue; // face cachée
+      faces.push({poly:[[...A,z0],[...B,z0],[...B,z1],[...A,z1]],fill:(i===0&&frontCol)?frontCol:col,stroke});}
+    if(k.eye>z1) faces.push({poly:p.map(q=>[...q,z1]),fill:col,stroke,top:true});
+  };
+  // sol
+  const ground=(pts,fill,op=1)=>{const r=vClip(k,pts.map(p=>[...p,0]));if(r)el('polygon',{points:r.pts.map(p=>p.join(',')).join(' '),fill,'fill-opacity':op},v);};
+  ground([[R.x0-400,R.nord_lot],[1538,R.nord_lot],[1538,R.sud_lot],[R.x0-400,R.sud_lot]],'#8d9a78');
+  ground([[R.x0-400,R.nord_trottoir],[1538,R.nord_trottoir],[1538,R.sud_trottoir],[R.x0-400,R.sud_trottoir]],'#a3a39e');
+  ground([[R.x0-400,R.chaussee_haut],[1560,R.chaussee_haut],[1560,R.chaussee_bas],[R.x0-400,R.chaussee_bas]],'#55595f');
+  for(const d of [10,20,30,40,50]){const x=k.x+d/VM*k.fx,s=vSeg(k,[x,R.chaussee_haut,0],[x,R.chaussee_bas,0]);
+    if(s){el('line',{x1:s[0][0],y1:s[0][1],x2:s[1][0],y2:s[1][1],stroke:'#fff','stroke-opacity':.25,'stroke-width':1.5},v);labels.push([vP(k,x,ym,0),d+' m','#e8e8e8',18]);}}
+  // portée : brume sur le sol au-delà + ligne rouge pointillée
+  {const Dp=DL/VM, W2=3000, fx=k.fx, fy=k.fy, rx=k.rx, ry=k.ry, at=(d,s)=>[k.x+fx*d+rx*s,k.y+fy*d+ry*s];
+   ground([at(Dp,-W2),at(Dp,W2),at(Dp+4000,W2),at(Dp+4000,-W2)],'#c3d2e2',.6);
+   const s2=vSeg(k,[...at(Dp,-W2),0],[...at(Dp,W2),0]);
+   if(s2){el('line',{x1:s2[0][0],y1:s2[0][1],x2:s2[1][0],y2:s2[1][1],stroke:'#e04f5f','stroke-width':3,'stroke-dasharray':'14 10'},v);
+     const pm=vP(k,...at(Dp,0),0); if(pm) labels.push([[pm[0],pm[1]+26],`portée ${DL.toFixed(0)} m — au-delà : flou`,'#ffb3b3',18]);}}
+  // bâtiments
+  for(const b of L.batiments){const hb=b.id==='garage-diego'?3.3:6.8;
+    addBox(b.x+b.w/2,b.y+b.h/2,b.w,b.h,0,0,hb,b.couleur||'#ddd','#4a4030');
+    const fy=b.y<495?b.y+b.h:b.y; labels.push([vP(k,b.x+b.w/2,fy,hb+0.7),b.nom.replace("Maison d'",'').replace('Maison de ',''),'#fff3c4',24]);
+    if(b.ouverture==='sud'){const cx=b.x+b.w/2,y=b.y+b.h+0.5,dw=1.5/VM;
+      faces.push({poly:[[cx-dw,y,0],[cx+dw,y,0],[cx+dw,y,2.4],[cx-dw,y,2.4]],fill:'#1a1d22',stroke:'#ff9a40',sw:4,zbias:-0.05});
+      labels.push([vP(k,cx,y,2.9),'porte du garage','#ffb060',20]);}}
+  for(const d of L.details){
+    if(d.type==='escalier'){const hm=d.hauteur||2.8;
+      faces.push({poly:[[d.x,d.y,0],[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,hm],[d.x+d.w,d.y,hm]],fill:'#cfc7b6',stroke:'#6b6355'});
+      faces.push({poly:[[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y+d.h,hm]],fill:'#b3ab9a',stroke:'#6b6355'});
+      if(d.palier){const p=d.palier; addBox(p.x+p.w/2,p.y+p.h/2,p.w,p.h,0,0,hm,'#d8cfbd','#6b6355'); labels.push([vP(k,p.x+p.w/2,p.y+p.h,hm+0.5),'palier','#d8ffd8',18]);}}
+    if(d.type==='tourelle') addBox(d.x,d.y,d.r*1.6,d.r*1.6,0,0,9.5,'#c9b6e8','#4a3d63');
+    if(d.type==='passage_niveau'){
+      [-7,7].forEach(dx=>{const s=vSeg(k,[d.x+dx,R.nord_trottoir,0.01],[d.x+dx,R.sud_trottoir,0.01]);if(s)faces.push({line:s,stroke:'#d33',sw:3,z:vC(k,d.x,ym,0)[2]});});
+      [R.chaussee_haut-6,R.chaussee_bas+6].forEach(yb=>{const s1=vSeg(k,[d.x-20,yb,0],[d.x-20,yb,1.1]),s2=vSeg(k,[d.x-20,yb,1.1],[d.x-20,yb,5]),z=vC(k,d.x-20,yb,0)[2];
+        if(s1)faces.push({line:s1,stroke:'#eee',sw:5,z});if(s2)faces.push({line:s2,stroke:'#e33',sw:4,z});});
+      labels.push([vP(k,d.x+30,ym,0),'↓ la route plonge','#ffd0d0',18]);}
+  }
+  // éléments
+  const cat=Object.fromEntries(L.catalogue.map(c=>[c.id,c]));
+  for(const [id,e] of Object.entries(data.elements)){const c=cat[id]; if(!e.visible||!c) continue;
+    if(c.type==='vehicule'){const hv=VHVEH[id]||1.6; addBox(e.x,e.y,c.w,c.h,e.angle,0,hv,c.couleur,c.contour,c.contour);
+      const lo=loinD(vC(k,e.x,e.y,0)[2]); labels.push([vP(k,e.x,e.y,hv+0.6),c.nom.replace(' (sur parpaings)','')+(lo?' (flou)':''),c.couleur,26,lo]);}
+    else{const z0=vStairs(e.x,e.y),hh=c.espece==='chien'?0.62*(VPOSEC[e.pose]||1):1.75*(VPOSE[e.pose]||1);
+      const pb=vP(k,e.x,e.y,z0),pt=vP(k,e.x,e.y,z0+hh); if(!pb||!pt) continue;
+      faces.push({perso:true,pb,pt,c,e,z:vC(k,e.x,e.y,0)[2]-0.01,hh,z0});
+      const lo=loinD(vC(k,e.x,e.y,0)[2]); labels.push([[pb[0],pt[1]-12],c.nom+(lo?' (flou)':''),c.couleur,26,lo]);}
+  }
+  // tri du plus loin au plus près, puis dessin
+  for(const f of faces){ if(f.poly){const r=vClip(k,f.poly); f.r=r; f.z=r?r.z+(f.zbias||0)+(f.top?0.01:0):-1;} }
+  faces.filter(f=>f.z>0).sort((a,b)=>b.z-a.z).forEach(f=>{
+    const tgt=loinD(f.z)?el('g',{opacity:.45,filter:'url(#flou)'},v):v;
+    if(f.line){el('line',{x1:f.line[0][0],y1:f.line[0][1],x2:f.line[1][0],y2:f.line[1][1],stroke:f.stroke,'stroke-width':f.sw,'stroke-linecap':'round'},tgt);return;}
+    if(f.perso){const {pb,pt,c,e}=f,hp=pb[1]-pt[1],wp=hp*(c.espece==='chien'&&e.pose!=='assis'?0.6:0.3);
+      el('rect',{x:pb[0]-wp/2,y:pt[1],width:wp,height:hp,rx:wp/2.5,fill:c.couleur,stroke:'#111','stroke-width':2.5},tgt);
+      const a=e.angle*Math.PI/180,head=vP(k,e.x,e.y,f.z0+f.hh*0.82),tip=vP(k,e.x+18*Math.cos(a),e.y+18*Math.sin(a),f.z0+f.hh*0.82);
+      if(head&&tip) el('line',{x1:head[0],y1:head[1],x2:tip[0],y2:tip[1],stroke:'#111','stroke-width':4,'stroke-linecap':'round'},tgt); return;}
+    if(f.r) el('polygon',{points:f.r.pts.map(p=>p.join(',')).join(' '),fill:f.fill,stroke:f.stroke||'none','stroke-width':f.sw||2,'stroke-linejoin':'round'},tgt);
+  });
+  for(const [p0,t,col,sz,lo] of labels){ if(p0&&p0[0]>-80&&p0[0]<VW+80&&p0[1]<VH+40){const p=[Math.max(70,Math.min(VW-70,p0[0])),Math.max(sz+6,p0[1])];const e=el('text',{x:p[0],y:p[1],'font-size':sz,'font-family':FF,'font-weight':'bold','text-anchor':'middle',fill:col,stroke:'#000','stroke-width':4,'paint-order':'stroke',opacity:lo?.6:1},v);e.textContent=t;} }
+  el('rect',{x:1,y:1,width:VW-2,height:VH-2,fill:'none',stroke:'#e04f5f','stroke-width':3},v);
+}
+
+function selObj(){ if(!sel) return null; return sel.kind==='cam'?data.cameras[sel.id]:data.elements[sel.id]; }
+
+function champ(ci){
+  const c=data.cameras[ci]; if(!c) return [];
+  const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
+  const pts=[];
+  for(const b of L.batiments){const x0=b.x,y0=b.y,x1=b.x+b.w,y1=b.y+b.h,cy=(y0+y1)/2;
+    let n=b.nom===b.nom.toUpperCase()?b.nom.charAt(0)+b.nom.slice(1).toLowerCase():b.nom;
+    if(/^voisin/i.test(n)) n+=cy<495?' (côté Jeannot)':' (côté narrateur)';
+    const sm=[[(x0+x1)/2,cy]]; for(const yy of [y0,y1]) for(const f of [0,.25,.5,.75,1]) sm.push([x0+(x1-x0)*f,yy]);
+    pts.push([n,sm]);}
+  for(const d of L.details) pts.push([d.nom,[[d.x+(d.w||0)/2,d.y+(d.h||0)/2]]]);
+  for(const [id,e] of Object.entries(data.elements)) if(e.visible&&cat[id]) pts.push([cat[id].nom,[[e.x,e.y]]]);
+  const out=[];
+  for(const [n,sm] of pts){ let best=null;
+    for(const [x,y] of sm){
+      const dx=x-c.x,dy=y-c.y,dist=Math.hypot(dx,dy); if(dist<1) continue;
+      const diff=((Math.atan2(dy,dx)*180/Math.PI-c.angle+540)%360)-180;
+      const fwd=dx*Math.cos(c.angle*Math.PI/180)+dy*Math.sin(c.angle*Math.PI/180);
+      if(Math.abs(diff)<=c.fov/2&&(!best||dist<best.dist)) best={n,dist,loin:fwd>vLim(c),side:Math.abs(diff)<=c.fov/8?'au centre':(diff<0?'à gauche':'à droite')};
+    }
+    if(best) out.push(best);
+  }
+  return out.sort((a,b)=>a.dist-b.dist);
+}
+function updateChamp(){
+  const parts=data.cameras.map((c,i)=>{
+    const ch=champ(i); const title=data.cameras.length===2?(i?'<b>Fin du mouvement :</b>':'<b>Début :</b>'):'';
+    const net=ch.filter(x=>!x.loin), loin=ch.filter(x=>x.loin);
+    const near=net.filter(x=>x.dist<300), mid=net.filter(x=>x.dist>=300&&x.dist<800), far=net.filter(x=>x.dist>=800);
+    const occ=vOcc(i), cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k])), occN={};
+    for(const [id,[f,par]] of Object.entries(occ)) occN[cat[id].nom]=[f,par];
+    const fmt=a=>a.map(x=>{const o=occN[x.n]; return o?`<s style="color:#f08a86">${x.n}</s> <i style="color:#f08a86">(caché par ${o[1]})</i>`:`${x.n} <i style="color:#8fa0b5">(${x.side})</i>`;}).join(', ')||'—';
+    const masq=Object.entries(occN).map(([n,[f,par]])=>`${n} : ${f>=.7?'<b>caché</b>':'en partie caché'} par ${par} (≈ ${Math.round(f*100)} %)`);
+    return `${title}<div>🔹 <b>Premier plan :</b> ${fmt(near)}</div><div>🔸 <b>Plan moyen :</b> ${fmt(mid)}</div><div>▫️ <b>Fond :</b> ${fmt(far)}</div>`
+      +(loin.length?`<div style="color:#a9b8cc">🌫️ <b>Au-delà de la portée</b> (${vLimM(c).toFixed(0)} m — flou, dans la brume) : ${fmt(loin)}</div>`:'')
+      +(masq.length?`<div style="color:#f08a86">🙈 <b>Dans le champ mais masqués</b> (comme dans la vue caméra) : ${masq.join(' ; ')}</div>`:'');
+  });
+  const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
+  const vus=new Set(); data.cameras.forEach((c,i)=>champ(i).forEach(x=>vus.add(x.n)));
+  const hors=Object.entries(data.elements).filter(([id,e])=>e.visible&&cat[id]&&!vus.has(cat[id].nom)).map(([id])=>cat[id].nom);
+  if(hors.length) parts.push(`<div style="color:#f5c56a">🚫 <b>Hors champ</b> (présents mais pas vus par la caméra, affichés en transparent) : ${hors.join(', ')}</div>`);
+  $('champ').innerHTML=parts.join('<hr style="border-color:#2a3647">')||'Pas de caméra.';
+}
+
+function fillPos(p,o){ // valeurs en mètres : depuis le bout ouest de la rue (x) et depuis le fond des parcelles côté Jeannot (y)
+  const xm=p.querySelector('[name=xm]'),ym=p.querySelector('[name=ym]'),ou=p.querySelector('#ou');
+  if(xm&&document.activeElement!==xm) xm.value=((o.x-L.rue.x0)*VM).toFixed(1);
+  if(ym&&document.activeElement!==ym) ym.value=((o.y-L.rue.nord_lot)*VM).toFixed(1);
+  if(ou){let t=vOu(o.x,o.y); if(sel&&sel.kind==='el'){const occ=vOcc(0)[sel.id]; if(occ) t+=` — 🙈 ${occ[0]>=.7?'caché':'en partie caché'} par ${occ[1]} dans la vue caméra`;} ou.textContent=t;}
+}
+document.addEventListener('keydown',e=>{
+  if(!sel||document.body.classList.contains('seulevue')||/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||'')) return;
+  const st=(e.shiftKey?0.5:0.1)/VM, d={ArrowLeft:[-st,0],ArrowRight:[st,0],ArrowUp:[0,-st],ArrowDown:[0,st]}[e.key];
+  if(!d) return; e.preventDefault(); const o=selObj(); if(!o) return; o.x+=d[0]; o.y+=d[1]; setDirty(true); drawItems();
+});
+function updatePanel(rebuild=true){
+  const p=$('selpanel'); const o=selObj();
+  if(!o){p.innerHTML='Clique sur la caméra, un personnage ou un véhicule.<br>Position = le rond de couleur · pointe noire = sens du regard · ↻ orange = poignée pour tourner.';return;}
+  if(!rebuild && p.dataset.for===`${sel.kind}-${sel.id}`){ // juste mettre à jour les valeurs
+    const a=p.querySelector('[name=angle]'); if(a&&document.activeElement!==a) a.value=Math.round(o.angle); fillPos(p,o); return;
+  }
+  p.dataset.for=`${sel.kind}-${sel.id}`;
+  const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
+  if(sel.kind==='cam'){
+    p.innerHTML=`<b style="color:${CAMCOL[sel.id]}">Caméra ${data.cameras.length===2?(sel.id?'(fin)':'(début)'):''}</b>
+    <div class="row">Direction <input type="number" name="angle" value="${Math.round(o.angle)}" style="width:70px">°</div>
+    <div class="row">Objectif <select name="focale">${FOCALES.map(([n,v])=>`<option value="${v}" ${Math.abs(o.fov-v)<1?'selected':''}>${n} (${v}°)</option>`).join('')}<option value="" ${FOCALES.some(([n,v])=>Math.abs(o.fov-v)<1)?'':'selected'}>personnalisé</option></select></div>
+    <div class="row">Angle de vue <input type="range" name="fov" min="8" max="100" value="${o.fov}"><span id="fovv">${o.fov}°</span></div>
+    <div class="row">Portée (net) <input type="range" name="portee" min="100" max="2200" step="10" value="${o.portee}"><span id="porv">${vLimM(o).toFixed(0)} m</span></div>
+    <div class="help">= longueur du cône. Tout ce qui est dans le cône coloré est <b>net</b> ; au-delà de son bord du fond, la vue caméra le montre <b>flou, dans la brume</b> (ligne rouge pointillée « portée » au sol), et la liste le range « au-delà de la portée ».</div>
+    <div class="row">Hauteur <select name="hauteur">${HAUTEURS.map(h=>`<option ${o.hauteur===h?'selected':''}>${h}</option>`).join('')}</select></div>
+    <div class="row">Réglage fin : œil <input type="number" name="oeil" step="0.05" min="0" max="60" value="${o.oeil??''}" placeholder="auto" style="width:62px"> m · inclinaison <input type="number" name="inclinaison" step="0.1" min="-89" max="89" value="${o.inclinaison??''}" placeholder="auto" style="width:62px">°</div>
+    <div class="row">Position <input type="number" name="xm" step="0.1" style="width:78px"> m → est <input type="number" name="ym" step="0.1" style="width:72px"> m ↓ sud</div>
+    <div class="help">📍 <span id="ou"></span><br>Flèches du clavier : déplacer de 10 cm (Maj + flèche : 50 cm).</div>`;
+  }else{
+    const k=cat[sel.id];
+    p.innerHTML=`<b>${k.nom}</b>
+    <div class="row">Orientation <input type="number" name="angle" value="${Math.round(o.angle)}" style="width:70px">°
+      <button data-a="-90" title="regarde vers le côté Jeannot">↑ nord</button><button data-a="90" title="regarde vers le côté narrateur">↓ sud</button></div>
+    <div class="row"><button data-a="180" title="vers le bout Jeannot">← ouest</button><button data-a="0" title="vers le bout Diego">→ est</button>
+      <button id="hide">Retirer du plan</button></div>
+    <div class="row">Position <input type="number" name="xm" step="0.1" style="width:78px"> m → est <input type="number" name="ym" step="0.1" style="width:72px"> m ↓ sud</div>
+    <div class="help">📍 <span id="ou"></span><br>Flèches du clavier : déplacer de 10 cm (Maj + flèche : 50 cm).</div>`;
+    if(k.type!=='vehicule'){
+      const poses=(L.poses||{})[k.espece==='chien'?'chien':'perso']||[];
+      p.innerHTML+=`<div class="row">Pose <select name="pose"><option value="">—</option>${poses.map(x=>`<option ${o.pose===x?'selected':''}>${x}</option>`).join('')}</select></div>
+      <div class="row">Action <input type="text" name="action" value="${(o.action||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}" placeholder="ex. fume, regarde la 4L, aboie…" style="flex:1"></div>`;
+    }
+  }
+  fillPos(p,o);
+  p.querySelectorAll('input,select').forEach(inp=>inp.addEventListener('input',()=>{
+    const v=inp.value;
+    if(inp.name==='xm'&&v!==''){o.x=L.rue.x0+(+v)/VM; drawItems(); setDirty(true); return;}
+    if(inp.name==='ym'&&v!==''){o.y=L.rue.nord_lot+(+v)/VM; drawItems(); setDirty(true); return;}
+    if(inp.name==='angle') o.angle=+v||0;
+    if(inp.name==='fov'){o.fov=+v;$('fovv').textContent=v+'°';}
+    if(inp.name==='focale'&&v){o.fov=+v;updatePanel(true);}
+    if(inp.name==='portee') o.portee=+v;
+    if(inp.name==='fov'||inp.name==='portee'||inp.name==='focale'){const pv=$('porv'); if(pv) pv.textContent=vLimM(o).toFixed(0)+' m';}
+    if(inp.name==='hauteur') o.hauteur=v;
+    if(inp.name==='oeil'||inp.name==='inclinaison'){ if(v==='') delete o[inp.name]; else o[inp.name]=+v; }
+    if(inp.name==='pose'){ if(v) o.pose=v; else delete o.pose; }
+    if(inp.name==='action'){ if(v.trim()) o.action=v; else delete o.action; }
+    setDirty(true); drawItems();
+  }));
+  p.querySelectorAll('button[data-a]').forEach(b=>b.onclick=()=>{o.angle=+b.dataset.a;setDirty(true);drawItems();updatePanel(true);});
+  const h=p.querySelector('#hide'); if(h) h.onclick=()=>{o.visible=false;sel=null;setDirty(true);renderEls();drawItems();updatePanel(true);};
+}
+
+function renderEls(){
+  $('els').innerHTML=L.catalogue.map(k=>`<label><input type="checkbox" data-id="${k.id}" ${data.elements[k.id]?.visible?'checked':''}><span class="dot" style="background:${k.couleur}"></span>${k.nom}</label>`).join('');
+  $('els').querySelectorAll('input').forEach(c=>c.onchange=()=>{
+    const id=c.dataset.id; if(!data.elements[id]) data.elements[id]=clone(L.defaut.elements[id]);
+    data.elements[id].visible=c.checked; if(!c.checked&&sel&&sel.id===id) sel=null;
+    setDirty(true); drawItems(); updatePanel(true);
+  });
+}
+
+function fresh(planId){
+  if(PLANS[planId]) return clone(PLANS[planId]);
+  const ids=META.map(m=>m.plan); const i=ids.indexOf(planId);
+  for(let j=i-1;j>=0;j--) if(PLANS[ids[j]]) { const d=clone(PLANS[ids[j]]); d.note=''; d.copie_de=ids[j]; return d; }
+  return {cameras:clone(L.defaut.cameras),elements:clone(L.defaut.elements),note:''};
+}
+
+function load(planId){
+  { const r=document.getElementById('retour'); if(r) r.href='a-valider.html#derniere-'+planId; }
+  if(dirty&&!confirm('Des modifications ne sont pas enregistrées. Changer de plan quand même ?')){ $('plan').value=cur; return; }
+  cur=planId; data=fresh(planId); sel=null; setDirty(false); histReset();
+  for(const k of L.catalogue) if(!data.elements[k.id]) data.elements[k.id]={...clone(L.defaut.elements[k.id]),visible:false};
+  const m=META.find(x=>x.plan===planId)||{};
+  $('lyr').textContent=`${planId} · ${m.temps||''} · ${m.paroles||''}`; $('brief').textContent=m.brief||'';
+  $('note').value=data.note||'';
+  $('status').textContent=PLANS[planId]?`rév. ${PLANS[planId].rev||1} · ${PLANS[planId].maj||''}`:(data.copie_de?`(pas encore enregistré — repris de ${data.copie_de})`:'(pas encore enregistré — placement par défaut)');
+  $('plan').value=planId; history.replaceState(null,'',location.search+'#'+planId);
+  $('vuetitre').textContent=`${planId} · carte rév. ${PLANS[planId]?.rev||'—'}${PLANS[planId]?.maj?' ('+PLANS[planId].maj+')':''}`;
+  renderEls(); drawItems(); updatePanel(true);
+}
+
+// --- glisser / tourner
+function pt(evt){const p=svg.createSVGPoint();p.x=evt.clientX;p.y=evt.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
+let drag=null;
+svg.addEventListener('pointerdown',e=>{
+  const t=e.target.closest('[data-kind]'); const q=pt(e);
+  if(!t || e.button===1){ pan={x:e.clientX,y:e.clientY,moved:false,vb:VB.slice(),k:svg.getScreenCTM().a}; svg.setPointerCapture(e.pointerId); svg.classList.add('pan'); e.preventDefault(); return; }
+  if(t.dataset.kind==='handle'){drag={mode:'rot'};}
+  else{ sel={kind:t.dataset.kind,id:t.dataset.kind==='cam'?+t.dataset.id:t.dataset.id}; const o=selObj(); drag={mode:'move',dx:q.x-o.x,dy:q.y-o.y}; updatePanel(true);}
+  svg.setPointerCapture(e.pointerId); drawItems(); e.preventDefault();
+});
+svg.addEventListener('pointermove',e=>{
+  if(pan){ const dx=e.clientX-pan.x, dy=e.clientY-pan.y; if(Math.abs(dx)+Math.abs(dy)>3) pan.moved=true;
+    if(pan.moved){ VB[0]=pan.vb[0]-dx/pan.k; VB[1]=pan.vb[1]-dy/pan.k; setVB(); } return; }
+  if(!drag||!sel) return; const q=pt(e), o=selObj();
+  if(drag.mode==='move'){o.x=Math.round(q.x-drag.dx);o.y=Math.round(q.y-drag.dy);}
+  else{let a=Math.atan2(q.y-o.y,q.x-o.x)*180/Math.PI; if(e.shiftKey) a=Math.round(a/15)*15; o.angle=Math.round(a);}
+  setDirty(true); drawItems();
+});
+svg.addEventListener('pointerup',()=>{ if(pan){ const clic=!pan.moved; pan=null; svg.classList.remove('pan'); if(clic){sel=null;drawItems();updatePanel(true);} return; }
+  if(drag){drag=null; snap();} });
+// --- zoom de la carte (la sélection, le glisser et la rotation restent actifs à tous les niveaux de zoom)
+const VB0=[-300,0,1900,1000]; let VB=VB0.slice(), pan=null;
+function setVB(){ svg.setAttribute('viewBox',VB.map(v=>Math.round(v*10)/10).join(' ')); $('zpc').textContent=Math.round(100*VB0[2]/VB[2])+' %'; }
+function zoomCarte(f,cx,cy){ const w=Math.max(120,Math.min(VB0[2]*1.5,VB[2]/f)); f=VB[2]/w;
+  if(cx==null){cx=VB[0]+VB[2]/2; cy=VB[1]+VB[3]/2;}
+  VB=[cx-(cx-VB[0])/f, cy-(cy-VB[1])/f, VB[2]/f, VB[3]/f]; setVB(); }
+svg.addEventListener('wheel',e=>{ e.preventDefault(); const q=pt(e); zoomCarte(Math.exp(-e.deltaY*0.0015*(e.deltaMode?40:1)),q.x,q.y); },{passive:false});
+$('zp').onclick=()=>zoomCarte(1.5); $('zm').onclick=()=>zoomCarte(1/1.5); $('zt').onclick=()=>{VB=VB0.slice(); setVB();};
+document.addEventListener('keydown',e=>{ const t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA'||t==='SELECT'||e.ctrlKey||e.metaKey) return;
+  if(e.key==='+'||e.key==='=') zoomCarte(1.5); else if(e.key==='-') zoomCarte(1/1.5); else if(e.key==='0'){VB=VB0.slice(); setVB();} });
+
+// --- boutons
+$('plan').onchange=e=>load(e.target.value);
+$('prev').onclick=()=>{const i=META.findIndex(m=>m.plan===cur); if(i>0) load(META[i-1].plan);};
+$('next').onclick=()=>{const i=META.findIndex(m=>m.plan===cur); if(i<META.length-1) load(META[i+1].plan);};
+$('note').oninput=()=>{data.note=$('note').value;setDirty(true);};
+$('addcam').onclick=()=>{ if(data.cameras.length<2){const c=clone(data.cameras[0]); c.x+=150; data.cameras.push(c); sel={kind:'cam',id:1}; setDirty(true); drawItems(); updatePanel(true);} };
+$('delcam').onclick=()=>{ if(data.cameras.length>1){data.cameras.pop(); sel=null; setDirty(true); drawItems(); updatePanel(true);} };
+$('copyprev').onclick=()=>{const ids=META.map(m=>m.plan);const i=ids.indexOf(cur);
+  for(let j=i-1;j>=0;j--) if(PLANS[ids[j]]){const note=data.note; data=clone(PLANS[ids[j]]); data.note=note; sel=null; setDirty(true); renderEls(); drawItems(); updatePanel(true); $('status').textContent+=` (repris de ${ids[j]})`; return;}
+  alert('Aucun plan précédent enregistré.');};
+$('reset').onclick=()=>{ if(!confirm('Remettre le placement par défaut pour ce plan ?')) return; const note=data.note; data={cameras:clone(L.defaut.cameras),elements:clone(L.defaut.elements),note}; sel=null; setDirty(true); renderEls(); drawItems(); updatePanel(true); };
+$('save').onclick=save;
+document.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();save();} });
+document.addEventListener('keydown',e=>{ if(!(e.ctrlKey||e.metaKey)) return; const t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA') return;
+  const k=e.key.toLowerCase(); if(k==='z'&&!e.shiftKey){e.preventDefault();undo();} else if(k==='y'||(k==='z'&&e.shiftKey)){e.preventDefault();redo();} });
+$('undo').onclick=undo; $('redo').onclick=redo;
+window.addEventListener('beforeunload',e=>{ if(dirty){e.preventDefault();e.returnValue='';} });
+
+async function save(){
+  if(!canWrite){alert('Lecture seule : lance tools/serve_storyboard.py pour enregistrer.');return;}
+  const body=clone(data); delete body.copie_de; body.note=$('note').value;
+  $('save').disabled=true;
+  try{
+    const r=await fetch('/api/carte',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan:cur,data:body})});
+    const j=await r.json(); if(!j.ok) throw new Error(j.erreur);
+    PLANS=j.plans; dirty=false; const s=$('status'); s.className='saved'; s.textContent=`✔ enregistré (rév. ${PLANS[cur].rev}) et poussé sur GitHub`;
+    buildSelect();
+  }catch(err){alert('Erreur : '+err.message);} finally{$('save').disabled=false;}
+}
+
+function buildSelect(){
+  $('plan').innerHTML=META.map(m=>`<option value="${m.plan}">${PLANS[m.plan]?'✔ ':'· '}${m.plan} ${m.temps?('— '+m.temps):''}</option>`).join('');
+  $('plan').value=cur||META[0].plan;
+}
+
+(async()=>{
+  let api=null;
+  try{const r=await fetch('/api/carte',{cache:'no-store'}); if(r.ok){api=await r.json(); canWrite=true;}}catch{}
+  if(!api){
+    const [l,p,m]=await Promise.all(['../assets/storyboards/a-valider/carte/lieux.json','../assets/storyboards/a-valider/carte/plans.json','../assets/storyboards/a-valider/options.json'].map(u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():{})));
+    api={lieux:l,plans:p,meta:(m.plans||[]).filter(x=>/^P\d/.test(x.plan)).map(({plan,temps,paroles,brief})=>({plan,temps,paroles,brief}))};
+    $('save').title='Lecture seule'; $('status').textContent='lecture seule';
+  }
+  L=api.lieux; PLANS=api.plans||{}; META=api.meta;
+  drawBase(); buildSelect();
+  const h=location.hash.slice(1).toUpperCase(); load(META.some(m=>m.plan===h)?h:META[0].plan);
+  // ?c=cx,cy,w : ouverture centrée sur la zone regardée dans la visionneuse (double-clic sur la carte)
+  { const c=(new URLSearchParams(location.search).get('c')||'').split(',').map(Number);
+    if(c.length===3&&c.every(v=>isFinite(v))){ const w=Math.max(120,Math.min(VB0[2]*1.5,c[2])), hh=w*VB0[3]/VB0[2];
+      VB=[c[0]-w/2, c[1]-hh/2, w, hh]; setVB(); } }
+  window.addEventListener('hashchange',()=>{const h=location.hash.slice(1).toUpperCase(); if(h!==cur&&META.some(m=>m.plan===h)) load(h);});
+})();
+</script>
+</body>
+</html>

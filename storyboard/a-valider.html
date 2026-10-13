@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeannot slamrap — storyboard à valider</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;--or:#f2bf44;--ok:#3cb371;--warn:#e0a030;--ko:#d9534f;--line:#2a3647}
+*{box-sizing:border-box}
+body{margin:0;background:#0b111c;color:#edf2f8}
+header{position:sticky;top:0;background:#0b111cf2;padding:10px 16px;border-bottom:1px solid var(--line);z-index:5}
+header h1{margin:0 0 6px;font-size:18px}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav a{color:#cbd5e1;text-decoration:none;font-size:13px;padding:2px 7px;border-radius:5px;border:1px solid var(--line)}
+nav a.valide{border-color:var(--ok);color:var(--ok)} nav a.en-cours{border-color:var(--warn);color:var(--warn)}
+#mode{font-size:12px;color:#8fa0b5;margin-left:8px}
+main{padding:8px 16px 80px;max-width:1700px;margin:auto}
+section.plan{border-bottom:1px solid var(--line);padding:16px 0}
+h2{margin:0;font-size:21px} h2 .t{color:#8fa0b5;font-weight:400;font-size:15px} h2 .st{font-size:14px;margin-left:8px;font-weight:500}
+.lyr{color:var(--or);margin:6px 0} .brief{color:#b5c0cf;margin:0 0 12px;max-width:1150px;line-height:1.45}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:14px}
+figure{margin:0;background:#121a28;border:2px solid var(--line);border-radius:9px;overflow:hidden;display:flex;flex-direction:column}
+button.del{background:#fff;border:1px solid #c0392b;color:#c0392b} figure.retenue{border-color:var(--ok);box-shadow:0 0 0 2px #3cb37155} figure.ecartee{opacity:.5} figure.a-retoucher{border-color:var(--warn)}
+figure img{width:100%;display:block;cursor:zoom-in;background:#05080d}
+.imgw{position:relative} .imgw img.cq{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none} .imgw.cqon img.cq{display:block}
+.imgw img.cm{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#f4efe4;display:none;cursor:zoom-in} .imgw.cmon img.cm{display:block}
+button.cqb{font-size:12px;padding:2px 8px}
+figcaption{padding:9px;font-size:13px;color:#cbd5e1;display:flex;flex-direction:column;gap:7px;flex:1}
+.head{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.head b{font-size:15px} small{color:#8fa0b5}
+.btns{display:flex;flex-wrap:wrap;gap:5px}
+button{font:inherit;font-size:12px;padding:4px 9px;border-radius:6px;border:1px solid var(--line);background:#1a2435;color:#e6edf6;cursor:pointer}
+button:hover{background:#233149} button.on{outline:2px solid currentColor}
+button.ok{color:#7ee0a5} button.warn{color:#f5c56a} button.ko{color:#f08a86} button.send{background:#3a3010;color:var(--or);border-color:#6b5717}
+textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;background:#0d1420;color:#edf2f8;border:1px solid var(--line);border-radius:6px;padding:6px}
+.avis{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.avis li{background:#0d1420;border-left:3px solid var(--or);padding:4px 7px;border-radius:4px;white-space:pre-wrap}
+.avis li i{color:#8fa0b5;font-style:normal;font-size:11px;display:block}
+.libre{margin-top:12px;background:#111a29;border:1px dashed #44536a;border-radius:9px;padding:10px;max-width:1150px}
+.libre h3{margin:0 0 6px;font-size:14px;color:var(--or)}
+.row{display:flex;gap:6px;align-items:flex-end} .row textarea{flex:1}
+#zoom{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;z-index:10}
+#zoom .zbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:6px 10px;color:#cbd5e1;font-size:13px;background:#0b111cf0;border-bottom:1px solid var(--line)}
+#zoom .zbar button{padding:3px 9px} #zoom .zbar input[type=range]{width:180px} #zoom .zbar b{color:var(--or);min-width:58px;display:inline-block;text-align:right}
+#zoom .zst{flex:1;position:relative;overflow:hidden;cursor:grab;touch-action:none} #zoom .zst.drag{cursor:grabbing}
+#zoom .zst img{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;max-height:none;user-select:none;-webkit-user-drag:none}
+#zoom .zst.pix img{image-rendering:pixelated}
+#zoom .pin{position:absolute;width:0;height:0;pointer-events:none}
+#zoom .pin i{position:absolute;left:-11px;top:-25px;width:22px;height:22px;border-radius:50%;background:#f2bf44;color:#0b111c;font:700 12px/22px system-ui;text-align:center;box-shadow:0 0 0 2px #0b111c}
+#zoom .pin:after{content:"";position:absolute;left:-1px;top:-3px;width:2px;height:12px;background:#f2bf44}
+#zpts{display:none;padding:6px 10px;background:#0b111cf0;border-top:1px solid var(--line);color:#cbd5e1;font-size:13px;max-height:32%;overflow:auto}
+#zpts .pr{display:flex;gap:6px;align-items:center;margin:3px 0}
+#zpts .pr b{color:var(--or);min-width:104px;font-variant-numeric:tabular-nums}
+#zpts input{flex:1;padding:2px 6px;background:#0f172a;color:#e6e9ef;border:1px solid var(--line);border-radius:5px}
+#zpt.on{background:#f2bf44;color:#0b111c}
+#zoom.ptmode .zst{cursor:crosshair}
+#zoomvue{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;z-index:11;padding:8px;gap:6px}
+#zoomvue .zh{display:flex;gap:10px;align-items:center;color:#cbd5e1;font-size:14px} #zoomvue .zh b{color:var(--or)}
+#zoomvue iframe{flex:1;width:100%;border:1px solid var(--line);border-radius:8px;background:#0b111c}
+.vuemini{position:relative;width:360px;max-width:45%;aspect-ratio:16/9;border-radius:5px;overflow:hidden;cursor:zoom-in;background:#1b2636;flex:none}
+.vuemini iframe{width:100%;height:100%;border:0;pointer-events:none}
+.vuemini span{position:absolute;left:6px;bottom:5px;font-size:12px;background:#000a;color:#f2bf44;padding:2px 7px;border-radius:5px}
+.bdg{font-size:12px;padding:2px 7px;border-radius:5px;align-self:flex-start}
+.bdg.vert{background:#123824;color:#7ee0a5} .bdg.orange{background:#3d2a0c;color:#f5c56a} .bdg.gris{background:#1d2633;color:#9fb0c4}
+.carteplan{display:flex;gap:12px;align-items:flex-start;background:#111a29;border:1px solid var(--line);border-radius:8px;padding:8px;margin:0 0 12px;max-width:1150px;font-size:13px;color:#cbd5e1}
+.carteplan img{width:360px;max-width:45%;border-radius:5px;cursor:zoom-in} .carteplan a{color:var(--or)} .carteplan.vide{color:#9fb0c4}
+#toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#1d2a3e;border:1px solid var(--line);padding:8px 14px;border-radius:8px;display:none;z-index:11}
+</style>
+</head>
+<body>
+<header>
+  <h1>Storyboard — options à valider <span id="mode"></span>
+    <a href="carte.html" style="font-size:14px;color:#f2bf44;margin-left:12px">🗺️ Carte interactive (caméra, persos, véhicules par plan) →</a></h1>
+  <nav id="nav"></nav>
+</header>
+<main id="main">Chargement…</main>
+<div id="zoom"><div class="zbar">🔍 <button data-z="fit">Ajuster</button><button data-z="1">Taille réelle</button><button data-z="2">×2</button><button data-z="4">×4</button>
+<button data-z="-">−</button><input id="zrange" type="range" min="0" max="1000" value="0"><button data-z="+">+</button><b id="zpct">100 %</b>
+<label><input id="zpix" type="checkbox"> pixels nets</label><button id="zpt" title="Pointer un endroit : je note les coordonnées exactes du pixel (repère 1920×1080) et je les reçois avec ton avis">📍 Pointer</button><a id="zedit" href="#" style="display:none;color:#f2bf44">✏️ modifier cette carte (carte interactive, avec zoom)</a><span style="flex:1;color:#8fa1b6">molette = zoom sur le point visé · glisser = déplacer · double-clic = zoomer ici (sur une carte : passer en modifiable) · touches + − 0</span><button data-z="x">✕ fermer (Échap)</button></div>
+<div class="zst"><img alt="" draggable="false"></div><div id="zpts"></div></div>
+<div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> <span id="zvd">vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)</span><span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
+<div id="toast"></div>
+<script>
+const MANIFEST = '../assets/storyboards/a-valider/options.json';
+const ST = {"a-valider":"⏳ À valider","en-cours":"🛠️ En cours","valide":"✅ Validé"};
+const ET = {"a-valider":"⏳ à valider","retenue":"✅ retenue","ecartee":"❌ écartée","a-retoucher":"🔁 à retoucher"};
+let canWrite = false, man = null, CPLANS = {}, LREV = 1;
+const CARTE_DIR = '../assets/storyboards/a-valider/carte';
+function badge(p, o){
+  if (!/^P\d/.test(p.plan)) return '';
+  const cp = CPLANS[p.plan];
+  if (!o.carte) return '<span class="bdg gris">⚪ faite sans carte du plan</span>';
+  if (cp && o.carte.plan_rev === cp.rev && o.carte.lieux_rev === LREV) return `<span class="bdg vert">🟢 conforme à la carte actuelle (rév. ${cp.rev})</span>`;
+  return `<span class="bdg orange">🟠 faite d'après la carte rév. ${o.carte.plan_rev} — la carte a changé depuis${cp?` (rév. ${cp.rev})`:''}</span>`;
+}
+function carteBox(p){
+  if (!/^P\d/.test(p.plan)) return p.plan==='CARTE' ? `<p class="brief"><a href="carte.html">🗺️ Ouvrir la carte interactive</a> (les lieux validés servent de base à tous les plans)</p>` : '';
+  const cp = CPLANS[p.plan];
+  if (!cp) return `<div class="carteplan vide">🗺️ Pas encore de carte pour ce plan — <a href="carte.html#${p.plan}">la placer sur la carte interactive</a></div>`;
+  const src = `${CARTE_DIR}/plans/${p.plan.toLowerCase()}.png?r=${cp.rev}-${LREV}`;
+  return `<div class="carteplan"><img loading="lazy" src="${src}" alt="carte ${p.plan}"><div class="vuemini" data-vue="${p.plan}" title="Agrandir la vue caméra (sans modifier la carte)"><iframe loading="lazy" tabindex="-1" src="carte.html?vue=mini#${p.plan}"></iframe><span>⤢ vue caméra — agrandir</span></div><div>🗺️ <b>Carte du plan</b> · rév. ${cp.rev} · ${esc(cp.maj||'')}<br><a href="carte.html#${p.plan}">✏️ modifier la caméra / les personnages</a>${cp.note?`<br><i>${esc(cp.note)}</i>`:''}</div></div>`;
+}
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const toast = m => { const t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; clearTimeout(t._h); t._h=setTimeout(()=>t.style.display='none',2600); };
+const avisList = a => (a&&a.length) ? `<ul class="avis">${a.map(x=>`<li><i>${esc(x.date)}</i>${esc(x.texte)}</li>`).join('')}</ul>` : '';
+
+const SHOW_EC = new Set();
+function render(){
+  const drafts = Object.fromEntries([...document.querySelectorAll('textarea')].map(t=>[t.id,t.value]));
+  document.getElementById('nav').innerHTML = man.plans.map(p=>`<a class="${p.statut}" href="#${p.plan.toLowerCase()}">${p.plan}</a>`).join('');
+  document.getElementById('main').innerHTML = man.plans.map(p=>{
+    const nEc = p.options.filter(o=>o.etat==='ecartee').length;
+    const opts = p.options.filter(o=>o.etat!=='ecartee'||SHOW_EC.has(p.plan)).map(o=>{
+      const src = `../assets/storyboards/a-valider/${p.plan.toLowerCase()}/${o.fichier}`;
+      const key = `${p.plan}-${o.id}`;
+      const b = (etat, cls, label) => `<button class="${cls} ${o.etat===etat?'on':''}" data-plan="${p.plan}" data-opt="${o.id}" data-etat="${etat}">${label}</button>`;
+      return `<figure class="${o.etat}" id="f-${key}">
+        <div class="imgw" id="w-${key}"><img loading="lazy" src="${esc(src)}" alt="${key}">${CPLANS[p.plan]?`<img class="cq" src="${CARTE_DIR}/plans/${p.plan.toLowerCase()}-calque.png?r=${CPLANS[p.plan].rev}-${LREV}" alt="">`:''}${CPLANS[p.plan]?`<img class="cm" loading="lazy" src="${CARTE_DIR}/plans/${p.plan.toLowerCase()}.png?r=${CPLANS[p.plan].rev}-${LREV}" alt="carte du plan">`:''}</div>
+        <figcaption>
+          <div class="head"><b>${esc(o.id)}</b><span>${ET[o.etat]||esc(o.etat)}</span></div>
+          <small>${esc(o.source)}</small>
+          ${badge(p, o)}
+          ${CPLANS[p.plan]?`<div><button class="cqb" data-cq="${key}" title="Superpose ce que la caméra de la carte doit voir : position et taille de chaque élément">📐 Calque de la carte (rév. ${CPLANS[p.plan].rev})</button> <button class="cqb" data-cm="${key}" title="Affiche à la place de l'image la carte du plan vue de dessus (caméra, véhicules, personnages) ; re-cliquer pour revenir à l'image ; cliquer sur la carte pour l'agrandir">🗺️ Carte (rév. ${CPLANS[p.plan].rev})</button></div>`:''}
+          <div>${esc(o.note)}</div>
+          ${avisList(o.avis)}
+          ${canWrite ? `<div class="btns">${b('retenue','ok','✅ Je choisis')}${b('a-retoucher','warn','🔁 À retoucher')}${b('ecartee','ko','❌ Écarter')}${b('a-valider','','⏳ Remettre')}<button class="del" data-plan="${p.plan}" data-opt="${o.id}" title="Supprimer définitivement cette version (image effacée, plus dans l'historique)">🗑️ Supprimer</button></div>
+          <div class="row"><textarea id="t-${key}" placeholder="Ton avis, les détails à changer…"></textarea><button class="send" data-plan="${p.plan}" data-opt="${o.id}">Envoyer</button></div>` : ''}
+        </figcaption></figure>`;
+    }).join('');
+    return `<section class="plan" id="${p.plan.toLowerCase()}">
+      <h2>${esc(p.plan)} <span class="t">${esc(p.temps)}</span><span class="st">${ST[p.statut]||esc(p.statut)}${p.choix?` · choix : ${esc(p.choix)}`:''}</span></h2>
+      <p class="lyr">${esc(p.paroles)}</p><p class="brief">${esc(p.brief)}</p>
+      ${carteBox(p)}
+      <div class="grid">${opts}</div>
+      ${nEc?`<p class="brief"><button class="toggle-ec" data-plan="${p.plan}">${SHOW_EC.has(p.plan)?'🙈 Masquer':'🗄️ Voir'} les ${nEc} option(s) écartée(s)</button> <small>(cachées par défaut, gardées dans l'historique)</small></p>`:''}
+      <div class="libre"><h3>💡 Autre idée / avis libre sur le plan ${esc(p.plan)}</h3>
+        ${avisList(p.avis)}
+        ${canWrite ? `<div class="row"><textarea id="t-${p.plan}" placeholder="Ce que tu veux : une autre version, une idée de cadrage, un détail pour tout le plan…"></textarea><button class="send" data-plan="${p.plan}">Envoyer</button></div>` : ''}
+      </div></section>`;
+  }).join('');
+  for (const [id,v] of Object.entries(drafts)) { const t=document.getElementById(id); if(t) t.value=v; }
+}
+
+async function post(body){
+  const r = await fetch('/api/avis',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const j = await r.json();
+  if(!j.ok) throw new Error(j.erreur||'erreur');
+  man = j.manifest; render(); toast('Enregistré ✔ (sauvegardé dans le dépôt)');
+}
+
+function ouvreVue(plan){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; document.getElementById('zvt').textContent=plan;
+  z.querySelector('iframe').src='carte.html?vue&t='+Date.now()+'#'+plan; z.style.display='flex'; }
+function ouvreCarte(plan, c){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; z.dataset.mode='carte'; document.getElementById('zvt').textContent=plan;
+  document.getElementById('zvd').textContent='carte interactive du plan — modifiable (pense à 💾 Enregistrer ; ↶ Annuler si besoin)';
+  const q = c ? `&c=${Math.round(c.x)},${Math.round(c.y)},${Math.round(c.w)}` : '';
+  z.querySelector('iframe').src='carte.html?t='+Date.now()+q+'#'+plan; z.style.display='flex'; }
+async function rechargeCarte(){ try{ const [cp,lx]=await Promise.all([`${CARTE_DIR}/plans.json`,`${CARTE_DIR}/lieux.json`].map(u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():{})));
+  CPLANS=cp||{}; LREV=(lx&&lx.rev)||1; render(); }catch{} }
+function fermeVue(){ const z=document.getElementById('zoomvue'); const etaitCarte=z.dataset.mode==='carte'; z.dataset.mode=''; z.style.display='none'; z.querySelector('iframe').src='about:blank';
+  document.getElementById('zvd').textContent="vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)"; if(etaitCarte) rechargeCarte(); }
+
+// --- visionneuse zoomable (molette, glisser, curseur, double-clic, pincement) ---
+const ZV={s:1,x:0,y:0,fit:1,min:1,max:8,pts:new Map(),pinch:null};
+function zEls(){ const z=document.getElementById('zoom'); return {z, st:z.querySelector('.zst'), img:z.querySelector('.zst img')}; }
+function zApply(){ const {img}=zEls(); img.style.transform=`translate(${ZV.x}px,${ZV.y}px) scale(${ZV.s})`;
+  document.getElementById('zpct').textContent=Math.round(ZV.s*100)+' %';
+  const r=Math.log(ZV.s/ZV.min)/Math.log(ZV.max/ZV.min); document.getElementById('zrange').value=Math.round(1000*Math.max(0,Math.min(1,r))); pinsPos(); }
+function zClamp(){ const {st,img}=zEls(); const W=st.clientWidth,H=st.clientHeight, w=img.naturalWidth*ZV.s, h=img.naturalHeight*ZV.s;
+  ZV.x = w<=W ? (W-w)/2 : Math.min(0,Math.max(W-w,ZV.x)); ZV.y = h<=H ? (H-h)/2 : Math.min(0,Math.max(H-h,ZV.y)); }
+function zSet(s,cx,cy){ const {st}=zEls(); s=Math.max(ZV.min,Math.min(ZV.max,s)); if(cx==null){cx=st.clientWidth/2;cy=st.clientHeight/2;}
+  const ix=(cx-ZV.x)/ZV.s, iy=(cy-ZV.y)/ZV.s; ZV.s=s; ZV.x=cx-ix*s; ZV.y=cy-iy*s; zClamp(); zApply(); }
+function zFit(){ const {st,img}=zEls(); ZV.fit=Math.min(st.clientWidth/img.naturalWidth, st.clientHeight/img.naturalHeight); ZV.min=Math.min(ZV.fit,1);
+  ZV.max=Math.max(8,ZV.fit*8); ZV.s=ZV.fit; ZV.x=0; ZV.y=0; zClamp(); zApply(); }
+// --- 📍 pointage : on clique sur l'image, les coordonnées du pixel partent avec l'avis
+let PTS=[], PTMODE=false, ZKEY=null;
+function pinsPos(){ const {st}=zEls(); st.querySelectorAll('.pin').forEach(p=>{ const q=PTS[+p.dataset.i];
+  if(q){ p.style.left=(ZV.x+q.x*ZV.s)+'px'; p.style.top=(ZV.y+q.y*ZV.s)+'px'; } }); }
+function renderPts(){ const {st,img}=zEls(); st.querySelectorAll('.pin').forEach(p=>p.remove());
+  const box=document.getElementById('zpts');
+  if(!PTS.length && !PTMODE){ box.style.display='none'; return; }
+  box.style.display='block';
+  PTS.forEach((q,i)=>{ const d=document.createElement('div'); d.className='pin'; d.dataset.i=i;
+    d.innerHTML=`<i>${i+1}</i>`; st.appendChild(d); });
+  box.innerHTML=`<div style="margin-bottom:4px">${PTS.length?'📍 '+PTS.length+' point'+(PTS.length>1?'s':'')+' —':'📍 Mode pointage :'} repère de l'image : 0,0 en haut à gauche, ${img.naturalWidth||1920}×${img.naturalHeight||1080}. Clique sur l'image pour ${PTS.length?'en ajouter':'pointer un endroit'}.</div>`
+    + PTS.map((q,i)=>`<div class="pr"><b>${i+1}. (${q.x}, ${q.y})</b><input data-pi="${i}" placeholder="c'est quoi ? (ex. pieds d'Henri, haut des marches…)" value="${esc(q.quoi)}"></div>`).join('')
+    + (PTS.length?`<div class="pr" style="margin-top:6px"><button id="zpsend">📤 Envoyer ces pointages avec mon avis</button><button id="zpclear">🗑️ Effacer</button></div>`:'');
+  box.querySelectorAll('input[data-pi]').forEach(inp=>inp.oninput=e=>{ PTS[+e.target.dataset.pi].quoi=e.target.value; });
+  if(PTS.length){
+    document.getElementById('zpsend').onclick=envoyerPts;
+    document.getElementById('zpclear').onclick=()=>{ PTS=[]; renderPts(); };
+  }
+  pinsPos(); }
+async function envoyerPts(){ if(!ZKEY||!PTS.length) return; const [plan,opt]=ZKEY.split('|');
+  const t='📍 pointages sur l\'image :\n'+PTS.map((q,i)=>`${i+1}. (${q.x}, ${q.y})${q.quoi?' — '+q.quoi:''}`).join('\n');
+  try{ await post({plan, option:opt, texte:t}); PTS=[]; renderPts(); }catch(err){ toast('Erreur : '+err.message); } }
+function zOpen(src,key){ const {z,img}=zEls(); z.style.display='flex'; ZV.src=src; ZKEY=key||null; PTS=[]; renderPts();
+  const mc=String(src).match(/carte\/plans\/(p\d+)[^/]*\.png/i); const ze=document.getElementById('zedit');
+  ze.style.display=mc?'':'none'; if(mc) ze.href='carte.html#'+mc[1].toUpperCase(); img.onload=()=>zFit(); img.src=src; if(img.complete&&img.naturalWidth) zFit(); }
+// centre et largeur visibles, en coordonnées carte (l'image est la carte à 2 px pour 1 unité, décalée de ox)
+function zVueCarte(){ const {st,img}=zEls(); if(!img.naturalWidth) return null;
+  const ox = 1600 - img.naturalWidth/2;   // la rue prolongée vers l'ouest décale la vue de ox
+  const x = ((st.clientWidth/2 - ZV.x)/ZV.s)/2 + ox, y = ((st.clientHeight/2 - ZV.y)/ZV.s)/2;
+  return {x, y, w: Math.max(st.clientWidth/ZV.s/2, (st.clientHeight/ZV.s/2)*1.9)}; }
+function zClose(){ zEls().z.style.display='none'; }
+(function(){ const {z,st}=zEls();
+  st.addEventListener('wheel',e=>{ e.preventDefault(); const r=st.getBoundingClientRect(); zSet(ZV.s*Math.exp(-e.deltaY*0.0015*(e.deltaMode?40:1)), e.clientX-r.left, e.clientY-r.top); },{passive:false});
+  st.addEventListener('pointerdown',e=>{ st.setPointerCapture(e.pointerId); ZV.pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); st.classList.add('drag'); ZV.pinch=null; ZV.dgp={x:e.clientX,y:e.clientY,ok:true}; });
+  st.addEventListener('pointermove',e=>{ const p=ZV.pts.get(e.pointerId); if(!p) return; const r=st.getBoundingClientRect();
+    if(ZV.dgp && Math.hypot(e.clientX-ZV.dgp.x, e.clientY-ZV.dgp.y)>4) ZV.dgp.ok=false;
+    if(ZV.pts.size===2){ const [a,b]=[...ZV.pts.values()]; const d0=Math.hypot(a.x-b.x,a.y-b.y); p.x=e.clientX; p.y=e.clientY; const [c,d]=[...ZV.pts.values()];
+      const d1=Math.hypot(c.x-d.x,c.y-d.y); if(d0>0) zSet(ZV.s*d1/d0,(c.x+d.x)/2-r.left,(c.y+d.y)/2-r.top); return; }
+    ZV.x+=e.clientX-p.x; ZV.y+=e.clientY-p.y; p.x=e.clientX; p.y=e.clientY; zClamp(); zApply(); });
+  const up=e=>{ ZV.pts.delete(e.pointerId); if(!ZV.pts.size) st.classList.remove('drag'); };
+  st.addEventListener('pointerup',up); st.addEventListener('pointercancel',up);
+  st.addEventListener('click',e=>{ if(!PTMODE||!(ZV.dgp&&ZV.dgp.ok)) return;   // 📍 : un clic net = un point
+    const r=st.getBoundingClientRect(), im=zEls().img;
+    const x=Math.round((e.clientX-r.left-ZV.x)/ZV.s), y=Math.round((e.clientY-r.top-ZV.y)/ZV.s);
+    if(x<0||y<0||x>=(im.naturalWidth||1e9)||y>=(im.naturalHeight||1e9)) return;
+    PTS.push({x,y,quoi:''}); renderPts(); });
+  { const zp=document.getElementById('zpt'); zp.onclick=()=>{ PTMODE=!PTMODE; zp.classList.toggle('on',PTMODE);
+      z.classList.toggle('ptmode',PTMODE); renderPts(); }; }
+  st.addEventListener('dblclick',e=>{ const r=st.getBoundingClientRect();
+    const mc=String(ZV.src||'').match(/carte\/plans\/(p\d+)[^/]*\.png/i);   // sur une carte : double-clic = passer en modifiable
+    if(mc){ const c=zVueCarte(); zClose(); ouvreCarte(mc[1].toUpperCase(), c); return; }
+    zSet(ZV.s<ZV.fit*2.5?ZV.s*3:ZV.fit, e.clientX-r.left, e.clientY-r.top); });
+  document.getElementById('zrange').addEventListener('input',e=>zSet(ZV.min*Math.pow(ZV.max/ZV.min,e.target.value/1000)));
+  document.getElementById('zpix').addEventListener('change',e=>st.classList.toggle('pix',e.target.checked));
+  z.querySelector('.zbar').addEventListener('click',e=>{ const k=e.target.dataset&&e.target.dataset.z; if(!k) return; e.stopPropagation();
+    if(k==='x') zClose(); else if(k==='fit') zFit(); else if(k==='+') zSet(ZV.s*1.5); else if(k==='-') zSet(ZV.s/1.5); else zSet(parseFloat(k)); });
+  document.addEventListener('keydown',e=>{ if(z.style.display!=='flex'||e.target.tagName==='TEXTAREA'||e.target.tagName==='INPUT') return;
+    if(e.key==='+'||e.key==='=') zSet(ZV.s*1.5); else if(e.key==='-') zSet(ZV.s/1.5); else if(e.key==='0') zFit(); });
+  window.addEventListener('resize',()=>{ if(z.style.display==='flex'){ zClamp(); zApply(); } });
+})();
+// retour depuis la carte interactive : #derniere-P01 -> dernière version (non écartée) du plan, centrée et surlignée
+function allerA(h){ if(!h) return; let el=null;
+  const m=h.match(/^#derniere-(\w+)$/i);
+  if(m){ const p=(man&&man.plans||[]).find(x=>x.plan.toUpperCase()===m[1].toUpperCase());
+    const os=p?p.options.filter(o=>o.etat!=='ecartee'):[]; const o=os[os.length-1];
+    if(o) el=document.getElementById(`w-${p.plan}-${o.id}`); if(el) el=el.closest('figure')||el;
+    if(!el) el=document.getElementById(p?p.plan:''); }
+  else { try{ el=document.querySelector(h); }catch{} }
+  if(!el) return;
+  const go=()=>el.scrollIntoView({block:'center'}); go(); setTimeout(go,400); setTimeout(go,1200);
+  el.style.outline='3px solid #f2bf44'; el.style.outlineOffset='3px'; setTimeout(()=>{el.style.outline='';},4000);
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ fermeVue(); zClose(); } });
+document.addEventListener('click', async e=>{
+  const el = e.target;
+  if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { const f=el.closest('figure');
+    zOpen(el.src, f && f.id.startsWith('f-') ? f.id.slice(2).replace(/^([A-Z]+\d*)-(.*)$/, '$1|$2') : null); return; }
+  if (el.closest('#zoom')) return;
+  const vm = el.closest('.vuemini'); if (vm) { ouvreVue(vm.dataset.vue); return; }
+  if (el.id==='zvx') { fermeVue(); return; }
+  if (el.id==='zve') { e.preventDefault(); location.href='carte.html#'+document.getElementById('zoomvue').dataset.plan; return; }
+  if (el.tagName!=='BUTTON') return;
+  if (el.dataset.cm) { const w=document.getElementById('w-'+el.dataset.cm); w.classList.toggle('cmon'); el.classList.toggle('on'); return; }
+  if (el.dataset.cq) { const w=document.getElementById('w-'+el.dataset.cq); w.classList.toggle('cqon'); el.classList.toggle('on'); return; }
+  if (el.classList.contains('toggle-ec')) { const p=el.dataset.plan; SHOW_EC.has(p)?SHOW_EC.delete(p):SHOW_EC.add(p); render(); return; }
+  const plan=el.dataset.plan, option=el.dataset.opt||null;
+  if (el.classList.contains('del')) {
+    if (!confirm(`Supprimer définitivement ${plan} ${option} ?\nL'image est effacée et la version disparaît aussi de l'historique des écartées.`)) return;
+    try{ await post({plan, option, supprimer:true}); toast(`${plan} ${option} supprimée ✔`); }catch(err){ toast('Erreur : '+err.message); }
+    return;
+  }
+  try{
+    if (el.dataset.etat) {
+      const t=document.getElementById(`t-${plan}-${option}`);
+      await post({plan, option, etat: el.dataset.etat, texte: t ? t.value : ''});
+    } else if (el.classList.contains('send')) {
+      const t=document.getElementById(option?`t-${plan}-${option}`:`t-${plan}`);
+      if(!t.value.trim()) return toast('Écris quelque chose avant d’envoyer');
+      const txt=t.value; t.value=''; el.disabled=true; el.textContent='envoi…';   // la zone se vide : sinon le texte réapparaît et semble non envoyé
+      try{ await post({plan, option, texte: txt}); toast('Avis envoyé et enregistré ✔'); }
+      catch(err){ const t2=document.getElementById(t.id); if(t2) t2.value=txt; throw err; }
+      finally{ el.disabled=false; el.textContent='Envoyer'; }
+    }
+  }catch(err){ toast('Erreur : '+err.message); }
+});
+
+(async()=>{
+  try { const r = await fetch('/api/manifest',{cache:'no-store'}); if(!r.ok) throw 0; man = await r.json(); canWrite = true; }
+  catch { man = await (await fetch(MANIFEST,{cache:'no-store'})).json(); }
+  try {
+    const [cp, lx] = await Promise.all([`${CARTE_DIR}/plans.json`, `${CARTE_DIR}/lieux.json`].map(u => fetch(u, {cache:'no-store'}).then(r => r.ok ? r.json() : {})));
+    CPLANS = cp || {}; LREV = (lx && lx.rev) || 1;
+  } catch {}
+  document.getElementById('mode').textContent = canWrite ? '· avis activés' : '· lecture seule (lancer tools/serve_storyboard.py pour donner des avis)';
+  render();
+  allerA(location.hash);
+  window.addEventListener('hashchange',()=>allerA(location.hash));
+})();
+</script>
+</body>
+</html>

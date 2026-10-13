@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1000" viewBox="-300 0 1900 1000" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><clipPath id="zone"><rect x="-300" y="90" width="1900" height="780"/></clipPath></defs>
+<rect x="-300.0" y="0.0" width="1900.0" height="1000.0" rx="0" fill="#f4efe4" stroke="none" stroke-width="0"/>
+<rect x="-260.0" y="385.0" width="1790.0" height="40.0" rx="0" fill="#d9d4ca" stroke="#33404f" stroke-width="1"/>
+<rect x="-260.0" y="425.0" width="1790.0" height="140.0" rx="0" fill="#8e939a" stroke="#33404f" stroke-width="1"/>
+<rect x="-260.0" y="565.0" width="1790.0" height="40.0" rx="0" fill="#d9d4ca" stroke="#33404f" stroke-width="1"/>
+<line x1="-240.0" y1="495.0" x2="1510.0" y2="495.0" stroke="#e8e8e8" stroke-width="2" stroke-dasharray="18 16"/>
+<text x="820.0" y="525.0" font-size="15" fill="#f1f1f1" text-anchor="middle" font-weight="bold">RUE (une seule rue pour tout le clip)</text>
+<rect x="-250.0" y="110.0" width="410.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="170.0" y="110.0" width="530.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="710.0" y="110.0" width="285.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="1000.0" y="110.0" width="345.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="1355.0" y="110.0" width="165.0" height="267.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="-250.0" y="613.0" width="320.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="80.0" y="613.0" width="250.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="340.0" y="613.0" width="240.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="590.0" y="613.0" width="250.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="850.0" y="613.0" width="250.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="1110.0" y="613.0" width="410.0" height="247.0" rx="0" fill="#e9f0dc" stroke="#9aa58a" stroke-width="1"/>
+<rect x="170.0" y="165.0" width="520.0" height="195.0" rx="0" fill="#f7d9a8" stroke="#33404f" stroke-width="2"/>
+<text x="430.0" y="262.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">Maison de JEANNOT</text>
+<text x="430.0" y="284.5" font-size="13" fill="#4a5566" text-anchor="middle">+ la sorcière + Enji · 2 tourelles</text>
+<rect x="720.0" y="165.0" width="275.0" height="180.0" rx="0" fill="#e7e0f5" stroke="#33404f" stroke-width="2"/>
+<text x="857.5" y="255.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">Maison d'HENRI</text>
+<text x="857.5" y="277.0" font-size="13" fill="#4a5566" text-anchor="middle">escalier côté rue</text>
+<rect x="1350.0" y="165.0" width="165.0" height="175.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="1432.5" y="252.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="1000.0" y="165.0" width="115.0" height="218.0" rx="0" fill="#d7d2c8" stroke="#33404f" stroke-width="2"/>
+<line x1="1010.0" y1="383.0" x2="1105.0" y2="383.0" stroke="#d7d2c8" stroke-width="6"/>
+<line x1="1000.0" y1="383.0" x2="1115.0" y2="383.0" stroke="#e04f5f" stroke-width="3" stroke-dasharray="10 6"/>
+<text x="1057.5" y="193.0" font-size="14" fill="#1b2430" text-anchor="middle" font-weight="bold">garage / atelier</text>
+<text x="1057.5" y="215.0" font-size="13" fill="#4a5566" text-anchor="middle">porte ouverte côté rue, au début du trottoir</text>
+<rect x="1125.0" y="165.0" width="210.0" height="180.0" rx="0" fill="#cfe0f2" stroke="#33404f" stroke-width="2"/>
+<text x="1230.0" y="255.0" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">Maison de DIEGO</text>
+<text x="1230.0" y="277.0" font-size="13" fill="#4a5566" text-anchor="middle">l'Estafette devant</text>
+<rect x="100.0" y="635.0" width="210.0" height="165.0" rx="0" fill="#d8ecf7" stroke="#33404f" stroke-width="2"/>
+<text x="205.0" y="717.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">NARRATEUR</text>
+<text x="205.0" y="739.5" font-size="13" fill="#4a5566" text-anchor="middle">en face de Jeannot</text>
+<rect x="360.0" y="635.0" width="200.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="460.0" y="717.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="610.0" y="635.0" width="210.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="715.0" y="717.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="870.0" y="635.0" width="210.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="975.0" y="717.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisin</text>
+<rect x="1130.0" y="635.0" width="370.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
+<text x="1315.0" y="717.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisins</text>
+<text x="1315.0" y="739.5" font-size="13" fill="#4a5566" text-anchor="middle">en face de Diego</text>
+<circle cx="330.0" cy="302.0" r="58" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="352.0" y="236.0" font-size="12" fill="#5b3f8c" text-anchor="start">tourelle</text>
+<circle cx="525.0" cy="327.0" r="56" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="547.0" y="263.0" font-size="12" fill="#5b3f8c" text-anchor="start">tourelle</text>
+<rect x="880.0" y="345.0" width="80.0" height="38.0" rx="0" fill="#bfb7a8" stroke="#33404f" stroke-width="2"/>
+<line x1="888.9" y1="345.0" x2="888.9" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="897.8" y1="345.0" x2="897.8" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="906.7" y1="345.0" x2="906.7" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="915.6" y1="345.0" x2="915.6" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="924.4" y1="345.0" x2="924.4" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="933.3" y1="345.0" x2="933.3" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="942.2" y1="345.0" x2="942.2" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<line x1="951.1" y1="345.0" x2="951.1" y2="383.0" stroke="#6e6658" stroke-width="1"/>
+<text x="920.0" y="369.0" font-size="11" fill="#3b352b" text-anchor="middle" font-weight="bold">monte →</text>
+<rect x="960.0" y="345.0" width="35.0" height="38.0" rx="0" fill="#d8cfbd" stroke="#33404f" stroke-width="2"/>
+<text x="977.5" y="368.0" font-size="10" fill="#3b352b" text-anchor="middle" font-weight="bold">palier</text>
+<text x="920.0" y="398.0" font-size="12" fill="#4a5566" text-anchor="middle">escalier d'Henri</text>
+<rect x="1538.0" y="265.0" width="44.0" height="460.0" rx="0" fill="#b9ab95" stroke="none" stroke-width="0"/>
+<line x1="1542.0" y1="271.0" x2="1578.0" y2="271.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="285.0" x2="1578.0" y2="285.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="299.0" x2="1578.0" y2="299.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="313.0" x2="1578.0" y2="313.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="327.0" x2="1578.0" y2="327.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="341.0" x2="1578.0" y2="341.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="355.0" x2="1578.0" y2="355.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="369.0" x2="1578.0" y2="369.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="383.0" x2="1578.0" y2="383.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="397.0" x2="1578.0" y2="397.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="411.0" x2="1578.0" y2="411.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="425.0" x2="1578.0" y2="425.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="439.0" x2="1578.0" y2="439.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="453.0" x2="1578.0" y2="453.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="467.0" x2="1578.0" y2="467.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="481.0" x2="1578.0" y2="481.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="495.0" x2="1578.0" y2="495.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="509.0" x2="1578.0" y2="509.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="523.0" x2="1578.0" y2="523.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="537.0" x2="1578.0" y2="537.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="551.0" x2="1578.0" y2="551.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="565.0" x2="1578.0" y2="565.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="579.0" x2="1578.0" y2="579.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="593.0" x2="1578.0" y2="593.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="607.0" x2="1578.0" y2="607.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="621.0" x2="1578.0" y2="621.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="635.0" x2="1578.0" y2="635.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="649.0" x2="1578.0" y2="649.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="663.0" x2="1578.0" y2="663.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="677.0" x2="1578.0" y2="677.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="691.0" x2="1578.0" y2="691.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="705.0" x2="1578.0" y2="705.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1542.0" y1="719.0" x2="1578.0" y2="719.0" stroke="#7a5c3a" stroke-width="4"/>
+<line x1="1550.0" y1="265.0" x2="1550.0" y2="725.0" stroke="#4b4f55" stroke-width="3"/>
+<line x1="1570.0" y1="265.0" x2="1570.0" y2="725.0" stroke="#4b4f55" stroke-width="3"/>
+<line x1="1534.0" y1="419.0" x2="1500.0" y2="419.0" stroke="#d9363e" stroke-width="6"/>
+<line x1="1534.0" y1="571.0" x2="1500.0" y2="571.0" stroke="#d9363e" stroke-width="6"/>
+<text x="1596.0" y="241.0" font-size="12" fill="#7a1d27" text-anchor="end" font-weight="bold">passage</text>
+<text x="1596.0" y="256.0" font-size="12" fill="#7a1d27" text-anchor="end" font-weight="bold">à niveau</text>
+<text x="1596.0" y="741.0" font-size="11" fill="#4a5566" text-anchor="end">puis descente,</text>
+<text x="1596.0" y="755.0" font-size="11" fill="#4a5566" text-anchor="end">collines au fond</text>
+<text x="-290.0" y="500.0" font-size="20" fill="#4a5566" text-anchor="middle" font-weight="bold">O</text>
+<text x="1592.0" y="100.0" font-size="16" fill="#4a5566" text-anchor="end" font-weight="bold">E →</text>
+<polygon points="280.5,427.0 379.5,427.0 379.5,467.0 280.5,467.0" fill="#2c5f47" fill-opacity="1.0"/>
+<polygon points="283.5,430.0 376.5,430.0 376.5,464.0 283.5,464.0" fill="#a8dcc0" fill-opacity="1.0"/>
+<polygon points="377.5,435.0 395.5,447.0 377.5,459.0" fill="#2c5f47" fill-opacity="1.0"/>
+<text x="330.0" y="452.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">4L</text>
+<polygon points="1205.0,476.0 1089.0,476.0 1089.0,427.0 1205.0,427.0" fill="#33475c" fill-opacity="1.0"/>
+<polygon points="1202.0,473.0 1092.0,473.0 1092.0,430.0 1202.0,430.0" fill="#8fa3b8" fill-opacity="1.0"/>
+<polygon points="1091.0,468.0 1073.0,451.5 1091.0,435.0" fill="#33475c" fill-opacity="1.0"/>
+<text x="1147.0" y="456.5" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Estafette</text>
+<polygon points="1078.0,315.0 1078.0,425.0 1036.0,425.0 1036.0,315.0" fill="#8a4510" fill-opacity="1.0"/>
+<polygon points="1075.0,318.0 1075.0,422.0 1039.0,422.0 1039.0,318.0" fill="#f08a2c" fill-opacity="1.0"/>
+<polygon points="1070.0,423.0 1057.0,441.0 1044.0,423.0" fill="#8a4510" fill-opacity="1.0"/>
+<text x="1057.0" y="375.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
+<polygon points="295.0,417.0 287.0,433.0 279.0,417.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="287.0" cy="407.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
+<text x="287.0" y="412.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>
+<polygon points="255.0,412.0 247.0,428.0 239.0,412.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="247.0" cy="402.0" r="13" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
+<text x="247.0" y="407.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">E</text>
+<text x="247.0" y="432.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">assis</text>
+<polygon points="533.0,375.0 525.0,391.0 517.0,375.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="525.0" cy="365.0" r="13" fill="#7d5cc0" stroke="#1b2430" stroke-width="2"/>
+<text x="525.0" y="370.0" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
+<polygon points="967.0,375.2 950.2,369.2 965.1,359.3" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="976.0" cy="366.0" r="13" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="976.0" y="371.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">H</text>
+<text x="976.0" y="396.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">penché, appuyé sur le muret …</text>
+<polygon points="1049.0,427.0 1057.0,411.0 1065.0,427.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="1057.0" cy="437.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
+<text x="1057.0" y="442.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
+<text x="1057.0" y="467.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">accroupi · à genoux juste devant la Coc…</text>
+<polygon points="-89.7,518.8 1774.3,-206.1 1869.1,922.7" fill="#e04f5f" fill-opacity="0.14" clip-path="url(#zone)"/>
+<line x1="-89.7" y1="518.8" x2="1013.0" y2="90.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="-89.7" y1="518.8" x2="1600.0" y2="867.2" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
+<polygon points="-106.6,509.2 -80.7,507.0 -78.8,528.9 -104.7,531.1" fill="#e04f5f" fill-opacity="1.0"/>
+<polygon points="-80.2,512.0 -69.8,505.1 -67.8,529.0 -79.2,523.9" fill="#1b2430" fill-opacity="1.0"/>
+<text x="-89.7" y="552.8" font-size="13" fill="#e04f5f" text-anchor="middle" font-weight="bold">P01</text>
+<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 14)</text>
+<text x="800.0" y="72.0" font-size="15" fill="#4a5566" text-anchor="middle">Instrumental</text>
+<text x="70.0" y="895.0" font-size="16" fill="#1b2430" text-anchor="start" font-weight="bold">Légende :</text>
+<circle cx="180.0" cy="889.0" r="10" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
+<text x="197.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">J  Jeannot</text>
+<circle cx="370.0" cy="889.0" r="10" fill="#7d5cc0" stroke="#1b2430" stroke-width="2"/>
+<text x="387.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">S  la sorcière</text>
+<circle cx="560.0" cy="889.0" r="10" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="577.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">H  Henri</text>
+<circle cx="750.0" cy="889.0" r="10" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
+<text x="767.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">D  Diego</text>
+<circle cx="940.0" cy="889.0" r="10" fill="#e98b5a" stroke="#1b2430" stroke-width="2"/>
+<text x="957.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">M  Marco</text>
+<circle cx="1130.0" cy="889.0" r="10" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
+<text x="1147.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">E  Enji</text>
+<circle cx="1320.0" cy="889.0" r="10" fill="#9fd1ee" stroke="#1b2430" stroke-width="2"/>
+<text x="1337.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">N  le narrateur</text>
+<text x="70.0" y="931.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra : à hauteur d'yeux, angle de vue 33°. Dans le champ : Enji (à gauche), Jeannot (à gauche), la 4L (à gauche), Maison de JEANNOT (à gauche), voisin (côté narrateur) </text>
+<text x="70.0" y="965.0" font-size="14" fill="#7a1d27" text-anchor="start" font-weight="bold">Règle : les lieux ne bougent jamais ; véhicules et personnages restent en place sauf action prévue dans le plan.</text>
+</svg>

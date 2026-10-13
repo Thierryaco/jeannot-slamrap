@@ -116,6 +116,8 @@ La v16 avec seulement tes corrections : la sorcière est environ 2 fois plus gra
 
 <img src="../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png" width="640" alt="P01 v17">
 
+- 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
+
 <details><summary>🗄️ 12 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png

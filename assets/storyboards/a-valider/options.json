@@ -280,7 +280,12 @@
      "source": "tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg",
      "note": "La v16 avec seulement tes corrections : la sorcière est environ 2 fois plus grande, penchée à une fenêtre ronde plus grande de la tourelle, et elle fume (une seule volute) ; Diego est à genoux devant sa caisse à outils, devant la Coccinelle au capot ouvert. Rien d'autre ne bouge. Carte P01 rév. 9 (Coccinelle, Diego et Estafette recalés sur l'image) et lieux rév. 7 (garage aligné). Contrôle automatique CONFORME (0 pixel modifié hors des 2 zones) ; la zone de Diego a été refaite une fois car elle était trop nette/granuleuse (×1,18) par rapport à la v16.",
      "etat": "a-valider",
-     "avis": [],
+     "avis": [
+      {
+       "date": "2026-10-13 12:45",
+       "texte": "refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête"
+      }
+     ],
      "carte": {
       "plan_rev": 11,
       "lieux_rev": 8

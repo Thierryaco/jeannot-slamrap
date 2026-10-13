@@ -36,6 +36,16 @@ textarea{width:100%;min-height:70px;background:#0d1420;color:#edf2f8;border:1px 
 .help{font-size:12px;color:#8fa0b5;line-height:1.45}
 .sel{outline:none} .handle{cursor:grab;fill:#ffb347;stroke:#111;stroke-width:2} .handle-g{cursor:grab}
 .item{cursor:move}
+/* vue caméra seule, en grand, sans rien modifier (carte.html?vue#P01, ou bouton « agrandir ») */
+#vuebar{display:none}
+body.seulevue header,body.seulevue #svg,body.seulevue #vuebox .vh,body.seulevue aside>.box:not(#champbox){display:none}
+body.seulevue #vuebar{display:flex;gap:12px;align-items:center;font-size:13px;color:#cbd5e1;width:100%;padding:2px 4px}
+body.seulevue #vuebar b{color:var(--or)} body.seulevue #vuebar a{color:var(--or)}
+body.seulevue #stage{justify-content:flex-start} body.seulevue #vuebox.cache #vue{display:block}
+body.seulevue #vue{height:auto;width:min(100%, calc((100vh - 46px) * 16 / 9));max-height:calc(100vh - 46px)}
+body.seulevue aside{width:300px}
+body.seulevue.mini aside,body.seulevue.mini #vuebar{display:none} body.seulevue.mini #stage{padding:0;background:#1b2636}
+body.seulevue.mini #vue{width:100%;max-height:100vh;border:0;border-radius:0}
 @media (max-width:900px){#wrap{flex-direction:column} aside{width:auto;border-left:0;border-top:1px solid var(--line)} #stage{min-height:55vh}}
 </style>
 </head>
@@ -50,14 +60,16 @@ textarea{width:100%;min-height:70px;background:#0d1420;color:#edf2f8;border:1px 
   <a href="a-valider.html">← Storyboard à valider</a>
 </header>
 <div id="wrap">
-  <div id="stage"><svg id="svg" viewBox="0 0 1600 1000"></svg>
+  <div id="stage"><div id="vuebar">👁️ <b id="vuetitre"></b><span>vue de la caméra calculée depuis la carte — lecture seule</span><span style="flex:1"></span>
+      <a id="vueedit" href="#">✏️ modifier dans la carte</a><button id="vuefermer">✕ revenir à la carte</button></div>
+    <svg id="svg" viewBox="0 0 1600 1000"></svg>
     <div id="vuebox"><div class="vh">👁️ <b>Vue de la caméra</b> (calculée depuis la carte : c'est ce que l'image doit montrer)
-      <button id="vuegrand">⤢ agrandir</button><button id="vuecache">masquer</button></div>
+      <button id="vuegrand" title="Voir la vue caméra en plein écran, sans la carte (Échap pour revenir)">⤢ agrandir en plein écran</button><button id="vuecache">masquer</button></div>
       <svg id="vue" viewBox="0 0 1920 1080"></svg></div></div>
   <aside>
     <div class="box"><div class="lyr" id="lyr"></div><p class="brief" id="brief"></p></div>
     <div class="box" id="selbox"><h3>Sélection</h3><div id="selpanel" class="help">Clique sur la caméra, un personnage ou un véhicule.<br>Position = le rond de couleur · pointe noire = sens du regard · ↻ orange = poignée pour tourner.</div></div>
-    <div class="box"><h3>🎥 Ce que voit la caméra</h3><div id="champ"></div></div>
+    <div class="box" id="champbox"><h3>🎥 Ce que voit la caméra</h3><div id="champ"></div></div>
     <div class="box"><h3>Présents dans le plan</h3><div class="els" id="els"></div></div>
     <div class="box"><h3>Caméra</h3>
       <button id="addcam">➕ Caméra de fin (mouvement)</button>
@@ -181,12 +193,21 @@ function drawItems(){
   }
   updateChamp(); updatePanel(false); drawVue();
 }
-document.getElementById('vuegrand').onclick=e=>{const b=document.getElementById('vuebox');b.classList.toggle('grand');e.target.textContent=b.classList.contains('grand')?'⤡ réduire':'⤢ agrandir';};
+const SEULE=new URLSearchParams(location.search).has('vue'), MINI=new URLSearchParams(location.search).get('vue')==='mini';
+if(SEULE){document.body.classList.add('seulevue'); if(MINI) document.body.classList.add('mini');}
+function pleinEcran(on){document.body.classList.toggle('seulevue',on); sel=null; if(data){drawItems(); updatePanel(true);}}
+document.getElementById('vuegrand').onclick=()=>pleinEcran(true);
+document.getElementById('vuefermer').onclick=()=>{ if(SEULE){location.href='carte.html#'+cur;} else pleinEcran(false); };
+document.getElementById('vueedit').onclick=e=>{e.preventDefault(); if(window.top!==window) window.top.location.href=new URL('carte.html#'+cur,location.href).href; else if(SEULE) location.href='carte.html#'+cur; else pleinEcran(false);};
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&document.body.classList.contains('seulevue')&&!SEULE) pleinEcran(false); });
 document.getElementById('vuecache').onclick=e=>{const b=document.getElementById('vuebox');b.classList.toggle('cache');e.target.textContent=b.classList.contains('cache')?'afficher':'masquer';};
 
 
 // ---------- Vue caméra (projection perspective de la carte) ----------
 const VM=0.037, VW=1920, VH=1080, VNEAR=0.6;
+// portée : ce qui est dans le cône coloré (jusqu'à son bord du fond) est net ; au-delà = flou, dans la brume
+const vLim=c=>c.portee*Math.cos(c.fov*Math.PI/360); // en px de carte, profondeur devant la caméra
+const vLimM=c=>vLim(c)*VM;
 const VHAUT={"à hauteur d'yeux":[1.6,0],"plongée (vue d'en haut)":[4.5,-14],"contre-plongée (vue d'en bas)":[0.6,12],"vue aérienne / drone":[18,-38],"au ras du sol":[0.3,2]};
 const VHVEH={'4l':1.55,estafette:1.95,coccinelle:1.7};
 const VPOSE={debout:1,marche:1,court:.95,assis:.72,accroupi:.6,'couché':.3,'appuyé':1,'penché':.85,tombe:.6,saute:1.1,renifle:.75,aboie:1,dort:.45};
@@ -246,7 +267,9 @@ function vClip(k,poly){ // polygone 3D (carte) -> polygone image coupé au plan 
 }
 function drawVue(){
   const v=document.getElementById('vue'); if(!v||!data||!L) return; v.innerHTML='';
-  const k=vCam(data.cameras[0]), FF='DejaVu Sans, Arial, sans-serif';
+  const k=vCam(data.cameras[0]), FF='DejaVu Sans, Arial, sans-serif', DL=vLimM(data.cameras[0]); // DL = portée (m)
+  const defs=el('defs',{},v), flt=el('filter',{id:'flou',x:'-20%',y:'-20%',width:'140%',height:'140%'},defs); el('feGaussianBlur',{stdDeviation:4},flt);
+  const loinD=z=>z>DL; // au-delà de la portée ?
   const hz=VH/2-k.F*Math.tan(k.p);
   el('rect',{x:0,y:0,width:VW,height:VH,fill:'#9cc0e0'},v);
   el('rect',{x:0,y:Math.max(0,Math.min(VH,hz)),width:VW,height:VH,fill:'#7d8a6a'},v);
@@ -260,12 +283,18 @@ function drawVue(){
     if(k.eye>z1) faces.push({poly:p.map(q=>[...q,z1]),fill:col,stroke,top:true});
   };
   // sol
-  const ground=(pts,fill)=>{const r=vClip(k,pts.map(p=>[...p,0]));if(r)el('polygon',{points:r.pts.map(p=>p.join(',')).join(' '),fill},v);};
+  const ground=(pts,fill,op=1)=>{const r=vClip(k,pts.map(p=>[...p,0]));if(r)el('polygon',{points:r.pts.map(p=>p.join(',')).join(' '),fill,'fill-opacity':op},v);};
   ground([[R.x0-400,R.nord_lot],[1538,R.nord_lot],[1538,R.sud_lot],[R.x0-400,R.sud_lot]],'#8d9a78');
   ground([[R.x0-400,R.nord_trottoir],[1538,R.nord_trottoir],[1538,R.sud_trottoir],[R.x0-400,R.sud_trottoir]],'#a3a39e');
   ground([[R.x0-400,R.chaussee_haut],[1560,R.chaussee_haut],[1560,R.chaussee_bas],[R.x0-400,R.chaussee_bas]],'#55595f');
   for(const d of [10,20,30,40,50]){const x=k.x+d/VM*k.fx,s=vSeg(k,[x,R.chaussee_haut,0],[x,R.chaussee_bas,0]);
     if(s){el('line',{x1:s[0][0],y1:s[0][1],x2:s[1][0],y2:s[1][1],stroke:'#fff','stroke-opacity':.25,'stroke-width':1.5},v);labels.push([vP(k,x,ym,0),d+' m','#e8e8e8',18]);}}
+  // portée : brume sur le sol au-delà + ligne rouge pointillée
+  {const Dp=DL/VM, W2=3000, fx=k.fx, fy=k.fy, rx=k.rx, ry=k.ry, at=(d,s)=>[k.x+fx*d+rx*s,k.y+fy*d+ry*s];
+   ground([at(Dp,-W2),at(Dp,W2),at(Dp+4000,W2),at(Dp+4000,-W2)],'#c3d2e2',.6);
+   const s2=vSeg(k,[...at(Dp,-W2),0],[...at(Dp,W2),0]);
+   if(s2){el('line',{x1:s2[0][0],y1:s2[0][1],x2:s2[1][0],y2:s2[1][1],stroke:'#e04f5f','stroke-width':3,'stroke-dasharray':'14 10'},v);
+     const pm=vP(k,...at(Dp,0),0); if(pm) labels.push([[pm[0],pm[1]+26],`portée ${DL.toFixed(0)} m — au-delà : flou`,'#ffb3b3',18]);}}
   // bâtiments
   for(const b of L.batiments){const hb=b.id==='garage-diego'?3.3:6.8;
     addBox(b.x+b.w/2,b.y+b.h/2,b.w,b.h,0,0,hb,b.couleur||'#ddd','#4a4030');
@@ -289,23 +318,24 @@ function drawVue(){
   const cat=Object.fromEntries(L.catalogue.map(c=>[c.id,c]));
   for(const [id,e] of Object.entries(data.elements)){const c=cat[id]; if(!e.visible||!c) continue;
     if(c.type==='vehicule'){const hv=VHVEH[id]||1.6; addBox(e.x,e.y,c.w,c.h,e.angle,0,hv,c.couleur,c.contour,c.contour);
-      labels.push([vP(k,e.x,e.y,hv+0.6),c.nom.replace(' (sur parpaings)',''),c.couleur,26]);}
+      const lo=loinD(vC(k,e.x,e.y,0)[2]); labels.push([vP(k,e.x,e.y,hv+0.6),c.nom.replace(' (sur parpaings)','')+(lo?' (flou)':''),c.couleur,26,lo]);}
     else{const z0=vStairs(e.x,e.y),hh=c.espece==='chien'?0.62*(VPOSEC[e.pose]||1):1.75*(VPOSE[e.pose]||1);
       const pb=vP(k,e.x,e.y,z0),pt=vP(k,e.x,e.y,z0+hh); if(!pb||!pt) continue;
       faces.push({perso:true,pb,pt,c,e,z:vC(k,e.x,e.y,0)[2]-0.01,hh,z0});
-      labels.push([[pb[0],pt[1]-12],c.nom,c.couleur,26]);}
+      const lo=loinD(vC(k,e.x,e.y,0)[2]); labels.push([[pb[0],pt[1]-12],c.nom+(lo?' (flou)':''),c.couleur,26,lo]);}
   }
   // tri du plus loin au plus près, puis dessin
   for(const f of faces){ if(f.poly){const r=vClip(k,f.poly); f.r=r; f.z=r?r.z+(f.zbias||0)+(f.top?0.01:0):-1;} }
   faces.filter(f=>f.z>0).sort((a,b)=>b.z-a.z).forEach(f=>{
-    if(f.line){el('line',{x1:f.line[0][0],y1:f.line[0][1],x2:f.line[1][0],y2:f.line[1][1],stroke:f.stroke,'stroke-width':f.sw,'stroke-linecap':'round'},v);return;}
+    const tgt=loinD(f.z)?el('g',{opacity:.45,filter:'url(#flou)'},v):v;
+    if(f.line){el('line',{x1:f.line[0][0],y1:f.line[0][1],x2:f.line[1][0],y2:f.line[1][1],stroke:f.stroke,'stroke-width':f.sw,'stroke-linecap':'round'},tgt);return;}
     if(f.perso){const {pb,pt,c,e}=f,hp=pb[1]-pt[1],wp=hp*(c.espece==='chien'&&e.pose!=='assis'?0.6:0.3);
-      el('rect',{x:pb[0]-wp/2,y:pt[1],width:wp,height:hp,rx:wp/2.5,fill:c.couleur,stroke:'#111','stroke-width':2.5},v);
+      el('rect',{x:pb[0]-wp/2,y:pt[1],width:wp,height:hp,rx:wp/2.5,fill:c.couleur,stroke:'#111','stroke-width':2.5},tgt);
       const a=e.angle*Math.PI/180,head=vP(k,e.x,e.y,f.z0+f.hh*0.82),tip=vP(k,e.x+18*Math.cos(a),e.y+18*Math.sin(a),f.z0+f.hh*0.82);
-      if(head&&tip) el('line',{x1:head[0],y1:head[1],x2:tip[0],y2:tip[1],stroke:'#111','stroke-width':4,'stroke-linecap':'round'},v); return;}
-    if(f.r) el('polygon',{points:f.r.pts.map(p=>p.join(',')).join(' '),fill:f.fill,stroke:f.stroke||'none','stroke-width':f.sw||2,'stroke-linejoin':'round'},v);
+      if(head&&tip) el('line',{x1:head[0],y1:head[1],x2:tip[0],y2:tip[1],stroke:'#111','stroke-width':4,'stroke-linecap':'round'},tgt); return;}
+    if(f.r) el('polygon',{points:f.r.pts.map(p=>p.join(',')).join(' '),fill:f.fill,stroke:f.stroke||'none','stroke-width':f.sw||2,'stroke-linejoin':'round'},tgt);
   });
-  for(const [p0,t,col,sz] of labels){ if(p0&&p0[0]>-80&&p0[0]<VW+80&&p0[1]<VH+40){const p=[Math.max(70,Math.min(VW-70,p0[0])),Math.max(sz+6,p0[1])];const e=el('text',{x:p[0],y:p[1],'font-size':sz,'font-family':FF,'font-weight':'bold','text-anchor':'middle',fill:col,stroke:'#000','stroke-width':4,'paint-order':'stroke'},v);e.textContent=t;} }
+  for(const [p0,t,col,sz,lo] of labels){ if(p0&&p0[0]>-80&&p0[0]<VW+80&&p0[1]<VH+40){const p=[Math.max(70,Math.min(VW-70,p0[0])),Math.max(sz+6,p0[1])];const e=el('text',{x:p[0],y:p[1],'font-size':sz,'font-family':FF,'font-weight':'bold','text-anchor':'middle',fill:col,stroke:'#000','stroke-width':4,'paint-order':'stroke',opacity:lo?.6:1},v);e.textContent=t;} }
   el('rect',{x:1,y:1,width:VW-2,height:VH-2,fill:'none',stroke:'#e04f5f','stroke-width':3},v);
 }
 
@@ -327,7 +357,8 @@ function champ(ci){
     for(const [x,y] of sm){
       const dx=x-c.x,dy=y-c.y,dist=Math.hypot(dx,dy); if(dist<1) continue;
       const diff=((Math.atan2(dy,dx)*180/Math.PI-c.angle+540)%360)-180;
-      if(Math.abs(diff)<=c.fov/2&&(!best||dist<best.dist)) best={n,dist,side:Math.abs(diff)<=c.fov/8?'au centre':(diff<0?'à gauche':'à droite')};
+      const fwd=dx*Math.cos(c.angle*Math.PI/180)+dy*Math.sin(c.angle*Math.PI/180);
+      if(Math.abs(diff)<=c.fov/2&&(!best||dist<best.dist)) best={n,dist,loin:fwd>vLim(c),side:Math.abs(diff)<=c.fov/8?'au centre':(diff<0?'à gauche':'à droite')};
     }
     if(best) out.push(best);
   }
@@ -336,12 +367,14 @@ function champ(ci){
 function updateChamp(){
   const parts=data.cameras.map((c,i)=>{
     const ch=champ(i); const title=data.cameras.length===2?(i?'<b>Fin du mouvement :</b>':'<b>Début :</b>'):'';
-    const near=ch.filter(x=>x.dist<300), mid=ch.filter(x=>x.dist>=300&&x.dist<800), far=ch.filter(x=>x.dist>=800);
+    const net=ch.filter(x=>!x.loin), loin=ch.filter(x=>x.loin);
+    const near=net.filter(x=>x.dist<300), mid=net.filter(x=>x.dist>=300&&x.dist<800), far=net.filter(x=>x.dist>=800);
     const occ=vOcc(i), cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k])), occN={};
     for(const [id,[f,par]] of Object.entries(occ)) occN[cat[id].nom]=[f,par];
     const fmt=a=>a.map(x=>{const o=occN[x.n]; return o?`<s style="color:#f08a86">${x.n}</s> <i style="color:#f08a86">(caché par ${o[1]})</i>`:`${x.n} <i style="color:#8fa0b5">(${x.side})</i>`;}).join(', ')||'—';
     const masq=Object.entries(occN).map(([n,[f,par]])=>`${n} : ${f>=.7?'<b>caché</b>':'en partie caché'} par ${par} (≈ ${Math.round(f*100)} %)`);
     return `${title}<div>🔹 <b>Premier plan :</b> ${fmt(near)}</div><div>🔸 <b>Plan moyen :</b> ${fmt(mid)}</div><div>▫️ <b>Fond :</b> ${fmt(far)}</div>`
+      +(loin.length?`<div style="color:#a9b8cc">🌫️ <b>Au-delà de la portée</b> (${vLimM(c).toFixed(0)} m — flou, dans la brume) : ${fmt(loin)}</div>`:'')
       +(masq.length?`<div style="color:#f08a86">🙈 <b>Dans le champ mais masqués</b> (comme dans la vue caméra) : ${masq.join(' ; ')}</div>`:'');
   });
   const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
@@ -358,7 +391,7 @@ function fillPos(p,o){ // valeurs en mètres : depuis le bout ouest de la rue (x
   if(ou){let t=vOu(o.x,o.y); if(sel&&sel.kind==='el'){const occ=vOcc(0)[sel.id]; if(occ) t+=` — 🙈 ${occ[0]>=.7?'caché':'en partie caché'} par ${occ[1]} dans la vue caméra`;} ou.textContent=t;}
 }
 document.addEventListener('keydown',e=>{
-  if(!sel||/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||'')) return;
+  if(!sel||document.body.classList.contains('seulevue')||/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||'')) return;
   const st=(e.shiftKey?0.5:0.1)/VM, d={ArrowLeft:[-st,0],ArrowRight:[st,0],ArrowUp:[0,-st],ArrowDown:[0,st]}[e.key];
   if(!d) return; e.preventDefault(); const o=selObj(); if(!o) return; o.x+=d[0]; o.y+=d[1]; setDirty(true); drawItems();
 });
@@ -375,8 +408,8 @@ function updatePanel(rebuild=true){
     <div class="row">Direction <input type="number" name="angle" value="${Math.round(o.angle)}" style="width:70px">°</div>
     <div class="row">Objectif <select name="focale">${FOCALES.map(([n,v])=>`<option value="${v}" ${Math.abs(o.fov-v)<1?'selected':''}>${n} (${v}°)</option>`).join('')}<option value="" ${FOCALES.some(([n,v])=>Math.abs(o.fov-v)<1)?'':'selected'}>personnalisé</option></select></div>
     <div class="row">Angle de vue <input type="range" name="fov" min="8" max="100" value="${o.fov}"><span id="fovv">${o.fov}°</span></div>
-    <div class="row">Longueur du cône <input type="range" name="portee" min="100" max="1500" step="10" value="${o.portee}"></div>
-    <div class="help">(la longueur ne sert qu'au dessin : la caméra voit jusqu'à l'horizon)</div>
+    <div class="row">Portée (net) <input type="range" name="portee" min="100" max="2200" step="10" value="${o.portee}"><span id="porv">${vLimM(o).toFixed(0)} m</span></div>
+    <div class="help">= longueur du cône. Tout ce qui est dans le cône coloré est <b>net</b> ; au-delà de son bord du fond, la vue caméra le montre <b>flou, dans la brume</b> (ligne rouge pointillée « portée » au sol), et la liste le range « au-delà de la portée ».</div>
     <div class="row">Hauteur <select name="hauteur">${HAUTEURS.map(h=>`<option ${o.hauteur===h?'selected':''}>${h}</option>`).join('')}</select></div>
     <div class="row">Position <input type="number" name="xm" step="0.1" style="width:78px"> m → est <input type="number" name="ym" step="0.1" style="width:72px"> m ↓ sud</div>
     <div class="help">📍 <span id="ou"></span><br>Flèches du clavier : déplacer de 10 cm (Maj + flèche : 50 cm).</div>`;
@@ -404,6 +437,7 @@ function updatePanel(rebuild=true){
     if(inp.name==='fov'){o.fov=+v;$('fovv').textContent=v+'°';}
     if(inp.name==='focale'&&v){o.fov=+v;updatePanel(true);}
     if(inp.name==='portee') o.portee=+v;
+    if(inp.name==='fov'||inp.name==='portee'||inp.name==='focale'){const pv=$('porv'); if(pv) pv.textContent=vLimM(o).toFixed(0)+' m';}
     if(inp.name==='hauteur') o.hauteur=v;
     if(inp.name==='pose'){ if(v) o.pose=v; else delete o.pose; }
     if(inp.name==='action'){ if(v.trim()) o.action=v; else delete o.action; }
@@ -437,7 +471,8 @@ function load(planId){
   $('lyr').textContent=`${planId} · ${m.temps||''} · ${m.paroles||''}`; $('brief').textContent=m.brief||'';
   $('note').value=data.note||'';
   $('status').textContent=PLANS[planId]?`rév. ${PLANS[planId].rev||1} · ${PLANS[planId].maj||''}`:(data.copie_de?`(pas encore enregistré — repris de ${data.copie_de})`:'(pas encore enregistré — placement par défaut)');
-  $('plan').value=planId; history.replaceState(null,'','#'+planId);
+  $('plan').value=planId; history.replaceState(null,'',location.search+'#'+planId);
+  $('vuetitre').textContent=`${planId} · carte rév. ${PLANS[planId]?.rev||'—'}${PLANS[planId]?.maj?' ('+PLANS[planId].maj+')':''}`;
   renderEls(); drawItems(); updatePanel(true);
 }
 
@@ -502,6 +537,7 @@ function buildSelect(){
   L=api.lieux; PLANS=api.plans||{}; META=api.meta;
   drawBase(); buildSelect();
   const h=location.hash.slice(1).toUpperCase(); load(META.some(m=>m.plan===h)?h:META[0].plan);
+  window.addEventListener('hashchange',()=>{const h=location.hash.slice(1).toUpperCase(); if(h!==cur&&META.some(m=>m.plan===h)) load(h);});
 })();
 </script>
 </body>

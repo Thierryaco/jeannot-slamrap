@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | ✅ Validé | 2 | v2 |
+| [CARTE](#carte) | référence | ✅ Validé | 3 | v2 |
 | [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 13 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -62,6 +62,11 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 
 - 💬 *2026-10-11 11:25* — C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé
 - 💬 *2026-10-13 09:58* — il faut que la tourelle soit à la droite de la maison  c'est le coté opposé
+
+**CARTE · v3** — ⏳ à valider — tools/draw_street_map.py base v3 (lieux rév. 5)  
+D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit de la maison de Jeannot (côté Henri). Tout le reste de la v2 validée est inchangé (longueur de rue, maisons, garage, Estafette, passage à niveau), en plus de l'escalier d'Henri avec son palier (lieux rév. 4). La sorcière de P01 a suivi la tourelle.
+
+<img src="../assets/storyboards/a-valider/carte/carte-rue-v3.png" width="640" alt="CARTE v3">
 
 ## P01
 

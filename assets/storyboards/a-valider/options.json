@@ -38,6 +38,14 @@
        "texte": "il faut que la tourelle soit à la droite de la maison  c'est le coté opposé"
       }
      ]
+    },
+    {
+     "id": "v3",
+     "fichier": "carte-rue-v3.png",
+     "source": "tools/draw_street_map.py base v3 (lieux rév. 5)",
+     "note": "D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit de la maison de Jeannot (côté Henri). Tout le reste de la v2 validée est inchangé (longueur de rue, maisons, garage, Estafette, passage à niveau), en plus de l'escalier d'Henri avec son palier (lieux rév. 4). La sorcière de P01 a suivi la tourelle.",
+     "etat": "a-valider",
+     "avis": []
     }
    ]
   },

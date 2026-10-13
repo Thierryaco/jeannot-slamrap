@@ -199,6 +199,13 @@ def calque(plan_id, cam_i=0):
         x = cam.x + dist / M * cam.fx
         line((x, R["chaussee_haut"], 0), (x, R["chaussee_bas"], 0), (255, 255, 255, 90), 1)
         label(cam.proj(x, ymid, 0), f"{dist} m", (255, 255, 255, 160))
+    # portée (= longueur du cône) : au-delà, flou / brume
+    lim = dsm.portee_px(placement["cameras"][cam_i])
+    pa_c = (cam.x + lim * cam.fx, cam.y + lim * cam.fy)
+    line((pa_c[0] - 3000 * cam.fy, pa_c[1] + 3000 * cam.fx, 0), (pa_c[0] + 3000 * cam.fy, pa_c[1] - 3000 * cam.fx, 0), (224, 79, 95, 230), 3)
+    pm = cam.proj(pa_c[0], pa_c[1], 0)
+    if pm:
+        label((pm[0], pm[1] + 22), f"portée {lim * M:.0f} m — au-delà : flou", (255, 180, 180, 230))
     # bâtiments
     for b in L["batiments"]:
         hb = H_BAT.get(b["id"], H_MAISON)
@@ -243,6 +250,9 @@ def calque(plan_id, cam_i=0):
     for eid, e in els:
         k = cat[eid]
         col = dsm.hexrgb(k.get("couleur", "#ffffff"))[:3]
+        loin = cam.cam(e["x"], e["y"], 0)[2] > lim * M
+        if loin:  # au-delà de la portée : couleurs atténuées + « (flou) »
+            col = tuple(int(v * 0.55 + 200 * 0.45) for v in col)
         if k["type"] == "vehicule":
             hv = H_VEH.get(eid, 1.6)
             edges, front = box_edges(e["x"], e["y"], k["w"], k["h"], e.get("angle", 0), 0, hv)
@@ -251,7 +261,7 @@ def calque(plan_id, cam_i=0):
                 d.polygon(fp, fill=col + (110,))
             for a, b in edges:
                 line(a, b, col + (255,), 3)
-            label(cam.proj(e["x"], e["y"], hv + 0.5), k["nom"].replace(" (sur parpaings)", ""), col + (255,), f_b)
+            label(cam.proj(e["x"], e["y"], hv + 0.5), k["nom"].replace(" (sur parpaings)", "") + (" (flou)" if loin else ""), col + (255,), f_b)
         else:
             z0 = stairs_elev(L, e["x"], e["y"])
             hh = perso_h(k, e)
@@ -266,7 +276,7 @@ def calque(plan_id, cam_i=0):
             tip = cam.proj(e["x"] + 22 * math.cos(a), e["y"] + 22 * math.sin(a), z0)
             if tip:
                 d.line([pb, tip], fill=col + (255,), width=3)
-            label((pb[0], pt[1] - 16), k["nom"], col + (255,), f_b)
+            label((pb[0], pt[1] - 16), k["nom"] + (" (flou)" if loin else ""), col + (255,), f_b)
     return img
 
 
@@ -274,8 +284,11 @@ def texte(plan_id, cam_i=0):
     L = dsm.load_lieux()
     placement = dsm.load_plans()[plan_id]
     lines = [f"Cadrage calculé depuis la carte {plan_id} (image 16:9, 0 % = bord gauche/haut) :"]
+    lim_m = dsm.portee_px(placement["cameras"][cam_i]) * M
     for eid, nom, typ, (x0, y0, x1, y1), dist in elements_attendus(L, placement, cam_i):
         cx = max(0, min(100, (x0 + x1) / 2 / W * 100))
+        if dist > lim_m:
+            nom += " (flou, au-delà de la portée)"
         lines.append(f"  - {nom} : centre à {cx:.0f} % de la largeur, de {max(0, y0) / H * 100:.0f} % à {min(H, y1) / H * 100:.0f} % de la hauteur"
                      f" (hauteur ≈ {(min(H, y1) - max(0, y0)) / H * 100:.0f} % de l'image), à {dist:.0f} m.")
     return "\n".join(lines)

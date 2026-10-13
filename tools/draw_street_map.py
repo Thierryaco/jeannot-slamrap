@@ -202,7 +202,7 @@ def draw_cameras(c, L, placement, label="P"):
 
 
 def dans_le_champ(L, placement, cam_index=0):
-    """Liste ce que voit la caméra : [(distance, côté, nom)]."""
+    """Liste ce que voit la caméra : [(distance, côté, nom, au_dela_de_la_portee)]."""
     cams = placement.get("cameras", [])
     if len(cams) <= cam_index:
         return []
@@ -224,15 +224,21 @@ def dans_le_champ(L, placement, cam_index=0):
         for px, py in samples:
             dx, dy = px - cam["x"], py - cam["y"]
             dist = math.hypot(dx, dy)
-            if dist < 1:  # la portée ne sert qu'au dessin du cône : la caméra voit jusqu'à l'horizon
+            if dist < 1:
                 continue
             diff = (math.degrees(math.atan2(dy, dx)) - cam["angle"] + 540) % 360 - 180
             if abs(diff) <= cam["fov"] / 2 and (best is None or dist < best[0]):
                 side = "au centre" if abs(diff) <= cam["fov"] / 8 else ("à gauche" if diff < 0 else "à droite")
-                best = (dist, side, nom)
+                fwd = dx * math.cos(math.radians(cam["angle"])) + dy * math.sin(math.radians(cam["angle"]))
+                best = (dist, side, nom, fwd > portee_px(cam))
         if best:
             out.append(best)
     return sorted(out)
+
+
+def portee_px(cam):
+    """Portée = longueur du cône : net jusqu'au bord du fond du cône (profondeur devant la caméra, en px de carte)."""
+    return cam.get("portee", 1300) * math.cos(math.radians(cam["fov"] / 2))
 
 
 def sur_escalier(L, x, y):
@@ -313,23 +319,28 @@ def decrire(L, placement):
         import calque  # noqa: E402  (import tardif : calque importe ce module)
         occ = calque.occultations(L, placement, i)
         for titre, lo, hi in (("Premier plan", 0, 300), ("Plan moyen", 300, 800), ("Fond", 800, 99999)):
-            items = [f"{n} ({sd})" for dist, sd, n in champ if lo <= dist < hi]
+            items = [f"{n} ({sd})" for dist, sd, n, loin in champ if lo <= dist < hi and not loin]
             lines.append(f"  {titre} : {', '.join(items) if items else '—'}")
+        loins = [f"{n} ({sd})" for dist, sd, n, loin in champ if loin]
+        if loins:
+            lines.append(f"  Au-delà de la portée ({portee_px(cam) * 0.037:.0f} m) — flou, dans la brume : {', '.join(loins)}")
         for eid, e in placement.get("elements", {}).items():
             if not e.get("visible", True) or eid not in cat:
                 continue
-            if any(n == cat[eid]["nom"] for _, _, n in champ):
+            if any(n == cat[eid]["nom"] for _, _, n, _ in champ):
                 k = cat[eid]
+                loin = any(n == k["nom"] and lo for _, _, n, lo in champ)
                 lines.append(f"  - {k['nom']} : {_ou(L, e['x'], e['y'])} ; {_vu(cam, e['x'], e['y'], e.get('angle', 0), k['type'] == 'vehicule')}"
                              + (f" ; pose : {e['pose']}" if e.get("pose") else "")
                              + (f" ; action : {e['action']}" if e.get("action") else "")
+                             + (" ; flou (au-delà de la portée)" if loin else "")
                              + (f" ; ⚠ {'CACHÉ' if occ[eid][0] >= 0.7 else 'en partie caché'} par {occ[eid][1]} (≈ {occ[eid][0] * 100:.0f} %)" if eid in occ else "") + ".")
     hors = [cat[eid]["nom"] for eid, e in placement.get("elements", {}).items()
-            if e.get("visible", True) and eid in cat and not any(n == cat[eid]["nom"] for c in range(len(cams)) for _, _, n in dans_le_champ(L, placement, c))]
+            if e.get("visible", True) and eid in cat and not any(n == cat[eid]["nom"] for c in range(len(cams)) for _, _, n, _ in dans_le_champ(L, placement, c))]
     if hors:
         lines.append("Présents dans la scène mais hors champ : " + ", ".join(hors) + ".")
     for d in L["details"]:
-        if d.get("apres") and any(n == d["nom"] for c in range(len(cams)) for _, _, n in dans_le_champ(L, placement, c)):
+        if d.get("apres") and any(n == d["nom"] for c in range(len(cams)) for _, _, n, _ in dans_le_champ(L, placement, c)):
             etat = f" — {d['etat']}" if d.get("etat") else ""
             lines.append(f"Au bout de la rue : {d['nom']}{etat} ; {d['apres']}.")
     if placement.get("note"):
@@ -459,7 +470,7 @@ def render_plan(plan_id, L=None, plans=None, meta=None):
     out = CARTE / "plans"
     out.mkdir(parents=True, exist_ok=True)
     champ = dans_le_champ(L, placement)
-    vu = ", ".join(f"{n} ({s})" for _, s, n in champ[:8])
+    vu = ", ".join(f"{n} ({s}{', flou' if lo else ''})" for _, s, n, lo in champ[:8])
     titre = f"Plan {plan_id}" + (f" — {meta['temps']}" if meta else "") + f"  (rév. {placement.get('rev', 1)})"
     sous = meta["paroles"] if meta else ""
     c = build(L, placement, titre, sous, legend_extra=("Dans le champ : " + vu) if vu else "", label=plan_id)

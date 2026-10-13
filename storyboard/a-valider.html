@@ -40,6 +40,12 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 .row{display:flex;gap:6px;align-items:flex-end} .row textarea{flex:1}
 #zoom{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:10;cursor:zoom-out}
 #zoom img{max-width:98vw;max-height:96vh}
+#zoomvue{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;z-index:11;padding:8px;gap:6px}
+#zoomvue .zh{display:flex;gap:10px;align-items:center;color:#cbd5e1;font-size:14px} #zoomvue .zh b{color:var(--or)}
+#zoomvue iframe{flex:1;width:100%;border:1px solid var(--line);border-radius:8px;background:#0b111c}
+.vuemini{position:relative;width:360px;max-width:45%;aspect-ratio:16/9;border-radius:5px;overflow:hidden;cursor:zoom-in;background:#1b2636;flex:none}
+.vuemini iframe{width:100%;height:100%;border:0;pointer-events:none}
+.vuemini span{position:absolute;left:6px;bottom:5px;font-size:12px;background:#000a;color:#f2bf44;padding:2px 7px;border-radius:5px}
 .bdg{font-size:12px;padding:2px 7px;border-radius:5px;align-self:flex-start}
 .bdg.vert{background:#123824;color:#7ee0a5} .bdg.orange{background:#3d2a0c;color:#f5c56a} .bdg.gris{background:#1d2633;color:#9fb0c4}
 .carteplan{display:flex;gap:12px;align-items:flex-start;background:#111a29;border:1px solid var(--line);border-radius:8px;padding:8px;margin:0 0 12px;max-width:1150px;font-size:13px;color:#cbd5e1}
@@ -55,6 +61,7 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 </header>
 <main id="main">Chargement…</main>
 <div id="zoom"><img alt=""></div>
+<div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)<span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
 <div id="toast"></div>
 <script>
 const MANIFEST = '../assets/storyboards/a-valider/options.json';
@@ -74,7 +81,7 @@ function carteBox(p){
   const cp = CPLANS[p.plan];
   if (!cp) return `<div class="carteplan vide">🗺️ Pas encore de carte pour ce plan — <a href="carte.html#${p.plan}">la placer sur la carte interactive</a></div>`;
   const src = `${CARTE_DIR}/plans/${p.plan.toLowerCase()}.png?r=${cp.rev}-${LREV}`;
-  return `<div class="carteplan"><img loading="lazy" src="${src}" alt="carte ${p.plan}"><div>🗺️ <b>Carte du plan</b> · rév. ${cp.rev} · ${esc(cp.maj||'')}<br><a href="carte.html#${p.plan}">✏️ modifier la caméra / les personnages</a>${cp.note?`<br><i>${esc(cp.note)}</i>`:''}</div></div>`;
+  return `<div class="carteplan"><img loading="lazy" src="${src}" alt="carte ${p.plan}"><div class="vuemini" data-vue="${p.plan}" title="Agrandir la vue caméra (sans modifier la carte)"><iframe loading="lazy" tabindex="-1" src="carte.html?vue=mini#${p.plan}"></iframe><span>⤢ vue caméra — agrandir</span></div><div>🗺️ <b>Carte du plan</b> · rév. ${cp.rev} · ${esc(cp.maj||'')}<br><a href="carte.html#${p.plan}">✏️ modifier la caméra / les personnages</a>${cp.note?`<br><i>${esc(cp.note)}</i>`:''}</div></div>`;
 }
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const toast = m => { const t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; clearTimeout(t._h); t._h=setTimeout(()=>t.style.display='none',2600); };
@@ -124,10 +131,17 @@ async function post(body){
   man = j.manifest; render(); toast('Enregistré ✔ (sauvegardé dans le dépôt)');
 }
 
+function ouvreVue(plan){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; document.getElementById('zvt').textContent=plan;
+  z.querySelector('iframe').src='carte.html?vue&t='+Date.now()+'#'+plan; z.style.display='flex'; }
+function fermeVue(){ const z=document.getElementById('zoomvue'); z.style.display='none'; z.querySelector('iframe').src='about:blank'; }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ fermeVue(); document.getElementById('zoom').style.display='none'; } });
 document.addEventListener('click', async e=>{
   const el = e.target;
   if (el.tagName==='IMG' && el.closest('figure, .carteplan')) { const z=document.getElementById('zoom'); z.querySelector('img').src=el.src; z.style.display='flex'; return; }
   if (el.closest('#zoom')) { document.getElementById('zoom').style.display='none'; return; }
+  const vm = el.closest('.vuemini'); if (vm) { ouvreVue(vm.dataset.vue); return; }
+  if (el.id==='zvx') { fermeVue(); return; }
+  if (el.id==='zve') { e.preventDefault(); location.href='carte.html#'+document.getElementById('zoomvue').dataset.plan; return; }
   if (el.tagName!=='BUTTON') return;
   if (el.dataset.cq) { const w=document.getElementById('w-'+el.dataset.cq); w.classList.toggle('cqon'); el.classList.toggle('on'); return; }
   if (el.classList.contains('toggle-ec')) { const p=el.dataset.plan; SHOW_EC.has(p)?SHOW_EC.delete(p):SHOW_EC.add(p); render(); return; }

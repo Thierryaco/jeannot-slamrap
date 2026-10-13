@@ -194,7 +194,7 @@
    "id": "tourelle",
    "type": "tourelle",
    "nom": "tourelle de la sorcière",
-   "x": 128,
+   "x": 280,
    "y": 332,
    "r": 30
   },
@@ -352,7 +352,7 @@
     "visible": true
    },
    "sorciere": {
-    "x": 128,
+    "x": 280,
     "y": 332,
     "angle": 90,
     "visible": true
@@ -383,7 +383,7 @@
    }
   }
  },
- "rev": 4,
+ "rev": 5,
  "poses": {
   "perso": [
    "debout",

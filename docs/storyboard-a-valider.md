@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 5 | v3 |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 14 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 15 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -105,6 +105,11 @@ La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle
 <img src="../assets/storyboards/a-valider/p01/p01-v16-retouche-v13.png" width="640" alt="P01 v16">
 
 - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
+
+**P01 · v17** — ⏳ à valider — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg · 🟢 conforme à la carte actuelle (rév. 9)  
+La v16 avec seulement tes corrections : la sorcière est environ 2 fois plus grande, penchée à une fenêtre ronde plus grande de la tourelle, et elle fume (une seule volute) ; Diego est à genoux devant sa caisse à outils, devant la Coccinelle au capot ouvert. Rien d'autre ne bouge. Carte P01 rév. 9 (Coccinelle, Diego et Estafette recalés sur l'image) et lieux rév. 7 (garage aligné). Contrôle automatique CONFORME (0 pixel modifié hors des 2 zones) ; la zone de Diego a été refaite une fois car elle était trop nette/granuleuse (×1,18) par rapport à la v16.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png" width="640" alt="P01 v17">
 
 <details><summary>🗄️ 12 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12</summary>
 

@@ -166,7 +166,10 @@ document.addEventListener('click', async e=>{
     } else if (el.classList.contains('send')) {
       const t=document.getElementById(option?`t-${plan}-${option}`:`t-${plan}`);
       if(!t.value.trim()) return toast('Écris quelque chose avant d’envoyer');
-      await post({plan, option, texte: t.value});
+      const txt=t.value; t.value=''; el.disabled=true; el.textContent='envoi…';   // la zone se vide : sinon le texte réapparaît et semble non envoyé
+      try{ await post({plan, option, texte: txt}); toast('Avis envoyé et enregistré ✔'); }
+      catch(err){ const t2=document.getElementById(t.id); if(t2) t2.value=txt; throw err; }
+      finally{ el.disabled=false; el.textContent='Envoyer'; }
     }
   }catch(err){ toast('Erreur : '+err.message); }
 });

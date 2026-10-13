@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 4 | v3 |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 15 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 14 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -100,11 +100,6 @@ Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons vienn
 - 💬 *2026-10-11 12:50* — l'estafette ne ressemble plus trop  celle du début et il y a un souci de corrélation des postions sur la carte et celle généré la coccinelle à le bout  du nez à la limite de la sortie du garage sur le plan et là elle sort sur le trottoire
 - 💬 *2026-10-13 09:48* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2
 - 💬 *2026-10-13 09:51* — il reste à corriger l'estafette qui ne ressemble plus à celle du début qui était bien  prend exemple sur celle qu'il y a en P02 V2 ou même mieux P03 il faudrait aussi que le capot de la coccinelle soit ouvert avec des outils au sol
-
-**P01 · v15** — ⏳ à valider — nouveau fil, même montage + fond reprojeté vers la caméra B (tools/warp_camera.py) · 🟠 faite d'après la carte rév. 7 + caméra B — la carte a changé depuis  
-Toutes les modifs de la v14 + la caméra B : 1,5 m plus à droite (vers le milieu de la chaussée), tournée de 6° vers les maisons, portée 48 m. La Coccinelle (capot ouvert, outils) et Diego ne sont plus cachés par la 4L ; tourelle et sorcière toujours dans le champ. Le fond a été reprojeté en 3D pour cette caméra (pas un simple décalage). Cette caméra n'est PAS enregistrée dans la carte (ta rév. 7 reste intacte) : si tu choisis la v15, je l'enregistre dans la carte.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v15-camera-b.png" width="640" alt="P01 v15">
 
 **P01 · v16** — 🔁 à retoucher — tools/p01_v16.py (retouches locales sur v13) · contrôle : tools/controle_retouche.py → p01-v16-controle.jpg · 🟢 conforme à la carte actuelle (rév. 8)  
 La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle d'ardoise de la maison de Jeannot est retiré pour dégager la vue ; la tourelle est surélevée d'environ 0,55 m et son corps descend jusqu'au mur du jardin ; la sorcière est penchée à la fenêtre de la tourelle, au-dessus de la 4L ; le capot avant de la Coccinelle est ouvert, avec des outils et une caisse à outils au sol. Rien d'autre ne bouge (rue, Jeannot, Enji, 4L, maisons, Diego, Henri, Estafette). Contrôle automatique CONFORME : 0 pixel modifié hors des 2 zones, couleurs déjà présentes dans l'image, pas de grain ajouté, raccords invisibles.

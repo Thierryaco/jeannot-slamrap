@@ -301,7 +301,12 @@
       "plan_rev": 11,
       "lieux_rev": 8
      },
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-13 13:12",
+       "texte": "un problème avec la sorcière  elle est flou et pas défini et la couleur de la façade de la tourelle fait plus proppre que le reste de la maison"
+      }
+     ]
     }
    ]
   },

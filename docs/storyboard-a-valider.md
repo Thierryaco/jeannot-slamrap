@@ -109,6 +109,8 @@ La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault
 
 <img src="../assets/storyboards/a-valider/p01/p01-v18-retouche-v17.png" width="640" alt="P01 v18">
 
+- 💬 *2026-10-13 13:12* — un problème avec la sorcière  elle est flou et pas défini et la couleur de la façade de la tourelle fait plus proppre que le reste de la maison
+
 <details><summary>🗄️ 12 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png

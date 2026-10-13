@@ -183,6 +183,18 @@ function zClose(){ zEls().z.style.display='none'; }
     if(e.key==='+'||e.key==='=') zSet(ZV.s*1.5); else if(e.key==='-') zSet(ZV.s/1.5); else if(e.key==='0') zFit(); });
   window.addEventListener('resize',()=>{ if(z.style.display==='flex'){ zClamp(); zApply(); } });
 })();
+// retour depuis la carte interactive : #derniere-P01 -> dernière version (non écartée) du plan, centrée et surlignée
+function allerA(h){ if(!h) return; let el=null;
+  const m=h.match(/^#derniere-(\w+)$/i);
+  if(m){ const p=(man&&man.plans||[]).find(x=>x.plan.toUpperCase()===m[1].toUpperCase());
+    const os=p?p.options.filter(o=>o.etat!=='ecartee'):[]; const o=os[os.length-1];
+    if(o) el=document.getElementById(`w-${p.plan}-${o.id}`); if(el) el=el.closest('figure')||el;
+    if(!el) el=document.getElementById(p?p.plan:''); }
+  else { try{ el=document.querySelector(h); }catch{} }
+  if(!el) return;
+  const go=()=>el.scrollIntoView({block:'center'}); go(); setTimeout(go,400); setTimeout(go,1200);
+  el.style.outline='3px solid #f2bf44'; el.style.outlineOffset='3px'; setTimeout(()=>{el.style.outline='';},4000);
+}
 document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ fermeVue(); zClose(); } });
 document.addEventListener('click', async e=>{
   const el = e.target;
@@ -225,7 +237,8 @@ document.addEventListener('click', async e=>{
   } catch {}
   document.getElementById('mode').textContent = canWrite ? '· avis activés' : '· lecture seule (lancer tools/serve_storyboard.py pour donner des avis)';
   render();
-  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+  allerA(location.hash);
+  window.addEventListener('hashchange',()=>allerA(location.hash));
 })();
 </script>
 </body>

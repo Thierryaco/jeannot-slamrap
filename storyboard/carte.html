@@ -62,7 +62,7 @@ body.seulevue.mini #vue{width:100%;max-height:100vh;border:0;border-radius:0}
   <button class="main" id="save">💾 Enregistrer le plan</button>
   <span id="status"></span>
   <span style="flex:1"></span>
-  <a href="a-valider.html">← Storyboard à valider</a>
+  <a id="retour" href="a-valider.html" title="revenir sur la dernière version du plan en cours">← Storyboard à valider</a>
 </header>
 <div id="wrap">
   <div id="stage"><div id="vuebar">👁️ <b id="vuetitre"></b><span>vue de la caméra calculée depuis la carte — lecture seule</span><span style="flex:1"></span>
@@ -482,6 +482,7 @@ function fresh(planId){
 }
 
 function load(planId){
+  { const r=document.getElementById('retour'); if(r) r.href='a-valider.html#derniere-'+planId; }
   if(dirty&&!confirm('Des modifications ne sont pas enregistrées. Changer de plan quand même ?')){ $('plan').value=cur; return; }
   cur=planId; data=fresh(planId); sel=null; setDirty(false); histReset();
   for(const k of L.catalogue) if(!data.elements[k.id]) data.elements[k.id]={...clone(L.defaut.elements[k.id]),visible:false};

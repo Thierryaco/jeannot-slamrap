@@ -47,14 +47,6 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
 
-**CARTE · v1** — 🔁 à retoucher — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg  
-D'après tes réponses : Henri juste à côté du même côté, tourelle sur la maison de Jeannot, Diego au bout du même côté, Estafette devant chez Diego. Caméra P01 au bout de Jeannot, regard vers Diego → 4L vue de derrière.
-
-<img src="../assets/storyboards/a-valider/carte/carte-rue-v1.png" width="640" alt="CARTE v1">
-
-- 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
-et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans.
-
 **CARTE · v2** — ⏳ à valider — nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)  
 Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.
 
@@ -84,6 +76,14 @@ D'après ton avis sur la v4 : le fond du garage est aligné sur le fond des mais
 D'après tes avis : la tour ronde est en retrait, dans l'alignement de la façade de la maison de Jeannot ; elle ne dépasse plus sur le trottoir. La tourelle de la sorcière (toit d'ardoise) est placée derrière le mur du jardin, à l'endroit où elle apparaît dans l'image. Les véhicules ont leurs dimensions réelles : Coccinelle 4,08 × 1,54 m, 4L 3,66 × 1,48 m, Estafette 4,29 × 1,80 m.
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v6.png" width="640" alt="CARTE v6">
+
+<details><summary>🗄️ 1 option(s) écartée(s) : v1</summary>
+
+- **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
+  - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
+et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans.
+
+</details>
 
 ## P01
 

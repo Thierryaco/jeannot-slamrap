@@ -10,8 +10,8 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | 🛠️ En cours | 6 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 16 | — |
+| [CARTE](#carte) | référence | 🛠️ En cours | 7 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 17 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -57,6 +57,11 @@ D'après tes avis : la tour ronde est en retrait, dans l'alignement de la façad
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v6.png" width="640" alt="CARTE v6">
 
+**CARTE · v7** — ⏳ à valider — tools/draw_street_map.py base v7 (lieux rév. 9)  
+Comme la v6, avec la tourelle de la sorcière agrandie (rayon 48 → 56, comme sur l'image P01 v19) et reculée vers la maison : elle s'arrête juste avant le trottoir, sans déborder dessus.
+
+<img src="../assets/storyboards/a-valider/carte/carte-rue-v7.png" width="640" alt="CARTE v7">
+
 <details><summary>🗄️ 4 option(s) écartée(s) : v1, v2, v3, v4</summary>
 
 - **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
@@ -97,12 +102,17 @@ La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle
 
 - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
 
-**P01 · v18** — 🔁 à retoucher — tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg · 🟢 conforme à la carte actuelle (rév. 11)  
+**P01 · v18** — 🔁 à retoucher — tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg · 🟠 faite d'après la carte rév. 11 — la carte a changé depuis  
 La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault Estafette de face (calandre basse à lamelles, phares ronds, clignotants orange, pare-chocs chromé, d'après P02 v2 / P03) avec le losange Renault devant, même place, même largeur, même bleu-gris ; la tourelle est un peu plus large, la fenêtre plus grande et bien dans le mur, la sorcière plus grande, penchée dehors (tête et cheveux hors de la fenêtre), elle fume toujours. Toit vérifié : les morceaux de toit rouges remontés avec le cône en v16 (au-dessus du faîtage à gauche, au bout de la corniche à droite) sont enlevés, l'antenne est revenue comme en v13, et le double débord de toit / la marche / la plaque pâle à gauche de la tourelle sont remplacés par un seul débord. Rien d'autre ne bouge. Contrôle automatique CONFORME (0 pixel modifié hors des 3 zones : toit, tourelle, Estafette).
 
 <img src="../assets/storyboards/a-valider/p01/p01-v18-retouche-v17.png" width="640" alt="P01 v18">
 
 - 💬 *2026-10-13 13:12* — un problème avec la sorcière  elle est flou et pas défini et la couleur de la façade de la tourelle fait plus proppre que le reste de la maison
+
+**P01 · v19** — ⏳ à valider — tools/p01_v19.py (retouches locales sur v18) · contrôle : tools/controle_retouche.py → p01-v19-controle.jpg · 🟢 conforme à la carte actuelle (rév. 11)  
+La v18 avec seulement tes corrections : la sorcière est de nouveau nette (traits du visage, cheveux, mains) ; la façade de la tourelle et sa corniche ont pris la teinte et la patine du crépi de la tour ronde (fini le crème trop propre) ; le logo Renault de l'Estafette est un losange chromé bien visible, comme celui de la 4L. Rien d'autre ne bouge. Carte : tourelle agrandie (rayon 48 → 56), reculée pour ne pas toucher le trottoir (lieux rév. 9). Contrôle automatique : 0 pixel modifié hors des zones, couleurs OK, raccords OK ; le critère « grain » signale 2 tuiles (×1,78) qui sont les mèches de cheveux et le cadre de la fenêtre, c'est-à-dire des traits nets demandés, pas du grain — vérifié à l'œil.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v19-retouche-v18.png" width="640" alt="P01 v19">
 
 <details><summary>🗄️ 13 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v17</summary>
 

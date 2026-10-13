@@ -84,7 +84,7 @@ def estafette(a):
     return a
 
 
-def tourelle(a):
+def tourelle(a, flou=1.2, flou_sorciere=None):
     """Avis v17 : tourelle et sorcière légèrement plus grandes, tête plus sortie ; + vérif. « à côté » :
     double débord de toit / marche / plaque pâle à gauche (traînés par le décalage v16) remplacés par un seul débord.
     Crop-edit work/v18-tourelle-edit2.png (crop v18 x 250-610, y 0-360, x3). Le cône et l'antenne restent ceux de v18.
@@ -92,8 +92,13 @@ def tourelle(a):
     from scipy import ndimage
     W = os.path.join(BASE, 'work')
     X0, Y0, S = 250, 0, 360
-    e = Image.open(os.path.join(W, 'v18-tourelle-edit2.png')).convert('RGB').resize((S, S), Image.LANCZOS)
-    e = np.asarray(e.filter(ImageFilter.GaussianBlur(1.2))).astype(float)
+    e0 = Image.open(os.path.join(W, 'v18-tourelle-edit2.png')).convert('RGB').resize((S, S), Image.LANCZOS)
+    e = np.asarray(e0.filter(ImageFilter.GaussianBlur(flou))).astype(float)
+    if flou_sorciere is not None:   # v19 : sorcière + fenêtre restent nettes (avis v18 « floue, pas définie »)
+        es = np.asarray(e0.filter(ImageFilter.GaussianBlur(flou_sorciere))).astype(float)
+        ws = np.zeros((S, S)); ws[184 - Y0:304 - Y0, 382 - X0:508 - X0] = 1
+        ws = ndimage.gaussian_filter(ws, 2.5)[..., None]
+        e = e * (1 - ws) + es * ws
     v = a[Y0:Y0 + S, X0:X0 + S]
     d = np.abs(ndimage.gaussian_filter(e, (2, 2, 0)) - ndimage.gaussian_filter(v, (2, 2, 0))).mean(2)
     diff = ndimage.binary_closing(ndimage.binary_opening(d > 14, np.ones((3, 3))), np.ones((9, 9)))

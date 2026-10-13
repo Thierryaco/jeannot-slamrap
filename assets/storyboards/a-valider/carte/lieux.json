@@ -199,8 +199,8 @@
    "type": "tourelle",
    "nom": "tourelle de la sorcière (toit d'ardoise)",
    "x": 525,
-   "y": 335,
-   "r": 48,
+   "y": 327,
+   "r": 56,
    "balcon": 3.2
   },
   {
@@ -388,7 +388,7 @@
    }
   }
  },
- "rev": 8,
+ "rev": 9,
  "poses": {
   "perso": [
    "debout",

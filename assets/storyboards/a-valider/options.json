@@ -332,6 +332,18 @@
        "texte": "Henri  aura une pose  pencher appuiyé sur le rebord du mu muret sur le palier en haut de son escalier en train de fumer auss le viage tourner vers la 4l.\nIl y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessous .  il n'a aucun interet, rakoute plutot une porte  directement sur la maison  c'est plus logique ."
       }
      ]
+    },
+    {
+     "id": "v20",
+     "fichier": "p01-v20-nette.png",
+     "source": "tools/p01_v20.py (même contenu que v19, ajouts reconstruits sans flou) · contrôle : tools/controle_retouche.py → p01-v20-controle.jpg",
+     "note": "La v19 sans le flou des ajouts : Diego et sa caisse à outils, l'Estafette et la tourelle sont maintenant aussi nets que le reste (le flou venait de l'ancien critère « grain » du contrôle, qui a été retiré et remplacé par un critère « netteté » : un ajout ne doit pas être plus flou que ses voisins). Le fond autour de Diego reste doux comme avant. Rien d'autre ne bouge. Contrôle CONFORME (netteté : tourelle ×0,99, Estafette ×1,23, Diego ×1,39). La zone d'Henri (avis v19 + carte rév. 12) arrive en v21.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 11,
+      "lieux_rev": 9
+     },
+     "avis": []
     }
    ]
   },

@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 7 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 17 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 18 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -100,6 +100,11 @@ La v18 avec seulement tes corrections : la sorcière est de nouveau nette (trait
 
 - 💬 *2026-10-13 14:50* — Henri  aura une pose  pencher appuiyé sur le rebord du mu muret sur le palier en haut de son escalier en train de fumer auss le viage tourner vers la 4l.
 Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessous .  il n'a aucun interet, rakoute plutot une porte  directement sur la maison  c'est plus logique .
+
+**P01 · v20** — ⏳ à valider — tools/p01_v20.py (même contenu que v19, ajouts reconstruits sans flou) · contrôle : tools/controle_retouche.py → p01-v20-controle.jpg · 🟠 faite d'après la carte rév. 11 — la carte a changé depuis  
+La v19 sans le flou des ajouts : Diego et sa caisse à outils, l'Estafette et la tourelle sont maintenant aussi nets que le reste (le flou venait de l'ancien critère « grain » du contrôle, qui a été retiré et remplacé par un critère « netteté » : un ajout ne doit pas être plus flou que ses voisins). Le fond autour de Diego reste doux comme avant. Rien d'autre ne bouge. Contrôle CONFORME (netteté : tourelle ×0,99, Estafette ×1,23, Diego ×1,39). La zone d'Henri (avis v19 + carte rév. 12) arrive en v21.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v20-nette.png" width="640" alt="P01 v20">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

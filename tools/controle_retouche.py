@@ -9,8 +9,9 @@ Vérifications :
      intacts) — écart moyen < 1,5 et 99,9e centile < 16 (sur 255) ;
   3. DANS chaque zone autorisée : la retouche garde le style de son entourage
      - couleurs : au moins 90 % des nouveaux pixels ont une couleur déjà présente dans la référence ;
-     - grain : chaque tuile 24×24 modifiée (aplats, hors traits) n'est pas plus granuleuse que le 95e centile
-       des tuiles d'aplat de toute la référence ;
+     - netteté : les ajouts ne doivent pas être plus flous que les éléments voisins de la référence
+       (médiane, sur les tuiles 24×24 qui contiennent des traits, du 95e centile du gradient ; ratio ≥ 0,8).
+       Le critère « grain » a été retiré (avis du 13/10 : il poussait à flouter les ajouts) ;
      - pas de bord visible : saut de couleur moyen le long du contour de la zone limité ;
   4. image de contrôle : référence | résultat | différences (zones autorisées en vert), + calque si --plan.
 
@@ -26,7 +27,8 @@ from PIL import Image, ImageDraw, ImageFilter
 
 SEUIL_HORS_MOY, SEUIL_HORS_P999 = 1.5, 16.0
 SEUIL_PALETTE = 0.90
-RATIO_GRAIN = 1.0   # pire tuile modifiée ≤ 95e centile du grain des aplats de la référence
+RATIO_NET = 0.80    # netteté des ajouts ≥ 80 % de celle des éléments voisins de la référence
+TRAIT = 25.0        # une tuile « contient des traits » si son 95e centile de gradient dépasse ce seuil
 SEUIL_BORD = 28.0
 
 
@@ -66,8 +68,23 @@ def tuiles(nb, plat, mask, t=24, part=0.5):
     return out
 
 
+def nettete(g, mask, t=24, part=0.3):
+    """95e centile du gradient de chaque tuile t×t couverte au moins à `part` par le masque et contenant des traits."""
+    gy, gx = np.gradient(g)
+    gm = np.hypot(gx, gy)
+    out = []
+    for y in range(0, g.shape[0] - t + 1, t):
+        for x in range(0, g.shape[1] - t + 1, t):
+            mk = mask[y:y + t, x:x + t]
+            if mk.mean() >= part:
+                v = float(np.percentile(gm[y:y + t, x:x + t][mk], 95))
+                if v > TRAIT:
+                    out.append(v)
+    return out
+
+
 def controle(ref, res, zones, plan=None, sortie=None):
-    global PAL, CTX, NB_B, PL_B, GRAIN_REF
+    global PAL, CTX
     msgs, ok = [], True
     if ref.size != res.size:
         return False, [f"ÉCHEC taille : {res.size} au lieu de {ref.size}"]
@@ -87,10 +104,6 @@ def controle(ref, res, zones, plan=None, sortie=None):
     PAL = np.bincount(qcol(A).ravel(), minlength=4096)
     PAL[PAL < 20] = 0                                     # couleurs vraiment présentes dans la référence
 
-    nbA, plA = carte_bruit(A)
-    NB_B, PL_B = carte_bruit(B)
-    ref_t = [v for v, _, _ in tuiles(nbA, plA, np.ones((H, W), bool), part=0.99)]
-    GRAIN_REF = float(np.percentile(ref_t, 95)) if ref_t else 1.0
 
     def CTX(y0, y1, x0, x1):
         c = np.zeros((H, W), bool); c[y0:y1, x0:x1] = True
@@ -105,21 +118,22 @@ def controle(ref, res, zones, plan=None, sortie=None):
         zin = B[chg]
         # couleurs : part des nouveaux pixels dont la couleur existe déjà dans la référence (palette de l'image)
         cov = np.mean(PAL[qcol(zin)] > 0)
-        # grain : chaque tuile modifiée ne doit pas être plus granuleuse que les aplats de la référence
-        tz = tuiles(NB_B, PL_B, chg)
-        pire = max((v for v, _, _ in tz), default=0.0)
-        ratio = pire / max(GRAIN_REF, 1e-6)
+        # netteté : les ajouts aussi nets que les éléments voisins (contexte élargi, hors zone) de la référence
+        gA, gB = A.mean(2), B.mean(2)
+        voisin = np.zeros((H, W), bool); voisin[Y0:Y1, X0:X1] = True; voisin[y0:y1, x0:x1] = False
+        nz, nv = nettete(gB, chg), nettete(gA, voisin)
+        ratio = (float(np.median(nz)) / float(np.median(nv))) if nz and nv else 1.0
         e = np.zeros((H, W), bool); e[y0:y1, x0:x1] = True
         bord = e & ~np.array(Image.fromarray(e.astype("uint8") * 255).filter(ImageFilter.MinFilter(5))).astype(bool)
         saut = d[bord].mean()
         c_t = True
         c_h = cov >= SEUIL_PALETTE
-        c_g = ratio <= RATIO_GRAIN
+        c_g = ratio >= RATIO_NET
         c_b = saut < SEUIL_BORD
         ok &= c_t and c_h and c_g and c_b
         msgs.append(f"{'OK ' if c_t and c_h and c_g and c_b else 'ÉCHEC'} zone {i} {x0},{y0}–{x1},{y1} : "
                     f"couleurs déjà dans l'image {cov:.0%} (≥ {SEUIL_PALETTE:.0%}) {'✓' if c_h else '✗'} · "
-                    f"grain (pire tuile) ×{ratio:.2f} (≤ {RATIO_GRAIN}) {'✓' if c_g else '✗'} · "
+                    f"netteté ×{ratio:.2f} (≥ {RATIO_NET}) {'✓' if c_g else '✗'} · "
                     f"bord {saut:.1f} (< {SEUIL_BORD:.0f}) {'✓' if c_b else '✗'}")
     if sortie:
         dv = Image.fromarray(np.clip(d * 4, 0, 255).astype("uint8")).convert("RGB")

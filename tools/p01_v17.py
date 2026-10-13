@@ -28,7 +28,7 @@ def to16(x, y):
     return TX0 + (x - 25) * K, 200 + (y - 50) * K
 
 
-def build():
+def build(flou_diego=1.1):
     a = np.array(Image.open(V16).convert("RGB")).astype(float)
 
     # 1) l'ancienne petite fenêtre disparaît : corps de tourelle de v16 (rangée sans fenêtre) prolongé
@@ -71,11 +71,28 @@ def build():
     a = a * (1 - sm[..., None]) + np.array([232, 232, 230]) * sm[..., None]
 
     # 4) Diego à genoux devant sa caisse à outils (repère du recadrage 180 px, origine 900,440)
-    ed = Image.open(ED_D).convert("RGB").resize((180, 180), Image.LANCZOS).filter(ImageFilter.GaussianBlur(1.1))
+    ed = Image.open(ED_D).convert("RGB").resize((180, 180), Image.LANCZOS)
+    if flou_diego:
+        ed = ed.filter(ImageFilter.GaussianBlur(flou_diego))
     md = Image.new("L", (180, 180), 0)
     ImageDraw.Draw(md).polygon([(40, 140), (72, 140), (72, 56), (108, 56), (108, 85), (128, 85), (128, 172), (40, 172)], fill=255)
     md = np.array(md.filter(ImageFilter.GaussianBlur(1.2)))[..., None] / 255.0
     z = a[440:620, 900:1080]
+    if not flou_diego:   # v20 : ne coller que Diego et la caisse (pas le feuillage net de l'édition autour)
+        from scipy import ndimage
+        dif = np.abs(np.array(ed).astype(float) - z).mean(2) > 22
+        ea = np.array(ed).astype(float)
+        dif |= (ea[..., 0] > ea[..., 1] + 60) & (ea[..., 0] > 110)          # la caisse à outils rouge
+        dif = ndimage.binary_closing(ndimage.binary_opening(dif, np.ones((2, 2))), np.ones((5, 5)))
+        dif = ndimage.binary_fill_holes(dif)
+        lab, n = ndimage.label(dif)
+        if n:
+            tailles = ndimage.sum(dif, lab, range(1, n + 1))
+            dif = np.isin(lab, 1 + np.nonzero(tailles >= 150)[0])
+        dif = ndimage.binary_dilation(dif, iterations=2)
+        nette = ndimage.gaussian_filter(dif.astype(float), 0.8)[..., None]
+        douce = np.array(ed.filter(ImageFilter.GaussianBlur(1.1))).astype(float)   # fond de l'édition : doux comme v16
+        ed = Image.fromarray(np.clip(douce * (1 - nette) + np.array(ed).astype(float) * nette, 0, 255).astype("uint8"))
     a[440:620, 900:1080] = z * (1 - md) + np.array(ed).astype(float) * md
     return Image.fromarray(np.clip(a, 0, 255).astype("uint8"))
 

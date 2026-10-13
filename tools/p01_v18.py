@@ -58,7 +58,7 @@ def corrige_toit(a, o):
     return a
 
 
-def estafette(a):
+def estafette(a, flou=0.5):
     """Estafette refaite (avis v17) : vraie Renault Estafette de face + losange Renault, d'après P02 v2 / P03.
     Crop-edit work/v18-estafette-edit.png, détourée (work/v18-estafette-masque.png), mise à la largeur de
     l'ancienne (97 px, x 1020-1117), roues au même endroit (y 588)."""
@@ -76,7 +76,8 @@ def estafette(a):
     ms = Image.fromarray((m * 255).astype(np.uint8)).resize((w, h), Image.LANCZOS)
     ms = np.asarray(ms.filter(ImageFilter.GaussianBlur(0.6))).astype(float) / 255
     ms = np.clip((ms - 0.15) / 0.7, 0, 1)
-    es = np.asarray(Image.fromarray(es.astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.5))).astype(float)
+    if flou:
+        es = np.asarray(Image.fromarray(es.astype(np.uint8)).filter(ImageFilter.GaussianBlur(flou))).astype(float)
     es = es * np.array([0.80, 0.76, 0.81])                       # ramène au bleu-gris passé de l'ancienne (médianes carrosserie)
     ox = round(1068.5 - 618 * s); oy = round(588 - 771 * s)
     reg = a[oy:oy + h, ox:ox + w]

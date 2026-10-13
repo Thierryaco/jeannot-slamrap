@@ -90,13 +90,6 @@ D'après ton avis sur la v4 : le fond du garage est aligné sur le fond des mais
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v12** — 🔁 à retoucher — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 · 🟠 faite d'après la carte rév. 4 — la carte a changé depuis  
-Repart de v8 pour retrouver le dessin doux d'avant et le Jeannot de v8 (barbe brune, combinaison bleue). Coccinelle visible dans le garage ouvert avec Diego, Enji assis sur le trottoir. Écarts : Henri est sur le balcon de la tourelle au lieu du haut de son escalier ; 4 barrières levées et la rue continue avec des maisons au-delà (pas de rails visibles, pas de descente) ; Estafette pas collée au trottoir ; Enji à gauche de Jeannot. Une 2e tentative (2 propositions) a été refusée.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png" width="640" alt="P01 v12">
-
-- 💬 *2026-10-11 12:40* — le fond de la rue n'est plus bon il faut reprendre celui de la V11 vérifier que henri ressemble bien à henri  ce qui n'est pas du tout le cas de même pour Diego au fond
-
 **P01 · v13** — 🔁 à retoucher — nouveau fil, montage : v12 (style v8) + fond de rue de v11, Henri et Diego refaits d'après leurs fiches, carte P01 rév. 5 · 🟠 faite d'après la carte rév. 5 — la carte a changé depuis  
 Montage pour ne plus perdre le style : Jeannot, Enji, la 4L et les maisons viennent de v12 ; le bout de la rue (garage ouvert avec la Coccinelle, Estafette, passage à niveau ouvert, collines) vient de v11, recalé au pixel près ; balcon de la tourelle vidé (repris de v8) ; Henri redessiné d'après sa fiche (cheveux longs en bataille, lunettes, pull marron) et posé sur son escalier, quelques marches au-dessus du sol (rév. 5) ; Diego refait d'après sa fiche (casquette, moustache, t-shirt kaki, salopette bleue) ; rails renforcés entre les barrières. Écarts possibles : Henri est petit (échelle des marches) ; l'Estafette n'est pas tout à fait collée au trottoir ; Enji est à gauche de Jeannot.
 
@@ -113,7 +106,7 @@ La v13 telle quelle, avec seulement ces retouches : le balcon devant la tourelle
 
 - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
 
-<details><summary>🗄️ 11 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11</summary>
+<details><summary>🗄️ 12 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -134,6 +127,8 @@ Pour le garage de diego
 - **v10** — nouveau fil, retouche de v9 d'après ta carte P01 rév. 2 (+ fiche d'Enji) — ../assets/storyboards/a-valider/p01/p01-v10-carte-rev2.png
 - **v11** — nouveau fil, retouche de v10 d'après ta carte P01 rév. 4 (lieux rév. 3) — ../assets/storyboards/a-valider/p01/p01-v11-carte-rev4.png
   - 💬 *2026-10-11 12:24* — depuis  l'ajout du passage à niveau le style de dessin à changer ce n'est plus pareil  et jeannot et les perso sont different aussi on dirait que c'est pas le même ia qui a généré , il faut revenir au style d'avant et vérifier les cohérences  ça srait bien d'enlever les images écarter   du storyboard à valider
+- **v12** — nouveau fil, retouche de v8 (retour au style d'avant le passage à niveau) d'après ta carte P01 rév. 4 — ../assets/storyboards/a-valider/p01/p01-v12-style-v8-rev4.png
+  - 💬 *2026-10-11 12:40* — le fond de la rue n'est plus bon il faut reprendre celui de la V11 vérifier que henri ressemble bien à henri  ce qui n'est pas du tout le cas de même pour Diego au fond
 
 </details>
 

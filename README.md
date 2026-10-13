@@ -1,5 +1,15 @@
 # Jeannot slamrap
 
+> ## ⚠️ Reprendre le travail — commencer ici
+>
+> - **État complet du chantier, contraintes, ce qui reste à faire : [`docs/REPRISE.md`](docs/REPRISE.md)**
+> - **Prompt prêt à coller pour un nouveau fil : [`docs/PROMPT-REPRISE.md`](docs/PROMPT-REPRISE.md)**
+> - Branche de travail : **`arena/5ddf5758-jeannot-slamrap`** (189 commits au-dessus du commit
+>   initial) ; `main` est maintenu à jour par fusion.
+> - **Point bloquant connu :** selon le modèle utilisé par la session, l'agent peut être incapable
+>   de voir les images. Faire le test de 30 s décrit dans `docs/REPRISE.md` §2 avant toute chose.
+> - Le serveur doit être lancé immédiatement : `python3 tools/serve_storyboard.py 8000`.
+
 Clip d'animation 2D d'action-comédie, direction manga shōnen inspirée de DBZ. Le but est une vraie animation en cels dessinés, pas une planche d'images ni des personnages géométriques.
 
 - **Durée audio mesurée :** 104,36 s (1 min 44,36 s).
@@ -41,10 +51,28 @@ Ces repères donnent seulement les grandes sections. Les débuts/fins des parole
 - [x] Test vidéo de 3 s rendu en 1080p à 12 fps avec push-in et fumée animée.
 - [x] Test d'action de 2,75 s rendu à 12 fps : détourage corrigé, chute d'Henri en cutout et extrait audio provisoire.
 - [x] 24 cels dessinés de la chute d'Henri montés en MP4 12 fps (pull corrigé, plus de tuyau sortant du cou).
+- [x] Storyboard découpé en 30 plans (P01–P29 + CARTE) avec règles de continuité.
+- [x] Page « à valider » interactive (`storyboard/a-valider.html`) : options par plan, avis,
+      visionneuse zoomable, outil « 📍 Pointer » pour désigner des pixels exacts.
+- [x] Carte interactive de la rue (`storyboard/carte.html`) + vue de dessus (`lieux.json` rév. 10) ;
+      géographie de la rue validée (CARTE v2), passage à niveau ouvert au bout, garage avant la
+      maison, tourelle côté est.
+- [x] P01 retravaillé sur 21 versions : Estafette Renault, sorcière nette à sa fenêtre, Diego à
+      genoux devant sa caisse à outils, Coccinelle capot ouvert. La zone de la maison de Jeannot
+      est arrêtée et correcte.
+- [ ] **P01 — placer Henri sur le palier en haut de son escalier**, penché au muret, fumant,
+      regard vers la 4L (trois hauteurs proposées : v21 / v22 / v23).
+- [ ] **P01 — supprimer la structure de barres verticales devant l'escalier d'Henri**
+      (x ≈ 706–782, y ≈ 317–425) et peindre une porte dans le mur de la maison.
+- [ ] P01 — recaler le point Henri de la carte sur la position retenue dans l'image.
+- [ ] Valider P01, puis traiter la cohérence de P02 et P03, puis P04 → P29.
 - [ ] Recaler Henri dans les marches (pieds / contact) et exporter à 24 fps sur deux.
 - [ ] Valider le trait et les proportions de la 4L avant d'étendre la séquence.
 - [ ] Recaler les lèvres, les actions et les coups sur les paroles et les accents musicaux.
 - [ ] Étendre l'animation aux 104,36 s et rendre le MP4 H.264 avec audio AAC 48 kHz.
+
+Le détail de ce qui est fait, de ce qui reste à faire et des pièges à éviter est dans
+[`docs/REPRISE.md`](docs/REPRISE.md).
 
 ## Règles de mise en scène
 

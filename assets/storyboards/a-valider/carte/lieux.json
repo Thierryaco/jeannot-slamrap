@@ -191,15 +191,15 @@
    "type": "tourelle",
    "nom": "tour ronde (toit rouge) de la maison de Jeannot",
    "x": 330,
-   "y": 350,
+   "y": 302,
    "r": 58
   },
   {
    "id": "tourelle",
    "type": "tourelle",
-   "nom": "tourelle de la sorcière (à balcon, toit d'ardoise)",
-   "x": 620,
-   "y": 345,
+   "nom": "tourelle de la sorcière (toit d'ardoise)",
+   "x": 525,
+   "y": 335,
    "r": 48,
    "balcon": 3.2
   },
@@ -290,8 +290,8 @@
    "lettre": "4L",
    "couleur": "#a8dcc0",
    "contour": "#2c5f47",
-   "w": 100,
-   "h": 42
+   "w": 99,
+   "h": 40
   },
   {
    "id": "estafette",
@@ -300,8 +300,8 @@
    "lettre": "Estafette",
    "couleur": "#8fa3b8",
    "contour": "#33475c",
-   "w": 118,
-   "h": 46
+   "w": 116,
+   "h": 49
   },
   {
    "id": "coccinelle",
@@ -310,8 +310,8 @@
    "lettre": "Cox",
    "couleur": "#f08a2c",
    "contour": "#8a4510",
-   "w": 96,
-   "h": 52
+   "w": 110,
+   "h": 42
   }
  ],
  "defaut": {
@@ -388,7 +388,7 @@
    }
   }
  },
- "rev": 7,
+ "rev": 8,
  "poses": {
   "perso": [
    "debout",

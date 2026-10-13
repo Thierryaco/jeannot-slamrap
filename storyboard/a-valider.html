@@ -61,7 +61,7 @@ textarea{width:100%;min-height:52px;resize:vertical;font:inherit;font-size:13px;
 </header>
 <main id="main">Chargement…</main>
 <div id="zoom"><img alt=""></div>
-<div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)<span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
+<div id="zoomvue"><div class="zh">👁️ <b id="zvt"></b> <span id="zvd">vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)</span><span style="flex:1"></span><a id="zve" href="#" style="color:#f2bf44">✏️ ouvrir dans la carte interactive</a><button id="zvx">✕ fermer (Échap)</button></div><iframe title="vue caméra"></iframe></div>
 <div id="toast"></div>
 <script>
 const MANIFEST = '../assets/storyboards/a-valider/options.json';
@@ -103,7 +103,7 @@ function render(){
           <div class="head"><b>${esc(o.id)}</b><span>${ET[o.etat]||esc(o.etat)}</span></div>
           <small>${esc(o.source)}</small>
           ${badge(p, o)}
-          ${CPLANS[p.plan]?`<div><button class="cqb" data-cq="${key}" title="Superpose ce que la caméra de la carte doit voir : position et taille de chaque élément">📐 Calque de la carte (rév. ${CPLANS[p.plan].rev})</button></div>`:''}
+          ${CPLANS[p.plan]?`<div><button class="cqb" data-cq="${key}" title="Superpose ce que la caméra de la carte doit voir : position et taille de chaque élément">📐 Calque de la carte (rév. ${CPLANS[p.plan].rev})</button> <button class="carteb" data-carte="${p.plan}" title="Ouvre la carte interactive de ce plan (vue de dessus + vue caméra), modifiable">🗺️ Carte interactive</button></div>`:`<div><button class="carteb" data-carte="${p.plan}" title="Ouvre la carte interactive de ce plan pour placer caméra et éléments">🗺️ Carte interactive</button></div>`}
           <div>${esc(o.note)}</div>
           ${avisList(o.avis)}
           ${canWrite ? `<div class="btns">${b('retenue','ok','✅ Je choisis')}${b('a-retoucher','warn','🔁 À retoucher')}${b('ecartee','ko','❌ Écarter')}${b('a-valider','','⏳ Remettre')}<button class="del" data-plan="${p.plan}" data-opt="${o.id}" title="Supprimer définitivement cette version (image effacée, plus dans l'historique)">🗑️ Supprimer</button></div>
@@ -133,7 +133,13 @@ async function post(body){
 
 function ouvreVue(plan){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; document.getElementById('zvt').textContent=plan;
   z.querySelector('iframe').src='carte.html?vue&t='+Date.now()+'#'+plan; z.style.display='flex'; }
-function fermeVue(){ const z=document.getElementById('zoomvue'); z.style.display='none'; z.querySelector('iframe').src='about:blank'; }
+function ouvreCarte(plan){ const z=document.getElementById('zoomvue'); z.dataset.plan=plan; z.dataset.mode='carte'; document.getElementById('zvt').textContent=plan;
+  document.getElementById('zvd').textContent='carte interactive du plan — modifiable (pense à 💾 Enregistrer ; ↶ Annuler si besoin)';
+  z.querySelector('iframe').src='carte.html?t='+Date.now()+'#'+plan; z.style.display='flex'; }
+async function rechargeCarte(){ try{ const [cp,lx]=await Promise.all([`${CARTE_DIR}/plans.json`,`${CARTE_DIR}/lieux.json`].map(u=>fetch(u,{cache:'no-store'}).then(r=>r.ok?r.json():{})));
+  CPLANS=cp||{}; LREV=(lx&&lx.rev)||1; render(); }catch{} }
+function fermeVue(){ const z=document.getElementById('zoomvue'); const etaitCarte=z.dataset.mode==='carte'; z.dataset.mode=''; z.style.display='none'; z.querySelector('iframe').src='about:blank';
+  document.getElementById('zvd').textContent="vue de la caméra calculée depuis la carte (lecture seule — rien n'est modifié)"; if(etaitCarte) rechargeCarte(); }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ fermeVue(); document.getElementById('zoom').style.display='none'; } });
 document.addEventListener('click', async e=>{
   const el = e.target;
@@ -143,6 +149,7 @@ document.addEventListener('click', async e=>{
   if (el.id==='zvx') { fermeVue(); return; }
   if (el.id==='zve') { e.preventDefault(); location.href='carte.html#'+document.getElementById('zoomvue').dataset.plan; return; }
   if (el.tagName!=='BUTTON') return;
+  if (el.dataset.carte) { ouvreCarte(el.dataset.carte); return; }
   if (el.dataset.cq) { const w=document.getElementById('w-'+el.dataset.cq); w.classList.toggle('cqon'); el.classList.toggle('on'); return; }
   if (el.classList.contains('toggle-ec')) { const p=el.dataset.plan; SHOW_EC.has(p)?SHOW_EC.delete(p):SHOW_EC.add(p); render(); return; }
   const plan=el.dataset.plan, option=el.dataset.opt||null;

@@ -2,53 +2,53 @@
  "P01": {
   "cameras": [
    {
-    "x": -175.4,
-    "y": 500.3,
-    "angle": -1.88,
-    "fov": 28.1,
+    "x": -89.7,
+    "y": 518.8,
+    "angle": -4.77,
+    "fov": 32.9,
     "portee": 2000,
     "hauteur": "à hauteur d'yeux",
-    "oeil": 1.9,
-    "inclinaison": -1.61
+    "oeil": 1.8,
+    "inclinaison": -1.58
    }
   ],
   "elements": {
    "4l": {
-    "x": 328,
-    "y": 433,
+    "x": 330,
+    "y": 447.0,
     "angle": 0,
     "visible": true
    },
    "estafette": {
-    "x": 1182,
-    "y": 450,
+    "x": 1147,
+    "y": 451.5,
     "angle": 180,
     "visible": true,
     "action": "garée contre le trottoir côté Jeannot, devant la maison de Diego, l'avant vers la caméra"
    },
    "coccinelle": {
-    "x": 1060,
-    "y": 398,
-    "angle": 135,
+    "x": 1057,
+    "y": 370.0,
+    "angle": 90,
     "visible": true,
-    "action": "sort du garage, capot avant ouvert, le nez sur le trottoir au ras de la bordure ; outils au sol"
+    "action": "sort du garage à 90°, capot avant ouvert, le nez s'arrête au bord du trottoir ; outils au sol"
    },
    "jeannot": {
-    "x": 285,
-    "y": 404,
+    "x": 287,
+    "y": 407,
     "angle": 90.0,
     "visible": true
    },
    "enji": {
-    "x": 239,
-    "y": 397,
+    "x": 247,
+    "y": 402,
     "angle": 90.0,
     "visible": true,
     "pose": "assis"
    },
    "sorciere": {
-    "x": 620,
-    "y": 372,
+    "x": 525,
+    "y": 365,
     "angle": 90.0,
     "visible": true
    },
@@ -59,12 +59,12 @@
     "visible": true
    },
    "diego": {
-    "x": 1048,
-    "y": 421,
-    "angle": -110,
+    "x": 1057,
+    "y": 437,
+    "angle": -90,
     "visible": true,
     "pose": "accroupi",
-    "action": "à genoux sur le trottoir devant sa caisse à outils, au bord de la bordure, devant le nez de la Coccinelle"
+    "action": "à genoux juste devant la Coccinelle, face à elle, au début de la chaussée, devant sa caisse à outils"
    },
    "marco": {
     "x": 1265.0,
@@ -79,8 +79,8 @@
     "visible": false
    }
   },
-  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).\nRév. 9 : Coccinelle, Diego et Estafette recalés sur l'image P01 v16 (point de contact au sol + sens).\nRév. 10 : d'après l'image (avis) — Coccinelle qui sort du garage sur le trottoir, Diego à genoux sur le trottoir au bord de la bordure, Estafette garée contre le trottoir côté Jeannot.",
-  "rev": 10,
+  "note": "prend bien en compte la position des véhicules  la coccinelle doit être visible selon le plan maintenant\nRév. 8 : caméra et positions recalées sur l'image P01 v13 (la carte suit l'image).\nRév. 9 : Coccinelle, Diego et Estafette recalés sur l'image P01 v16 (point de contact au sol + sens).\nRév. 10 : d'après l'image (avis) — Coccinelle qui sort du garage sur le trottoir, Diego à genoux sur le trottoir au bord de la bordure, Estafette garée contre le trottoir côté Jeannot.\nRév. 11 (avis) : Coccinelle à 90° jusqu'au bord du trottoir, Diego juste devant elle au début de la chaussée, 4L et Estafette alignées contre le trottoir ; dimensions réelles des véhicules.\nCaméra réajustée sur l'image (moindres carrés : bordures proches et lointaines, 4L/Estafette contre le trottoir, Diego, Coccinelle, Jeannot, passage à niveau) — tools/fit_camera_p01.py.",
+  "rev": 11,
   "maj": "2026-10-13 10:12"
  }
 }

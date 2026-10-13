@@ -220,7 +220,7 @@ const VM=0.037, VW=1920, VH=1080, VNEAR=0.6;
 const vLim=c=>c.portee*Math.cos(c.fov*Math.PI/360); // en px de carte, profondeur devant la caméra
 const vLimM=c=>vLim(c)*VM;
 const VHAUT={"à hauteur d'yeux":[1.6,0],"plongée (vue d'en haut)":[4.5,-14],"contre-plongée (vue d'en bas)":[0.6,12],"vue aérienne / drone":[18,-38],"au ras du sol":[0.3,2]};
-const VHVEH={'4l':1.55,estafette:1.95,coccinelle:1.7};
+const VHVEH={'4l':1.55,estafette:1.95,coccinelle:1.5};
 const VPOSE={debout:1,marche:1,court:.95,assis:.72,accroupi:.6,'couché':.3,'appuyé':1,'penché':.85,tombe:.6,saute:1.1,renifle:.75,aboie:1,dort:.45};
 const VPOSEC={assis:1.15,'couché':.55,dort:.5,renifle:.8};
 function vCam(c){const a=c.angle*Math.PI/180,[eye0,p0]=VHAUT[c.hauteur]||[1.6,0],eye=(c.oeil!=null&&c.oeil!=='')?+c.oeil:eye0,p=(c.inclinaison!=null&&c.inclinaison!=='')?+c.inclinaison:p0;

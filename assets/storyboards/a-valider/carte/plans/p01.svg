@@ -45,10 +45,10 @@
 <rect x="1130.0" y="635.0" width="370.0" height="165.0" rx="0" fill="#ebe7df" stroke="#33404f" stroke-width="2"/>
 <text x="1315.0" y="717.5" font-size="17" fill="#1b2430" text-anchor="middle" font-weight="bold">voisins</text>
 <text x="1315.0" y="739.5" font-size="13" fill="#4a5566" text-anchor="middle">en face de Diego</text>
-<circle cx="330.0" cy="350.0" r="58" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
-<text x="352.0" y="284.0" font-size="12" fill="#5b3f8c" text-anchor="start">tourelle</text>
-<circle cx="620.0" cy="345.0" r="48" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
-<text x="642.0" y="289.0" font-size="12" fill="#5b3f8c" text-anchor="start">tourelle</text>
+<circle cx="330.0" cy="302.0" r="58" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="352.0" y="236.0" font-size="12" fill="#5b3f8c" text-anchor="start">tourelle</text>
+<circle cx="525.0" cy="335.0" r="48" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="547.0" y="279.0" font-size="12" fill="#5b3f8c" text-anchor="start">tourelle</text>
 <rect x="915.0" y="345.0" width="80.0" height="38.0" rx="0" fill="#bfb7a8" stroke="#33404f" stroke-width="2"/>
 <line x1="923.9" y1="345.0" x2="923.9" y2="383.0" stroke="#6e6658" stroke-width="1"/>
 <line x1="932.8" y1="345.0" x2="932.8" y2="383.0" stroke="#6e6658" stroke-width="1"/>
@@ -106,42 +106,42 @@
 <text x="1596.0" y="755.0" font-size="11" fill="#4a5566" text-anchor="end">collines au fond</text>
 <text x="-290.0" y="500.0" font-size="20" fill="#4a5566" text-anchor="middle" font-weight="bold">O</text>
 <text x="1592.0" y="100.0" font-size="16" fill="#4a5566" text-anchor="end" font-weight="bold">E →</text>
-<polygon points="278.0,412.0 378.0,412.0 378.0,454.0 278.0,454.0" fill="#2c5f47" fill-opacity="1.0"/>
-<polygon points="281.0,415.0 375.0,415.0 375.0,451.0 281.0,451.0" fill="#a8dcc0" fill-opacity="1.0"/>
-<polygon points="376.0,420.0 394.0,433.0 376.0,446.0" fill="#2c5f47" fill-opacity="1.0"/>
-<text x="328.0" y="438.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">4L</text>
-<polygon points="1241.0,473.0 1123.0,473.0 1123.0,427.0 1241.0,427.0" fill="#33475c" fill-opacity="1.0"/>
-<polygon points="1238.0,470.0 1126.0,470.0 1126.0,430.0 1238.0,430.0" fill="#8fa3b8" fill-opacity="1.0"/>
-<polygon points="1125.0,465.0 1107.0,450.0 1125.0,435.0" fill="#33475c" fill-opacity="1.0"/>
-<text x="1182.0" y="455.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Estafette</text>
-<polygon points="1112.3,382.4 1044.4,450.3 1007.7,413.6 1075.6,345.7" fill="#8a4510" fill-opacity="1.0"/>
-<polygon points="1108.1,382.4 1044.4,446.1 1011.9,413.6 1075.6,349.9" fill="#f08a2c" fill-opacity="1.0"/>
-<polygon points="1040.2,443.3 1014.7,443.3 1014.7,417.8" fill="#8a4510" fill-opacity="1.0"/>
-<text x="1060.0" y="403.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
-<polygon points="293.0,414.0 285.0,430.0 277.0,414.0" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="285.0" cy="404.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
-<text x="285.0" y="409.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>
-<polygon points="247.0,407.0 239.0,423.0 231.0,407.0" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="239.0" cy="397.0" r="13" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
-<text x="239.0" y="402.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">E</text>
-<text x="239.0" y="427.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">assis</text>
-<polygon points="628.0,382.0 620.0,398.0 612.0,382.0" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="620.0" cy="372.0" r="13" fill="#7d5cc0" stroke="#1b2430" stroke-width="2"/>
-<text x="620.0" y="377.0" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
+<polygon points="280.5,427.0 379.5,427.0 379.5,467.0 280.5,467.0" fill="#2c5f47" fill-opacity="1.0"/>
+<polygon points="283.5,430.0 376.5,430.0 376.5,464.0 283.5,464.0" fill="#a8dcc0" fill-opacity="1.0"/>
+<polygon points="377.5,435.0 395.5,447.0 377.5,459.0" fill="#2c5f47" fill-opacity="1.0"/>
+<text x="330.0" y="452.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">4L</text>
+<polygon points="1205.0,476.0 1089.0,476.0 1089.0,427.0 1205.0,427.0" fill="#33475c" fill-opacity="1.0"/>
+<polygon points="1202.0,473.0 1092.0,473.0 1092.0,430.0 1202.0,430.0" fill="#8fa3b8" fill-opacity="1.0"/>
+<polygon points="1091.0,468.0 1073.0,451.5 1091.0,435.0" fill="#33475c" fill-opacity="1.0"/>
+<text x="1147.0" y="456.5" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Estafette</text>
+<polygon points="1078.0,315.0 1078.0,425.0 1036.0,425.0 1036.0,315.0" fill="#8a4510" fill-opacity="1.0"/>
+<polygon points="1075.0,318.0 1075.0,422.0 1039.0,422.0 1039.0,318.0" fill="#f08a2c" fill-opacity="1.0"/>
+<polygon points="1070.0,423.0 1057.0,441.0 1044.0,423.0" fill="#8a4510" fill-opacity="1.0"/>
+<text x="1057.0" y="375.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
+<polygon points="295.0,417.0 287.0,433.0 279.0,417.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="287.0" cy="407.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
+<text x="287.0" y="412.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>
+<polygon points="255.0,412.0 247.0,428.0 239.0,412.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="247.0" cy="402.0" r="13" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
+<text x="247.0" y="407.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">E</text>
+<text x="247.0" y="432.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">assis</text>
+<polygon points="533.0,375.0 525.0,391.0 517.0,375.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="525.0" cy="365.0" r="13" fill="#7d5cc0" stroke="#1b2430" stroke-width="2"/>
+<text x="525.0" y="370.0" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
 <polygon points="905.0,374.0 897.0,390.0 889.0,374.0" fill="#1b2430" fill-opacity="1.0"/>
 <circle cx="897.0" cy="364.0" r="13" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
 <text x="897.0" y="369.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">H</text>
-<polygon points="1037.1,414.3 1039.1,396.6 1052.1,408.9" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="1048.0" cy="421.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
-<text x="1048.0" y="426.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
-<text x="1048.0" y="451.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">accroupi · à genoux sur le trottoir dev…</text>
-<polygon points="-175.4,500.3 1747.8,-48.6 1779.7,921.9" fill="#e04f5f" fill-opacity="0.14" clip-path="url(#zone)"/>
-<line x1="-175.4" y1="500.3" x2="1262.1" y2="90.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
-<line x1="-175.4" y1="500.3" x2="1538.9" y2="870.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
-<polygon points="-191.8,489.8 -165.8,489.0 -165.0,511.0 -191.0,511.8" fill="#e04f5f" fill-opacity="1.0"/>
-<polygon points="-165.6,494.0 -154.8,487.6 -154.0,511.6 -165.2,506.0" fill="#1b2430" fill-opacity="1.0"/>
-<text x="-175.4" y="534.3" font-size="13" fill="#e04f5f" text-anchor="middle" font-weight="bold">P01</text>
-<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 10)</text>
+<polygon points="1049.0,427.0 1057.0,411.0 1065.0,427.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="1057.0" cy="437.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
+<text x="1057.0" y="442.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
+<text x="1057.0" y="467.0" font-size="11" fill="#1b2430" text-anchor="middle" font-weight="bold">accroupi · à genoux juste devant la Coc…</text>
+<polygon points="-89.7,518.8 1774.7,-205.1 1868.9,923.7" fill="#e04f5f" fill-opacity="0.14" clip-path="url(#zone)"/>
+<line x1="-89.7" y1="518.8" x2="1014.7" y2="90.0" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="-89.7" y1="518.8" x2="1600.0" y2="868.1" stroke="#e04f5f" stroke-width="2" stroke-dasharray="6 5"/>
+<polygon points="-106.6,509.2 -80.6,507.0 -78.8,528.9 -104.7,531.1" fill="#e04f5f" fill-opacity="1.0"/>
+<polygon points="-80.2,512.0 -69.8,505.1 -67.8,529.0 -79.2,523.9" fill="#1b2430" fill-opacity="1.0"/>
+<text x="-89.7" y="552.8" font-size="13" fill="#e04f5f" text-anchor="middle" font-weight="bold">P01</text>
+<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 11)</text>
 <text x="800.0" y="72.0" font-size="15" fill="#4a5566" text-anchor="middle">Instrumental</text>
 <text x="70.0" y="895.0" font-size="16" fill="#1b2430" text-anchor="start" font-weight="bold">Légende :</text>
 <circle cx="180.0" cy="889.0" r="10" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
@@ -158,6 +158,6 @@
 <text x="1147.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">E  Enji</text>
 <circle cx="1320.0" cy="889.0" r="10" fill="#9fd1ee" stroke="#1b2430" stroke-width="2"/>
 <text x="1337.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">N  le narrateur</text>
-<text x="70.0" y="931.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra : à hauteur d'yeux, angle de vue 28°. Dans le champ : Enji (à gauche), Jeannot (à gauche), la 4L (à gauche), Maison de JEANNOT (à gauche), voisin (côté narrateur) </text>
+<text x="70.0" y="931.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra : à hauteur d'yeux, angle de vue 33°. Dans le champ : Enji (à gauche), Jeannot (à gauche), la 4L (à gauche), Maison de JEANNOT (à gauche), voisin (côté narrateur) </text>
 <text x="70.0" y="965.0" font-size="14" fill="#7a1d27" text-anchor="start" font-weight="bold">Règle : les lieux ne bougent jamais ; véhicules et personnages restent en place sauf action prévue dans le plan.</text>
 </svg>

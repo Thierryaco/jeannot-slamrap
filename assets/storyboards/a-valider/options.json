@@ -67,6 +67,14 @@
      "note": "D'après ton avis sur la v4 : le fond du garage est aligné sur le fond des maisons (y 165), et sa porte s'ouvre au début du trottoir, au même niveau que le bas de l'escalier d'Henri (y 383). Le reste de la v4 est inchangé.",
      "etat": "a-valider",
      "avis": []
+    },
+    {
+     "id": "v6",
+     "fichier": "carte-rue-v6.png",
+     "source": "tools/draw_street_map.py base v6 (lieux rév. 8)",
+     "note": "D'après tes avis : la tour ronde est en retrait, dans l'alignement de la façade de la maison de Jeannot ; elle ne dépasse plus sur le trottoir. La tourelle de la sorcière (toit d'ardoise) est placée derrière le mur du jardin, à l'endroit où elle apparaît dans l'image. Les véhicules ont leurs dimensions réelles : Coccinelle 4,08 × 1,54 m, 4L 3,66 × 1,48 m, Estafette 4,29 × 1,80 m.",
+     "etat": "a-valider",
+     "avis": []
     }
    ]
   },
@@ -274,8 +282,8 @@
      "etat": "a-valider",
      "avis": [],
      "carte": {
-      "plan_rev": 9,
-      "lieux_rev": 7
+      "plan_rev": 11,
+      "lieux_rev": 8
      }
     }
    ]

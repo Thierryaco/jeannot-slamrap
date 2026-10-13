@@ -39,7 +39,7 @@ HAUTEURS = {
 H_BAT = {"garage-diego": 3.3}
 H_MAISON = 6.8
 # véhicules : hauteur (m)
-H_VEH = {"4l": 1.55, "estafette": 1.95, "coccinelle": 1.7}
+H_VEH = {"4l": 1.55, "estafette": 1.95, "coccinelle": 1.5}  # hauteurs réelles (m)
 # personnages : hauteur debout (m) et facteur selon la pose
 H_PERSO = 1.75
 H_CHIEN = 0.62

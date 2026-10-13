@@ -207,14 +207,14 @@
    "id": "escalier-henri",
    "type": "escalier",
    "nom": "escalier extérieur d'Henri",
-   "x": 915,
+   "x": 880,
    "y": 345,
    "w": 80,
    "h": 38,
-   "montee": "ouest",
+   "montee": "est",
    "hauteur": 2.8,
    "palier": {
-    "x": 880,
+    "x": 960,
     "y": 345,
     "w": 35,
     "h": 38
@@ -388,7 +388,7 @@
    }
   }
  },
- "rev": 9,
+ "rev": 10,
  "poses": {
   "perso": [
    "debout",

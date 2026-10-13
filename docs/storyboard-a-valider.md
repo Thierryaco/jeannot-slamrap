@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | 🛠️ En cours | 7 | — |
+| [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
 | [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 18 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -62,6 +62,11 @@ Comme la v6, avec la tourelle de la sorcière agrandie (rayon 48 → 56, comme s
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v7.png" width="640" alt="CARTE v7">
 
+**CARTE · v8** — ⏳ à valider — tools/draw_street_map.py base v8 (lieux rév. 10)  
+Comme la v7, avec l'escalier d'Henri dans le sens de l'image : les marches montent vers le fond de la rue et le palier est en haut, devant l'entrée de la maison (avant, il n'y avait que des marches en haut).
+
+<img src="../assets/storyboards/a-valider/carte/carte-rue-v8.png" width="640" alt="CARTE v8">
+
 <details><summary>🗄️ 4 option(s) écartée(s) : v1, v2, v3, v4</summary>
 
 - **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
@@ -82,7 +87,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 13, 2026-10-13 15:51) :
+🗺️ Carte du plan (rév. 14, 2026-10-13 13:57) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 

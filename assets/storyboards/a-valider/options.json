@@ -352,6 +352,14 @@
       "lieux_rev": 9
      },
      "avis": []
+    },
+    {
+     "id": "v21",
+     "fichier": "p01-v21-palier.png",
+     "source": "tools/p01_v21.py : Henri découpé dans la v20 et reposé sur le palier ; l'escalier, derrière lui, est rebouché par l'édition du recadrage B",
+     "note": "Henri quitte le milieu des marches : il est maintenant debout sur le palier, en haut de son escalier, au niveau de la porte de la maison (repère du calque : pieds à y 370). L'escalier a été redessiné sans lui. Reste à faire : le pencher sur le muret du palier, lui mettre sa cigarette, et enlever le portail à 2 piliers sous les escaliers pour mettre une porte dans le mur.",
+     "etat": "a-valider",
+     "avis": []
     }
    ]
   },

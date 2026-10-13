@@ -96,9 +96,15 @@ def draw_base(c, L):
             c.text(d["x"] + 22, d["y"] - d["r"] - 8, "tourelle", 12, "#5b3f8c", anchor="start")
         elif d["type"] == "escalier":
             c.rect(d["x"], d["y"], d["w"], d["h"], "#bfb7a8")
-            for i in range(1, 6):
-                c.line(d["x"] + i * d["w"] / 6, d["y"], d["x"] + i * d["w"] / 6, d["y"] + d["h"], "#6e6658", 1)
-            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] + 16, "escalier ext.", 12, "#4a5566")
+            n = 9
+            for i in range(1, n):
+                c.line(d["x"] + i * d["w"] / n, d["y"], d["x"] + i * d["w"] / n, d["y"] + d["h"], "#6e6658", 1)
+            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 + 5, "monte →", 11, "#3b352b", True)
+            pa = d.get("palier")
+            if pa:
+                c.rect(pa["x"], pa["y"], pa["w"], pa["h"], "#d8cfbd", "#33404f", 2)
+                c.text(pa["x"] + pa["w"] / 2, pa["y"] + pa["h"] / 2 + 4, "palier", 10, "#3b352b", True)
+            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] + 15, "escalier d'Henri", 12, "#4a5566")
         elif d["type"] == "passage_niveau":
             x, y, w, h = d["x"], d["y"] - 120, d["w"], d["h"] + 240
             c.rect(x, y, w, h, "#b9ab95", stroke=None, sw=0)
@@ -229,8 +235,27 @@ def dans_le_champ(L, placement, cam_index=0):
     return sorted(out)
 
 
+def sur_escalier(L, x, y):
+    """(texte, hauteur en m) si le point est sur un escalier extérieur ou son palier, sinon None."""
+    for d in L["details"]:
+        if d["type"] != "escalier":
+            continue
+        hmax = d.get("hauteur", 2.8)
+        pa = d.get("palier")
+        if pa and pa["x"] - 3 <= x <= pa["x"] + pa["w"] + 3 and pa["y"] - 3 <= y <= pa["y"] + pa["h"] + 3:
+            return f"sur le palier en haut de l'{d['nom']} (à {hmax:.1f} m du sol, devant la porte du 1er étage)".replace(".", ",", 1), hmax
+        if d["x"] <= x <= d["x"] + d["w"] and d["y"] - 3 <= y <= d["y"] + d["h"] + 3:
+            f = (x - d["x"]) / d["w"] if d.get("montee", "est") == "est" else (d["x"] + d["w"] - x) / d["w"]
+            quand = "en bas de" if f < 0.25 else ("presque en haut de" if f > 0.75 else "au milieu de")
+            return f"{quand} l'{d['nom']} (à {f * hmax:.1f} m du sol)".replace(".", ",", 1), f * hmax
+    return None
+
+
 def _ou(L, x, y):
     """Décrit un point de la carte en mots."""
+    esc = sur_escalier(L, x, y)
+    if esc:
+        return esc[0]
     r = L["rue"]
     if y < r["nord_trottoir"] or y > r["sud_trottoir"]:
         cote = "côté Jeannot" if y < r["nord_trottoir"] else "côté narrateur"
@@ -285,6 +310,8 @@ def decrire(L, placement):
         prec = "" if abs(ecart) < 8 else f" (décalée de {abs(round(ecart))}° vers le {'sud' if ecart > 0 else 'nord'})" if best in (0, 180) else f" (décalée de {abs(round(ecart))}°)"
         lines.append(f"{nom} : {_ou(L, cam['x'], cam['y'])} ; regarde vers {dirs[best]}{prec} ; angle de vue {cam['fov']:.0f}° ; {cam.get('hauteur', '')}.")
         champ = dans_le_champ(L, placement, i)
+        import calque  # noqa: E402  (import tardif : calque importe ce module)
+        occ = calque.occultations(L, placement, i)
         for titre, lo, hi in (("Premier plan", 0, 300), ("Plan moyen", 300, 800), ("Fond", 800, 99999)):
             items = [f"{n} ({sd})" for dist, sd, n in champ if lo <= dist < hi]
             lines.append(f"  {titre} : {', '.join(items) if items else '—'}")
@@ -295,7 +322,8 @@ def decrire(L, placement):
                 k = cat[eid]
                 lines.append(f"  - {k['nom']} : {_ou(L, e['x'], e['y'])} ; {_vu(cam, e['x'], e['y'], e.get('angle', 0), k['type'] == 'vehicule')}"
                              + (f" ; pose : {e['pose']}" if e.get("pose") else "")
-                             + (f" ; action : {e['action']}" if e.get("action") else "") + ".")
+                             + (f" ; action : {e['action']}" if e.get("action") else "")
+                             + (f" ; ⚠ {'CACHÉ' if occ[eid][0] >= 0.7 else 'en partie caché'} par {occ[eid][1]} (≈ {occ[eid][0] * 100:.0f} %)" if eid in occ else "") + ".")
     hors = [cat[eid]["nom"] for eid, e in placement.get("elements", {}).items()
             if e.get("visible", True) and eid in cat and not any(n == cat[eid]["nom"] for c in range(len(cams)) for _, _, n in dans_le_champ(L, placement, c))]
     if hors:

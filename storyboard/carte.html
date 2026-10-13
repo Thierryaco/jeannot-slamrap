@@ -105,8 +105,11 @@ function drawBase(){
   for(const d of L.details){
     if(d.type==='tourelle'){el('circle',{cx:d.x,cy:d.y,r:d.r,fill:'#c9b6e8',stroke:'#1b2430','stroke-width':2},g);}
     if(d.type==='escalier'){el('rect',{x:d.x,y:d.y,width:d.w,height:d.h,fill:'#bfb7a8',stroke:'#33404f'},g);
-      for(let i=1;i<6;i++)el('line',{x1:d.x+i*d.w/6,y1:d.y,x2:d.x+i*d.w/6,y2:d.y+d.h,stroke:'#6e6658'},g);
-      const t=el('text',{x:d.x+d.w/2,y:d.y+d.h+16,'font-size':12,'text-anchor':'middle',fill:'#4a5566'},g);t.textContent='escalier ext.';}
+      for(let i=1;i<9;i++)el('line',{x1:d.x+i*d.w/9,y1:d.y,x2:d.x+i*d.w/9,y2:d.y+d.h,stroke:'#6e6658'},g);
+      {const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+4,'font-size':11,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent='monte →';}
+      if(d.palier){const p=d.palier;el('rect',{x:p.x,y:p.y,width:p.w,height:p.h,fill:'#d8cfbd',stroke:'#33404f','stroke-width':2},g);
+        const t=el('text',{x:p.x+p.w/2,y:p.y+p.h/2+4,'font-size':10,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent='palier';}
+      const t=el('text',{x:d.x+d.w/2,y:d.y+d.h+15,'font-size':12,'text-anchor':'middle',fill:'#4a5566'},g);t.textContent="escalier d'Henri";}
     if(d.type==='passage_niveau'){const x=d.x,y=d.y-120,w=d.w,h=d.h+240;
       el('rect',{x,y,width:w,height:h,fill:'#b9ab95'},g);
       for(let yy=y+6;yy<y+h;yy+=14) el('line',{x1:x+4,y1:yy,x2:x+w-4,y2:yy,stroke:'#7a5c3a','stroke-width':4},g);
@@ -137,10 +140,12 @@ function drawItems(){
   if(data.cameras.length===2){const [a,b]=data.cameras;el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'#2f7fd8','stroke-width':3,'stroke-dasharray':'4 4'},items);}
   const order=Object.entries(data.elements).filter(([id,e])=>e.visible&&cat[id]).sort((a,b)=>(cat[a[0]].type==='vehicule'?0:1)-(cat[b[0]].type==='vehicule'?0:1));
   const vus=new Set(); data.cameras.forEach((c,i)=>champ(i).forEach(x=>vus.add(x.n)));
+  const occ0=vOcc(0);
   for(const [id,e] of order){
-    const k=cat[id], horsChamp=!vus.has(k.nom);
-    const g=el('g',{class:'item','data-kind':'el','data-id':id,opacity:horsChamp?0.45:1},items);
+    const k=cat[id], horsChamp=!vus.has(k.nom), cache=occ0[id];
+    const g=el('g',{class:'item','data-kind':'el','data-id':id,opacity:horsChamp?0.45:(cache&&cache[0]>=.7?0.6:1)},items);
     if(horsChamp) el('title',{},g).textContent=k.nom+' — hors champ (la caméra ne le voit pas)';
+    else if(cache) el('title',{},g).textContent=`${k.nom} — ${cache[0]>=.7?'caché':'en partie caché'} par ${cache[1]} dans la vue caméra (≈ ${Math.round(cache[0]*100)} %)`;
     if(k.type==='vehicule'){
       const w=k.w,h=k.h;
       el('polygon',{points:P(rot(e.x,e.y,[[-w/2,-h/2],[w/2,-h/2],[w/2,h/2],[-w/2,h/2]],e.angle)),fill:k.couleur,stroke:k.contour,'stroke-width':3},g);
@@ -198,7 +203,39 @@ function vBox(cx,cy,w,h,ang,z0,z1){const a=ang*Math.PI/180,c=Math.cos(a),s=Math.
   const p=[[w/2,-h/2],[w/2,h/2],[-w/2,h/2],[-w/2,-h/2]].map(([u,v])=>[cx+c*u-s*v,cy+s*u+c*v]);
   const B=p.map(q=>[...q,z0]),T=p.map(q=>[...q,z1]),E=[];for(let i=0;i<4;i++){E.push([B[i],B[(i+1)%4]],[T[i],T[(i+1)%4]],[B[i],T[i]]);}
   return {E,front:[B[0],B[1],T[1],T[0]]};}
-function vStairs(x,y){for(const d of L.details) if(d.type==='escalier'&&x>=d.x&&x<=d.x+d.w&&y>=d.y&&y<=d.y+d.h) return 2.8*(d.y+d.h-y)/d.h; return 0;}
+function vEsc(x,y){for(const d of L.details){ if(d.type!=='escalier') continue; const hm=d.hauteur||2.8,pa=d.palier;
+    if(pa&&x>=pa.x-3&&x<=pa.x+pa.w+3&&y>=pa.y-3&&y<=pa.y+pa.h+3) return {t:`sur le palier en haut de l'${d.nom} (à ${hm.toFixed(1).replace('.',',')} m du sol)`,h:hm};
+    if(x>=d.x&&x<=d.x+d.w&&y>=d.y-3&&y<=d.y+d.h+3){const f=(d.montee||'est')==='est'?(x-d.x)/d.w:(d.x+d.w-x)/d.w;
+      return {t:`${f<.25?'en bas de':f>.75?'presque en haut de':'au milieu de'} l'${d.nom} (à ${(f*hm).toFixed(1).replace('.',',')} m du sol)`,h:f*hm};}}
+  return null;}
+function vStairs(x,y){const e=vEsc(x,y);return e?e.h:0;}
+function vOu(x,y){ // où est ce point, en mots (comme la description du plan)
+  const e=vEsc(x,y); if(e) return e.t; const r=L.rue;
+  const nomL=b=>{const n=b.nom===b.nom.toUpperCase()?b.nom.toLowerCase():b.nom; return /^voisin/i.test(n)?n+(b.y<495?' (côté Jeannot)':' (côté narrateur)'):n;};
+  if(y<r.nord_trottoir||y>r.sud_trottoir){const cote=y<r.nord_trottoir?'côté Jeannot':'côté narrateur';
+    for(const b of L.batiments) if(b.x-12<=x&&x<=b.x+b.w+12&&((y<495)===(b.y<495))) return (b.y<=y&&y<=b.y+b.h?'dans/contre ':'devant ')+nomL(b)+(b.y<=y&&y<=b.y+b.h?'':', dans la cour/le jardin')+` (${cote})`;
+    return 'parcelle '+cote;}
+  const zone=y<r.chaussee_haut?'sur le trottoir côté Jeannot':y>r.chaussee_bas?'sur le trottoir côté narrateur':y<r.chaussee_haut+40?'sur la chaussée contre le trottoir côté Jeannot':y>r.chaussee_bas-40?'sur la chaussée contre le trottoir côté narrateur':'au milieu de la chaussée';
+  const north=L.batiments.filter(b=>b.y<495); const near=north.reduce((a,b)=>Math.abs(b.x+b.w/2-x)<Math.abs(a.x+a.w/2-x)?b:a);
+  return `${zone}, à hauteur de ${nomL(near)}`;}
+function vBoxes(ci){ // rectangles projetés des éléments, du plus loin au plus près
+  const k=vCam(data.cameras[ci]); const cat=Object.fromEntries(L.catalogue.map(c=>[c.id,c])); const out=[];
+  for(const [id,e] of Object.entries(data.elements)){const c=cat[id]; if(!e.visible||!c) continue; const pts=[];
+    if(c.type==='vehicule'){const hv=VHVEH[id]||1.6; vBox(e.x,e.y,c.w,c.h,e.angle,0,hv).E.forEach(([a,b])=>[a,b].forEach(p=>{const q=vP(k,...p);if(q)pts.push(q);}));}
+    else{const z0=vStairs(e.x,e.y),hh=c.espece==='chien'?0.62*(VPOSEC[e.pose]||1):1.75*(VPOSE[e.pose]||1);
+      for(const [dx,dy] of [[-7,0],[7,0],[0,-7],[0,7]]) for(const z of [z0,z0+hh]){const q=vP(k,e.x+dx,e.y+dy,z);if(q)pts.push(q);}}
+    if(!pts.length) continue; const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+    const bb=[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)]; if(bb[2]<0||bb[0]>VW||bb[3]<0||bb[1]>VH) continue;
+    const cc=vC(k,e.x,e.y,0); out.push({id,nom:c.nom,bb,dist:Math.hypot(cc[0],cc[2])});}
+  return out.sort((a,b)=>b.dist-a.dist);}
+function vOcc(ci){ // {id:[fraction cachée, par qui]} (même calcul que la description du plan)
+  const L2=vBoxes(ci),out={};
+  L2.forEach((a,i)=>{const area=Math.max(1,(a.bb[2]-a.bb[0])*(a.bb[3]-a.bb[1]));let best=[0,''];
+    for(const o of L2.slice(i+1)){ if(o.dist>=a.dist-0.3) continue;
+      const ix=Math.max(0,Math.min(a.bb[2],o.bb[2])-Math.max(a.bb[0],o.bb[0])),iy=Math.max(0,Math.min(a.bb[3],o.bb[3])-Math.max(a.bb[1],o.bb[1]));
+      const f=ix*iy/area; if(f>best[0]) best=[f,o.nom];}
+    if(best[0]>=.25) out[a.id]=best;});
+  return out;}
 function vClip(k,poly){ // polygone 3D (carte) -> polygone image coupé au plan proche
   const C=poly.map(p=>vC(k,...p)); const out=[];
   for(let i=0;i<C.length;i++){const A=C[i],B=C[(i+1)%C.length],ia=A[2]>=VNEAR,ib=B[2]>=VNEAR;
@@ -237,8 +274,10 @@ function drawVue(){
       faces.push({poly:[[cx-dw,y,0],[cx+dw,y,0],[cx+dw,y,2.4],[cx-dw,y,2.4]],fill:'#1a1d22',stroke:'#ff9a40',sw:4,zbias:-0.05});
       labels.push([vP(k,cx,y,2.9),'porte du garage','#ffb060',20]);}}
   for(const d of L.details){
-    if(d.type==='escalier'){faces.push({poly:[[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y,2.8],[d.x,d.y,2.8]],fill:'#cfc7b6',stroke:'#6b6355'});
-      faces.push({poly:[[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y,0],[d.x+d.w,d.y,2.8]],fill:'#b3ab9a',stroke:'#6b6355'});}
+    if(d.type==='escalier'){const hm=d.hauteur||2.8;
+      faces.push({poly:[[d.x,d.y,0],[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,hm],[d.x+d.w,d.y,hm]],fill:'#cfc7b6',stroke:'#6b6355'});
+      faces.push({poly:[[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y+d.h,hm]],fill:'#b3ab9a',stroke:'#6b6355'});
+      if(d.palier){const p=d.palier; addBox(p.x+p.w/2,p.y+p.h/2,p.w,p.h,0,0,hm,'#d8cfbd','#6b6355'); labels.push([vP(k,p.x+p.w/2,p.y+p.h,hm+0.5),'palier','#d8ffd8',18]);}}
     if(d.type==='tourelle') addBox(d.x,d.y,d.r*1.6,d.r*1.6,0,0,9.5,'#c9b6e8','#4a3d63');
     if(d.type==='passage_niveau'){
       [-7,7].forEach(dx=>{const s=vSeg(k,[d.x+dx,R.nord_trottoir,0.01],[d.x+dx,R.sud_trottoir,0.01]);if(s)faces.push({line:s,stroke:'#d33',sw:3,z:vC(k,d.x,ym,0)[2]});});
@@ -298,8 +337,12 @@ function updateChamp(){
   const parts=data.cameras.map((c,i)=>{
     const ch=champ(i); const title=data.cameras.length===2?(i?'<b>Fin du mouvement :</b>':'<b>Début :</b>'):'';
     const near=ch.filter(x=>x.dist<300), mid=ch.filter(x=>x.dist>=300&&x.dist<800), far=ch.filter(x=>x.dist>=800);
-    const fmt=a=>a.map(x=>`${x.n} <i style="color:#8fa0b5">(${x.side})</i>`).join(', ')||'—';
-    return `${title}<div>🔹 <b>Premier plan :</b> ${fmt(near)}</div><div>🔸 <b>Plan moyen :</b> ${fmt(mid)}</div><div>▫️ <b>Fond :</b> ${fmt(far)}</div>`;
+    const occ=vOcc(i), cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k])), occN={};
+    for(const [id,[f,par]] of Object.entries(occ)) occN[cat[id].nom]=[f,par];
+    const fmt=a=>a.map(x=>{const o=occN[x.n]; return o?`<s style="color:#f08a86">${x.n}</s> <i style="color:#f08a86">(caché par ${o[1]})</i>`:`${x.n} <i style="color:#8fa0b5">(${x.side})</i>`;}).join(', ')||'—';
+    const masq=Object.entries(occN).map(([n,[f,par]])=>`${n} : ${f>=.7?'<b>caché</b>':'en partie caché'} par ${par} (≈ ${Math.round(f*100)} %)`);
+    return `${title}<div>🔹 <b>Premier plan :</b> ${fmt(near)}</div><div>🔸 <b>Plan moyen :</b> ${fmt(mid)}</div><div>▫️ <b>Fond :</b> ${fmt(far)}</div>`
+      +(masq.length?`<div style="color:#f08a86">🙈 <b>Dans le champ mais masqués</b> (comme dans la vue caméra) : ${masq.join(' ; ')}</div>`:'');
   });
   const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
   const vus=new Set(); data.cameras.forEach((c,i)=>champ(i).forEach(x=>vus.add(x.n)));
@@ -308,11 +351,22 @@ function updateChamp(){
   $('champ').innerHTML=parts.join('<hr style="border-color:#2a3647">')||'Pas de caméra.';
 }
 
+function fillPos(p,o){ // valeurs en mètres : depuis le bout ouest de la rue (x) et depuis le fond des parcelles côté Jeannot (y)
+  const xm=p.querySelector('[name=xm]'),ym=p.querySelector('[name=ym]'),ou=p.querySelector('#ou');
+  if(xm&&document.activeElement!==xm) xm.value=((o.x-L.rue.x0)*VM).toFixed(1);
+  if(ym&&document.activeElement!==ym) ym.value=((o.y-L.rue.nord_lot)*VM).toFixed(1);
+  if(ou){let t=vOu(o.x,o.y); if(sel&&sel.kind==='el'){const occ=vOcc(0)[sel.id]; if(occ) t+=` — 🙈 ${occ[0]>=.7?'caché':'en partie caché'} par ${occ[1]} dans la vue caméra`;} ou.textContent=t;}
+}
+document.addEventListener('keydown',e=>{
+  if(!sel||/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||'')) return;
+  const st=(e.shiftKey?0.5:0.1)/VM, d={ArrowLeft:[-st,0],ArrowRight:[st,0],ArrowUp:[0,-st],ArrowDown:[0,st]}[e.key];
+  if(!d) return; e.preventDefault(); const o=selObj(); if(!o) return; o.x+=d[0]; o.y+=d[1]; setDirty(true); drawItems();
+});
 function updatePanel(rebuild=true){
   const p=$('selpanel'); const o=selObj();
   if(!o){p.innerHTML='Clique sur la caméra, un personnage ou un véhicule.<br>Position = le rond de couleur · pointe noire = sens du regard · ↻ orange = poignée pour tourner.';return;}
   if(!rebuild && p.dataset.for===`${sel.kind}-${sel.id}`){ // juste mettre à jour les valeurs
-    const a=p.querySelector('[name=angle]'); if(a&&document.activeElement!==a) a.value=Math.round(o.angle); return;
+    const a=p.querySelector('[name=angle]'); if(a&&document.activeElement!==a) a.value=Math.round(o.angle); fillPos(p,o); return;
   }
   p.dataset.for=`${sel.kind}-${sel.id}`;
   const cat=Object.fromEntries(L.catalogue.map(k=>[k.id,k]));
@@ -323,22 +377,29 @@ function updatePanel(rebuild=true){
     <div class="row">Angle de vue <input type="range" name="fov" min="8" max="100" value="${o.fov}"><span id="fovv">${o.fov}°</span></div>
     <div class="row">Longueur du cône <input type="range" name="portee" min="100" max="1500" step="10" value="${o.portee}"></div>
     <div class="help">(la longueur ne sert qu'au dessin : la caméra voit jusqu'à l'horizon)</div>
-    <div class="row">Hauteur <select name="hauteur">${HAUTEURS.map(h=>`<option ${o.hauteur===h?'selected':''}>${h}</option>`).join('')}</select></div>`;
+    <div class="row">Hauteur <select name="hauteur">${HAUTEURS.map(h=>`<option ${o.hauteur===h?'selected':''}>${h}</option>`).join('')}</select></div>
+    <div class="row">Position <input type="number" name="xm" step="0.1" style="width:78px"> m → est <input type="number" name="ym" step="0.1" style="width:72px"> m ↓ sud</div>
+    <div class="help">📍 <span id="ou"></span><br>Flèches du clavier : déplacer de 10 cm (Maj + flèche : 50 cm).</div>`;
   }else{
     const k=cat[sel.id];
     p.innerHTML=`<b>${k.nom}</b>
     <div class="row">Orientation <input type="number" name="angle" value="${Math.round(o.angle)}" style="width:70px">°
       <button data-a="-90" title="regarde vers le côté Jeannot">↑ nord</button><button data-a="90" title="regarde vers le côté narrateur">↓ sud</button></div>
     <div class="row"><button data-a="180" title="vers le bout Jeannot">← ouest</button><button data-a="0" title="vers le bout Diego">→ est</button>
-      <button id="hide">Retirer du plan</button></div>`;
+      <button id="hide">Retirer du plan</button></div>
+    <div class="row">Position <input type="number" name="xm" step="0.1" style="width:78px"> m → est <input type="number" name="ym" step="0.1" style="width:72px"> m ↓ sud</div>
+    <div class="help">📍 <span id="ou"></span><br>Flèches du clavier : déplacer de 10 cm (Maj + flèche : 50 cm).</div>`;
     if(k.type!=='vehicule'){
       const poses=(L.poses||{})[k.espece==='chien'?'chien':'perso']||[];
       p.innerHTML+=`<div class="row">Pose <select name="pose"><option value="">—</option>${poses.map(x=>`<option ${o.pose===x?'selected':''}>${x}</option>`).join('')}</select></div>
       <div class="row">Action <input type="text" name="action" value="${(o.action||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}" placeholder="ex. fume, regarde la 4L, aboie…" style="flex:1"></div>`;
     }
   }
+  fillPos(p,o);
   p.querySelectorAll('input,select').forEach(inp=>inp.addEventListener('input',()=>{
     const v=inp.value;
+    if(inp.name==='xm'&&v!==''){o.x=L.rue.x0+(+v)/VM; drawItems(); setDirty(true); return;}
+    if(inp.name==='ym'&&v!==''){o.y=L.rue.nord_lot+(+v)/VM; drawItems(); setDirty(true); return;}
     if(inp.name==='angle') o.angle=+v||0;
     if(inp.name==='fov'){o.fov=+v;$('fovv').textContent=v+'°';}
     if(inp.name==='focale'&&v){o.fov=+v;updatePanel(true);}

@@ -101,10 +101,29 @@ def box_edges(cx, cy, w, h, ang, z0, z1):
 
 
 def stairs_elev(L, x, y):
-    for d in L["details"]:
-        if d["type"] == "escalier" and d["x"] <= x <= d["x"] + d["w"] and d["y"] <= y <= d["y"] + d["h"]:
-            return 2.8 * (d["y"] + d["h"] - y) / d["h"]  # monte vers la maison (nord)
-    return 0.0
+    e = dsm.sur_escalier(L, x, y)
+    return e[1] if e else 0.0
+
+
+def occultations(L, placement, cam_i=0):
+    """{id: (fraction cachée 0..1, nom de ce qui cache)} pour les éléments masqués par un véhicule
+    ou un personnage plus proche (approximation par rectangles projetés)."""
+    els = elements_attendus(L, placement, cam_i)  # du plus loin au plus près
+    out = {}
+    for i, (eid, nom, typ, bb, dist) in enumerate(els):
+        area = max(1.0, (bb[2] - bb[0]) * (bb[3] - bb[1]))
+        best = (0.0, "")
+        for oid, onom, otyp, ob, od in els[i + 1:]:
+            if od >= dist - 0.3:
+                continue
+            ix = max(0, min(bb[2], ob[2]) - max(bb[0], ob[0]))
+            iy = max(0, min(bb[3], ob[3]) - max(bb[1], ob[1]))
+            f = ix * iy / area
+            if f > best[0]:
+                best = (f, onom)
+        if best[0] >= 0.25:
+            out[eid] = best
+    return out
 
 
 def elements_attendus(L, placement, cam_i=0):
@@ -197,10 +216,14 @@ def calque(plan_id, cam_i=0):
     # détails
     for dt in L["details"]:
         if dt["type"] == "escalier":
-            x0, y0, w, h = dt["x"], dt["y"], dt["w"], dt["h"]
-            line((x0, y0 + h, 0), (x0, y0, 2.8), (200, 255, 200, 220), 3)
-            line((x0 + w, y0 + h, 0), (x0 + w, y0, 2.8), (200, 255, 200, 220), 3)
-            label(cam.proj(x0 + w / 2, y0, 3.3), "escalier Henri", (200, 255, 200, 230))
+            x0, y0, w, h, hm = dt["x"], dt["y"], dt["w"], dt["h"], dt.get("hauteur", 2.8)
+            for yy in (y0, y0 + h):
+                line((x0, yy, 0), (x0 + w, yy, hm), (200, 255, 200, 230), 3)
+            pa = dt.get("palier")
+            if pa:
+                for a, b in box_edges(pa["x"] + pa["w"] / 2, pa["y"] + pa["h"] / 2, pa["w"], pa["h"], 0, hm, hm)[0][:4]:
+                    line(a, b, (200, 255, 200, 230), 3)
+                label(cam.proj(pa["x"] + pa["w"] / 2, pa["y"] + pa["h"], hm + 0.5), "palier", (200, 255, 200, 230))
         elif dt["type"] == "tourelle":
             for dx in (-dt["r"], dt["r"]):
                 line((dt["x"] + dx, dt["y"], 0), (dt["x"] + dx, dt["y"], 9.5), (210, 180, 255, 200), 2)

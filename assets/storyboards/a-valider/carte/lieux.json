@@ -1,5 +1,5 @@
 {
- "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes.",
+ "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes. Escalier d'Henri : il longe la façade et monte vers l'est jusqu'au palier du 1er étage (≈ 2,8 m) ; un personnage posé sur l'escalier ou le palier est surélevé d'autant.",
  "taille": [
   1600,
   1000
@@ -202,10 +202,18 @@
    "id": "escalier-henri",
    "type": "escalier",
    "nom": "escalier extérieur d'Henri",
-   "x": 500,
+   "x": 430,
    "y": 342,
-   "w": 50,
-   "h": 40
+   "w": 85,
+   "h": 38,
+   "montee": "est",
+   "hauteur": 2.8,
+   "palier": {
+    "x": 515,
+    "y": 342,
+    "w": 35,
+    "h": 38
+   }
   },
   {
    "id": "passage-a-niveau",
@@ -375,7 +383,7 @@
    }
   }
  },
- "rev": 3,
+ "rev": 4,
  "poses": {
   "perso": [
    "debout",

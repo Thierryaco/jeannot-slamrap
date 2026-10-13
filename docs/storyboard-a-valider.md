@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | ✅ Validé | 3 | v2 |
+| [CARTE](#carte) | référence | ✅ Validé | 3 | v3 |
 | [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 13 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -43,7 +43,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 ## CARTE
 
-**référence** · Carte des lieux (vue de dessus) · ✅ Validé · choix : **v2**
+**référence** · Carte des lieux (vue de dessus) · ✅ Validé · choix : **v3**
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
 
@@ -55,7 +55,7 @@ D'après tes réponses : Henri juste à côté du même côté, tourelle sur la 
 - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
 et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans.
 
-**CARTE · v2** — ✅ retenue — nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)  
+**CARTE · v2** — ⏳ à valider — nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)  
 Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v2.png" width="640" alt="CARTE v2">
@@ -63,7 +63,7 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 - 💬 *2026-10-11 11:25* — C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé
 - 💬 *2026-10-13 09:58* — il faut que la tourelle soit à la droite de la maison  c'est le coté opposé
 
-**CARTE · v3** — ⏳ à valider — tools/draw_street_map.py base v3 (lieux rév. 5)  
+**CARTE · v3** — ✅ retenue — tools/draw_street_map.py base v3 (lieux rév. 5)  
 D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit de la maison de Jeannot (côté Henri). Tout le reste de la v2 validée est inchangé (longueur de rue, maisons, garage, Estafette, passage à niveau), en plus de l'escalier d'Henri avec son palier (lieux rév. 4). La sorcière de P01 a suivi la tourelle.
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v3.png" width="640" alt="CARTE v3">

@@ -135,6 +135,7 @@ Henri remonté de 109 px (pieds à y 450), toujours à la verticale de sa positi
 4. (796, 501) — c'est le point exterieur au niveau du haut du premier poteau du portail
 5. (833, 603) — c'est le point extérieur au niveau du sol du deuxieme  poteau du portail
 6. (833, 502) — c'est le point extérieur au niveau du haut du deuxieme  poteau du portail
+- 💬 *2026-10-13 20:49* — tu penseras a rajouter la porte après avoir retiré le portail et le reste  et rappelle toi la position d'henri qui doit être penché sur le muret en fumant la tête tourné vers la 4l
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

@@ -6,8 +6,8 @@
    "temps": "référence",
    "paroles": "Carte des lieux (vue de dessus)",
    "brief": "Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.",
-   "statut": "valide",
-   "choix": "v3",
+   "statut": "en-cours",
+   "choix": null,
    "options": [
     {
      "id": "v1",
@@ -44,7 +44,7 @@
      "fichier": "carte-rue-v3.png",
      "source": "tools/draw_street_map.py base v3 (lieux rév. 5)",
      "note": "D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit de la maison de Jeannot (côté Henri). Tout le reste de la v2 validée est inchangé (longueur de rue, maisons, garage, Estafette, passage à niveau), en plus de l'escalier d'Henri avec son palier (lieux rév. 4). La sorcière de P01 a suivi la tourelle.",
-     "etat": "retenue",
+     "etat": "ecartee",
      "avis": []
     },
     {

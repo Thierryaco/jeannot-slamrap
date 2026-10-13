@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | ✅ Validé | 6 | v3 |
+| [CARTE](#carte) | référence | 🛠️ En cours | 6 | — |
 | [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 15 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -43,14 +43,9 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 ## CARTE
 
-**référence** · Carte des lieux (vue de dessus) · ✅ Validé · choix : **v3**
+**référence** · Carte des lieux (vue de dessus) · 🛠️ En cours
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
-
-**CARTE · v3** — ✅ retenue — tools/draw_street_map.py base v3 (lieux rév. 5)  
-D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit de la maison de Jeannot (côté Henri). Tout le reste de la v2 validée est inchangé (longueur de rue, maisons, garage, Estafette, passage à niveau), en plus de l'escalier d'Henri avec son palier (lieux rév. 4). La sorcière de P01 a suivi la tourelle.
-
-<img src="../assets/storyboards/a-valider/carte/carte-rue-v3.png" width="640" alt="CARTE v3">
 
 **CARTE · v4** — 🔁 à retoucher — tools/draw_street_map.py base v4 (lieux rév. 6)  
 Carte recalée sur l'image P01 v13 (la carte suit l'image, pas l'inverse). La rue est prolongée de 12 m vers l'ouest (la caméra de la v13 est 6,5 m avant le début de la rue, avec un téléobjectif de 28°). La maison de Jeannot est plus longue (x 170–690), avec ses 2 tourelles comme dans la v13 : une tour ronde à toit rouge et la tourelle à balcon en ardoise (celle de la sorcière). La maison d'Henri suit, avec son escalier côté rue qui monte vers l'ouest. Le garage est collé à la maison d'Henri (x 1000–1115), la maison de Diego est juste après (l'Estafette devant), puis un voisin et le passage à niveau, qui n'a pas bougé. Un des deux voisins côté Jeannot disparaît.
@@ -69,7 +64,7 @@ D'après tes avis : la tour ronde est en retrait, dans l'alignement de la façad
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v6.png" width="640" alt="CARTE v6">
 
-<details><summary>🗄️ 2 option(s) écartée(s) : v1, v2</summary>
+<details><summary>🗄️ 3 option(s) écartée(s) : v1, v2, v3</summary>
 
 - **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
   - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
@@ -77,6 +72,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 - **v2** — nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg) — ../assets/storyboards/a-valider/carte/carte-rue-v2.png
   - 💬 *2026-10-11 11:25* — C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé
   - 💬 *2026-10-13 09:58* — il faut que la tourelle soit à la droite de la maison  c'est le coté opposé
+- **v3** — tools/draw_street_map.py base v3 (lieux rév. 5) — ../assets/storyboards/a-valider/carte/carte-rue-v3.png
 
 </details>
 

@@ -1,13 +1,13 @@
 """P01 v16 : retouches locales sur v13 (aucune recomposition).
 1) tourelle d'ardoise surélevée d'environ 0,55 m (24 px) ;
 2) balcon retiré : mur et corps de tourelle reconstitués avec des morceaux de v13 elle-même ;
-3) sorcière à la fenêtre de la tourelle, à l'échelle de la fenêtre."""
+3) fenêtre d'origine de la tourelle complétée, sorcière penchée dedans (patch au style propre)."""
 import sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 V13 = "assets/storyboards/a-valider/p01/p01-v13-montage-rev5.png"
-GEN = "assets/storyboards/a-valider/p01/work/gen-v16-tourelle.png"
+SORC = "assets/storyboards/a-valider/p01/work/patch-sorciere-fenetre.png"
 
 
 def feather(box_or_poly, size, r=1.5):
@@ -64,30 +64,55 @@ def build():
         wall[ys + 5:ys + 7, x0 - 3:x1 + 3] = [60, 58, 56]
         wall[ys - 1:ys, x0 - 3:x1 + 3] = [60, 58, 56]
     out = paste(r, wall, feather((199, 275, 385, 412), im.size, 2.5))
-    # 2b) corps de tourelle prolongé jusqu'au mur du jardin
+    # 2b) corps de tourelle prolongé jusqu'au mur du jardin (ombrage cylindrique de la tourelle de v13)
     band = r[186:216, 384:452]
-    col = np.tile(band.mean(0, keepdims=True), (140, 1, 1))
-    col[:, -3:] = [52, 50, 52]  # contour droit de la tourelle (trait sombre de v13)
-    col[:, :2] = col[:, :2] * 0.75
-    col = col + grain[:140, :68, None] * 0.12
-    tur = out.copy(); tur[298:438, 384:452] = col
-    out2 = paste(out, tur, feather((384, 298, 452, 438), im.size, 0.8))
-    # à droite de la tourelle : restes de balcon remplacés par le feuillage voisin
-    bg = out2.copy(); bg[276:440, 452:470] = r[276:440, 470:488]
-    out2 = paste(out2, bg, feather((453, 276, 470, 440), im.size, 1.0))
+    prof = band.mean(0)                              # profil gauche→droite (ombre → clair → contour)
+    WALL_TOP = []
+    for x in range(384, 452):                        # haut du mur beige du jardin, colonne par colonne
+        y = 440
+        while y < 520 and not (a[y, x, 0] > 150 and a[y, x, 0] - a[y, x, 2] > 12):
+            y += 1
+        WALL_TOP.append(y)
+    tur = out.copy()
+    for i, x in enumerate(range(384, 452)):
+        y1 = WALL_TOP[i]
+        n = y1 - 298
+        sh = np.linspace(1.0, 0.86, n)[:, None]      # léger assombrissement vers le bas (ombre du jardin)
+        tur[298:y1, x] = prof[i][None] * sh + np.resize(grain[:, i % 186], n)[:, None] * 0.10
+    tur[298:520, 449:452] = [52, 50, 52]             # contour droit (trait sombre de v13)
+    tm = np.zeros(mk.shape)
+    for i, x in enumerate(range(384, 452)):
+        tm[298:WALL_TOP[i], x] = 1
+    tm = np.array(Image.fromarray((tm * 255).astype("uint8")).filter(ImageFilter.GaussianBlur(0.7))) / 255.0
+    out2 = paste(out, tur, tm)
+    # à droite de la tourelle : restes de balcon -> feuillage voisin en miroir (raccord continu en x=470)
+    bg = out2.copy(); bg[276:440, 452:470] = r[276:440, 470:488][:, ::-1]
+    out2 = paste(out2, bg, feather((452, 276, 470, 440), im.size, 1.0))
     # fumée de Jeannot conservée par-dessus
-    box = (slice(392, 438), slice(355, 432))
+    box = (slice(392, 470), slice(355, 432))
     lum_o = a[box].mean(2); lum_n = out2[box].mean(2)
     k = np.clip((lum_o - lum_n - 25) / 40, 0, 0.85)[..., None]
     out2[box] = out2[box] * (1 - k) + a[box] * k
-    # 3) sorcière à la fenêtre (patch de la génération, à l'échelle de la fenêtre)
-    g = Image.open(GEN).convert("RGB").resize((440, 440), Image.LANCZOS).crop((206, 160, 302, 280))
-    g = g.resize((54, 62), Image.LANCZOS)
-    wm = Image.new("L", g.size, 0); ImageDraw.Draw(wm).rounded_rectangle((1, 1, g.size[0] - 2, g.size[1] - 2), 3, fill=255)
-    wm = np.array(wm.filter(ImageFilter.GaussianBlur(0.8))) / 255.0
-    x0, y0 = 413 - g.size[0] // 2, 244
-    reg = out2[y0:y0 + g.size[1], x0:x0 + g.size[0]]
-    out2[y0:y0 + g.size[1], x0:x0 + g.size[0]] = reg * (1 - wm[..., None]) + np.array(g) * wm[..., None]
+    # 3) fenêtre d'origine de la tourelle complétée (cadre de v13) + la sorcière penchée dedans
+    WX0, WX1, WY0, WY1 = 388, 442, 247, 318
+    win = out2.copy()
+    win[WY0:WY0 + 16, WX0:WX1] = a[WY0:WY0 + 16, WX0:WX1]           # haut du cadre d'origine
+    for y in range(WY0 + 16, WY1 - 8):
+        win[y, WX0:WX0 + 10] = a[WY0 + 15, WX0:WX0 + 10]               # montants d'origine prolongés
+        win[y, WX1 - 10:WX1] = a[WY0 + 15, WX1 - 10:WX1]
+    win[WY0 + 8:WY1 - 8, WX0 + 10:WX1 - 10] = [46, 42, 48]           # intérieur sombre
+    win[WY1 - 8:WY1, WX0 - 3:WX1 + 3] = [214, 205, 190]              # appui
+    win[WY1 - 9, WX0 - 3:WX1 + 3] = [62, 58, 56]; win[WY1, WX0 - 3:WX1 + 3] = [62, 58, 56]
+    sp = Image.open(SORC).convert("RGBA").crop((31, 52, 123, 208))  # sorcière seule (sans le cadre de pierre)
+    sw = WX1 - WX0 - 18
+    sp = sp.resize((sw, round(sp.height * sw / sp.width)), Image.LANCZOS)
+    sa = np.array(sp).astype(float)
+    y0 = WY1 - 6 - sa.shape[0]; x0 = WX0 + 9
+    y0c = max(y0, WY0 + 8); sa = sa[y0c - y0:]
+    reg = win[y0c:y0c + sa.shape[0], x0:x0 + sw]
+    al = sa[..., 3:4] / 255.0
+    win[y0c:y0c + sa.shape[0], x0:x0 + sw] = reg * (1 - al) + sa[..., :3] * al
+    out2 = paste(out2, win, feather((WX0 - 3, WY0, WX1 + 3, WY1 + 1), im.size, 0.6))
     return Image.fromarray(np.clip(out2, 0, 255).astype("uint8"))
 
 

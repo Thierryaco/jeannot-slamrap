@@ -104,3 +104,11 @@ Les fenêtres vocales sont estimées ; les gestes seront recalés sur les mots �
 3. Recaler les poses de la chute sur « tombe », « escaliers », « dents » et « esquintées » ; pas de rotation globale.
 4. Confirmer l'orthographe du sticker de l'Estafette et définir Marco avant les cels finaux.
 5. Faire valider les essais des plans 1 et 2 avant de les considérer comme référence de production ou de les pousser comme versions finales.
+
+### Contrôle obligatoire de chaque nouvelle image (demande de l'utilisateur, P01 v16)
+
+Sauf demande explicite, toute génération ou retouche doit **respecter le style, les couleurs, l'apparence des lieux et des personnages, et leur positionnement** de l'image de référence choisie (et de la carte). Méthode : on part de l'image retenue, on ne retouche que des zones locales (recadrage → édition → collage masqué), puis on lance :
+
+    python3 tools/controle_retouche.py REFERENCE.png RESULTAT.png --zones "x0,y0,x1,y1;…" --plan PXX --sortie CONTROLE.jpg
+
+Le contrôle vérifie : (1) rien n'a bougé hors des zones autorisées ; (2) les nouvelles couleurs existent déjà dans l'image ; (3) pas de grain ou de texture étrangère au style (tuile par tuile) ; (4) pas de raccord visible ; (5) image de contrôle avec le calque de la carte. **Si le résultat est « À REFAIRE », on ne livre pas : on recommence jusqu'à obtenir « CONFORME ».** Le contrôle a été testé sur des contre-exemples (grain collé, couleur étrangère, changement hors zone) : il les refuse tous.

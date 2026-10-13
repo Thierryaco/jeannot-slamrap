@@ -242,18 +242,6 @@
      ]
     },
     {
-     "id": "v14",
-     "fichier": "p01-v14-camera-rev7.png",
-     "source": "nouveau fil, montage au calque de la carte P01 rév. 7 (ta caméra telle quelle) : tools/compose_p01.py",
-     "carte": {
-      "plan_rev": 7,
-      "lieux_rev": 5
-     },
-     "note": "Ta caméra rév. 7 sans aucun changement ; chaque perso et véhicule est collé dans sa boîte exacte du calque (contrôle : p01-v14-v15-controle-calque.jpg). Tourelle de la sorcière à droite de la maison de Jeannot, à 5 m de la caméra : elle remplit le bord gauche, son toit sort du cadre (c'est ce que voit un 100° à cette distance) ; la sorcière se penche à une fenêtre de la tourelle (d'après sa fiche). Henri (d'après sa fiche) sur le palier de son escalier. 4L vue de dos, très rouillée, au bord du trottoir ; Jeannot (barbe brune, chapeau jaune, bleu de travail, une seule fumée) ; Enji (berger noir et feu) au milieu de la chaussée. Au fond : garage ouvert, Coccinelle capot ouvert avec outils au sol, Diego, et l'Estafette d'origine (bleu-gris, d'après P03/P02). Comme le calcule la carte, la 4L cache la Coccinelle et Diego (≈ 82 %) depuis cette caméra.",
-     "etat": "a-valider",
-     "avis": []
-    },
-    {
      "id": "v15",
      "fichier": "p01-v15-camera-b.png",
      "source": "nouveau fil, même montage + fond reprojeté vers la caméra B (tools/warp_camera.py)",

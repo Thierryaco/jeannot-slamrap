@@ -82,7 +82,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 11, 2026-10-13 10:12) :
+🗺️ Carte du plan (rév. 12, 2026-10-13 14:54) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
@@ -93,7 +93,7 @@ La v17 avec seulement tes corrections : l'Estafette est refaite en vraie Renault
 
 - 💬 *2026-10-13 13:12* — un problème avec la sorcière  elle est flou et pas défini et la couleur de la façade de la tourelle fait plus proppre que le reste de la maison
 
-**P01 · v19** — 🔁 à retoucher — tools/p01_v19.py (retouches locales sur v18) · contrôle : tools/controle_retouche.py → p01-v19-controle.jpg · 🟢 conforme à la carte actuelle (rév. 11)  
+**P01 · v19** — 🔁 à retoucher — tools/p01_v19.py (retouches locales sur v18) · contrôle : tools/controle_retouche.py → p01-v19-controle.jpg · 🟠 faite d'après la carte rév. 11 — la carte a changé depuis  
 La v18 avec seulement tes corrections : la sorcière est de nouveau nette (traits du visage, cheveux, mains) ; la façade de la tourelle et sa corniche ont pris la teinte et la patine du crépi de la tour ronde (fini le crème trop propre) ; le logo Renault de l'Estafette est un losange chromé bien visible, comme celui de la 4L. Rien d'autre ne bouge. Carte : tourelle agrandie (rayon 48 → 56), reculée pour ne pas toucher le trottoir (lieux rév. 9). Contrôle automatique : 0 pixel modifié hors des zones, couleurs OK, raccords OK ; le critère « grain » signale 2 tuiles (×1,78) qui sont les mèches de cheveux et le cadre de la fenêtre, c'est-à-dire des traits nets demandés, pas du grain — vérifié à l'œil.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v19-retouche-v18.png" width="640" alt="P01 v19">

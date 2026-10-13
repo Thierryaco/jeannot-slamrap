@@ -116,18 +116,18 @@
 <polygon points="1239.0,264.0 1239.0,354.0 1193.0,354.0 1193.0,264.0" fill="#f08a2c" fill-opacity="1.0"/>
 <polygon points="1234.0,355.0 1216.0,373.0 1198.0,355.0" fill="#8a4510" fill-opacity="1.0"/>
 <text x="1216.0" y="314.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Cox</text>
-<polygon points="316.0,404.0 308.0,420.0 300.0,404.0" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="308.0" cy="394.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
-<text x="308.0" y="399.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>
-<polygon points="360.0,421.0 352.0,437.0 344.0,421.0" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="352.0" cy="411.0" r="13" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
-<text x="352.0" y="416.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">E</text>
+<polygon points="293.0,431.0 285.0,447.0 277.0,431.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="285.0" cy="421.0" r="13" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
+<text x="285.0" y="426.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">J</text>
+<polygon points="259.0,483.0 251.0,499.0 243.0,483.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="251.0" cy="473.0" r="13" fill="#b08a5a" stroke="#1b2430" stroke-width="2"/>
+<text x="251.0" y="478.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">E</text>
 <polygon points="136.0,342.0 128.0,358.0 120.0,342.0" fill="#1b2430" fill-opacity="1.0"/>
 <circle cx="128.0" cy="332.0" r="13" fill="#7d5cc0" stroke="#1b2430" stroke-width="2"/>
 <text x="128.0" y="337.0" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
-<polygon points="540.0,366.0 532.0,382.0 524.0,366.0" fill="#1b2430" fill-opacity="1.0"/>
-<circle cx="532.0" cy="356.0" r="13" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
-<text x="532.0" y="361.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">H</text>
+<polygon points="536.0,374.0 528.0,390.0 520.0,374.0" fill="#1b2430" fill-opacity="1.0"/>
+<circle cx="528.0" cy="364.0" r="13" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
+<text x="528.0" y="369.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">H</text>
 <polygon points="1172.0,359.0 1164.0,375.0 1156.0,359.0" fill="#1b2430" fill-opacity="1.0"/>
 <circle cx="1164.0" cy="349.0" r="13" fill="#5d8fd6" stroke="#1b2430" stroke-width="2"/>
 <text x="1164.0" y="354.0" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">D</text>
@@ -137,7 +137,7 @@
 <polygon points="79.0,484.0 105.0,484.0 105.0,506.0 79.0,506.0" fill="#e04f5f" fill-opacity="1.0"/>
 <polygon points="105.0,489.0 116.0,483.0 116.0,507.0 105.0,501.0" fill="#1b2430" fill-opacity="1.0"/>
 <text x="95.0" y="529.0" font-size="13" fill="#e04f5f" text-anchor="middle" font-weight="bold">P01</text>
-<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 5)</text>
+<text x="800.0" y="42.0" font-size="26" fill="#1b2430" text-anchor="middle" font-weight="bold">Plan P01 — 00:00–00:05  (rév. 6)</text>
 <text x="800.0" y="72.0" font-size="15" fill="#4a5566" text-anchor="middle">Instrumental</text>
 <text x="70.0" y="895.0" font-size="16" fill="#1b2430" text-anchor="start" font-weight="bold">Légende :</text>
 <circle cx="180.0" cy="889.0" r="10" fill="#f2bf44" stroke="#1b2430" stroke-width="2"/>
@@ -154,6 +154,6 @@
 <text x="1147.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">E  Enji</text>
 <circle cx="1320.0" cy="889.0" r="10" fill="#9fd1ee" stroke="#1b2430" stroke-width="2"/>
 <text x="1337.0" y="895.0" font-size="14" fill="#1b2430" text-anchor="start">N  le narrateur</text>
-<text x="70.0" y="931.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra : à hauteur d'yeux, angle de vue 60°. Dans le champ : Jeannot (à gauche), la 4L (à gauche), Enji (à gauche), voisin (côté narrateur) (à droite), Maison d'HENRI (à </text>
+<text x="70.0" y="931.0" font-size="14" fill="#1b2430" text-anchor="start">Caméra : à hauteur d'yeux, angle de vue 60°. Dans le champ : Enji (à gauche), Jeannot (à gauche), la 4L (à gauche), voisin (côté narrateur) (à droite), Maison d'HENRI (à </text>
 <text x="70.0" y="965.0" font-size="14" fill="#7a1d27" text-anchor="start" font-weight="bold">Règle : les lieux ne bougent jamais ; véhicules et personnages restent en place sauf action prévue dans le plan.</text>
 </svg>

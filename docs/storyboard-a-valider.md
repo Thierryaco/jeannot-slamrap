@@ -68,7 +68,7 @@ Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinel
 
 > Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté.
 
-🗺️ Carte du plan (rév. 5, 2026-10-11 12:37) :
+🗺️ Carte du plan (rév. 6, 2026-10-13 09:57) :
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 

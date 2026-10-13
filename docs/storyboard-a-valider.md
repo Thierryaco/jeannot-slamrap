@@ -47,14 +47,6 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
 
-**CARTE · v2** — ⏳ à valider — nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)  
-Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.
-
-<img src="../assets/storyboards/a-valider/carte/carte-rue-v2.png" width="640" alt="CARTE v2">
-
-- 💬 *2026-10-11 11:25* — C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé
-- 💬 *2026-10-13 09:58* — il faut que la tourelle soit à la droite de la maison  c'est le coté opposé
-
 **CARTE · v3** — ✅ retenue — tools/draw_street_map.py base v3 (lieux rév. 5)  
 D'après ton avis sur la v2 : la tourelle de la sorcière passe du côté droit de la maison de Jeannot (côté Henri). Tout le reste de la v2 validée est inchangé (longueur de rue, maisons, garage, Estafette, passage à niveau), en plus de l'escalier d'Henri avec son palier (lieux rév. 4). La sorcière de P01 a suivi la tourelle.
 
@@ -77,11 +69,14 @@ D'après tes avis : la tour ronde est en retrait, dans l'alignement de la façad
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v6.png" width="640" alt="CARTE v6">
 
-<details><summary>🗄️ 1 option(s) écartée(s) : v1</summary>
+<details><summary>🗄️ 2 option(s) écartée(s) : v1, v2</summary>
 
 - **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
   - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
 et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vue dégagé du garage ouvert avec la coccinnelle dedans.
+- **v2** — nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg) — ../assets/storyboards/a-valider/carte/carte-rue-v2.png
+  - 💬 *2026-10-11 11:25* — C'est bon ça servira de ref à la carte  interactive pour chaque plan que je t'ai demandé
+  - 💬 *2026-10-13 09:58* — il faut que la tourelle soit à la droite de la maison  c'est le coté opposé
 
 </details>
 

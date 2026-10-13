@@ -27,7 +27,7 @@
      "fichier": "carte-rue-v2.png",
      "source": "nouveau fil, d'après ton avis sur v1 (SVG : carte-rue-v2.svg)",
      "note": "Garage/atelier de Diego et maison inversés : le garage (porte ouverte, Coccinelle sur parpaings) vient en premier côté ouest, la maison au bout. L'Estafette est garée devant la maison, donc rien ne bouche la vue sur le garage ouvert.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "avis": [
       {
        "date": "2026-10-11 11:25",

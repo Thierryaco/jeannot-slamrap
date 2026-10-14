@@ -73,7 +73,7 @@
      "fichier": "carte-rue-v6.png",
      "source": "tools/draw_street_map.py base v6 (lieux rév. 8)",
      "note": "D'après tes avis : la tour ronde est en retrait, dans l'alignement de la façade de la maison de Jeannot ; elle ne dépasse plus sur le trottoir. La tourelle de la sorcière (toit d'ardoise) est placée derrière le mur du jardin, à l'endroit où elle apparaît dans l'image. Les véhicules ont leurs dimensions réelles : Coccinelle 4,08 × 1,54 m, 4L 3,66 × 1,48 m, Estafette 4,29 × 1,80 m.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "avis": []
     },
     {

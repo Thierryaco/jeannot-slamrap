@@ -653,6 +653,10 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
    - **v4** (`p02-v4-volant-couleurs.png`, `tools/p02_v4.py`, contrôle CONFORME : hors zones 0,00 ;
      volant ×0,88 ; sol ×0,94 ; ciel ×1,00) = paire 1 faite. Le ciel n'a pu passer qu'au bleu pâle : le
      bleu franc de P01 n'existe pas dans la v3 et le critère « couleurs déjà dans l'image » le refuse.
+     Corrigée après une réinitialisation (avant de la montrer) : le masque des bordures avait grisé la tache
+     claire du genou gauche de Jeannot (x 1001–1022, y 664–699, 421 px) ; `p02_v4.py` retire désormais
+     les morceaux de surface isolés dans la boîte de Jeannot. Vérifié : rien ne change dans la jambe,
+     le script reproduit l'image, contrôle CONFORME.
    - **Liste des correctifs P02** (à faire dans l'ordre, une paire par version, base = dernière version) :
      1. ✅ volant du côté proche (conduite à droite) → côté conducteur (v4) ;
      2. ✅ route, trottoirs, bordures beiges → gris de P01 ; ciel gris-vert → bleu pâle (v4) ;
@@ -776,6 +780,10 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
 - `generate_image` avec `offer_options` : seule l'image choisie par l'utilisateur est enregistrée ;
   l'autre ne l'est nulle part (pas de dossier « Unselected files ») et ne peut donc pas aller dans
   « à valider ». Le dire à l'utilisateur.
+
+- Une zone de contrôle très large (ex. tout le sol) laisse passer une fuite de masque sur un personnage
+  (P02 v4 : tache du genou de Jeannot grisée). Après une retouche par masques, regarder la carte des
+  pixels changés (v_avant ≠ v_après) sur chaque personnage, pas seulement le verdict du contrôle.
 
 ---
 

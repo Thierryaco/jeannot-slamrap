@@ -160,6 +160,9 @@ SURFACES = {
 # bordures de trottoir : bandes claires et chaudes qui longent les surfaces ci-dessus (même traitement « garde »)
 BORDURES = ("garde", 0.95, 128.0, 131.0, 0.5)
 ENJI = (430, 690, 1000, 1045)   # rectangle d'Enji : son pelage fauve n'est pas une bordure
+# boîte de Jeannot : un morceau de surface isolé à l'intérieur (non relié à la route) est une tache de sa
+# salopette, pas du sol — sa tache claire du genou gauche (x 1001–1022, y 664–699) passait en « bordure »
+JEANNOT = (990, 415, 1200, 965)
 CIEL_P01 = (218.0, 125.0, 115.0)  # L, a, b médians du ciel de P01 v33 (pour mémoire)
 # le bleu franc de P01 n'existe pas dans la v3 et le contrôle refuse les couleurs absentes de l'image : le ciel
 # prend le bleu pâle le plus proche déjà présent (mêmes cases de couleur que le ciel d'origine)
@@ -197,6 +200,18 @@ def masques_sol(img):
     bord &= ~((xx >= ex0) & (xx < ex1) & (yy >= ey0) & (yy < ey1))
     n, lbl, st, _ = cv2.connectedComponentsWithStats(bord.astype(np.uint8), 8)
     out["bordures"] = np.isin(lbl, [i for i in range(1, n) if st[i][4] > 150])
+    # Jeannot : on retire les morceaux de surface isolés (4-connexité) contenus dans sa boîte
+    union = np.zeros((H, W), bool)
+    for z in out.values():
+        union |= z
+    n, lbl, st, _ = cv2.connectedComponentsWithStats(union.astype(np.uint8), 4)
+    jx0, jy0, jx1, jy1 = JEANNOT
+    isoles = [i for i in range(1, n) if st[i][4] < 3000 and st[i][0] >= jx0 and st[i][1] >= jy0
+              and st[i][0] + st[i][2] <= jx1 and st[i][1] + st[i][3] <= jy1]
+    if isoles:
+        enlever = np.isin(lbl, isoles)
+        for k in out:
+            out[k] &= ~enlever
     return out
 
 

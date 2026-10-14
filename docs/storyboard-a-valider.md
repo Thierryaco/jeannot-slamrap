@@ -170,7 +170,7 @@ D'après ton avis sur la v1 et la carte P02 rév. 2 : la composition de la v1 vu
 
 <img src="../assets/storyboards/a-valider/p02/p02-v3-cul-de-sac.png" width="640" alt="P02 v3">
 
-**P02 · v4** — ⏳ à valider — tools/p02_v4.py — la v3 avec les 2 premiers correctifs, sans IA · contrôle : tools/controle_retouche.py → p02-v4-controle.jpg (CONFORME : hors zones 0,00 ; volant netteté ×0,88 ; sol ×0,94 ; ciel ×1,00) · 🟢 conforme à la carte actuelle (rév. 2)  
+**P02 · v4** — ⏳ à valider — tools/p02_v4.py — la v3 avec les 2 premiers correctifs, sans IA · contrôle : tools/controle_retouche.py → p02-v4-controle.jpg (CONFORME : hors zones 0,00 ; volant netteté ×0,88 ; sol ×0,94 ; ciel ×1,00) · corrigée avant présentation : la tache de peinture claire du genou gauche de Jeannot avait été prise pour une bordure de trottoir et grisée (421 px) ; elle est rendue à l'identique de la v3 · 🟢 conforme à la carte actuelle (rév. 2)  
 Correctifs 1 et 2 de la liste (14/10) : 1) le volant passe du côté conducteur (une 4L française l'a à gauche, donc ici derrière la moitié éloignée du pare-brise) ; 2) la chaussée, les trottoirs et les bordures passent du beige au gris de P01 (chaque surface prend la teinte de la même surface dans P01, ombres et texture gardées) et le coin de ciel passe du gris-vert à un bleu pâle — le bleu franc de P01 n'existe pas dans l'image et le contrôle le refuse : il viendra avec le point « plus de ciel ». Tout le reste est identique à la v3, au pixel près.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v4-volant-couleurs.png" width="640" alt="P02 v4">

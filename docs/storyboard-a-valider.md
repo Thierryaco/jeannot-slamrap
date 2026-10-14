@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 26 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 27 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -127,6 +127,11 @@ La v28 avec Henri enfin sur son palier (ton avis v19) : penché, les avant-bras 
 La v29 avec la tête d'Henri refaite, comme tu l'as demandé (« base toi sur la v29 »). Sa tête suit maintenant la v1 du P08, ta référence : longue tignasse gris foncé en mèches, visage maigre, lunettes rectangulaires sombres, barbe de trois jours. Et son regard ne va plus vers le mur ou la porte : visage de trois quarts face, yeux baissés vers l'avant et vers la gauche, du côté de la 4L, qui est au premier plan, comme dans ed5. Même pose penchée, avant-bras sur le muret, cigarette et filet de fumée. Tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). Contrôle CONFORME (couleurs 100 %, netteté ×1,22, raccord 0,0).
 
 <img src="../assets/storyboards/a-valider/p01/p01-v31-tete-p08.png" width="640" alt="P01 v31">
+
+**P01 · v32** — ⏳ à valider — tools/p01_v32.py — la v29 ; l'Henri de l'essai ed5 repris de ta capture d'écran (work/ed5-capture.png, déposée par la page de dépôt), recalée automatiquement sur le recadrage du palier et recollée au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v32-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
+La v29 avec l'Henri de l'essai ed5, celui que tu préférais, repris de ta capture d'écran. Il est penché sur le muret, le visage tourné vers nous de trois quarts, les yeux baissés vers l'avant et vers la gauche, du côté de la 4L, et non vers le mur ou la porte. Il a sa cigarette et son filet de fumée. La capture a été recalée automatiquement sur le palier (échelle, décalage et teinte d'écran corrigés), et seul Henri a été recollé : tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). Contrôle CONFORME (couleurs 100 %, netteté ×1,02, raccord 0,0). À comparer avec la v31 (tête d'après le P08).
+
+<img src="../assets/storyboards/a-valider/p01/p01-v32-ed5.png" width="640" alt="P01 v32">
 
 <details><summary>🗄️ 20 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v25, v26, v27, v28, v30</summary>
 

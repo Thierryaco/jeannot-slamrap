@@ -344,7 +344,8 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | v28 | `p01-v28-trait.png` | écartée le 14/10 — v27 + un seul trait sous la rampe et sous le palier |
 | v29 | `p01-v29-henri-palier.png` | **à retoucher** — v28 + Henri sur le palier, penché sur le muret, fumant ; tête droite, il regarde à l'horizontale (vers la façade) |
 | v30 | `p01-v30-henri-regard.png` | écartée le 14/10 — v29 avec la tête d'Henri tournée et baissée vers le bas à gauche (il semble regarder le mur) |
-| **v31** | `p01-v31-tete-p08.png` | à valider — v29 avec la tête d'Henri refaite d'après P08 v1, visage de trois quarts face, yeux baissés vers la 4L au premier plan (**version la plus avancée**) |
+| **v31** | `p01-v31-tete-p08.png` | à valider — v29 avec la tête d'Henri refaite d'après P08 v1, visage de trois quarts face, yeux baissés vers la 4L au premier plan (**candidate**) |
+| **v32** | `p01-v32-ed5.png` | à valider — v29 avec l'Henri de l'essai ed5 (le préféré de l'utilisateur), repris de sa capture d'écran (**candidate**, à comparer avec la v31) |
 
 Le 14/10, l'utilisateur a écarté depuis la page, sans commentaire, la v25 à la v28 et la v30, et a
 passé la v29 en « à retoucher ». Le contenu de la v26 à la v28 (rampe, porte, trait unique) reste
@@ -446,10 +447,16 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
   - Zone modifiée depuis la v29 : 800,354,845,409. Contrôle avec la zone `796,350,849,413` :
     CONFORME (couleurs 100 %, netteté ×1,22, raccord 0,0). Le script redonne l'image au pixel près.
   - Position inchangée : tête et cheveux ≈ x 800–845, y 354–390 ; pieds cachés vers (820, 442).
-- **v32 (préparée, en attente de la capture)** — `tools/p01_v32.py`. L'utilisateur demande *« une
-  version avec l'intégration du screenshot que je t'ai envoyé »* (capture d'ed5, perdue sur le
-  disque : il doit la renvoyer). Dès réception : la copier dans `p01/work/ed5-capture.png`, la
-  commiter et la pousser AVANT tout le reste, puis lancer `python3 tools/p01_v32.py OUT.png`.
+- **v32 (14/10)** — `tools/p01_v32.py`. L'utilisateur demande *« une version avec l'intégration du
+  screenshot que je t'ai envoyé »*. Renvoyée dans la conversation, la capture n'est jamais arrivée
+  sur le disque. Il l'a déposée par la page de dépôt (`tools/depot_fichiers.py`) :
+  `work/ed5-capture.png`, 474×481, commit `d9787b5`.
+  - Recalage sur la vraie capture : 82 points retenus sur 136, échelle ×2,133, rotation 0,11°,
+    décalage (9,8 ; −2,7), erreur médiane 1,40 px dans le recadrage 1024 (≈ 0,3 px dans l'image).
+    ed5 avait redessiné le décor avec des couleurs plus vives : correction par canal (pente
+    0,87–0,92, décalage 18–28).
+  - Zone modifiée depuis la v29 : 793,349,849,413. Contrôle avec la zone `789,345,853,417` :
+    CONFORME (couleurs 100 %, netteté ×1,02, raccord 0,0). Le script redonne l'image au pixel près.
   - Le script recale la capture sur `work/crop-v29-1024.png` (points SIFT, puis similitude par
     RANSAC sur le décor), corrige sa teinte (droite par canal sur le décor), isole Henri comme pour
     la v31 (seuil 22) et le recolle sur `retirer_henri(v28)`.
@@ -539,10 +546,10 @@ carte qui devra suivre l'image**, pas l'inverse.
 2. **P01 — portail, rampe, porte, trait unique :** faits en v24 → v26 → v27 → v28, en attente de
    l'avis de l'utilisateur.
 3. **P01 — Henri :** sur le palier, penché sur le muret, fumant, en v29 (à retoucher). La v30 a été
-   écartée. **v31** : tête refaite d'après P08 v1, visage de trois quarts face, yeux baissés vers la
-   4L. En attente de l'avis de l'utilisateur.
+   écartée. Deux candidates : **v31** (tête refaite d'après P08 v1) et **v32** (l'Henri d'ed5, repris
+   de la capture de l'utilisateur). En attente de son choix.
 4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image
-   (v29 / v31 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
+   (v29 / v31 / v32 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
 5. **Valider P01**, première image de référence du clip.
 6. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.
 7. Puis P04 → P29.

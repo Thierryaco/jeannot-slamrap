@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 6 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 7 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -184,6 +184,11 @@ Correctifs 3 et 4 de la liste : 3) la plaque avant devient noire avec « 1_ 67 �
 Correctifs 5 et 6 de la liste : 5) Jeannot comme dans P01 : barbe poivre et sel, cheveux sombres et bouclés sous le bob, cordon au cou, bob jaune doré, bleu de travail cobalt avec quelques taches de peinture jaune-ocre ; 6) Enji comme dans P01 et sur sa fiche : même pelage noir et feu, museau grisé, oreille pliée, collier brun, dessin plus simple et moins réaliste. Même pose et même place pour les deux. Tout le reste est identique à la v5 au pixel près (la 4L, les lieux, le sol). Le contrôle admet aussi les couleurs de P01 (nouvelle option --palette) : le bleu cobalt et le jaune doré demandés n'existent pas dans la v5.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v6-jeannot-enji.png" width="640" alt="P02 v6">
+
+**P02 · v7** — ⏳ à valider — tools/p02_v7.py — la v6 avec les correctifs 7 et 8 : retouches IA d'après P01 (p02/work/v7-ia-*), collage du seul bout de chez Jeannot (recalé sur la 4L, coupe le long du mur de pierre de l'escalier) et du seul sol de la route ; la 4L, Enji et Jeannot de la v6 sont gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v7-controle.jpg (CONFORME : hors zones 0,00 ; maison couleurs 99 %, netteté ×1,43 ; route couleurs 100 %, netteté ×1,83) · 🟢 conforme à la carte actuelle (rév. 2)  
+Correctifs 7 et 8 de la liste : 7) le bout de la maison de Jeannot comme dans P01 : le grand pignon aveugle posé sur le trottoir (avec sa gouttière, sa descente d'eau et son toit) devient un haut mur de jardin crème le long du trottoir, avec derrière, en retrait, l'étage d'une maison crème aux fenêtres à encadrement blanc ; 8) la route dessinée comme dans P01 : asphalte lisse, bordures claires et caniveau le long des deux trottoirs. Tout le reste est identique à la v6 au pixel près (la 4L, Jeannot, Enji, la maison du fond, la colline).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v7-maison-route.png" width="640" alt="P02 v7">
 
 ## P03
 

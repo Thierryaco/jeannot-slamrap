@@ -261,6 +261,7 @@ tools/                             les scripts
 | `p02_v4.py` | `python3 tools/p02_v4.py [OUT] [--masques DOSSIER]` | P02 v4 = v3 + volant côté conducteur (retiré, intérieur reconstitué net, redessiné côté éloigné) + chaussée, trottoirs, bordures au gris de P01 (une surface = la même surface dans P01) + ciel bleu pâle ; sans IA ; affiche les zones du contrôle |
 | `p02_v5.py` | `python3 tools/p02_v5.py [OUT]` | P02 v5 = v4 + plaque avant noire « 1_ 67 » (caractères fins, posés en perspective) + peinture à la teinte de la 4L de P01 + rouille brune de P01 + 16 taches/points ajoutés ; masques limités à la silhouette de la 4L, mélange en RVB ; sans IA ; affiche les zones du contrôle |
 | `p02_v6.py` | `python3 tools/p02_v6.py [OUT]` | P02 v6 = v5 + Jeannot et Enji comme dans P01 : retouches IA sur recadrages (p02/work/v6-*), collage de la seule silhouette (GrabCut, union ancienne/nouvelle), Jeannot recoloré matière par matière sur celui de P01 (bleu, peau, bob, taches ; `CLARTE_P01` = 0,7) ; affiche les zones du contrôle |
+| `p02_v7.py` | `python3 tools/p02_v7.py [OUT] [--seam IMG]` | P02 v7 = v6 + bout de chez Jeannot (IA recalée sur la 4L par ECC, coupe de coût minimal le long du mur de pierre, 4L par GrabCut + ouverture) + sol de la route (IA, masques du sol de p02_v4, Enji/Jeannot/bottes protégés) ; affiche les zones du contrôle |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -678,6 +679,12 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      gris). Silhouettes par GrabCut ; Jeannot recoloré sur celui de P01 (teinte et saturation, clarté à 70 %).
      Vérifié : seuls 2 blocs changent (Enji x 434–998, y 682–1033 ; Jeannot x 983–1199, y 261–911), 0 pixel
      sur la 4L, le mur, l'escalier, la route ; bottes de la v5 gardées, jonction propre aux chevilles.
+   - **v7** (`p02-v7-maison-route.png`, `tools/p02_v7.py`, contrôle CONFORME : hors zones 0,00 ; maison
+     couleurs 99 %, netteté ×1,43 ; route 100 %, ×1,83) = paire 4 faite (points 7 et 8), à partir de la v6.
+     Retouches IA faites par une tentative interrompue (commit c5a042b, recadrages retrouvés par
+     corrélation : maison x 1100–1920, y 0–615 retourné ×1,5 ; route x 0–1020, y 400–1080 ×1,5). L'IA maison
+     avait recadré plus large (échelle 0,70) : recalage ECC sur la 4L et rééchantillonnage direct (1 px v6 ≈
+     1,02 px IA). Vérifié : 0 pixel changé sur la 4L, Enji, Jeannot et ses bottes ; pas de liseré.
    - **Grillage du trottoir de gauche (point 13)** : l'utilisateur le **garde** (14/10). La carte l'ajoutera
      quand elle suivra l'image retenue (le long du terrain vide sud-ouest).
    - **Liste des correctifs P02** (à faire dans l'ordre, une paire par version, base = dernière version) :
@@ -689,10 +696,9 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      5. ✅ Jeannot comme dans P01 : barbe poivre et sel, cheveux sombres et bouclés, cordon, bob jaune doré,
         bleu cobalt avec taches de peinture jaune-ocre (v6) ;
      6. ✅ Enji comme dans P01 / sa fiche : même pelage et mêmes marques, dessin plus simple (v6) ;
-     7. bout de la maison de Jeannot (bord droit) : comme P01, mur de jardin crème le long du trottoir et
-        maison en retrait (crépi, tuiles rouges, fenêtres à encadrement blanc) — ici grand pignon aveugle
-        sur le trottoir, avec gouttière ;
-     8. route : dessin comme P01 (asphalte lisse, caniveau, bordures claires) ;
+     7. ✅ bout de la maison de Jeannot (bord droit) : comme P01, haut mur de jardin crème le long du
+        trottoir et maison en retrait (crépi crème, fenêtres à encadrement blanc) au lieu du pignon aveugle (v7) ;
+     8. ✅ route : dessin comme P01 (asphalte lisse, caniveau, bordures claires) (v7) ;
      9. textures et trait comme P01 (trait net et régulier, aplats doux) — ici trait fin, hachures,
         textures dessinées (pierres, crépi, arbres) ;
      10. lumière : plein jour comme P01 au lieu de la lumière chaude et sépia de fin d'après-midi ;
@@ -701,8 +707,9 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
          il monte en biais le long du mur) ;
      13. ✅ grillage le long du trottoir de gauche (côté narrateur) : **gardé** (réponse du 14/10) ; la carte
          l'ajoutera quand elle suivra l'image retenue.
-     Prochaine paire : points 7 (bout de la maison de Jeannot comme dans P01) et 8 (dessin de la route
-     comme dans P01), à partir de la v6.
+     Prochaine paire proposée à l'utilisateur (14/10, après la v7) : points 11 (plus de ciel, colline
+     abaissée) et 12 (escalier tout droit depuis le portail), à partir de la v7 ; les points 9 et 10, qui
+     touchent toute l'image, gardés pour la fin (une seule passe globale) — sauf avis contraire.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.
@@ -824,6 +831,12 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   cobalt de P01) fait baisser le contraste des traits et passe pour « moins net » sans aucun flou. Garder une
   partie de la clarté de la retouche plutôt que d'accentuer les traits.
 - Couleurs demandées « comme dans P01 » absentes de l'image retouchée : contrôle avec `--palette` P01.
+
+- Retouche IA qui revient recadrée plus large (P02 v7 maison : échelle 0,70) : ne pas la redimensionner
+  au cadre ; la recaler (ECC affine) sur une partie inchangée et rééchantillonner l'image IA d'origine.
+- GrabCut rattache parfois des éléments fins voisins (descente d'eau, arête de mur) : ouverture 9×9 du
+  masque. Le lissage du bord de collage déborde de 1–2 px : le remettre à zéro sur ce qui doit rester
+  identique (4L, personnages).
 
 ---
 

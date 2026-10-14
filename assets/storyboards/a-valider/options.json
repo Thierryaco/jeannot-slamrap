@@ -375,7 +375,7 @@
      "fichier": "p01-v25-porte.png",
      "source": "tools/p01_v24.py B — v24 + porte prise dans work/crop-v24-B-ed.png · contrôle : tools/controle_retouche.py → p01-v25-controle.jpg",
      "note": "Comme la v24, plus une porte en bois avec encadrement de pierre et seuil, directement dans le mur de la maison (ton avis v19). Contrôle CONFORME, mais défaut que j'ai repéré au zoom : un liseré plus clair autour de l'encadrement, et la porte déborde sur le pan de mur gris côté garage. Une version corrigée suit (porte redessinée sur la v24). → Refaite proprement en v27.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 14,
       "lieux_rev": 10

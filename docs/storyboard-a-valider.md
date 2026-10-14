@@ -118,12 +118,7 @@ On repart de la v20 (v21, v22, v23 supprimées). Ton avis v20 : le portail (deux
 
 <img src="../assets/storyboards/a-valider/p01/p01-v24-sans-portail.png" width="640" alt="P01 v24">
 
-**P01 · v25** — ⏳ à valider — tools/p01_v24.py B — v24 + porte prise dans work/crop-v24-B-ed.png · contrôle : tools/controle_retouche.py → p01-v25-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
-Comme la v24, plus une porte en bois avec encadrement de pierre et seuil, directement dans le mur de la maison (ton avis v19). Contrôle CONFORME, mais défaut que j'ai repéré au zoom : un liseré plus clair autour de l'encadrement, et la porte déborde sur le pan de mur gris côté garage. Une version corrigée suit (porte redessinée sur la v24). → Refaite proprement en v27.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v25-porte.png" width="640" alt="P01 v25">
-
-<details><summary>🗄️ 20 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v26, v27, v28, v29, v30</summary>
+<details><summary>🗄️ 21 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v25, v26, v27, v28, v29, v30</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -154,6 +149,7 @@ Pour le garage de diego
   - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
 - **v17** — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png
   - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
+- **v25** — tools/p01_v24.py B — v24 + porte prise dans work/crop-v24-B-ed.png · contrôle : tools/controle_retouche.py → p01-v25-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v25-porte.png
 - **v26** — tools/p01_v26.py — part de la v24 · contrôle : tools/controle_retouche.py → p01-v26-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v26-rampe.png
 - **v27** — tools/p01_v27.py — v26 + porte dessinée sur la v26 (work/crop-v27-ed.png) · contrôle : tools/controle_retouche.py → p01-v27-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v27-porte.png
 - **v28** — tools/p01_v28.py — v27 retouchée au pixel (aucune IA) · contrôle : tools/controle_retouche.py → p01-v28-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v28-trait.png

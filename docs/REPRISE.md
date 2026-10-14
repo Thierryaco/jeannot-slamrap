@@ -258,6 +258,7 @@ tools/                             les scripts
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
 | `depot_fichiers.py` | `python3 tools/depot_fichiers.py 8001` (processus « Dépôt d'image ») | page où l'utilisateur dépose une image (glisser, cliquer ou Ctrl+V) : enregistrée dans `assets/storyboards/a-valider/<plan>/work/`, jamais par-dessus un fichier existant, puis commitée et poussée aussitôt. À utiliser quand une pièce jointe de la conversation n'arrive pas sur le disque |
 | `p01_v16…p01_v33.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29), `p01_v31.py` (même base, Henri de `work/crop-v31-ed1.png`, tête d'après P08 v1 ; affiche la zone modifiée depuis la v29), `p01_v32.py [OUT] [--capture CHEMIN]` (même base, Henri repris d'une capture d'écran recalée automatiquement, par défaut `work/ed5-capture.png`), `p01_v33.py` (la v32 ; collages de la v16 et de la v17 refaits sans l'ancien flou, autour de Diego) |
+| `p02_v4.py` | `python3 tools/p02_v4.py [OUT] [--masques DOSSIER]` | P02 v4 = v3 + volant côté conducteur (retiré, intérieur reconstitué net, redessiné côté éloigné) + chaussée, trottoirs, bordures au gris de P01 (une surface = la même surface dans P01) + ciel bleu pâle ; sans IA ; affiche les zones du contrôle |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -646,6 +647,35 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      l'autre côté, donc sur la moitié droite du pare-brise ici) ; couleurs plus beiges que P01 (route
      beige, peu de ciel). Prochaine étape proposée : v4 = v3 avec le volant du bon côté (retouche
      locale + contrôle) et, si l'utilisateur le veut, couleurs rapprochées de P01.
+   - **Avis du 14/10 sur la v3** : « plein d'inconstance dans le style par rapport à la P01 » (personnages
+     pas exactement les mêmes, textures, route, bout de la maison de Jeannot, plaque, texture et état de
+     la 4L) ; « tu listeras tout ça » ; corriger **2 par 2, pas plus** (sinon ça bugge).
+   - **v4** (`p02-v4-volant-couleurs.png`, `tools/p02_v4.py`, contrôle CONFORME : hors zones 0,00 ;
+     volant ×0,88 ; sol ×0,94 ; ciel ×1,00) = paire 1 faite. Le ciel n'a pu passer qu'au bleu pâle : le
+     bleu franc de P01 n'existe pas dans la v3 et le critère « couleurs déjà dans l'image » le refuse.
+   - **Liste des correctifs P02** (à faire dans l'ordre, une paire par version, base = dernière version) :
+     1. ✅ volant du côté proche (conduite à droite) → côté conducteur (v4) ;
+     2. ✅ route, trottoirs, bordures beiges → gris de P01 ; ciel gris-vert → bleu pâle (v4) ;
+     3. 4L — plaque avant vide → plaque noire à caractères blancs comme l'arrière dans P01 (« 1_ 67 ») ;
+     4. 4L — peinture et rouille : vert menthe plus pâle, rouille en taches et points orangés comme P01
+        (ici coulures verticales), même état « rouillée mais intacte » ;
+     5. Jeannot comme dans P01 : visage, barbe poivre et sel (ici brune), bob jaune clair (ici moutarde),
+        taches de peinture claires en étoile sur le bleu de travail (ici traînées ocre) ;
+     6. Enji comme dans P01 / sa fiche : même pelage et mêmes marques, dessin moins réaliste ;
+     7. bout de la maison de Jeannot (bord droit) : comme P01, mur de jardin crème le long du trottoir et
+        maison en retrait (crépi, tuiles rouges, fenêtres à encadrement blanc) — ici grand pignon aveugle
+        sur le trottoir, avec gouttière ;
+     8. route : dessin comme P01 (asphalte lisse, caniveau, bordures claires) ;
+     9. textures et trait comme P01 (trait net et régulier, aplats doux) — ici trait fin, hachures,
+        textures dessinées (pierres, crépi, arbres) ;
+     10. lumière : plein jour comme P01 au lieu de la lumière chaude et sépia de fin d'après-midi ;
+     11. plus de ciel bleu comme P01 (la colline remplit le fond : l'abaisser, la carte suivra) ;
+     12. escalier de la maison du fond : tout droit depuis le portail, en coupant le jardin en deux (ici
+         il monte en biais le long du mur) ;
+     13. grillage le long du trottoir de gauche (côté narrateur) : absent de la carte (terrain vide) —
+         à garder ou à remplacer ? (question à poser).
+     Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
+     à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.
 6. **À la toute fin du storyboard** (avis v33) : agrandir toutes les images retenues pour faire du
    vrai 1080p, en augmentant la qualité et les détails **sans changer l'image**.

@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 23 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 24 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -137,6 +137,11 @@ La v26 plus une porte en bois avec encadrement de pierre et marche, directement 
 La v27 avec un seul trait sous la rampe, comme tu l'as demandé (« je préfère un seul trait »). Le trait fin, la bande claire et le trait épais sont remplacés par un trait droit unique, du palier jusqu'au pied de l'escalier ; l'ombre douce du mur suit ce nouveau trait. Même chose sous le palier, où le double trait devient un seul contour. Rien d'autre ne bouge : porte, pan gris, marches, Henri. Contrôle CONFORME (couleurs 100 %, netteté ×1,37, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v28-trait.png" width="640" alt="P01 v28">
+
+**P01 · v29** — ⏳ à valider — tools/p01_v29.py — v28 ; Henri effacé des marches au pixel (sans IA), puis Henri dessiné par IA sur le recadrage du palier (work/crop-v29-ed6.png, modèle de pose work/henri-pose-v29.png) et recollé au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v29-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
+La v28 avec Henri enfin sur son palier (ton avis v19) : penché, les avant-bras sur le rebord du muret, en train de fumer, le visage tourné vers la gauche, vers le bas de l'escalier et la 4L. Il a sa tignasse grise en bataille, ses lunettes, son sourire plein de dents et son pull brun à col en V, comme sur sa fiche. Ses jambes sont cachées par le muret. L'escalier est maintenant vide : les marches, le mur et la main courante qu'il cachait ont été reconstitués au pixel, à partir de ce qui était visible juste à côté. Tout le reste est identique à la v28. Contrôle CONFORME (marches : couleurs 100 %, netteté ×0,92 ; Henri : couleurs 100 %, netteté ×1,19 ; raccords 0,0). Prochaine étape : recaler Henri sur la carte.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v29-henri-palier.png" width="640" alt="P01 v29">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

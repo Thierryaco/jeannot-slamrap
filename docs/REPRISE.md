@@ -251,7 +251,7 @@ tools/                             les scripts
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
-| `p01_v16…p01_v28.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA) |
+| `p01_v16…p01_v29.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -335,7 +335,8 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | v25 | `p01-v25-porte.png` | à valider — v24 + porte ; liseré clair autour de l'encadrement → remplacée par la v27 |
 | v26 | `p01-v26-rampe.png` | à valider — v24 + rampe couleur façade du garage + trait du bas en ligne droite |
 | v27 | `p01-v27-porte.png` | à valider — v26 + porte dans le mur sous l'escalier |
-| **v28** | `p01-v28-trait.png` | à valider — v27 + un seul trait sous la rampe et sous le palier (**version la plus avancée, base pour Henri**) |
+| v28 | `p01-v28-trait.png` | à valider — v27 + un seul trait sous la rampe et sous le palier |
+| **v29** | `p01-v29-henri-palier.png` | à valider — v28 + Henri sur le palier, penché sur le muret, fumant, tourné vers la 4L (**version la plus avancée**) |
 
 **v14 et v15 ont été rejetées et supprimées.** Ne jamais les reconstituer.
 
@@ -347,9 +348,9 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 - Diego à genou devant sa caisse à outils ; capot de la Coccinelle ouvert, outils au sol ;
 - v20 : reconstruction nette de la v19 (Diego, caisse, Estafette, tourelle) — CONFORME.
 
-### ❌ CE QUI NE VA PAS — les deux points ouverts
+### Les deux points qui étaient ouverts (FAITS, en attente d'avis)
 
-**1. Henri n'est pas à la bonne place (NON RÉSOLU).**
+**1. Henri sur son palier (FAIT en v29, en attente d'avis).**
 
 Avis v19 de l'utilisateur : *« Henri aura une pose penchée appuyé sur le rebord du muret sur le
 palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. »*
@@ -365,6 +366,21 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
 
   ⚠️ **La projection de la carte s'est révélée peu fiable dans cette zone.** Ne pas recalculer la
   position depuis la carte : regarder l'image, ou utiliser le pointage de l'utilisateur (§7).
+- **v29 (14/10, vision active)** — `tools/p01_v29.py`, en deux étapes :
+  1. **Henri effacé des marches, au pixel et sans IA.** Les marches sont des bandes horizontales :
+     chaque rangée est recopiée depuis ce qui est visible à côté d'Henri, donc les nez de marche se
+     raccordent forcément. Les bouts de marche cachés sont redessinés dans la suite des bouts visibles
+     (… 737, 731,5, 726, 720,5, 715 … : −5,5 px par marche). Le mur est interpolé entre gauche et
+     droite, la ligne de soubassement recopiée le long de sa pente. La main courante sous ses
+     chaussures est recopiée le long de la sienne (−0,53 px par rangée), depuis les rangées 532 et 550.
+  2. **Henri dessiné par IA** sur le recadrage (700, 270)–(900, 470) agrandi en 1024 px
+     (`work/crop-v29-1024.png` → `work/crop-v29-ed6.png`). L'IA a laissé le fond intact (écart
+     médian 3) : seule sa silhouette et sa fumée sont recollées, isolées par différence (seuil 20,
+     trous bouchés ; fumée : seuil 8 dans sa zone), avec un bord adouci.
+  - Position : tête et cheveux ≈ x 810–840, y 354–382 ; avant-bras sur le rebord du muret
+    (≈ 815–840, 395–407) ; jambes cachées par le muret, pieds sur le palier vers (820, 442).
+  - Zones de contrôle depuis la v28 : `709,424,747,551;798,352,848,412` (CONFORME ; netteté
+    ×0,92 et ×1,19). Fumée ≤ (170,177,184).
 
 **2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27 → v28, en attente d'avis).**
 
@@ -445,10 +461,10 @@ carte qui devra suivre l'image**, pas l'inverse.
 1. **Résoudre la vision** (§2) — priorité absolue, décidé par l'utilisateur.
 2. **P01 — portail, rampe, porte, trait unique :** faits en v24 → v26 → v27 → v28, en attente de
    l'avis de l'utilisateur.
-3. **P01 — Henri :** en partant de la version retenue (v28 a priori ; v21–v23 supprimées), le placer
-   sur le palier en haut de son escalier, penché, appuyé au muret, en train de fumer, le visage tourné
-   vers la 4L.
-4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image.
+3. **P01 — Henri :** fait en v29 (sur le palier, penché sur le muret, fumant, tourné vers la 4L), en
+   attente de l'avis de l'utilisateur.
+4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image
+   (v29 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
 5. **Valider P01**, première image de référence du clip.
 6. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.
 7. Puis P04 → P29.
@@ -456,6 +472,16 @@ carte qui devra suivre l'image**, pas l'inverse.
 ---
 
 ## 12. Pièges déjà rencontrés — ne pas les refaire
+
+- **Faire tourner un personnage vers la gauche avec l'IA** (v29) : elle le tourne vers la droite même
+  quand on écrit « gauche » en toutes lettres. Parade qui a marché : obtenir d'abord un Henri dans
+  le bon sens (essai sur le recadrage en miroir, puis remis à l'endroit : `work/henri-pose-v29.png`)
+  et le donner comme **modèle de pose** à l'IA sur le vrai recadrage.
+- **Ne jamais citer un objet hors champ dans un prompt** (« il regarde une voiture garée en bas à
+  gauche ») : l'IA recompose toute la scène et dessine la voiture. Idem si l'image d'entrée est en
+  miroir : la scène a été recomposée (inutilisable pour un collage).
+- **Ne pas retourner un personnage accoudé** pour changer son regard : ses avant-bras suivent un
+  rebord incliné (pente ≈ 0,35 sur P01), qui ne correspond plus une fois retourné.
 
 - **Ne pas tenter de « voir » une image** en insistant : le test de 30 s (§2) suffit.
 - **Le miroir retourne tout le personnage** : pour tourner Henri, ne pas utiliser

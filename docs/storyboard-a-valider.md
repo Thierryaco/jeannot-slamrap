@@ -91,23 +91,12 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v32** — 🔁 à retoucher — tools/p01_v32.py — la v29 ; l'Henri de l'essai ed5 repris de ta capture d'écran (work/ed5-capture.png, déposée par la page de dépôt), recalée automatiquement sur le recadrage du palier et recollée au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v32-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
-La v29 avec l'Henri de l'essai ed5, celui que tu préférais, repris de ta capture d'écran. Il est penché sur le muret, le visage tourné vers nous de trois quarts, les yeux baissés vers l'avant et vers la gauche, du côté de la 4L, et non vers le mur ou la porte. Il a sa cigarette et son filet de fumée. La capture a été recalée automatiquement sur le palier (échelle, décalage et teinte d'écran corrigés), et seul Henri a été recollé : tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). Contrôle CONFORME (couleurs 100 %, netteté ×1,02, raccord 0,0). À comparer avec la v31 (tête d'après le P08).
-
-<img src="../assets/storyboards/a-valider/p01/p01-v32-ed5.png" width="640" alt="P01 v32">
-
-- 💬 *2026-10-14 14:39* — 📍 pointages sur l'image :
-1. (866, 445) — verifie  la zone intérieur des points 1 2 3 et 4 il y a des reste de flou  de l'ancien controle
-2. (860, 622)
-3. (1119, 625)
-4. (1112, 442)
-
 **P01 · v33** — ✅ retenue — tools/p01_v33.py — la v32 ; les collages de la v16 (capot ouvert, outils au sol) et de la v17 (fond autour de Diego) refaits à l'identique mais sans l'adoucissement de l'ancien contrôle, sans IA · contrôle : tools/controle_retouche.py → p01-v33-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
 La v32 sans les restes de flou que tu as pointés autour de Diego (zone 1-2-3-4). Ils venaient bien de l'ancien contrôle : à l'époque, son critère « grain » faisait adoucir les collages. Le capot ouvert, le compartiment moteur et les outils au sol (v16), puis tout le fond autour de Diego (clôture, piliers, haie, v17) avaient été collés volontairement flous. La v20 avait rendu nets Diego, sa caisse et l'Estafette, mais pas ces deux collages-là. Je les ai refaits à l'identique, avec les mêmes images d'origine, mais sans flou : rien n'est redessiné, seul le flou disparaît. Tout le reste est exactement la v32, Henri d'ed5 compris. Contrôle CONFORME (couleurs 97 %, netteté ×1,05, raccord 0,0).
 
 <img src="../assets/storyboards/a-valider/p01/p01-v33-net.png" width="640" alt="P01 v33">
 
-<details><summary>🗄️ 26 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v18, v19, v20, v24, v25, v26, v27, v28, v29, v30, v31</summary>
+<details><summary>🗄️ 27 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v18, v19, v20, v24, v25, v26, v27, v28, v29, v30, v31, v32</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -153,6 +142,12 @@ Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessou
 - **v29** — tools/p01_v29.py — v28 ; Henri effacé des marches au pixel (sans IA), puis Henri dessiné par IA sur le recadrage du palier (work/crop-v29-ed6.png, modèle de pose work/henri-pose-v29.png) et recollé au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v29-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v29-henri-palier.png
 - **v30** — tools/p01_v30.py — v28 ; Henri effacé des marches comme pour la v29 (au pixel, sans IA), puis Henri redessiné par IA sur le recadrage du palier présenté en miroir (work/crop-v30-ed3-miroir.png, remis à l'endroit : work/crop-v30-ed3.png) et recollé au ras de sa silhouette et de sa fumée · contrôle : tools/controle_retouche.py → p01-v30-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v30-henri-regard.png
 - **v31** — tools/p01_v31.py — la v29 ; seule la tête d'Henri est refaite par IA sur le recadrage du palier en miroir, avec la tête de P08 v1 comme référence (proposition 2 que tu as choisie : work/crop-v31-ed1-miroir.png), puis Henri est recollé au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v31-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v31-tete-p08.png
+- **v32** — tools/p01_v32.py — la v29 ; l'Henri de l'essai ed5 repris de ta capture d'écran (work/ed5-capture.png, déposée par la page de dépôt), recalée automatiquement sur le recadrage du palier et recollée au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v32-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v32-ed5.png
+  - 💬 *2026-10-14 14:39* — 📍 pointages sur l'image :
+1. (866, 445) — verifie  la zone intérieur des points 1 2 3 et 4 il y a des reste de flou  de l'ancien controle
+2. (860, 622)
+3. (1119, 625)
+4. (1112, 442)
 
 </details>
 

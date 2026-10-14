@@ -593,6 +593,8 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   - `colline-foret` (type `colline`) : colline boisée juste derrière, pente 35°, 30 m de haut.
   - Gérés par `draw_street_map.py`, `calque.py` et `carte.html` (vue de dessus et vue caméra).
   - Calques P01, P02 et P03 identiques au pixel près ; seules les vues de dessus changent.
+  - **Carte générale CARTE v9** (`carte-rue-v9.png`, « à valider ») : la v8 + ces lieux ; le reste est
+    identique à la v8 au pixel près. L'utilisateur a écarté les CARTE v5, v6 et v7 le 14/10.
 - **P02 rév. 2** (`POST /api/carte`, commit serveur d9d20e7) :
   - **Le miroir** : la v1 montre la 4L garée à gauche, Jeannot côté conducteur. La 4L reste à sa
     place de P01 (trottoir nord, avant vers l'est) : le même angle de vue sur la 4L donne donc la v1
@@ -719,6 +721,10 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
 - Le serveur garde `draw_street_map` et `calque` en mémoire. Depuis ef6ce94, il les recharge à
   chaque enregistrement de la carte ; toute autre modification de `serve_storyboard.py` demande un
   redémarrage (le relancer aussitôt).
+
+- Après tout changement des lieux, générer aussi la carte générale (`python3 tools/draw_street_map.py
+  base vN`) et l'ajouter comme option « à valider » du plan CARTE dans `options.json` : sinon
+  l'utilisateur ne voit pas les nouveaux lieux dans la page « à valider » (oubli du 14/10).
 
 ---
 

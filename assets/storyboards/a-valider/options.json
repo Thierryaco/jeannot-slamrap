@@ -441,6 +441,18 @@
       "lieux_rev": 10
      },
      "avis": []
+    },
+    {
+     "id": "v31",
+     "fichier": "p01-v31-tete-p08.png",
+     "source": "tools/p01_v31.py — la v29 ; seule la tête d'Henri est refaite par IA sur le recadrage du palier en miroir, avec la tête de P08 v1 comme référence (proposition 2 que tu as choisie : work/crop-v31-ed1-miroir.png), puis Henri est recollé au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v31-controle.jpg",
+     "note": "La v29 avec la tête d'Henri refaite, comme tu l'as demandé (« base toi sur la v29 »). Sa tête suit maintenant la v1 du P08, ta référence : longue tignasse gris foncé en mèches, visage maigre, lunettes rectangulaires sombres, barbe de trois jours. Et son regard ne va plus vers le mur ou la porte : visage de trois quarts face, yeux baissés vers l'avant et vers la gauche, du côté de la 4L, qui est au premier plan, comme dans ed5. Même pose penchée, avant-bras sur le muret, cigarette et filet de fumée. Tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). Contrôle CONFORME (couleurs 100 %, netteté ×1,22, raccord 0,0).",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 14,
+      "lieux_rev": 10
+     },
+     "avis": []
     }
    ]
   },

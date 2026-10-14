@@ -174,7 +174,12 @@ Ces règles ont toutes été énoncées explicitement. Aucune ne doit être réi
     éléments ne doivent pas devenir flous ou indéfinis**. Les ajouts doivent être **aussi nets que
     les autres éléments**.
 11. **Ressemblance des personnages :** Henri doit ressembler à `assets/art/henri-character-v2.png`,
-    Diego à `assets/art/diego-beetle-repair-concept-v2.png`.
+    Diego à `assets/art/diego-beetle-repair-concept-v2.png`. **Pour la tête d'Henri, la référence
+    est la v1 du P08** (14/10 : *« Henri que l'on voit dans la V1 du P08 qui doit être la réf pour la
+    tête d'Henri »*) : `assets/storyboards/a-valider/p08/p08-v1-ancien-fil.png`, tête recadrée dans
+    `assets/storyboards/a-valider/p01/work/ref-tete-henri-p08-v1.png`. Longue tignasse gris foncé en
+    mèches, visage maigre et allongé, front ridé, lunettes rectangulaires à monture sombre, grand nez,
+    barbe de trois jours grise.
 12. **Les images générées et les aperçus doivent correspondre au placement carte en vigueur du
     plan.** Respecter exactement les positions des véhicules.
 13. **« Tu modifies la carte en fonction de l'image, pas l'inverse »**, sauf changement de carte
@@ -251,7 +256,7 @@ tools/                             les scripts
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
-| `p01_v16…p01_v30.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29) |
+| `p01_v16…p01_v31.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29), `p01_v31.py` (même base, Henri de `work/crop-v31-ed1.png`, tête d'après P08 v1 ; affiche la zone modifiée depuis la v29) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -333,11 +338,16 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | v21–v23 | — | **supprimées par l'utilisateur le 14/10** (essais de hauteur d'Henri) |
 | v24 | `p01-v24-sans-portail.png` | à valider — v20 sans le portail ni la clôture (`tools/p01_v24.py A`) |
 | v25 | `p01-v25-porte.png` | à valider — v24 + porte ; liseré clair autour de l'encadrement → remplacée par la v27 |
-| v26 | `p01-v26-rampe.png` | à valider — v24 + rampe couleur façade du garage + trait du bas en ligne droite |
-| v27 | `p01-v27-porte.png` | à valider — v26 + porte dans le mur sous l'escalier |
-| v28 | `p01-v28-trait.png` | à valider — v27 + un seul trait sous la rampe et sous le palier |
-| v29 | `p01-v29-henri-palier.png` | à valider — v28 + Henri sur le palier, penché sur le muret, fumant ; tête droite, il regarde à l'horizontale (vers la façade) |
-| **v30** | `p01-v30-henri-regard.png` | à valider — v29 avec la tête d'Henri tournée et baissée vers le bas à gauche, franchement vers la 4L (**version la plus avancée**) |
+| v26 | `p01-v26-rampe.png` | écartée le 14/10 — v24 + rampe couleur façade du garage + trait du bas en ligne droite |
+| v27 | `p01-v27-porte.png` | écartée le 14/10 — v26 + porte dans le mur sous l'escalier |
+| v28 | `p01-v28-trait.png` | écartée le 14/10 — v27 + un seul trait sous la rampe et sous le palier |
+| v29 | `p01-v29-henri-palier.png` | **à retoucher** — v28 + Henri sur le palier, penché sur le muret, fumant ; tête droite, il regarde à l'horizontale (vers la façade) |
+| v30 | `p01-v30-henri-regard.png` | écartée le 14/10 — v29 avec la tête d'Henri tournée et baissée vers le bas à gauche (il semble regarder le mur) |
+| **v31** | `p01-v31-tete-p08.png` | à valider — v29 avec la tête d'Henri refaite d'après P08 v1, visage de trois quarts face, yeux baissés vers la 4L au premier plan (**version la plus avancée**) |
+
+Le 14/10, l'utilisateur a écarté depuis la page, sans commentaire, la v25 à la v28 et la v30, et a
+passé la v29 en « à retoucher ». Le contenu de la v26 à la v28 (rampe, porte, trait unique) reste
+acquis : il avait dit « tout est bon », et il est repris dans la v29 et la v31.
 
 **v14 et v15 ont été rejetées et supprimées.** Ne jamais les reconstituer.
 
@@ -351,7 +361,7 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 
 ### Les deux points qui étaient ouverts (FAITS, en attente d'avis)
 
-**1. Henri sur son palier (FAIT en v29, regard corrigé en v30, en attente d'avis).**
+**1. Henri sur son palier (v29 à retoucher, v30 écartée, v31 en attente d'avis).**
 
 Avis v19 de l'utilisateur : *« Henri aura une pose penchée appuyé sur le rebord du muret sur le
 palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. »*
@@ -408,6 +418,33 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
   - Zone modifiée depuis la v29 : 800,354,845,409. Contrôle avec la zone `796,350,849,413` :
     CONFORME (couleurs 99 %, netteté ×1,26, raccord 0,0). Fumée ≤ (165,176,190).
   - Position inchangée : tête ≈ x 805–840, y 354–385 ; pieds cachés vers (820, 442).
+  - **Écartée par l'utilisateur.** Il a ensuite envoyé une capture d'écran d'ed5, perdue à son tour
+    avec une remise à zéro (la pièce jointe n'était plus sur le disque), avec ce commentaire :
+    *« ce qu'il avait de mieux c'était qu'il ne donnait pas l'impression de regarder le mur ou la
+    porte mais bien en direction de la 4L, et il ressemble un peu plus à Henri que l'on voit dans la
+    V1 du P08 qui doit être la réf pour la tête d'Henri »*. Sur la capture : Henri au bout droit du
+    palier, avant-bras sur le muret, **visage de trois quarts face**, tête légèrement inclinée, yeux
+    baissés vers l'avant et vers la gauche, petit sourire.
+- **v31 (14/10)** — `tools/p01_v31.py`. Demande : *« continu mais base toi sur la v29 pour les
+  modif »*.
+  - Retouche IA de la **tête seule** sur le recadrage de la v29 **en miroir**
+    (`work/crop-v30-1024-miroir.png`), avec `work/ref-tete-henri-p08-v1.png` comme deuxième image.
+    Consigne : la tête de l'homme de la 2ᵉ image, visage tourné vers nous en trois-quarts face,
+    penché, regard vers le bas et légèrement à droite, vers le premier plan, « pas vers le mur ni vers
+    la porte », même taille, tout le reste identique.
+  - Deux propositions ; l'utilisateur a choisi la 2 (`work/crop-v31-ed1-miroir.png`, 1600 px), remise
+    à l'endroit dans `work/crop-v31-ed1.png`. La proposition 1 a été perdue : la session a été remise
+    à zéro pendant le choix.
+  - Le modèle a redessiné légèrement tous les contours du décor (7 % des pixels à plus de 20 niveaux,
+    le long de tous les traits). On ne recolle donc que la silhouette d'Henri : plus grande
+    composante de la différence avec l'escalier vide (`work/crop-v29-1024.png`, seuil 25, dans la
+    zone x 440–820, y 380–740 du recadrage 1024). On y ajoute les mèches fines (gain de B − R > 12
+    dans la zone des cheveux, en ne gardant que les morceaux qui touchent la tête) et la fumée (même
+    critère, morceaux ≥ 30 px).
+  - On part de `retirer_henri(v28)` : partout ailleurs qu'Henri, l'image est exactement la v29.
+  - Zone modifiée depuis la v29 : 800,354,845,409. Contrôle avec la zone `796,350,849,413` :
+    CONFORME (couleurs 100 %, netteté ×1,22, raccord 0,0). Le script redonne l'image au pixel près.
+  - Position inchangée : tête et cheveux ≈ x 800–845, y 354–390 ; pieds cachés vers (820, 442).
 
 **2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27 → v28, en attente d'avis).**
 
@@ -488,10 +525,11 @@ carte qui devra suivre l'image**, pas l'inverse.
 1. **Résoudre la vision** (§2) — priorité absolue, décidé par l'utilisateur.
 2. **P01 — portail, rampe, porte, trait unique :** faits en v24 → v26 → v27 → v28, en attente de
    l'avis de l'utilisateur.
-3. **P01 — Henri :** sur le palier, penché sur le muret, fumant, en v29. Regard corrigé en v30 :
-   tête baissée vers le bas à gauche, franchement vers la 4L. En attente de l'avis de l'utilisateur.
+3. **P01 — Henri :** sur le palier, penché sur le muret, fumant, en v29 (à retoucher). La v30 a été
+   écartée. **v31** : tête refaite d'après P08 v1, visage de trois quarts face, yeux baissés vers la
+   4L. En attente de l'avis de l'utilisateur.
 4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image
-   (v29 / v30 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
+   (v29 / v31 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
 5. **Valider P01**, première image de référence du clip.
 6. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.
 7. Puis P04 → P29.
@@ -504,6 +542,19 @@ carte qui devra suivre l'image**, pas l'inverse.
   suite. L'utilisateur peut en préférer un : `crop-v29-ed5.png`, son préféré, a été perdu avec une
   remise à zéro de la session parce qu'il n'avait pas été commité. Quand l'utilisateur ne choisit
   aucune des deux images proposées au choix, rien n'est enregistré.
+  - **Commiter et pousser juste après chaque choix d'image** : en v31, la session a été remise à
+    zéro pendant que l'utilisateur choisissait. Seule l'image retenue a survécu ; l'autre
+    proposition a été perdue.
+  - **Les pièces jointes de l'utilisateur disparaissent aussi** aux remises à zéro : sa capture
+    d'ed5 n'était plus dans `/home/user/uploads/`. Copier tout de suite une pièce jointe utile dans
+    le dépôt et la commiter.
+- **Pour qu'un personnage regarde un objet du premier plan** (la 4L, plus près de nous qu'Henri) :
+  visage de **trois quarts face**, yeux baissés vers l'avant. Un regard vers le bas du recadrage,
+  c'est le mur et l'escalier (v30 écartée : *« impression de regarder le mur ou la porte »*).
+- **Même avec « tout le reste identique », l'IA redessine légèrement tous les contours du décor**
+  (v31 : 7 % des pixels à plus de 20 niveaux) : ne recoller que la silhouette du personnage. Pour
+  des cheveux gris sur brique ou crépi, ajouter les mèches fines par leur teinte gris bleuté (gain de
+  B − R > 12), en ne gardant que les morceaux qui touchent la tête.
 - **Faire tourner un personnage vers la gauche avec l'IA** (v29, v30) : elle le tourne vers la droite
   même quand on écrit « gauche » en toutes lettres (encore le cas pour `work/crop-v30-ed2.png`).
   Deux parades ont marché :

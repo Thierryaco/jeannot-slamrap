@@ -399,7 +399,7 @@
      "fichier": "p01-v27-porte.png",
      "source": "tools/p01_v27.py — v26 + porte dessinée sur la v26 (work/crop-v27-ed.png) · contrôle : tools/controle_retouche.py → p01-v27-controle.jpg",
      "note": "La v26 plus une porte en bois avec encadrement de pierre et marche, directement dans le mur de la maison sous l'escalier (ton avis v19). Elle remplace la porte de la v25 : il n'y a plus de liseré clair. Pour lui faire place, le bord du pan gris côté garage passe de x 819 à x 830, et au-dessus de la porte le mur continue jusqu'au palier. Contrôle CONFORME (couleurs 100 %, netteté ×1,03, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 14,
       "lieux_rev": 10

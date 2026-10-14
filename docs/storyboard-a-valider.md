@@ -47,11 +47,6 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
 
-**CARTE · v8** — ⏳ à valider — tools/draw_street_map.py base v8 (lieux rév. 10)  
-Comme la v7, avec l'escalier d'Henri dans le sens de l'image : les marches montent vers le fond de la rue et le palier est en haut, devant l'entrée de la maison (avant, il n'y avait que des marches en haut).
-
-<img src="../assets/storyboards/a-valider/carte/carte-rue-v8.png" width="640" alt="CARTE v8">
-
 **CARTE · v9** — ⏳ à valider — tools/draw_street_map.py base v9 (lieux rév. 11)  
 Comme la v8, avec les lieux de ta note sur la carte P02 (lieux rév. 11). Au bout ouest, la rue finit en cul-de-sac : un grillage sur toute la largeur, puis juste derrière une colline assez raide couverte de forêt. Sur la parcelle à côté de chez Jeannot : la maison du fond, en hauteur et en retrait, avec devant un jardin surélevé et un garage surmonté d'une terrasse. Tout le reste est identique à la v8 (vérifié au pixel près).
 
@@ -62,7 +57,7 @@ D'après ton message sur les nouveaux lieux : la maison du fond est élargie jus
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v10.png" width="640" alt="CARTE v10">
 
-<details><summary>🗄️ 7 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7</summary>
+<details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8</summary>
 
 - **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
   - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
@@ -76,6 +71,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 - **v5** — tools/draw_street_map.py base v5 (lieux rév. 7) — ../assets/storyboards/a-valider/carte/carte-rue-v5.png
 - **v6** — tools/draw_street_map.py base v6 (lieux rév. 8) — ../assets/storyboards/a-valider/carte/carte-rue-v6.png
 - **v7** — tools/draw_street_map.py base v7 (lieux rév. 9) — ../assets/storyboards/a-valider/carte/carte-rue-v7.png
+- **v8** — tools/draw_street_map.py base v8 (lieux rév. 10) — ../assets/storyboards/a-valider/carte/carte-rue-v8.png
 
 </details>
 

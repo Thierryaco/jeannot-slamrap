@@ -89,7 +89,7 @@
      "fichier": "carte-rue-v8.png",
      "source": "tools/draw_street_map.py base v8 (lieux rév. 10)",
      "note": "Comme la v7, avec l'escalier d'Henri dans le sens de l'image : les marches montent vers le fond de la rue et le palier est en haut, devant l'entrée de la maison (avant, il n'y avait que des marches en haut).",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "avis": []
     },
     {

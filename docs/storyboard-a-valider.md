@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 4 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 5 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -174,6 +174,11 @@ D'après ton avis sur la v1 et la carte P02 rév. 2 : la composition de la v1 vu
 Correctifs 1 et 2 de la liste (14/10) : 1) le volant passe du côté conducteur (une 4L française l'a à gauche, donc ici derrière la moitié éloignée du pare-brise) ; 2) la chaussée, les trottoirs et les bordures passent du beige au gris de P01 (chaque surface prend la teinte de la même surface dans P01, ombres et texture gardées) et le coin de ciel passe du gris-vert à un bleu pâle — le bleu franc de P01 n'existe pas dans l'image et le contrôle le refuse : il viendra avec le point « plus de ciel ». Tout le reste est identique à la v3, au pixel près.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v4-volant-couleurs.png" width="640" alt="P02 v4">
+
+**P02 · v5** — ⏳ à valider — tools/p02_v5.py — la v4 avec les correctifs 3 et 4, sans IA · contrôle : tools/controle_retouche.py → p02-v5-controle.jpg (CONFORME : hors zones 0,00 ; carrosserie : couleurs 98 %, netteté ×1,40 ; arrière de la 4L derrière Jeannot : couleurs 96 %, netteté ×1,75) · 🟢 conforme à la carte actuelle (rév. 2)  
+Correctifs 3 et 4 de la liste : 3) la plaque avant devient noire avec « 1_ 67 » en caractères fins gris clair, comme la plaque arrière de la 4L dans P01 ; 4) la peinture prend la teinte de la 4L de P01 (vert amande plus jaune et plus sourd que le menthe de la v4, ombres et reflets gardés), la rouille existante passe au brun plus sombre de P01, et 16 taches de rouille brunes (quelques coulures courtes, quelques points) sont ajoutées sur les portières, l'aile, le capot et la face avant. Tout le reste est identique à la v4 au pixel près (Jeannot, Enji, les lieux, le volant, le sol).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v5-plaque-rouille.png" width="640" alt="P02 v5">
 
 ## P03
 

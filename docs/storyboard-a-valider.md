@@ -128,12 +128,7 @@ Ton avis du 14/10. La rampe en béton blanc (main courante, sa grande face, la b
 
 <img src="../assets/storyboards/a-valider/p01/p01-v26-rampe.png" width="640" alt="P01 v26">
 
-**P01 · v28** — ⏳ à valider — tools/p01_v28.py — v27 retouchée au pixel (aucune IA) · contrôle : tools/controle_retouche.py → p01-v28-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
-La v27 avec un seul trait sous la rampe, comme tu l'as demandé (« je préfère un seul trait »). Le trait fin, la bande claire et le trait épais sont remplacés par un trait droit unique, du palier jusqu'au pied de l'escalier ; l'ombre douce du mur suit ce nouveau trait. Même chose sous le palier, où le double trait devient un seul contour. Rien d'autre ne bouge : porte, pan gris, marches, Henri. Contrôle CONFORME (couleurs 100 %, netteté ×1,37, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v28-trait.png" width="640" alt="P01 v28">
-
-<details><summary>🗄️ 18 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v27, v29, v30</summary>
+<details><summary>🗄️ 19 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v27, v28, v29, v30</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -165,6 +160,7 @@ Pour le garage de diego
 - **v17** — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png
   - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
 - **v27** — tools/p01_v27.py — v26 + porte dessinée sur la v26 (work/crop-v27-ed.png) · contrôle : tools/controle_retouche.py → p01-v27-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v27-porte.png
+- **v28** — tools/p01_v28.py — v27 retouchée au pixel (aucune IA) · contrôle : tools/controle_retouche.py → p01-v28-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v28-trait.png
 - **v29** — tools/p01_v29.py — v28 ; Henri effacé des marches au pixel (sans IA), puis Henri dessiné par IA sur le recadrage du palier (work/crop-v29-ed6.png, modèle de pose work/henri-pose-v29.png) et recollé au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v29-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v29-henri-palier.png
 - **v30** — tools/p01_v30.py — v28 ; Henri effacé des marches comme pour la v29 (au pixel, sans IA), puis Henri redessiné par IA sur le recadrage du palier présenté en miroir (work/crop-v30-ed3-miroir.png, remis à l'endroit : work/crop-v30-ed3.png) et recollé au ras de sa silhouette et de sa fumée · contrôle : tools/controle_retouche.py → p01-v30-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v30-henri-regard.png
 

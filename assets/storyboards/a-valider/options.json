@@ -423,7 +423,7 @@
      "fichier": "p01-v29-henri-palier.png",
      "source": "tools/p01_v29.py — v28 ; Henri effacé des marches au pixel (sans IA), puis Henri dessiné par IA sur le recadrage du palier (work/crop-v29-ed6.png, modèle de pose work/henri-pose-v29.png) et recollé au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v29-controle.jpg",
      "note": "La v28 avec Henri enfin sur son palier (ton avis v19) : penché, les avant-bras sur le rebord du muret, en train de fumer, le visage tourné vers la gauche, vers le bas de l'escalier et la 4L. Il a sa tignasse grise en bataille, ses lunettes, son sourire plein de dents et son pull brun à col en V, comme sur sa fiche. Ses jambes sont cachées par le muret. L'escalier est maintenant vide : les marches, le mur et la main courante qu'il cachait ont été reconstitués au pixel, à partir de ce qui était visible juste à côté. Tout le reste est identique à la v28. Contrôle CONFORME (marches : couleurs 100 %, netteté ×0,92 ; Henri : couleurs 100 %, netteté ×1,19 ; raccords 0,0). Prochaine étape : recaler Henri sur la carte.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 14,
       "lieux_rev": 10

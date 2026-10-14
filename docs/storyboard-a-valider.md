@@ -159,6 +159,10 @@ Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessou
 
 > Glissement vers la maison de Jeannot et sa 4L vert menthe, rouillée mais intacte. Jeannot respire, décale son poids et tient sa cigarette ; Enji traverse le cadre pour son gag.
 
+🗺️ Carte du plan (rév. 1, 2026-10-14 16:23) :
+
+<img src="../assets/storyboards/a-valider/carte/plans/p02.png" width="420" alt="carte P02">
+
 **P02 · v1** — 🔁 à retoucher — ancien fil, commit 2db27a6 (03h55) · ⚪ faite sans carte du plan  
 Add P02 storyboard keyframe and progress tracker
 

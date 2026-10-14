@@ -85,6 +85,92 @@
   "rev": 15,
   "maj": "2026-10-14 15:25"
  },
+ "P02": {
+  "cameras": [
+   {
+    "x": 701.0,
+    "y": 561.0,
+    "angle": -166.0,
+    "fov": 20.0,
+    "portee": 760.0,
+    "hauteur": "contre-plongée (vue d'en bas)",
+    "oeil": 1.4,
+    "inclinaison": -1.6
+   }
+  ],
+  "elements": {
+   "4l": {
+    "x": 330.0,
+    "y": 447.0,
+    "angle": 0.0,
+    "visible": true
+   },
+   "estafette": {
+    "x": 1147.0,
+    "y": 451.5,
+    "angle": 180.0,
+    "visible": true,
+    "action": "garée contre le trottoir côté Jeannot, devant la maison de Diego, l'avant vers la caméra"
+   },
+   "coccinelle": {
+    "x": 1057.0,
+    "y": 370.0,
+    "angle": 90.0,
+    "visible": true,
+    "action": "sort du garage à 90°, capot avant ouvert, le nez s'arrête au bord du trottoir ; outils au sol"
+   },
+   "jeannot": {
+    "x": 341.0,
+    "y": 481.0,
+    "angle": 13.0,
+    "visible": true
+   },
+   "enji": {
+    "x": 328.0,
+    "y": 491.0,
+    "angle": 11.0,
+    "visible": true,
+    "pose": "couché"
+   },
+   "sorciere": {
+    "x": 525.0,
+    "y": 365.0,
+    "angle": 90.0,
+    "visible": true
+   },
+   "henri": {
+    "x": 985.0,
+    "y": 381.0,
+    "angle": 174.0,
+    "visible": true,
+    "pose": "penché",
+    "action": "accoudé au muret du palier côté rue, en haut de son escalier ; il fume ; visage de trois quarts, yeux baissés vers la 4L (comme sur l'image P01 v33)"
+   },
+   "diego": {
+    "x": 1057.0,
+    "y": 437.0,
+    "angle": -90.0,
+    "visible": true,
+    "pose": "accroupi",
+    "action": "à genoux juste devant la Coccinelle, face à elle, au début de la chaussée, devant sa caisse à outils"
+   },
+   "marco": {
+    "x": 1265.0,
+    "y": 300.0,
+    "angle": 180.0,
+    "visible": false
+   },
+   "narrateur": {
+    "x": 205.0,
+    "y": 609.0,
+    "angle": -90.0,
+    "visible": false
+   }
+  },
+  "note": "voilà j'ai placé grossierement tout ça tu feras tout correspondre au plus pres  plus tard .  Il faudra rajouté 1 maison avec un garage sur le fond du co^té de cette rue . la maison est en hauteur  et en retrait devant il y a un jardin et une terrase qui est au dessus du garage. La rue fini en cul de sac de ce côté la avec un grillage  sur toute la largeur  et un foret  sur un colline  assez incliné  juste derrière",
+  "rev": 1,
+  "maj": "2026-10-14 16:23"
+ },
  "P03": {
   "cameras": [
    {

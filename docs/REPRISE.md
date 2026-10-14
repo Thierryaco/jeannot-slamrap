@@ -238,7 +238,7 @@ storyboard/carte.html              la carte interactive de la rue
 assets/storyboards/a-valider/options.json    TOUT l'état de validation (30 plans, 64 options, avis)
 assets/storyboards/a-valider/p01/*.png       les 21 options de P01
 assets/storyboards/a-valider/carte/lieux.json   lieux fixes de la rue — rév. 10
-assets/storyboards/a-valider/carte/plans.json   placement par plan — P01 rév. 14, P03 rév. 1
+assets/storyboards/a-valider/carte/plans.json   placement par plan — P01 rév. 15, P03 rév. 1
 assets/storyboards/a-valider/carte/plans/p01.svg, p03.svg
 assets/art/                        concepts de personnages (références de dessin)
 audio/jeannot-slamrap.mp3          la bande son (104,36 s)
@@ -488,6 +488,12 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
   - Contrôle depuis la v32 avec la zone `876,490,1035,619` : CONFORME (couleurs 97 %, netteté
     ×1,05, raccord 0,0). Le script redonne l'image au pixel près. Au zoom, la clôture, les piliers,
     la haie, le moteur et les outils sont nets, sans couture aux bords des anciens collages.
+  - **Retenue par l'utilisateur** le 14/10 à 15 h 11 (v32 écartée). Avis du 14/10 à 15 h 17 :
+    *« C'est ok quand le storyboard sera terminé il faudra upscale l'image pour faire du 1080p en
+    augmentant la qualité et les détails de l'image sans la changer . LA après avoir mis à jour la
+    position d'henri sur la carte on peut passer à la P02 enfin , on se base évidant avec la P01
+    pour la réf de l'image en tenant comptes des indications de la p02 pour la position des perso
+    voiture et caméra »*. Carte recalée dans la foulée (rév. 15, §10).
 
 **2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27 → v28, en attente d'avis).**
 
@@ -548,7 +554,7 @@ avec la clôture qu'il y a sous l'escalier d'henri »*.
 - `lieux.json` **rév. 10** : escalier d'Henri montant vers le fond, palier en haut devant l'entrée
   (calé sur l'image). Bâtiments : `maison-jeannot`, `maison-henri`, `voisin-n1`, `garage-diego`,
   `maison-diego`, `maison-narrateur`, `voisin-s1`, `voisin-s2`, `voisin-s3`, `voisins-s4`.
-- `plans.json` : **P01 rév. 14**, **P03 rév. 1**. Caméra P01 : `x -89.7, y 518.8, angle -4.8,
+- `plans.json` : **P01 rév. 15**, **P03 rév. 1**. Caméra P01 : `x -89.7, y 518.8, angle -4.8,
   fov 32.9, portée 2000, œil 1.8, inclinaison -1.6`.
 - `carte-rue-v8.png` est la carte rue courante. CARTE v1–v4 écartées, v5–v8 en attente.
 - Repère carte : unités = pixels d'une carte 1600×1000, **100 px ≈ 3,7 m**. Angles : 0 = vers l'est
@@ -557,9 +563,22 @@ avec la clôture qu'il y a sous l'escalier d'henri »*.
 - Visionneuse : `VB0 = [-300, 0, 1900, 1000]` ; le PNG fait 2 px par unité de carte avec
   `ox = 1600 - naturalWidth/2`.
 
-⚠️ **À corriger quand la position d'Henri sera arrêtée :** le point « Henri » de la carte est calé
-sur l'ancienne hauteur (palier à 2,8 m → image y 367). Comme l'utilisateur l'a demandé, **c'est la
-carte qui devra suivre l'image**, pas l'inverse.
+**Henri recalé sur la v33 (rév. 15, 14/10)** : `(985, 381)`, angle 174 (vers la 4L), pose « penché »,
+sur le palier, accoudé au muret côté rue, vers le bout du palier. Sur le calque, il tombe à la bonne
+place en largeur (boîte x ≈ 802–834, Henri dessiné x ≈ 800–845). La v33 est marquée conforme à la
+rév. 15, puisque c'est la carte qui a été recalée sur elle.
+
+- **Le palier reste à 2,8 m**, donc la vue caméra montre Henri ≈ 75 px plus haut que sur l'image
+  (pieds y 367 au lieu de ≈ 442). Ce n'est pas une erreur de position. À cette distance (≈ 40 m),
+  l'image dessine toute la maison plus petite que la caméra calée ne le prévoit. Le pied du mur tombe
+  juste (y ≈ 596), mais, mesurées par cette caméra, la porte sous l'escalier ne ferait que 1,2 m,
+  le palier 1,9 m et l'avant-toit 3,4 m. Baisser le palier à 1,9 m coincerait la porte sous
+  l'escalier (v27), et la caméra, calée par moindres carrés, ne bouge pas sans l'accord de
+  l'utilisateur. Les autres éléments lointains ont le même petit écart vertical (haut de Diego et de
+  l'Estafette ≈ 20–30 px plus haut sur le calque que sur l'image).
+- Méthode : le placement a été enregistré par `POST /api/carte`, comme depuis la page carte : il
+  augmente la révision, redessine `plans/p01.png`, le `.svg` et le calque, puis commite. La carte
+  affiche « pose · action » : l'action ne doit pas recommencer par la pose.
 
 ---
 
@@ -572,11 +591,14 @@ carte qui devra suivre l'image**, pas l'inverse.
    Le seul commentaire de la v32 (zone 1-2-3-4) est traité par la v33 : les autres flous des anciens
    scripts sont hors de la zone (fenêtre de la sorcière, `p01_v17.FLOU`) ou déjà retirés en v20
    (Estafette, `estafette(flou=0)`).
-3. **P01 — carte :** recaler le point Henri de `plans.json` sur la position de la v33 (sur le
-   palier, pieds cachés vers (820, 442) ; la carte suit l'image).
-4. **Valider P01** côté carte, première image de référence du clip.
-5. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.
-6. Puis P04 → P29.
+3. **P01 — carte : FAIT** (rév. 15, Henri recalé sur la v33, §10). **P01 est validé** : image v33
+   + carte rév. 15. C'est l'image de référence du clip.
+4. **P02 — EN COURS** (avis v33) : partir de la v33 de P01 comme référence d'image (mêmes lieux,
+   même style, mêmes personnages), en suivant les indications de P02 pour la position des
+   personnages, de la voiture et de la caméra.
+5. **Cohérence P03**, puis P04 → P29.
+6. **À la toute fin du storyboard** (avis v33) : agrandir toutes les images retenues pour faire du
+   vrai 1080p, en augmentant la qualité et les détails **sans changer l'image**.
 
 ---
 

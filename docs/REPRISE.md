@@ -580,6 +580,32 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   augmente la révision, redessine `plans/p01.png`, le `.svg` et le calque, puis commite. La carte
   affiche « pose · action » : l'action ne doit pas recommencer par la pose.
 
+
+### P02 : carte rév. 2 et lieux rév. 11 (14/10, avis P02 v1 + note de la carte P02 rév. 1)
+
+- **Lieux rév. 11** (`lieux.json`, ajouts en fin de liste — `_ou` utilise `batiments[0]`) :
+  - `maison-fond` : « Maison du fond », parcelle nord-ouest (x −235…−20, y 125–245), en hauteur
+    (`sol` 2,6 m = rez-de-chaussée surélevé) et en retrait, 6 m de haut (`haut`) ;
+  - `garage-fond` : garage devant (x −120…−25, y 245–383), porte au sud sur le trottoir,
+    `haut` 2,6 m, terrasse sur le toit (`terrasse`: true) ;
+  - `jardin-fond` (type `terre_plein`) : jardin surélevé de 2,6 m à côté du garage, mur côté rue ;
+  - `cul-de-sac` (type `grillage`) : grillage de 1,8 m sur toute la largeur en x −258 (y 110–860) ;
+  - `colline-foret` (type `colline`) : colline boisée juste derrière, pente 35°, 30 m de haut.
+  - Gérés par `draw_street_map.py`, `calque.py` et `carte.html` (vue de dessus et vue caméra).
+  - Calques P01, P02 et P03 identiques au pixel près ; seules les vues de dessus changent.
+- **P02 rév. 2** (`POST /api/carte`, commit serveur d9d20e7) :
+  - **Le miroir** : la v1 montre la 4L garée à gauche, Jeannot côté conducteur. La 4L reste à sa
+    place de P01 (trottoir nord, avant vers l'est) : le même angle de vue sur la 4L donne donc la v1
+    **en miroir** — 4L à droite, Jeannot à sa gauche, côté chaussée.
+  - Caméra calée sur la v1 (coins de la 4L, toit, pieds de Jeannot, horizon), écarts ≤ 37 px :
+    x 493, y 519,3, angle −163,9°, champ 41,6°, œil 1,2 m, inclinaison −1,4°, soit ≈ 5 m de l'avant
+    de la 4L et 32° de biais côté chaussée. Portée 2000 pour que le fond reste net.
+  - Jeannot (325,3 ; 481,1), angle 13, `appuyé` contre le flanc au niveau du montant central (les
+    pieds de la v1) ; Enji (325,4 ; 495,2), angle 11, `couché`, à 0,5 m à gauche de ses pieds (vue
+    caméra).
+  - Contrôle : `assets/storyboards/a-valider/p02/work/p02-carte-rev2-sur-v1-miroir.jpg` (calque sur
+    la v1 en miroir, puis seul sur fond gris).
+
 ---
 
 ## 11. Ce qu'il reste à faire, dans l'ordre
@@ -593,9 +619,14 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
    (Estafette, `estafette(flou=0)`).
 3. **P01 — carte : FAIT** (rév. 15, Henri recalé sur la v33, §10). **P01 est validé** : image v33
    + carte rév. 15. C'est l'image de référence du clip.
-4. **P02 — EN COURS** (avis v33) : partir de la v33 de P01 comme référence d'image (mêmes lieux,
-   même style, mêmes personnages), en suivant les indications de P02 pour la position des
-   personnages, de la voiture et de la caméra.
+4. **P02 — EN COURS** (avis v33, avis P02 v1) : partir de la v33 de P01 comme référence d'image
+   (mêmes lieux, même style, mêmes personnages), en suivant les indications de P02 pour la position
+   des personnages, de la voiture et de la caméra.
+   - **Carte : FAIT** (P02 rév. 2 + lieux rév. 11, §10).
+   - **Images : À FAIRE** — plusieurs options : composition de la v1 en miroir (4L à droite, Jeannot
+     adossé à sa gauche avec sa cigarette), Enji couchée à gauche de ses pieds ; au fond la maison en
+     hauteur, le garage avec la terrasse, le jardin, le grillage du cul-de-sac et la colline boisée
+     assez raide. Toutes les options vont dans « à valider » ; ensuite la carte suit l'image.
 5. **Cohérence P03**, puis P04 → P29.
 6. **À la toute fin du storyboard** (avis v33) : agrandir toutes les images retenues pour faire du
    vrai 1080p, en augmentant la qualité et les détails **sans changer l'image**.
@@ -684,6 +715,10 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   branches différentes, et il faudrait ensuite fusionner à la main.
 - **Ne pas recalculer une position depuis la carte dans la zone d'Henri** : la projection s'est
   révélée fausse d'environ 180 px en hauteur.
+
+- Le serveur garde `draw_street_map` et `calque` en mémoire. Depuis ef6ce94, il les recharge à
+  chaque enregistrement de la carte ; toute autre modification de `serve_storyboard.py` demande un
+  redémarrage (le relancer aussitôt).
 
 ---
 

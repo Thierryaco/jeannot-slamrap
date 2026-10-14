@@ -569,6 +569,18 @@
       "lieux_rev": 12
      },
      "avis": []
+    },
+    {
+     "id": "v6",
+     "fichier": "p02-v6-jeannot-enji.png",
+     "source": "tools/p02_v6.py — la v5 avec les correctifs 5 et 6 : retouches IA de Jeannot et d'Enji sur des recadrages (Jeannot : 2e essai ; le 1er, en bleu roi à grosses étoiles jaunes et cheveux gris, est écarté — p02/work/v6-ia-jeannot-miroir.png), collage de leur seule silhouette, Jeannot recoloré matière par matière sur celui de P01 · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v6-controle.jpg (CONFORME : hors zones 0,00 ; Enji couleurs 100 %, netteté ×1,35 ; Jeannot couleurs 100 %, netteté ×0,82)",
+     "note": "Correctifs 5 et 6 de la liste : 5) Jeannot comme dans P01 : barbe poivre et sel, cheveux sombres et bouclés sous le bob, cordon au cou, bob jaune doré, bleu de travail cobalt avec quelques taches de peinture jaune-ocre ; 6) Enji comme dans P01 et sur sa fiche : même pelage noir et feu, museau grisé, oreille pliée, collier brun, dessin plus simple et moins réaliste. Même pose et même place pour les deux. Tout le reste est identique à la v5 au pixel près (la 4L, les lieux, le sol). Le contrôle admet aussi les couleurs de P01 (nouvelle option --palette) : le bleu cobalt et le jaune doré demandés n'existent pas dans la v5.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
     }
    ]
   },

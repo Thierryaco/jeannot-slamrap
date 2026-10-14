@@ -8,7 +8,9 @@ Vérifications :
   2. HORS des zones autorisées : l'image est identique à la référence (lieux, personnages, positions, couleurs
      intacts) — écart moyen < 1,5 et 99,9e centile < 16 (sur 255) ;
   3. DANS chaque zone autorisée : la retouche garde le style de son entourage
-     - couleurs : au moins 90 % des nouveaux pixels ont une couleur déjà présente dans la référence ;
+     - couleurs : au moins 90 % des nouveaux pixels ont une couleur déjà présente dans la référence
+       (ou, avec --palette, dans une image de référence de style — ex. P01 retenue quand l'utilisateur demande
+       explicitement de reprendre ses couleurs : personnages « comme dans P01 ») ;
      - netteté : les ajouts ne doivent pas être plus flous que les éléments voisins de la référence
        (médiane, sur les tuiles 24×24 qui contiennent des traits, du 95e centile du gradient ; ratio ≥ 0,8).
        Le critère « grain » a été retiré (avis du 13/10 : il poussait à flouter les ajouts) ;
@@ -17,6 +19,7 @@ Vérifications :
 
 Usage :
   python3 tools/controle_retouche.py REF.png RESULTAT.png --zones "x0,y0,x1,y1;x0,y0,x1,y1" [--plan P01] [--sortie CTRL.jpg]
+      [--palette STYLE.png[;STYLE2.png]]
 Code de sortie 0 = CONFORME, 1 = À REFAIRE.
 """
 import argparse
@@ -84,7 +87,7 @@ def nettete(g, mask, t=24, part=0.3):
     return out
 
 
-def controle(ref, res, zones, plan=None, sortie=None):
+def controle(ref, res, zones, plan=None, sortie=None, palettes=()):
     global PAL, CTX
     msgs, ok = [], True
     if ref.size != res.size:
@@ -104,6 +107,10 @@ def controle(ref, res, zones, plan=None, sortie=None):
                 f"99,9e centile {p999:.1f} (< {SEUIL_HORS_P999}) — lieux/personnages/positions inchangés")
     PAL = np.bincount(qcol(A).ravel(), minlength=4096)
     PAL[PAL < 20] = 0                                     # couleurs vraiment présentes dans la référence
+    for img in palettes:                                  # --palette : couleurs d'une image de référence de style
+        P = np.bincount(qcol(np.array(img.convert("RGB")).astype(float)).ravel(), minlength=4096)
+        P[P < 20] = 0
+        PAL = PAL + P
 
 
     def CTX(y0, y1, x0, x1):
@@ -168,9 +175,13 @@ def main():
     ap.add_argument("ref"); ap.add_argument("res")
     ap.add_argument("--zones", default="")
     ap.add_argument("--plan"); ap.add_argument("--sortie")
+    ap.add_argument("--palette", default="", help="images de référence de style dont les couleurs sont aussi admises")
     o = ap.parse_args()
     zones = [tuple(int(v) for v in z.split(",")) for z in o.zones.split(";") if z.strip()]
-    ok, msgs = controle(Image.open(o.ref), Image.open(o.res), zones, o.plan, o.sortie)
+    palettes = [Image.open(f) for f in o.palette.split(";") if f.strip()]
+    ok, msgs = controle(Image.open(o.ref), Image.open(o.res), zones, o.plan, o.sortie, palettes)
+    if palettes:
+        msgs.insert(0, "palette admise : référence + " + ", ".join(Path(f).name for f in o.palette.split(";") if f.strip()))
     print("\n".join(msgs))
     sys.exit(0 if ok else 1)
 

@@ -260,13 +260,18 @@ tools/                             les scripts
 | `p01_v16…p01_v33.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29), `p01_v31.py` (même base, Henri de `work/crop-v31-ed1.png`, tête d'après P08 v1 ; affiche la zone modifiée depuis la v29), `p01_v32.py [OUT] [--capture CHEMIN]` (même base, Henri repris d'une capture d'écran recalée automatiquement, par défaut `work/ed5-capture.png`), `p01_v33.py` (la v32 ; collages de la v16 et de la v17 refaits sans l'ancien flou, autour de Diego) |
 | `p02_v4.py` | `python3 tools/p02_v4.py [OUT] [--masques DOSSIER]` | P02 v4 = v3 + volant côté conducteur (retiré, intérieur reconstitué net, redessiné côté éloigné) + chaussée, trottoirs, bordures au gris de P01 (une surface = la même surface dans P01) + ciel bleu pâle ; sans IA ; affiche les zones du contrôle |
 | `p02_v5.py` | `python3 tools/p02_v5.py [OUT]` | P02 v5 = v4 + plaque avant noire « 1_ 67 » (caractères fins, posés en perspective) + peinture à la teinte de la 4L de P01 + rouille brune de P01 + 16 taches/points ajoutés ; masques limités à la silhouette de la 4L, mélange en RVB ; sans IA ; affiche les zones du contrôle |
+| `p02_v6.py` | `python3 tools/p02_v6.py [OUT]` | P02 v6 = v5 + Jeannot et Enji comme dans P01 : retouches IA sur recadrages (p02/work/v6-*), collage de la seule silhouette (GrabCut, union ancienne/nouvelle), Jeannot recoloré matière par matière sur celui de P01 (bleu, peau, bob, taches ; `CLARTE_P01` = 0,7) ; affiche les zones du contrôle |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
 ```bash
 cd tools && PYTHONPATH=. python3 controle_retouche.py REF.png RESULTAT.png \
-  --zones "x0,y0,x1,y1;x0,y0,x1,y1" --plan P01
+  --zones "x0,y0,x1,y1;x0,y0,x1,y1" --plan P01 [--palette ../assets/storyboards/a-valider/p01/p01-v33-net.png]
 ```
+
+`--palette STYLE.png` (ajoutée le 14/10 pour P02 v6) : admet aussi les couleurs d'une image de référence de
+style. À n'utiliser que quand l'utilisateur demande explicitement de reprendre les couleurs de cette image
+(ex. « les persos comme dans P01 ») ; sans l'option, le contrôle est inchangé.
 
 Critères : **hors zones** inchangé (écart moyen < 1,5), couleurs déjà présentes ≥ 90 %,
 **netteté ≥ 0,80** (les ajouts ne doivent pas être plus flous que leurs voisins), bord < 28.
@@ -666,6 +671,13 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      déjà présents (152,104,72 · 136,88,56 · 112,68,42). Les taches orangé-rouge faisaient « éclaboussure »
      (risque de lecture « sang ») : écartées. Changements limités à la carrosserie et à la plaque (vérifié
      sur la carte des pixels changés : 0 pixel de Jeannot, du mur, des vitres, de la route).
+   - **v6** (`p02-v6-jeannot-enji.png`, `tools/p02_v6.py`, contrôle avec `--palette` P01 v33 CONFORME :
+     hors zones 0,00 ; Enji couleurs 100 %, netteté ×1,35 ; Jeannot couleurs 100 %, netteté ×0,82) = paire 3
+     faite (points 5 et 6), à partir de la v5. Retouches IA sur recadrages ×2 (Jeannot donné retourné pour
+     être orienté comme son modèle de P01) ; 1er essai Jeannot écarté (bleu roi, grosses étoiles, cheveux
+     gris). Silhouettes par GrabCut ; Jeannot recoloré sur celui de P01 (teinte et saturation, clarté à 70 %).
+     Vérifié : seuls 2 blocs changent (Enji x 434–998, y 682–1033 ; Jeannot x 983–1199, y 261–911), 0 pixel
+     sur la 4L, le mur, l'escalier, la route ; bottes de la v5 gardées, jonction propre aux chevilles.
    - **Grillage du trottoir de gauche (point 13)** : l'utilisateur le **garde** (14/10). La carte l'ajoutera
      quand elle suivra l'image retenue (le long du terrain vide sud-ouest).
    - **Liste des correctifs P02** (à faire dans l'ordre, une paire par version, base = dernière version) :
@@ -674,9 +686,9 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      3. ✅ 4L — plaque avant vide → plaque noire à caractères blancs comme l'arrière dans P01 (« 1_ 67 ») (v5) ;
      4. ✅ 4L — peinture à la teinte de P01 (vert amande plus jaune et plus sourd) et rouille en taches et
         points bruns comme P01, même état « rouillée mais intacte » (v5) ;
-     5. Jeannot comme dans P01 : visage, barbe poivre et sel (ici brune), bob jaune clair (ici moutarde),
-        taches de peinture claires en étoile sur le bleu de travail (ici traînées ocre) ;
-     6. Enji comme dans P01 / sa fiche : même pelage et mêmes marques, dessin moins réaliste ;
+     5. ✅ Jeannot comme dans P01 : barbe poivre et sel, cheveux sombres et bouclés, cordon, bob jaune doré,
+        bleu cobalt avec taches de peinture jaune-ocre (v6) ;
+     6. ✅ Enji comme dans P01 / sa fiche : même pelage et mêmes marques, dessin plus simple (v6) ;
      7. bout de la maison de Jeannot (bord droit) : comme P01, mur de jardin crème le long du trottoir et
         maison en retrait (crépi, tuiles rouges, fenêtres à encadrement blanc) — ici grand pignon aveugle
         sur le trottoir, avec gouttière ;
@@ -689,9 +701,8 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
          il monte en biais le long du mur) ;
      13. ✅ grillage le long du trottoir de gauche (côté narrateur) : **gardé** (réponse du 14/10) ; la carte
          l'ajoutera quand elle suivra l'image retenue.
-     Prochaine paire : points 5 (Jeannot comme dans P01) et 6 (Enji comme dans P01) — redessin de
-     personnages : retouche par IA sur un recadrage (visage/barbe/bob, taches de peinture ; pelage d'Enji),
-     collage masqué de la seule silhouette, contrôle, et carte des pixels changés.
+     Prochaine paire : points 7 (bout de la maison de Jeannot comme dans P01) et 8 (dessin de la route
+     comme dans P01), à partir de la v6.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.
@@ -805,6 +816,14 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
 - Masques par couleur : les limiter à la silhouette de l'objet. P02 v5 : les pierres verdâtres du mur
   passaient pour de la peinture et les pierres brunes pour de la rouille (16 000 px) ; la zone du contrôle,
   qui englobait le fond, ne pouvait pas le voir.
+
+- Collage d'un personnage retouché par IA : un masque « pixels nettement différents » est troué (là où
+  l'ancien et le nouveau se ressemblent) et mélangerait les deux dessins. Prendre la silhouette par GrabCut
+  (zones très différentes = personnage sûr, hors boîte = décor), union de l'ancienne et de la nouvelle.
+- Contrôle, critère de netteté : il mesure les gradients sur l'image en gris ; une couleur plus sombre (bleu
+  cobalt de P01) fait baisser le contraste des traits et passe pour « moins net » sans aucun flou. Garder une
+  partie de la clarté de la retouche plutôt que d'accentuer les traits.
+- Couleurs demandées « comme dans P01 » absentes de l'image retouchée : contrôle avec `--palette` P01.
 
 ---
 

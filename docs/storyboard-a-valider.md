@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 5 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 6 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -179,6 +179,11 @@ Correctifs 1 et 2 de la liste (14/10) : 1) le volant passe du côté conducteur 
 Correctifs 3 et 4 de la liste : 3) la plaque avant devient noire avec « 1_ 67 » en caractères fins gris clair, comme la plaque arrière de la 4L dans P01 ; 4) la peinture prend la teinte de la 4L de P01 (vert amande plus jaune et plus sourd que le menthe de la v4, ombres et reflets gardés), la rouille existante passe au brun plus sombre de P01, et 16 taches de rouille brunes (quelques coulures courtes, quelques points) sont ajoutées sur les portières, l'aile, le capot et la face avant. Tout le reste est identique à la v4 au pixel près (Jeannot, Enji, les lieux, le volant, le sol).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v5-plaque-rouille.png" width="640" alt="P02 v5">
+
+**P02 · v6** — ⏳ à valider — tools/p02_v6.py — la v5 avec les correctifs 5 et 6 : retouches IA de Jeannot et d'Enji sur des recadrages (Jeannot : 2e essai ; le 1er, en bleu roi à grosses étoiles jaunes et cheveux gris, est écarté — p02/work/v6-ia-jeannot-miroir.png), collage de leur seule silhouette, Jeannot recoloré matière par matière sur celui de P01 · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v6-controle.jpg (CONFORME : hors zones 0,00 ; Enji couleurs 100 %, netteté ×1,35 ; Jeannot couleurs 100 %, netteté ×0,82) · 🟢 conforme à la carte actuelle (rév. 2)  
+Correctifs 5 et 6 de la liste : 5) Jeannot comme dans P01 : barbe poivre et sel, cheveux sombres et bouclés sous le bob, cordon au cou, bob jaune doré, bleu de travail cobalt avec quelques taches de peinture jaune-ocre ; 6) Enji comme dans P01 et sur sa fiche : même pelage noir et feu, museau grisé, oreille pliée, collier brun, dessin plus simple et moins réaliste. Même pose et même place pour les deux. Tout le reste est identique à la v5 au pixel près (la 4L, les lieux, le sol). Le contrôle admet aussi les couleurs de P01 (nouvelle option --palette) : le bleu cobalt et le jaune doré demandés n'existent pas dans la v5.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v6-jeannot-enji.png" width="640" alt="P02 v6">
 
 ## P03
 

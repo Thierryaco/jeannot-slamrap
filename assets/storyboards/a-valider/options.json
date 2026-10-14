@@ -459,7 +459,7 @@
      "fichier": "p01-v32-ed5.png",
      "source": "tools/p01_v32.py — la v29 ; l'Henri de l'essai ed5 repris de ta capture d'écran (work/ed5-capture.png, déposée par la page de dépôt), recalée automatiquement sur le recadrage du palier et recollée au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v32-controle.jpg",
      "note": "La v29 avec l'Henri de l'essai ed5, celui que tu préférais, repris de ta capture d'écran. Il est penché sur le muret, le visage tourné vers nous de trois quarts, les yeux baissés vers l'avant et vers la gauche, du côté de la 4L, et non vers le mur ou la porte. Il a sa cigarette et son filet de fumée. La capture a été recalée automatiquement sur le palier (échelle, décalage et teinte d'écran corrigés), et seul Henri a été recollé : tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). Contrôle CONFORME (couleurs 100 %, netteté ×1,02, raccord 0,0). À comparer avec la v31 (tête d'après le P08).",
-     "etat": "a-valider",
+     "etat": "a-retoucher",
      "carte": {
       "plan_rev": 14,
       "lieux_rev": 10

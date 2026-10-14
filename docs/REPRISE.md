@@ -256,6 +256,7 @@ tools/                             les scripts
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
+| `depot_fichiers.py` | `python3 tools/depot_fichiers.py 8001` (processus « Dépôt d'image ») | page où l'utilisateur dépose une image (glisser, cliquer ou Ctrl+V) : enregistrée dans `assets/storyboards/a-valider/<plan>/work/`, jamais par-dessus un fichier existant, puis commitée et poussée aussitôt. À utiliser quand une pièce jointe de la conversation n'arrive pas sur le disque |
 | `p01_v16…p01_v32.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29), `p01_v31.py` (même base, Henri de `work/crop-v31-ed1.png`, tête d'après P08 v1 ; affiche la zone modifiée depuis la v29), `p01_v32.py [OUT] [--capture CHEMIN]` (même base, Henri repris d'une capture d'écran recalée automatiquement, par défaut `work/ed5-capture.png`) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
@@ -560,6 +561,10 @@ carte qui devra suivre l'image**, pas l'inverse.
   - **Les pièces jointes de l'utilisateur disparaissent aussi** aux remises à zéro : sa capture
     d'ed5 n'était plus dans `/home/user/uploads/`. Copier tout de suite une pièce jointe utile dans
     le dépôt et la commiter.
+  - **Pire : une pièce jointe peut ne jamais arriver sur le disque**, même sans remise à zéro. Le
+    14/10, la capture renvoyée était visible dans la conversation, mais `/home/user/uploads/`
+    n'existait pas. Parade : lancer `tools/depot_fichiers.py 8001` et demander à l'utilisateur de
+    déposer le fichier dans l'aperçu « Dépôt d'image ». Le fichier est commité et poussé tout seul.
 - **Pour qu'un personnage regarde un objet du premier plan** (la 4L, plus près de nous qu'Henri) :
   visage de **trois quarts face**, yeux baissés vers l'avant. Un regard vers le bas du recadrage,
   c'est le mur et l'escalier (v30 écartée : *« impression de regarder le mur ou la porte »*).

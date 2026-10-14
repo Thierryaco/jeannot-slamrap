@@ -91,20 +91,12 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v19** — 🔁 à retoucher — tools/p01_v19.py (retouches locales sur v18) · contrôle : tools/controle_retouche.py → p01-v19-controle.jpg · 🟠 faite d'après la carte rév. 11 — la carte a changé depuis  
-La v18 avec seulement tes corrections : la sorcière est de nouveau nette (traits du visage, cheveux, mains) ; la façade de la tourelle et sa corniche ont pris la teinte et la patine du crépi de la tour ronde (fini le crème trop propre) ; le logo Renault de l'Estafette est un losange chromé bien visible, comme celui de la 4L. Rien d'autre ne bouge. Carte : tourelle agrandie (rayon 48 → 56), reculée pour ne pas toucher le trottoir (lieux rév. 9). Contrôle automatique : 0 pixel modifié hors des zones, couleurs OK, raccords OK ; le critère « grain » signale 2 tuiles (×1,78) qui sont les mèches de cheveux et le cadre de la fenêtre, c'est-à-dire des traits nets demandés, pas du grain — vérifié à l'œil.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v19-retouche-v18.png" width="640" alt="P01 v19">
-
-- 💬 *2026-10-13 14:50* — Henri  aura une pose  pencher appuiyé sur le rebord du mu muret sur le palier en haut de son escalier en train de fumer auss le viage tourner vers la 4l.
-Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessous .  il n'a aucun interet, rakoute plutot une porte  directement sur la maison  c'est plus logique .
-
 **P01 · v32** — 🔁 à retoucher — tools/p01_v32.py — la v29 ; l'Henri de l'essai ed5 repris de ta capture d'écran (work/ed5-capture.png, déposée par la page de dépôt), recalée automatiquement sur le recadrage du palier et recollée au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v32-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
 La v29 avec l'Henri de l'essai ed5, celui que tu préférais, repris de ta capture d'écran. Il est penché sur le muret, le visage tourné vers nous de trois quarts, les yeux baissés vers l'avant et vers la gauche, du côté de la 4L, et non vers le mur ou la porte. Il a sa cigarette et son filet de fumée. La capture a été recalée automatiquement sur le palier (échelle, décalage et teinte d'écran corrigés), et seul Henri a été recollé : tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). Contrôle CONFORME (couleurs 100 %, netteté ×1,02, raccord 0,0). À comparer avec la v31 (tête d'après le P08).
 
 <img src="../assets/storyboards/a-valider/p01/p01-v32-ed5.png" width="640" alt="P01 v32">
 
-<details><summary>🗄️ 25 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v18, v20, v24, v25, v26, v27, v28, v29, v30, v31</summary>
+<details><summary>🗄️ 26 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v18, v19, v20, v24, v25, v26, v27, v28, v29, v30, v31</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -137,6 +129,9 @@ Pour le garage de diego
   - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
 - **v18** — tools/p01_v18.py (retouches locales sur v17) · contrôle : tools/controle_retouche.py → p01-v18-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v18-retouche-v17.png
   - 💬 *2026-10-13 13:12* — un problème avec la sorcière  elle est flou et pas défini et la couleur de la façade de la tourelle fait plus proppre que le reste de la maison
+- **v19** — tools/p01_v19.py (retouches locales sur v18) · contrôle : tools/controle_retouche.py → p01-v19-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v19-retouche-v18.png
+  - 💬 *2026-10-13 14:50* — Henri  aura une pose  pencher appuiyé sur le rebord du mu muret sur le palier en haut de son escalier en train de fumer auss le viage tourner vers la 4l.
+Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessous .  il n'a aucun interet, rakoute plutot une porte  directement sur la maison  c'est plus logique .
 - **v20** — tools/p01_v20.py (même contenu que v19, ajouts reconstruits sans flou) · contrôle : tools/controle_retouche.py → p01-v20-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v20-nette.png
   - 💬 *2026-10-14 10:43* — retire moi le portail avec la cloture qu'il y a sous l'escalier d'henri
 - **v24** — tools/p01_v24.py A — repart de la v20, édition locale work/crop-v24-A-ed.png · contrôle : tools/controle_retouche.py → p01-v24-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v24-sans-portail.png

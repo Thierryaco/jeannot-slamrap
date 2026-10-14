@@ -10,9 +10,14 @@
 - POST /api/carte    : enregistre le placement d'un plan (caméras, personnages,
                        véhicules, note), redessine carte/plans/pXX.png, commit + push.
 
-Usage : python3 tools/serve_storyboard.py [port]   (défaut 8000, écoute 0.0.0.0)
+Usage : python3 tools/serve_storyboard.py [port] [--host ADRESSE]
+        port : défaut 8000 ; --host : défaut 0.0.0.0 (nécessaire dans le bac à sable Arena).
+        En local (VS Code), la tâche « Lancer le serveur storyboard » utilise --host 127.0.0.1 :
+        la page n'est alors visible que depuis ton ordinateur.
 """
+import argparse
 import json
+import os
 import subprocess
 import sys
 import threading
@@ -20,7 +25,12 @@ from datetime import datetime
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from zoneinfo import ZoneInfo
+
+try:
+    from zoneinfo import ZoneInfo
+    PARIS = ZoneInfo("Europe/Paris")
+except Exception:  # Windows sans le paquet tzdata : on retombe sur l'heure locale de l'ordinateur
+    PARIS = None
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "assets/storyboards/a-valider/options.json"
@@ -38,22 +48,32 @@ PLANS = CARTE / "plans.json"
 
 
 def now():
-    return datetime.now(ZoneInfo("Europe/Paris")).strftime("%Y-%m-%d %H:%M")
+    return datetime.now(PARIS).strftime("%Y-%m-%d %H:%M")
+
+
+def _git(*args, timeout=60):
+    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, timeout=timeout,
+                          encoding="utf-8", errors="replace")
 
 
 def git_save(message, files=None):
-    files = files or [str(MANIFEST.relative_to(ROOT)), "docs/storyboard-a-valider.md"]
+    files = files or [MANIFEST.relative_to(ROOT).as_posix(), "docs/storyboard-a-valider.md"]
 
     def run():
         with GIT_LOCK:
             try:
-                subprocess.run(["git", "add", *files], cwd=ROOT, check=True, capture_output=True)
-                r = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT)
-                if r.returncode == 0:
+                r = _git("add", *files)
+                if r.returncode:
+                    raise RuntimeError("git add : " + r.stderr.strip())
+                if _git("diff", "--cached", "--quiet", "--", *files).returncode == 0:
                     return
-                subprocess.run(["git", "commit", "-m", message, "--", *files], cwd=ROOT, check=True, capture_output=True)
-                branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=ROOT).decode().strip()
-                subprocess.run(["git", "push", "-q", "origin", branch], cwd=ROOT, capture_output=True, timeout=120)
+                r = _git("commit", "-m", message, "--", *files)
+                if r.returncode:
+                    raise RuntimeError("git commit : " + (r.stderr or r.stdout).strip())
+                branch = _git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+                r = _git("push", "-q", "origin", branch, timeout=120)
+                if r.returncode:  # le commit local est fait ; il partira au prochain push
+                    print(f"git_save : commit fait mais push refusé ({r.stderr.strip()})", flush=True)
             except Exception as exc:  # la sauvegarde locale du JSON reste faite
                 print("git_save:", exc, flush=True)
 
@@ -186,13 +206,23 @@ def save_carte(data):
         cq = png.with_name(f"{plan_id.lower()}-calque.png")
         calque.calque(plan_id).save(cq)
         build_a_valider.main()
-    rel = lambda f: str(Path(f).relative_to(ROOT))  # noqa: E731
+    rel = lambda f: Path(f).relative_to(ROOT).as_posix()  # noqa: E731
     git_save(f"Carte interactive : placement {plan_id} (rév. {clean['rev']})",
              [rel(PLANS), rel(png), rel(png.with_suffix(".svg")), rel(cq), "docs/storyboard-a-valider.md"])
     return plans
 
 
 class Handler(SimpleHTTPRequestHandler):
+    # Types imposés : sous Windows, le registre peut annoncer de mauvais types (ex. .js en text/plain)
+    extensions_map = {
+        ".html": "text/html; charset=utf-8", ".htm": "text/html; charset=utf-8",
+        ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8",
+        ".mjs": "text/javascript; charset=utf-8", ".json": "application/json; charset=utf-8",
+        ".md": "text/markdown; charset=utf-8", ".txt": "text/plain; charset=utf-8",
+        ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+        ".gif": "image/gif", ".webp": "image/webp", ".mp3": "audio/mpeg", ".mp4": "video/mp4",
+    }
+
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
         super().end_headers()
@@ -231,11 +261,32 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(400, {"ok": False, "erreur": str(exc)})
 
 
+class Serveur(ThreadingHTTPServer):
+    # Sous Windows, SO_REUSEADDR laisserait démarrer un 2e serveur sur le même port (avis perdus) :
+    # on le désactive pour obtenir une erreur claire à la place.
+    allow_reuse_address = os.name != "nt"
+
+
 def main():
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
-    srv = ThreadingHTTPServer(("0.0.0.0", port), partial(Handler, directory=str(ROOT)))
-    print(f"Storyboard à valider : http://0.0.0.0:{port}/storyboard/a-valider.html", flush=True)
-    srv.serve_forever()
+    ap = argparse.ArgumentParser(description="Serveur de la page « storyboard à valider ».")
+    ap.add_argument("port", nargs="?", type=int, default=8000, help="port (défaut 8000)")
+    ap.add_argument("--host", default="0.0.0.0",
+                    help="adresse d'écoute (défaut 0.0.0.0 ; 127.0.0.1 = visible seulement depuis cet ordinateur)")
+    o = ap.parse_args()
+    try:
+        srv = Serveur((o.host, o.port), partial(Handler, directory=str(ROOT)))
+    except OSError as exc:
+        print(f"Impossible d'ouvrir le port {o.port} ({exc}).\n"
+              f"Le serveur tourne peut-être déjà : ouvre http://localhost:{o.port}/storyboard/a-valider.html\n"
+              f"Sinon choisis un autre port : python tools/serve_storyboard.py {o.port + 1}", flush=True)
+        sys.exit(1)
+    print(f"Storyboard à valider : http://localhost:{o.port}/storyboard/a-valider.html", flush=True)
+    print(f"   carte interactive : http://localhost:{o.port}/storyboard/carte.html", flush=True)
+    print(f"   (écoute sur {o.host}:{o.port} — Ctrl+C pour arrêter)", flush=True)
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        print("Serveur arrêté.", flush=True)
 
 
 if __name__ == "__main__":

@@ -54,4 +54,6 @@ if __name__ == "__main__":
         print(f"  {o[3]:42s} écart {rv:+6.1f} px carte ({rv * M:+.2f} m)")
     pos = {k: tuple(round(t) for t in sol(c, *uv)) for k, uv in ELTS.items()}
     print("positions au sol :", pos)
-    json.dump({"cam": list(c), "pos": pos}, open("/tmp/w/fit2.json", "w"))
+    from chemins import sortie_par_defaut
+    with open(sortie_par_defaut("fit2.json"), "w", encoding="utf-8") as fh:
+        json.dump({"cam": list(c), "pos": pos}, fh)

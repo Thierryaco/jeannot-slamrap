@@ -100,4 +100,5 @@ def build(flou_diego=1.1):
 ZONES = "380,195,475,330;936,494,1030,614"   # zones autorisées pour tools/controle_retouche.py
 
 if __name__ == "__main__":
-    build().save(sys.argv[1] if len(sys.argv) > 1 else "/tmp/w/v17.png")
+    from chemins import sortie_par_defaut
+    build().save(sys.argv[1] if len(sys.argv) > 1 else sortie_par_defaut("v17.png"))

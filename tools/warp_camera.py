@@ -94,7 +94,7 @@ def a_to_b(camA, camB, uA, vA, plane):
 
 if __name__ == "__main__":
     plate = cv2.imread(sys.argv[1])
-    A, B = json.load(open(sys.argv[2])), json.load(open(sys.argv[3]))
+    A, B = (json.load(open(sys.argv[k], encoding="utf-8")) for k in (2, 3))
     out, _ = warp(plate, A, B)
     cv2.imwrite(sys.argv[4], out)
     print(sys.argv[4])

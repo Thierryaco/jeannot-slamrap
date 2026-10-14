@@ -1,0 +1,21 @@
+# Fins de ligne LF partout (Linux, macOS, Windows) : pas de différences fantômes entre machines.
+* text=auto eol=lf
+
+# Scripts propres à Windows
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binaires : jamais de conversion ni de comparaison texte
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.mp3 binary
+*.mp4 binary
+*.wav binary
+*.ttf binary
+*.otf binary
+*.pdf binary

@@ -1,0 +1,136 @@
+{
+  // Menu Terminal → Exécuter la tâche… (ou Ctrl+Maj+P → « Tasks: Run Task »).
+  // Le serveur démarre tout seul à l'ouverture du dossier (VS Code demande l'autorisation la
+  // première fois) ; il prépare d'abord l'environnement Python si besoin.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Préparer l'environnement Python",
+      "detail": "Crée .venv et installe requirements.txt (instantané si déjà fait)",
+      "type": "process",
+      "command": "python3",
+      "args": ["tools/setup_env.py"],
+      "windows": {
+        "command": "powershell.exe",
+        "args": [
+          "-NoProfile",
+          "-Command",
+          "if (Get-Command py -ErrorAction SilentlyContinue) { py -3 tools/setup_env.py } else { python tools/setup_env.py }; exit $LASTEXITCODE"
+        ]
+      },
+      "options": { "cwd": "${workspaceFolder}", "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false }
+    },
+    {
+      "label": "Lancer le serveur storyboard",
+      "detail": "http://localhost:8000/storyboard/a-valider.html — laisser ce terminal ouvert",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "args": ["tools/serve_storyboard.py", "8000", "--host", "127.0.0.1"],
+      "options": { "cwd": "${workspaceFolder}", "env": { "PYTHONUTF8": "1", "PYTHONUNBUFFERED": "1" } },
+      "dependsOn": ["Préparer l'environnement Python"],
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "showReuseMessage": false },
+      "problemMatcher": {
+        "owner": "serveur-storyboard",
+        "pattern": { "regexp": "^__jamais__(.*)$", "file": 1, "message": 1 },
+        "background": {
+          "activeBegins": true,
+          "beginsPattern": "^__jamais__$",
+          "endsPattern": "Storyboard .* : http://"
+        }
+      }
+    },
+    {
+      "label": "Ouvrir la page « à valider »",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "args": ["-m", "webbrowser", "-t", "http://localhost:8000/storyboard/a-valider.html"],
+      "problemMatcher": [],
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "Ouvrir la carte interactive",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "args": ["-m", "webbrowser", "-t", "http://localhost:8000/storyboard/carte.html"],
+      "problemMatcher": [],
+      "presentation": { "reveal": "silent" }
+    },
+    {
+      "label": "Contrôle obligatoire d'une retouche",
+      "detail": "tools/controle_retouche.py — code de sortie 0 = CONFORME",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "args": [
+        "tools/controle_retouche.py",
+        "${input:reference}",
+        "${input:resultat}",
+        "--zones", "${input:zones}",
+        "--plan", "${input:plan}",
+        "--sortie", "_sorties/controle.jpg"
+      ],
+      "options": { "cwd": "${workspaceFolder}", "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "Régénérer docs/storyboard-a-valider.md",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "args": ["tools/build_a_valider.py"],
+      "options": { "cwd": "${workspaceFolder}", "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "Installer aussi les outils de rendu vidéo (optionnel)",
+      "detail": "requirements-render.txt : PyAV + ffmpeg, pour les scripts tools/render_*.py",
+      "type": "process",
+      "command": "python3",
+      "args": ["tools/setup_env.py", "--rendu"],
+      "windows": {
+        "command": "powershell.exe",
+        "args": [
+          "-NoProfile",
+          "-Command",
+          "if (Get-Command py -ErrorAction SilentlyContinue) { py -3 tools/setup_env.py --rendu } else { python tools/setup_env.py --rendu }; exit $LASTEXITCODE"
+        ]
+      },
+      "options": { "cwd": "${workspaceFolder}", "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "reference",
+      "type": "promptString",
+      "description": "Image de référence (chemin depuis la racine du dépôt)",
+      "default": "assets/storyboards/a-valider/p01/p01-v20-nette.png"
+    },
+    {
+      "id": "resultat",
+      "type": "promptString",
+      "description": "Image retouchée à contrôler",
+      "default": "_sorties/resultat.png"
+    },
+    {
+      "id": "zones",
+      "type": "promptString",
+      "description": "Zones autorisées à changer : x0,y0,x1,y1;x0,y0,x1,y1 (vide = rien ne doit changer)",
+      "default": ""
+    },
+    {
+      "id": "plan",
+      "type": "promptString",
+      "description": "Plan (pour le calque de la carte sur la feuille de contrôle)",
+      "default": "P01"
+    }
+  ]
+}

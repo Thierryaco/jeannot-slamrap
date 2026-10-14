@@ -3,12 +3,14 @@
 > ## ⚠️ Reprendre le travail — commencer ici
 >
 > - **État complet du chantier, contraintes, ce qui reste à faire : [`docs/REPRISE.md`](docs/REPRISE.md)**
-> - **Prompt prêt à coller pour un nouveau fil : [`docs/PROMPT-REPRISE.md`](docs/PROMPT-REPRISE.md)**
-> - Branche de travail : **`arena/5ddf5758-jeannot-slamrap`** (189 commits au-dessus du commit
->   initial) ; `main` est maintenu à jour par fusion.
+> - **Prompt prêt à coller pour un nouveau fil Arena : [`docs/PROMPT-REPRISE.md`](docs/PROMPT-REPRISE.md)**
+> - **Travailler en local avec VS Code : [`docs/VSCODE.md`](docs/VSCODE.md)** (installation, serveur, tâches).
+> - Branche de référence : **`main`**, elle contient tout. Le travail fait dans Arena (branches
+>   `arena/…`) y est fusionné par pull request.
 > - **Point bloquant connu :** selon le modèle utilisé par la session, l'agent peut être incapable
 >   de voir les images. Faire le test de 30 s décrit dans `docs/REPRISE.md` §2 avant toute chose.
-> - Le serveur doit être lancé immédiatement : `python3 tools/serve_storyboard.py 8000`.
+> - Le serveur doit être lancé immédiatement : `python3 tools/serve_storyboard.py 8000` dans Arena,
+>   ou la tâche VS Code « Lancer le serveur storyboard » en local (elle démarre seule à l'ouverture).
 
 Clip d'animation 2D d'action-comédie, direction manga shōnen inspirée de DBZ. Le but est une vraie animation en cels dessinés, pas une planche d'images ni des personnages géométriques.
 
@@ -54,6 +56,8 @@ Ces repères donnent seulement les grandes sections. Les débuts/fins des parole
 - [x] Storyboard découpé en 30 plans (P01–P29 + CARTE) avec règles de continuité.
 - [x] Page « à valider » interactive (`storyboard/a-valider.html`) : options par plan, avis,
       visionneuse zoomable, outil « 📍 Pointer » pour désigner des pixels exacts.
+- [x] Travail possible en local sous VS Code (Windows, macOS, Linux) : tâches, serveur, contrôle
+      des retouches, guide [`docs/VSCODE.md`](docs/VSCODE.md).
 - [x] Carte interactive de la rue (`storyboard/carte.html`) + vue de dessus (`lieux.json` rév. 10) ;
       géographie de la rue validée (CARTE v2), passage à niveau ouvert au bout, garage avant la
       maison, tourelle côté est.

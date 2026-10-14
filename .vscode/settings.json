@@ -1,0 +1,41 @@
+{
+  // ─── Python ───────────────────────────────────────────────────────────────
+  // L'interpréteur à utiliser est celui de .venv, créé par la tâche « Préparer l'environnement
+  // Python ». VS Code le détecte en général tout seul ; sinon : Ctrl+Maj+P (Cmd+Maj+P sur Mac)
+  // → « Python: Select Interpreter » → choisir celui qui contient .venv.
+  "python.analysis.extraPaths": ["tools"],
+  "python.terminal.activateEnvironment": true,
+  // Les scripts ouvrent les images avec des chemins relatifs à la racine du dépôt :
+  // le bouton ▷ doit donc les lancer depuis la racine, pas depuis tools/.
+  "python.terminal.executeInFileDir": false,
+  // Accents et symboles (« » ✓ ✗) sans erreur d'encodage, surtout sous Windows.
+  "terminal.integrated.env.windows": { "PYTHONUTF8": "1" },
+  "terminal.integrated.env.osx": { "PYTHONUTF8": "1" },
+  "terminal.integrated.env.linux": { "PYTHONUTF8": "1" },
+
+  // ─── Fichiers ─────────────────────────────────────────────────────────────
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  // Pas de reformatage automatique : il réécrirait des fichiers entiers (diffs illisibles).
+  "editor.formatOnSave": false,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+  "files.watcherExclude": {
+    "**/.venv/**": true,
+    "**/__pycache__/**": true,
+    "renders/henri-fall-frames/**": true
+  },
+  "search.exclude": {
+    "**/.venv": true,
+    "renders/henri-fall-frames": true,
+    "_sorties": true
+  },
+
+  // ─── Git ──────────────────────────────────────────────────────────────────
+  // Le serveur commite et pousse lui-même chaque avis ; on récupère aussi régulièrement
+  // ce qui arrive de GitHub (travail fait dans Arena, par exemple).
+  "git.autofetch": true
+}

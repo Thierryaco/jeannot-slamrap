@@ -1,7 +1,8 @@
 # REPRISE DU CHANTIER — lire ce fichier en premier
 
-Document de passation rédigé le **13 octobre 2026**. Il contient tout ce qu'il faut savoir pour
-reprendre le travail sans rien perdre et sans refaire ce qui a déjà été fait.
+Document de passation rédigé le **13 octobre 2026**, mis à jour le **14 octobre 2026** (travail en
+local sous VS Code, `main` devient la branche de référence). Il contient tout ce qu'il faut savoir
+pour reprendre le travail sans rien perdre et sans refaire ce qui a déjà été fait.
 
 ---
 
@@ -10,17 +11,25 @@ reprendre le travail sans rien perdre et sans refaire ce qui a déjà été fait
 | | |
 |---|---|
 | Dépôt | `https://github.com/Thierryaco/jeannot-slamrap.git` |
-| Branche de travail | **`arena/5ddf5758-jeannot-slamrap`** |
-| Branche `main` | a été mise à jour par fusion (PR) — elle contient le même état |
-| Nombre de commits sur la branche | 189 au-dessus du commit initial |
+| **Branche de référence** | **`main`** : elle contient tout |
+| Travail en local | sous VS Code, voir [`docs/VSCODE.md`](VSCODE.md) ; les avis donnés en local sont commités et poussés directement sur `main` |
+| Branches `arena/…` | une par fil Arena ; à fusionner dans `main` par pull request |
 | État git | propre, tout est poussé |
 
-Si un nouveau fil de discussion ouvre une autre branche, la première chose à faire est :
+Au début d'un nouveau fil Arena (qui ouvre sa propre branche), récupérer `main` **sans rien
+écraser** :
 
 ```bash
 git fetch -q origin
-git reset -q --hard origin/arena/5ddf5758-jeannot-slamrap
+git merge origin/main     # avance la branche du fil jusqu'à main (ou fusionne si les deux ont avancé)
 ```
+
+⚠️ **Ne plus faire `git reset --hard origin/arena/5ddf5758-jeannot-slamrap`** : cette branche est
+ancienne. Revenir dessus effacerait les avis du 13 octobre au soir sur P01 v23 et la préparation
+VS Code. Plus généralement, jamais de `reset --hard` vers une autre branche.
+
+Pour que le travail fait dans Arena se retrouve en local, quand l'utilisateur le demande : pousser
+la branche du fil, ouvrir une pull request vers `main` et la fusionner (`gh pr merge <numéro> --merge`).
 
 ---
 
@@ -43,6 +52,7 @@ Quand il ouvre un fichier image, il reçoit littéralement :
   du serveur, idem sur un recadrage et sur un redimensionnement en 960×540.
 
 **Conclusion : c'est une capacité du modèle utilisé par la session, pas un problème de dépôt.**
+Confirmé le 14 octobre : dans un autre fil, le même test a réussi (carré rouge et rond bleu vus).
 
 ### Test à faire en 30 secondes au début de chaque nouveau fil
 
@@ -75,19 +85,20 @@ Le serveur doit être lancé **au tout début**, avant toute autre chose. Sans l
 ne peut rien voir et ne peut rien valider.
 
 ```bash
-# 1. se synchroniser
+# 1. se synchroniser sur main, sans rien écraser
 cd /home/user/jeannot-slamrap
-git fetch -q origin && git reset -q --hard origin/arena/5ddf5758-jeannot-slamrap
+git fetch -q origin && git merge origin/main
 
 # 2. réinstaller les dépendances (les réinitialisations de sandbox les effacent)
-pip install --break-system-packages pillow numpy scipy opencv-python-headless resvg-py
+pip install --break-system-packages -r requirements.txt
 
 # 3. lancer le serveur (outil start_process, PAS bash — il doit survivre au tour)
 python3 tools/serve_storyboard.py 8000
 ```
 
-- le port est un argument **positionnel** ; il n'y a pas d'option `--host` ;
-- il écoute sur `0.0.0.0` : l'aperçu est accessible à l'utilisateur ;
+- le port est un argument **positionnel** ; ne pas ajouter `--host` dans Arena (cette option ne sert
+  qu'en local) ;
+- il écoute par défaut sur `0.0.0.0` : l'aperçu est accessible à l'utilisateur ;
 - vérifier ensuite : `curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8000/storyboard/a-valider.html` → doit renvoyer `200` ;
 - **ne jamais l'arrêter**, et le relancer immédiatement s'il est tombé.
 
@@ -100,6 +111,10 @@ Routes principales :
 | `/api/manifest` | le manifeste JSON (30 plans, 64 options) |
 | `/api/carte` | les données de la carte |
 | `/api/avis` | POST des avis (commit + push automatiques) |
+
+**En local (VS Code)** : voir [`docs/VSCODE.md`](VSCODE.md). La tâche « Lancer le serveur
+storyboard » prépare `.venv` (avec `tools/setup_env.py`), puis lance
+`serve_storyboard.py 8000 --host 127.0.0.1`. Elle démarre seule à l'ouverture du dossier.
 
 ---
 
@@ -208,6 +223,11 @@ docs/storyboard-a-valider.md       page « à valider » en markdown (régénér
 docs/storyboard-images.md          historique des images
 docs/REPRISE.md                    ← ce fichier
 docs/PROMPT-REPRISE.md             ← le prompt à copier pour un nouveau fil
+docs/VSCODE.md                     ← travailler en local avec VS Code (installation, serveur, tâches)
+.vscode/                           tâches, débogage, réglages et extensions recommandées de VS Code
+requirements.txt                   dépendances Python (requirements-render.txt : rendu vidéo, optionnel)
+assets/fonts/                      polices DejaVu de la carte et des calques (rendu identique partout)
+_sorties/                          sorties locales des scripts (ignoré par git)
 storyboard/a-valider.html          la page de validation (visionneuse zoom, avis, 📍 Pointer)
 storyboard/carte.html              la carte interactive de la rue
 assets/storyboards/a-valider/options.json    TOUT l'état de validation (30 plans, 64 options, avis)
@@ -224,12 +244,14 @@ tools/                             les scripts
 
 | Outil | Commande | Rôle |
 |---|---|---|
-| `serve_storyboard.py` | `python3 tools/serve_storyboard.py 8000` | sert la page et les API, enregistre les avis (commit + push) |
+| `serve_storyboard.py` | `python3 tools/serve_storyboard.py 8000` | sert la page et les API, enregistre les avis (commit + push) ; `--host 127.0.0.1` en local |
+| `setup_env.py` | `python tools/setup_env.py` | en local : crée `.venv`, installe `requirements.txt`, vérifie (instantané si déjà fait) |
+| `chemins.py` | — | `sortie_par_defaut(nom)` : fichier dans `_sorties/` quand un script est lancé sans sortie |
 | `build_a_valider.py` | `cd tools && PYTHONPATH=. python3 build_a_valider.py` | régénère `docs/storyboard-a-valider.md` depuis `options.json` |
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
-| `p01_v16…p01_v21.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version |
+| `p01_v16…p01_v21.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/v21.png`) ; à lancer depuis la racine du dépôt |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -424,8 +446,18 @@ carte qui devra suivre l'image**, pas l'inverse.
   dans `beforeParse`, sinon le gestionnaire `pointerdown` lève une erreur et aucun point n'est
   enregistré.
 - **Les réinitialisations de sandbox effacent aussi les paquets pip** :
-  `pip install pillow numpy scipy opencv-python-headless resvg-py` fait partie de la séquence de
+  `pip install --break-system-packages -r requirements.txt` fait partie de la séquence de
   redémarrage.
+- **Le code doit tourner aussi sous Windows et macOS** (travail en local) :
+  - pas de chemin `/usr/share/fonts/...` en dur : utiliser `draw_street_map.FONT` / `FONT_B`
+    (polices de `assets/fonts/`) ;
+  - pas de `/tmp/...` en dur : utiliser `chemins.sortie_par_defaut(nom)` (dossier `_sorties/`) ;
+  - toujours `encoding="utf-8"` pour lire ou écrire un fichier texte (Windows lit sinon en cp1252) ;
+  - chemins passés à git en `as_posix()`.
+- **Ne jamais revenir en arrière par `git reset --hard` vers une ancienne branche** : se
+  synchroniser avec `git merge origin/main`.
+- **Pas d'avis en même temps dans Arena et en local** : les deux modifient `options.json` sur des
+  branches différentes, et il faudrait ensuite fusionner à la main.
 - **Ne pas recalculer une position depuis la carte dans la zone d'Henri** : la projection s'est
   révélée fausse d'environ 180 px en hauteur.
 

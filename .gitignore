@@ -2,3 +2,13 @@
 __pycache__/
 *.py[cod]
 renders/henri-fall-frames/
+
+# Sorties locales des scripts (images de travail, feuilles de contrôle) : jamais suivies
+_sorties/
+_test-vision.png
+
+# Fichiers des systèmes et des autres éditeurs (le dossier .vscode/ est suivi, lui)
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/

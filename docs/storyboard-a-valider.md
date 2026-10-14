@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 3 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 4 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -169,6 +169,11 @@ Reframe P02 with fixed 4L continuity — version en place dans le storyboard
 D'après ton avis sur la v1 et la carte P02 rév. 2 : la composition de la v1 vue en miroir (la 4L reste à sa place de P01, donc à droite), Jeannot adossé au flanc de la 4L qui fume, une main dans la poche, Enji couchée à gauche de ses pieds. Au fond : le cul-de-sac avec le grillage sur toute la largeur, la colline boisée raide, le garage avec la terrasse dessus, le portail et l'escalier qui monte à la maison du fond, et le mur de chez Jeannot à droite. Deux défauts repérés : le volant est du côté proche (conduite à droite, alors qu'une 4L française l'a de l'autre côté), et les couleurs sont plus beiges que dans P01 (route beige au lieu de grise, peu de ciel).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v3-cul-de-sac.png" width="640" alt="P02 v3">
+
+**P02 · v4** — ⏳ à valider — tools/p02_v4.py — la v3 avec les 2 premiers correctifs, sans IA · contrôle : tools/controle_retouche.py → p02-v4-controle.jpg (CONFORME : hors zones 0,00 ; volant netteté ×0,88 ; sol ×0,94 ; ciel ×1,00) · 🟢 conforme à la carte actuelle (rév. 2)  
+Correctifs 1 et 2 de la liste (14/10) : 1) le volant passe du côté conducteur (une 4L française l'a à gauche, donc ici derrière la moitié éloignée du pare-brise) ; 2) la chaussée, les trottoirs et les bordures passent du beige au gris de P01 (chaque surface prend la teinte de la même surface dans P01, ombres et texture gardées) et le coin de ciel passe du gris-vert à un bleu pâle — le bleu franc de P01 n'existe pas dans l'image et le contrôle le refuse : il viendra avec le point « plus de ciel ». Tout le reste est identique à la v3, au pixel près.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v4-volant-couleurs.png" width="640" alt="P02 v4">
 
 ## P03
 

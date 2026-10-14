@@ -545,6 +545,18 @@
       "lieux_rev": 12
      },
      "avis": []
+    },
+    {
+     "id": "v4",
+     "fichier": "p02-v4-volant-couleurs.png",
+     "source": "tools/p02_v4.py — la v3 avec les 2 premiers correctifs, sans IA · contrôle : tools/controle_retouche.py → p02-v4-controle.jpg (CONFORME : hors zones 0,00 ; volant netteté ×0,88 ; sol ×0,94 ; ciel ×1,00)",
+     "note": "Correctifs 1 et 2 de la liste (14/10) : 1) le volant passe du côté conducteur (une 4L française l'a à gauche, donc ici derrière la moitié éloignée du pare-brise) ; 2) la chaussée, les trottoirs et les bordures passent du beige au gris de P01 (chaque surface prend la teinte de la même surface dans P01, ombres et texture gardées) et le coin de ciel passe du gris-vert à un bleu pâle — le bleu franc de P01 n'existe pas dans l'image et le contrôle le refuse : il viendra avec le point « plus de ciel ». Tout le reste est identique à la v3, au pixel près.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
     }
    ]
   },

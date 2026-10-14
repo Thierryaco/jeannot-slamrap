@@ -329,10 +329,10 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | v17 | `p01-v17-retouche-v16.png` | écartée |
 | v18 | `p01-v18-retouche-v17.png` | à retoucher |
 | v19 | `p01-v19-retouche-v18.png` | à retoucher |
-| **v20** | `p01-v20-nette.png` | **base sûre actuelle** (v19 reconstruite sans flou) |
-| v21 | `p01-v21-fume.png` | à valider — Henri ne bouge pas, il fume |
-| v22 | `p01-v22-marches.png` | à valider — Henri remonté de 59 px |
-| v23 | `p01-v23-haut.png` | à valider — Henri remonté de 109 px |
+| **v20** | `p01-v20-nette.png` | **base sûre** (v19 reconstruite sans flou) — on repart d'elle le 14/10 |
+| v21–v23 | — | **supprimées par l'utilisateur le 14/10** (essais de hauteur d'Henri) |
+| v24 | `p01-v24-sans-portail.png` | à valider — v20 sans le portail ni la clôture (`tools/p01_v24.py A`) |
+| v25 | `p01-v25-porte.png` | à valider — v24 + porte dans le mur ; liseré clair autour de l'encadrement, à refaire |
 
 **v14 et v15 ont été rejetées et supprimées.** Ne jamais les reconstituer.
 
@@ -357,25 +357,27 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
   le miroir l'a retourné face à la façade. Et je l'avais collé à un point calculé depuis la carte
   (762, 370) alors que le palier n'est pas là visuellement → effet de lévitation.
 - **Corrigé depuis :** plus de miroir (`retourner=False`), regard = celui de la v20 (vers la rue).
-- **À trancher :** la hauteur. v21 = il ne bouge pas ; v22 = remonté de 59 px (pieds à y 500) ;
-  v23 = remonté de 109 px (pieds à y 450). Les trois sont au contrôle CONFORME.
+- **14/10 : les essais de hauteur v21, v22 et v23 ont été supprimés par l'utilisateur.** On repart
+  de la v20, où Henri est debout à mi-escalier (pieds vers (728, 550)), pour le placer sur le palier.
 
   ⚠️ **La projection de la carte s'est révélée peu fiable dans cette zone.** Ne pas recalculer la
-  position depuis la carte : utiliser le pointage de l'utilisateur (§7) ou son choix parmi v21/v22/v23.
+  position depuis la carte : regarder l'image, ou utiliser le pointage de l'utilisateur (§7).
 
-**2. Le portail à supprimer (LOCALISÉ, PAS ENCORE FAIT).**
+**2. Le portail (FAIT en v24 ; la porte de la v25 est à refaire).**
 
-Avis v19 : *« Il y a comme un portail avec 2 piliers qui cache… »*
+Avis v19 : *« Il y a comme un portail avec 2 piliers qui chevauche l'escalier d'Henri en dessous…
+rajoute plutôt une porte directement sur la maison »*. Avis v20 (14/10) : *« retire moi le portail
+avec la clôture qu'il y a sous l'escalier d'henri »*.
 
-- L'utilisateur a confirmé : « oui c'est la structure devant les escaliers ».
-- **Zone confirmée : structure de barres verticales à x ≈ 706–782, y ≈ 317–425**, encadrée par
-  deux bandes plus sombres. Une analyse de périodicité a trouvé une bande y 350–622 avec une
-  période de 6–8 px, ce qui confirme la structure répétitive mais reste trop bruitée pour la
-  délimiter seule.
-- **À faire :** la faire disparaître et peindre **une porte directement dans le mur de la maison**.
-- `assets/storyboards/a-valider/p01/work/crop-v21-B-ed.png` contient une ébauche : dans le
-  recadrage (620,400)–(900,680) elle retire Henri (composante n°1) et modifie la zone du portail
-  (composante n°2, x 787..841 / y 439..506). C'est la seule ébauche utilisable.
+- **Vraie position, vue le 14/10 (la vision fonctionnait)** : deux piliers carrés à chapeau
+  (x ≈ 775–833), un portillon en bois entre eux et un petit morceau de clôture à barreaux sur muret
+  (x ≈ 833–848), de y ≈ 500 à 613, au pied de l'escalier, entre son muret et le garage.
+- ⚠️ **L'ancienne « zone confirmée » x ≈ 706–782, y ≈ 317–425 était fausse** (calculée sans voir
+  l'image) : c'est la **porte d'entrée de l'étage**, en haut de l'escalier. Ne pas y toucher.
+- v24 : portail et clôture retirés (zone de contrôle `731,484,862,624`, CONFORME).
+- v25 : v24 + porte dans le mur. Le contrôle est CONFORME, mais il reste un liseré clair autour de
+  l'encadrement, et la porte est à cheval sur le pan gris côté garage. **À refaire en redessinant
+  la porte sur la v24.**
 
 ### Repères numériques utiles sur P01 (image 1920×1080)
 
@@ -415,10 +417,10 @@ carte qui devra suivre l'image**, pas l'inverse.
 ## 11. Ce qu'il reste à faire, dans l'ordre
 
 1. **Résoudre la vision** (§2) — priorité absolue, décidé par l'utilisateur.
-2. **P01 — Henri :** arrêter la hauteur entre v21 / v22 / v23 (ou pointage 📍), puis poser la pose
-   penchée appuyée au muret, le regard vers la 4L.
-3. **P01 — portail :** supprimer la structure de barres verticales (x ≈ 706–782, y ≈ 317–425) et
-   peindre une porte dans le mur de la maison.
+2. **P01 — portail :** fait en v24. Porte dans le mur : v25 à refaire proprement (redessinée sur la
+   v24).
+3. **P01 — Henri :** en partant de v24/v25 (v21–v23 supprimées), le placer sur le palier en haut de
+   son escalier, penché, appuyé au muret, en train de fumer, le visage tourné vers la 4L.
 4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image.
 5. **Valider P01**, première image de référence du clip.
 6. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.

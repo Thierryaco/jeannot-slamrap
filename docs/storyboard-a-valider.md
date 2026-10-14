@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 18 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 20 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -112,6 +112,16 @@ La v19 sans le flou des ajouts : Diego et sa caisse à outils, l'Estafette et la
 <img src="../assets/storyboards/a-valider/p01/p01-v20-nette.png" width="640" alt="P01 v20">
 
 - 💬 *2026-10-14 10:43* — retire moi le portail avec la cloture qu'il y a sous l'escalier d'henri
+
+**P01 · v24** — ⏳ à valider — tools/p01_v24.py A — repart de la v20, édition locale work/crop-v24-A-ed.png · contrôle : tools/controle_retouche.py → p01-v24-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
+On repart de la v20 (v21, v22, v23 supprimées). Ton avis v20 : le portail (deux piliers et le portillon en bois) et la petite clôture à barreaux sous l'escalier d'Henri sont retirés. Le mur sous l'escalier descend maintenant jusqu'au sol et le seuil en pierre continue jusqu'au garage. Seule cette zone change (x 731–862, y 484–624) : tout le reste est la v20 au pixel près. Contrôle CONFORME (couleurs 100 %, netteté ×1,00, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v24-sans-portail.png" width="640" alt="P01 v24">
+
+**P01 · v25** — ⏳ à valider — tools/p01_v24.py B — v24 + porte prise dans work/crop-v24-B-ed.png · contrôle : tools/controle_retouche.py → p01-v25-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
+Comme la v24, plus une porte en bois avec encadrement de pierre et seuil, directement dans le mur de la maison (ton avis v19). Contrôle CONFORME, mais défaut que j'ai repéré au zoom : un liseré plus clair autour de l'encadrement, et la porte déborde sur le pan de mur gris côté garage. Une version corrigée suit (porte redessinée sur la v24).
+
+<img src="../assets/storyboards/a-valider/p01/p01-v25-porte.png" width="640" alt="P01 v25">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

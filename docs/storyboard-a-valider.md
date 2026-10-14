@@ -106,17 +106,12 @@ La v18 avec seulement tes corrections : la sorcière est de nouveau nette (trait
 - 💬 *2026-10-13 14:50* — Henri  aura une pose  pencher appuiyé sur le rebord du mu muret sur le palier en haut de son escalier en train de fumer auss le viage tourner vers la 4l.
 Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessous .  il n'a aucun interet, rakoute plutot une porte  directement sur la maison  c'est plus logique .
 
-**P01 · v24** — ⏳ à valider — tools/p01_v24.py A — repart de la v20, édition locale work/crop-v24-A-ed.png · contrôle : tools/controle_retouche.py → p01-v24-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
-On repart de la v20 (v21, v22, v23 supprimées). Ton avis v20 : le portail (deux piliers et le portillon en bois) et la petite clôture à barreaux sous l'escalier d'Henri sont retirés. Le mur sous l'escalier descend maintenant jusqu'au sol et le seuil en pierre continue jusqu'au garage. Seule cette zone change (x 731–862, y 484–624) : tout le reste est la v20 au pixel près. Contrôle CONFORME (couleurs 100 %, netteté ×1,00, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v24-sans-portail.png" width="640" alt="P01 v24">
-
 **P01 · v32** — 🔁 à retoucher — tools/p01_v32.py — la v29 ; l'Henri de l'essai ed5 repris de ta capture d'écran (work/ed5-capture.png, déposée par la page de dépôt), recalée automatiquement sur le recadrage du palier et recollée au ras de sa silhouette · contrôle : tools/controle_retouche.py → p01-v32-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
 La v29 avec l'Henri de l'essai ed5, celui que tu préférais, repris de ta capture d'écran. Il est penché sur le muret, le visage tourné vers nous de trois quarts, les yeux baissés vers l'avant et vers la gauche, du côté de la 4L, et non vers le mur ou la porte. Il a sa cigarette et son filet de fumée. La capture a été recalée automatiquement sur le palier (échelle, décalage et teinte d'écran corrigés), et seul Henri a été recollé : tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). Contrôle CONFORME (couleurs 100 %, netteté ×1,02, raccord 0,0). À comparer avec la v31 (tête d'après le P08).
 
 <img src="../assets/storyboards/a-valider/p01/p01-v32-ed5.png" width="640" alt="P01 v32">
 
-<details><summary>🗄️ 23 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v20, v25, v26, v27, v28, v29, v30, v31</summary>
+<details><summary>🗄️ 24 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v20, v24, v25, v26, v27, v28, v29, v30, v31</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -149,6 +144,7 @@ Pour le garage de diego
   - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
 - **v20** — tools/p01_v20.py (même contenu que v19, ajouts reconstruits sans flou) · contrôle : tools/controle_retouche.py → p01-v20-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v20-nette.png
   - 💬 *2026-10-14 10:43* — retire moi le portail avec la cloture qu'il y a sous l'escalier d'henri
+- **v24** — tools/p01_v24.py A — repart de la v20, édition locale work/crop-v24-A-ed.png · contrôle : tools/controle_retouche.py → p01-v24-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v24-sans-portail.png
 - **v25** — tools/p01_v24.py B — v24 + porte prise dans work/crop-v24-B-ed.png · contrôle : tools/controle_retouche.py → p01-v25-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v25-porte.png
 - **v26** — tools/p01_v26.py — part de la v24 · contrôle : tools/controle_retouche.py → p01-v26-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v26-rampe.png
 - **v27** — tools/p01_v27.py — v26 + porte dessinée sur la v26 (work/crop-v27-ed.png) · contrôle : tools/controle_retouche.py → p01-v27-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v27-porte.png

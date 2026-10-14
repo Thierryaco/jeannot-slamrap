@@ -363,7 +363,7 @@
      "fichier": "p01-v24-sans-portail.png",
      "source": "tools/p01_v24.py A — repart de la v20, édition locale work/crop-v24-A-ed.png · contrôle : tools/controle_retouche.py → p01-v24-controle.jpg",
      "note": "On repart de la v20 (v21, v22, v23 supprimées). Ton avis v20 : le portail (deux piliers et le portillon en bois) et la petite clôture à barreaux sous l'escalier d'Henri sont retirés. Le mur sous l'escalier descend maintenant jusqu'au sol et le seuil en pierre continue jusqu'au garage. Seule cette zone change (x 731–862, y 484–624) : tout le reste est la v20 au pixel près. Contrôle CONFORME (couleurs 100 %, netteté ×1,00, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 14,
       "lieux_rev": 10

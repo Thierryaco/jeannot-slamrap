@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | 🛠️ En cours | 10 | — |
+| [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -43,7 +43,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 ## CARTE
 
-**référence** · Carte des lieux (vue de dessus) · 🛠️ En cours
+**référence** · Carte des lieux (vue de dessus) · ✅ Validé · choix : **v10**
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
 
@@ -57,7 +57,7 @@ Comme la v8, avec les lieux de ta note sur la carte P02 (lieux rév. 11). Au bou
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v9.png" width="640" alt="CARTE v9">
 
-**CARTE · v10** — ⏳ à valider — tools/draw_street_map.py base v10 (lieux rév. 12)  
+**CARTE · v10** — ✅ retenue — tools/draw_street_map.py base v10 (lieux rév. 12)  
 D'après ton message sur les nouveaux lieux : la maison du fond est élargie jusqu'à la limite de chez Jeannot ; le garage avec la terrasse dessus passe à l'ouest et le jardin surélevé à l'est ; un portail sur le trottoir ouvre sur un escalier qui monte à la maison et coupe le jardin en deux. Tout le reste est identique à la v9 (vérifié au pixel près).
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v10.png" width="640" alt="CARTE v10">

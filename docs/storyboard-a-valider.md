@@ -47,11 +47,6 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
 
-**CARTE · v5** — ⏳ à valider — tools/draw_street_map.py base v5 (lieux rév. 7)  
-D'après ton avis sur la v4 : le fond du garage est aligné sur le fond des maisons (y 165), et sa porte s'ouvre au début du trottoir, au même niveau que le bas de l'escalier d'Henri (y 383). Le reste de la v4 est inchangé.
-
-<img src="../assets/storyboards/a-valider/carte/carte-rue-v5.png" width="640" alt="CARTE v5">
-
 **CARTE · v6** — ⏳ à valider — tools/draw_street_map.py base v6 (lieux rév. 8)  
 D'après tes avis : la tour ronde est en retrait, dans l'alignement de la façade de la maison de Jeannot ; elle ne dépasse plus sur le trottoir. La tourelle de la sorcière (toit d'ardoise) est placée derrière le mur du jardin, à l'endroit où elle apparaît dans l'image. Les véhicules ont leurs dimensions réelles : Coccinelle 4,08 × 1,54 m, 4L 3,66 × 1,48 m, Estafette 4,29 × 1,80 m.
 
@@ -67,7 +62,7 @@ Comme la v7, avec l'escalier d'Henri dans le sens de l'image : les marches monte
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v8.png" width="640" alt="CARTE v8">
 
-<details><summary>🗄️ 4 option(s) écartée(s) : v1, v2, v3, v4</summary>
+<details><summary>🗄️ 5 option(s) écartée(s) : v1, v2, v3, v4, v5</summary>
 
 - **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
   - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
@@ -78,6 +73,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 - **v3** — tools/draw_street_map.py base v3 (lieux rév. 5) — ../assets/storyboards/a-valider/carte/carte-rue-v3.png
 - **v4** — tools/draw_street_map.py base v4 (lieux rév. 6) — ../assets/storyboards/a-valider/carte/carte-rue-v4.png
   - 💬 *2026-10-13 11:54* — le garage doit être aligné au fond des 2 autres maisons et l ouverture de celui-ci doit être alignée au début du trottoir ou à l escalier d Henri (c est le même résultat). (avis transmis dans le chat : l envoi avait échoué)
+- **v5** — tools/draw_street_map.py base v5 (lieux rév. 7) — ../assets/storyboards/a-valider/carte/carte-rue-v5.png
 
 </details>
 

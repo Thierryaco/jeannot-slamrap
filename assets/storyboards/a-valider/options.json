@@ -65,7 +65,7 @@
      "fichier": "carte-rue-v5.png",
      "source": "tools/draw_street_map.py base v5 (lieux rév. 7)",
      "note": "D'après ton avis sur la v4 : le fond du garage est aligné sur le fond des maisons (y 165), et sa porte s'ouvre au début du trottoir, au même niveau que le bas de l'escalier d'Henri (y 383). Le reste de la v4 est inchangé.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "avis": []
     },
     {

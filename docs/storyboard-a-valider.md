@@ -96,6 +96,8 @@ La v32 sans les restes de flou que tu as pointés autour de Diego (zone 1-2-3-4)
 
 <img src="../assets/storyboards/a-valider/p01/p01-v33-net.png" width="640" alt="P01 v33">
 
+- 💬 *2026-10-14 15:17* — C'est ok quand le storyboard sera terminé  il faudra upscale l'image pour faire du 1080p en augmentant la qualité et les détails de l'image sans la changer . LA après avoir mis à jour la position d'henri sur la carte  on peut passer à la P02 enfin  , on se base évidant avec la P01 pour la réf de l'image  en tenant comptes des indications de la p02 pour la position des perso voiture et caméra
+
 <details><summary>🗄️ 27 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v18, v19, v20, v24, v25, v26, v27, v28, v29, v30, v31, v32</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png

@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 21 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 20 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -115,11 +115,6 @@ La v19 sans le flou des ajouts : Diego et sa caisse à outils, l'Estafette et la
 Henri reste là où il était dans la v20 (debout sur les marches de son escalier) et il fume : cigarette au coin des lèvres, un seul filet de fumée. Le sens du regard est celui de la v20 (vers la rue) : dans la version précédente je l'avais retourné par erreur, il fixait la façade. C'est la base sûre ; les v22 et v23 le remontent sur les marches, à comparer.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v21-fume.png" width="640" alt="P01 v21">
-
-**P01 · v22** — ⏳ à valider — tools/p01_v21.py : Henri remonté de 59 px sur son escalier (pieds à y 500) + cigarette et fumée · ⚪ faite sans carte du plan  
-Henri remonté de 59 px sur la volée de marches (pieds à y 500), même axe vertical que dans la v20 pour rester sur l'escalier. Regard vers la rue, cigarette et fumée. À comparer avec la v21 (pas bougé) et la v23 (encore plus haut).
-
-<img src="../assets/storyboards/a-valider/p01/p01-v22-marches.png" width="640" alt="P01 v22">
 
 **P01 · v23** — ⏳ à valider — tools/p01_v21.py : Henri remonté de 109 px sur son escalier (pieds à y 450) + cigarette et fumée · ⚪ faite sans carte du plan  
 Henri remonté de 109 px (pieds à y 450), toujours à la verticale de sa position de la v20. Regard vers la rue, cigarette et fumée. Si le palier est encore plus haut, dis-le-moi ou utilise 📍 Pointer pour me donner le pixel exact.

@@ -362,14 +362,6 @@
      "avis": []
     },
     {
-     "id": "v22",
-     "fichier": "p01-v22-marches.png",
-     "source": "tools/p01_v21.py : Henri remonté de 59 px sur son escalier (pieds à y 500) + cigarette et fumée",
-     "note": "Henri remonté de 59 px sur la volée de marches (pieds à y 500), même axe vertical que dans la v20 pour rester sur l'escalier. Regard vers la rue, cigarette et fumée. À comparer avec la v21 (pas bougé) et la v23 (encore plus haut).",
-     "etat": "a-valider",
-     "avis": []
-    },
-    {
      "id": "v23",
      "fichier": "p01-v23-haut.png",
      "source": "tools/p01_v21.py : Henri remonté de 109 px sur son escalier (pieds à y 450) + cigarette et fumée",

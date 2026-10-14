@@ -352,14 +352,6 @@
       "lieux_rev": 9
      },
      "avis": []
-    },
-    {
-     "id": "v21",
-     "fichier": "p01-v21-fume.png",
-     "source": "tools/p01_v21.py : v20 + cigarette et filet de fumée (Henri ne bouge pas)",
-     "note": "Henri reste là où il était dans la v20 (debout sur les marches de son escalier) et il fume : cigarette au coin des lèvres, un seul filet de fumée. Le sens du regard est celui de la v20 (vers la rue) : dans la version précédente je l'avais retourné par erreur, il fixait la façade. C'est la base sûre ; les v22 et v23 le remontent sur les marches, à comparer.",
-     "etat": "a-valider",
-     "avis": []
     }
    ]
   },

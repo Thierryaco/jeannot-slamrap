@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 19 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 18 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -110,11 +110,6 @@ Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessou
 La v19 sans le flou des ajouts : Diego et sa caisse à outils, l'Estafette et la tourelle sont maintenant aussi nets que le reste (le flou venait de l'ancien critère « grain » du contrôle, qui a été retiré et remplacé par un critère « netteté » : un ajout ne doit pas être plus flou que ses voisins). Le fond autour de Diego reste doux comme avant. Rien d'autre ne bouge. Contrôle CONFORME (netteté : tourelle ×0,99, Estafette ×1,23, Diego ×1,39). La zone d'Henri (avis v19 + carte rév. 12) arrive en v21.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v20-nette.png" width="640" alt="P01 v20">
-
-**P01 · v21** — ⏳ à valider — tools/p01_v21.py : v20 + cigarette et filet de fumée (Henri ne bouge pas) · ⚪ faite sans carte du plan  
-Henri reste là où il était dans la v20 (debout sur les marches de son escalier) et il fume : cigarette au coin des lèvres, un seul filet de fumée. Le sens du regard est celui de la v20 (vers la rue) : dans la version précédente je l'avais retourné par erreur, il fixait la façade. C'est la base sûre ; les v22 et v23 le remontent sur les marches, à comparer.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v21-fume.png" width="640" alt="P01 v21">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

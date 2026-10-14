@@ -635,10 +635,17 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
    (mêmes lieux, même style, mêmes personnages), en suivant les indications de P02 pour la position
    des personnages, de la voiture et de la caméra.
    - **Carte : FAIT** (P02 rév. 2 + lieux rév. 11, §10).
-   - **Images : À FAIRE** — plusieurs options : composition de la v1 en miroir (4L à droite, Jeannot
-     adossé à sa gauche avec sa cigarette), Enji couchée à gauche de ses pieds ; au fond la maison en
-     hauteur, le garage avec la terrasse, le jardin, le grillage du cul-de-sac et la colline boisée
-     assez raide. Toutes les options vont dans « à valider » ; ensuite la carte suit l'image.
+   - **Images : EN COURS** — composition de la v1 en miroir (4L à droite, Jeannot adossé à sa gauche
+     avec sa cigarette), Enji couchée à gauche de ses pieds ; au fond la maison en hauteur, le garage
+     avec la terrasse, le jardin coupé par l'escalier du portail, le grillage du cul-de-sac et la
+     colline boisée assez raide. Toutes les options vont dans « à valider » ; ensuite la carte suit
+     l'image.
+   - **v3** (`p02-v3-cul-de-sac.png`, « à valider », carte rév. 2 / lieux rév. 12) : IA, choisie par
+     l'utilisateur parmi 2 ; brut `p02/work/p02-essai-1.png` (2784×1504, recadré x 80–2754 puis
+     1920×1080). Défauts repérés : volant du côté proche (conduite à droite — une 4L française l'a de
+     l'autre côté, donc sur la moitié droite du pare-brise ici) ; couleurs plus beiges que P01 (route
+     beige, peu de ciel). Prochaine étape proposée : v4 = v3 avec le volant du bon côté (retouche
+     locale + contrôle) et, si l'utilisateur le veut, couleurs rapprochées de P01.
 5. **Cohérence P03**, puis P04 → P29.
 6. **À la toute fin du storyboard** (avis v33) : agrandir toutes les images retenues pour faire du
    vrai 1080p, en augmentant la qualité et les détails **sans changer l'image**.
@@ -735,6 +742,10 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
 - Après tout changement des lieux, générer aussi la carte générale (`python3 tools/draw_street_map.py
   base vN`) et l'ajouter comme option « à valider » du plan CARTE dans `options.json` : sinon
   l'utilisateur ne voit pas les nouveaux lieux dans la page « à valider » (oubli du 14/10).
+
+- `generate_image` avec `offer_options` : seule l'image choisie par l'utilisateur est enregistrée ;
+  l'autre ne l'est nulle part (pas de dossier « Unselected files ») et ne peut donc pas aller dans
+  « à valider ». Le dire à l'utilisateur.
 
 ---
 

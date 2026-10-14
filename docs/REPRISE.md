@@ -262,6 +262,7 @@ tools/                             les scripts
 | `p02_v5.py` | `python3 tools/p02_v5.py [OUT]` | P02 v5 = v4 + plaque avant noire « 1_ 67 » (caractères fins, posés en perspective) + peinture à la teinte de la 4L de P01 + rouille brune de P01 + 16 taches/points ajoutés ; masques limités à la silhouette de la 4L, mélange en RVB ; sans IA ; affiche les zones du contrôle |
 | `p02_v6.py` | `python3 tools/p02_v6.py [OUT]` | P02 v6 = v5 + Jeannot et Enji comme dans P01 : retouches IA sur recadrages (p02/work/v6-*), collage de la seule silhouette (GrabCut, union ancienne/nouvelle), Jeannot recoloré matière par matière sur celui de P01 (bleu, peau, bob, taches ; `CLARTE_P01` = 0,7) ; affiche les zones du contrôle |
 | `p02_v7.py` | `python3 tools/p02_v7.py [OUT] [--seam IMG]` | P02 v7 = v6 + bout de chez Jeannot (IA recalée sur la 4L par ECC, coupe de coût minimal le long du mur de pierre, 4L par GrabCut + ouverture) + sol de la route (IA, masques du sol de p02_v4, Enji/Jeannot/bottes protégés) ; affiche les zones du contrôle |
+| `p02_v8.py` | `python3 tools/p02_v8.py [OUT] [--coupes IMG]` | P02 v8 = v7 + ciel (colline abaissée, ciel de P01) + escalier tout droit (jardin en deux) : retouches IA collées par **coupe de graphe** (PyMaxflow) entre zones sûres IA / v7 ; Jeannot et la 4L protégés ; affiche les zones du contrôle |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -685,6 +686,13 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      corrélation : maison x 1100–1920, y 0–615 retourné ×1,5 ; route x 0–1020, y 400–1080 ×1,5). L'IA maison
      avait recadré plus large (échelle 0,70) : recalage ECC sur la 4L et rééchantillonnage direct (1 px v6 ≈
      1,02 px IA). Vérifié : 0 pixel changé sur la 4L, Enji, Jeannot et ses bottes ; pas de liseré.
+   - **v8** (`p02-v8-ciel-escalier.png`, `tools/p02_v8.py`, contrôle `--palette` P01 CONFORME : hors zones
+     0,00 ; ciel 100 %, ×1,08 ; escalier 95 %, ×0,98) = points 11 et 12, à partir de la v7. Retouches IA
+     (ciel x 0–1067, y 0–600 ; escalier x 620–1508, y 0–500 ; ×1,5, déjà alignées) collées par coupe de
+     graphe. Corrigé en cours de route : cran d'ancienne colline à gauche du toit (bord du toit mesuré :
+     x 994 → 962, façade x 976) ; ancienne colline entre les barreaux de la rambarde (la rambarde vient
+     de l'IA, limite au haut de la dalle y ≈ 198). Vérifié : 0 pixel changé sur Jeannot, la 4L et sous
+     y 480. Le bas de l'escalier (à droite du portail) est caché par Jeannot.
    - **Grillage du trottoir de gauche (point 13)** : l'utilisateur le **garde** (14/10). La carte l'ajoutera
      quand elle suivra l'image retenue (le long du terrain vide sud-ouest).
    - **Liste des correctifs P02** (à faire dans l'ordre, une paire par version, base = dernière version) :
@@ -702,14 +710,14 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      9. textures et trait comme P01 (trait net et régulier, aplats doux) — ici trait fin, hachures,
         textures dessinées (pierres, crépi, arbres) ;
      10. lumière : plein jour comme P01 au lieu de la lumière chaude et sépia de fin d'après-midi ;
-     11. plus de ciel bleu comme P01 (la colline remplit le fond : l'abaisser, la carte suivra) ;
-     12. escalier de la maison du fond : tout droit depuis le portail, en coupant le jardin en deux (ici
-         il monte en biais le long du mur) ;
+     11. ✅ plus de ciel bleu comme P01 : colline abaissée, grand ciel bleu clair à nuages (v8 ; la carte suivra) ;
+     12. ✅ escalier de la maison du fond tout droit jusqu'à la porte, jardin coupé en deux (v8) ;
      13. ✅ grillage le long du trottoir de gauche (côté narrateur) : **gardé** (réponse du 14/10) ; la carte
          l'ajoutera quand elle suivra l'image retenue.
-     Prochaine paire proposée à l'utilisateur (14/10, après la v7) : points 11 (plus de ciel, colline
-     abaissée) et 12 (escalier tout droit depuis le portail), à partir de la v7 ; les points 9 et 10, qui
-     touchent toute l'image, gardés pour la fin (une seule passe globale) — sauf avis contraire.
+     L'utilisateur a accepté (« continue ») de faire 11 et 12 avant 9 et 10. Restent **9 et 10** (toute
+     l'image). Proposé après la v8 : v9 = lumière de plein jour seule (correction de couleur globale,
+     rien ne bouge) ; puis une passe de style IA sur toute l'image d'après P01 (2 propositions) pour le
+     trait et les textures, à comparer.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.
@@ -837,6 +845,11 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
 - GrabCut rattache parfois des éléments fins voisins (descente d'eau, arête de mur) : ouverture 9×9 du
   masque. Le lissage du bord de collage déborde de 1–2 px : le remettre à zéro sur ce qui doit rester
   identique (4L, personnages).
+
+- Collage de grandes zones (ciel, jardin) : coupe de graphe (PyMaxflow, `p02_v8.coupe_graphe`) plutôt
+  qu'une limite tracée à la main — la frontière passe là où l'ancienne et la nouvelle image sont
+  identiques. Si elle suit en ligne droite le bord d'une zone sûre, c'est que rien n'y est identique :
+  vérifier au zoom. Éléments ajourés (rambarde, grillage) : les prendre entiers d'un seul côté.
 
 ---
 

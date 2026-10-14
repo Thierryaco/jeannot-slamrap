@@ -12,3 +12,5 @@ opencv-python-headless>=4.8
 resvg-py>=0.5
 # Fuseau Europe/Paris des avis : indispensable sous Windows (pas de base de fuseaux dans le système)
 tzdata>=2024.1
+# Coupe de graphe pour les collages de retouches (tools/p02_v8.py)
+PyMaxflow>=1.3

@@ -429,6 +429,18 @@
       "lieux_rev": 10
      },
      "avis": []
+    },
+    {
+     "id": "v30",
+     "fichier": "p01-v30-henri-regard.png",
+     "source": "tools/p01_v30.py — v28 ; Henri effacé des marches comme pour la v29 (au pixel, sans IA), puis Henri redessiné par IA sur le recadrage du palier présenté en miroir (work/crop-v30-ed3-miroir.png, remis à l'endroit : work/crop-v30-ed3.png) et recollé au ras de sa silhouette et de sa fumée · contrôle : tools/controle_retouche.py → p01-v30-controle.jpg",
+     "note": "La v29 avec Henri tourné plus franchement vers la 4L, comme tu l'as demandé. Dans la v29, il gardait la tête droite et regardait à l'horizontale, vers la façade. Ici, il baisse la tête : visage de trois quarts vers la gauche, regard vers le bas, du côté de la rue et de la 4L, qui est au premier plan en bas à gauche. Même pose penchée, avant-bras sur le muret, cigarette et filet de fumée. Tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). L'essai ed5 que tu préférais a été perdu lors d'une remise à zéro de la session : celui-ci cherche à s'en rapprocher. Contrôle CONFORME (couleurs 99 %, netteté ×1,26, raccord 0,0).",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 14,
+      "lieux_rev": 10
+     },
+     "avis": []
     }
    ]
   },

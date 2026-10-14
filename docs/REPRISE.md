@@ -251,7 +251,7 @@ tools/                             les scripts
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
-| `p01_v16…p01_v29.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier) |
+| `p01_v16…p01_v30.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -336,7 +336,8 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | v26 | `p01-v26-rampe.png` | à valider — v24 + rampe couleur façade du garage + trait du bas en ligne droite |
 | v27 | `p01-v27-porte.png` | à valider — v26 + porte dans le mur sous l'escalier |
 | v28 | `p01-v28-trait.png` | à valider — v27 + un seul trait sous la rampe et sous le palier |
-| **v29** | `p01-v29-henri-palier.png` | à valider — v28 + Henri sur le palier, penché sur le muret, fumant, tourné vers la 4L (**version la plus avancée**) |
+| v29 | `p01-v29-henri-palier.png` | à valider — v28 + Henri sur le palier, penché sur le muret, fumant ; tête droite, il regarde à l'horizontale (vers la façade) |
+| **v30** | `p01-v30-henri-regard.png` | à valider — v29 avec la tête d'Henri tournée et baissée vers le bas à gauche, franchement vers la 4L (**version la plus avancée**) |
 
 **v14 et v15 ont été rejetées et supprimées.** Ne jamais les reconstituer.
 
@@ -350,7 +351,7 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 
 ### Les deux points qui étaient ouverts (FAITS, en attente d'avis)
 
-**1. Henri sur son palier (FAIT en v29, en attente d'avis).**
+**1. Henri sur son palier (FAIT en v29, regard corrigé en v30, en attente d'avis).**
 
 Avis v19 de l'utilisateur : *« Henri aura une pose penchée appuyé sur le rebord du muret sur le
 palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. »*
@@ -381,6 +382,32 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
     (≈ 815–840, 395–407) ; jambes cachées par le muret, pieds sur le palier vers (820, 442).
   - Zones de contrôle depuis la v28 : `709,424,747,551;798,352,848,412` (CONFORME ; netteté
     ×0,92 et ×1,19). Fumée ≤ (170,177,184).
+- **Avis du 14/10 sur la v29 :** *« je préférais l'avant-dernière génération crop-v29-ed5.png, le
+  regard et la tête d'Henri étaient mieux situés »*, puis *« tourné plus franchement vers la
+  voiture »*. **ed5 est perdu** : il n'avait pas été commité avant une remise à zéro de la session.
+  Dans la v29 (ed6), Henri a la tête droite et regarde à l'horizontale, donc vers la façade. Or la
+  4L est au premier plan, en bas à gauche : il doit regarder **vers le bas et vers la gauche**, en
+  trois-quarts face. Un profil pur vers la gauche le ferait regarder la façade, comme dans la v21
+  refusée.
+- **v30 (14/10)** — `tools/p01_v30.py` : même effacement des marches que la v29 (fonction
+  `retirer_henri` importée), puis Henri redessiné par IA :
+  - deux essais proposés au choix (consigne « tête vers le coin en bas à gauche ») : **aucun retenu
+    par l'utilisateur**, et rien n'a été enregistré ;
+  - `work/crop-v30-ed2.png` (consigne directe « vers la gauche, vers les marches ») : tourné vers
+    la droite, écarté ;
+  - **`work/crop-v30-ed3.png`, retenu** : recadrage de la v29 présenté **en miroir**
+    (`work/crop-v30-1024-miroir.png`), consigne « il tourne la tête vers la droite et regarde les
+    marches en bas à droite », résultat remis à l'endroit. Visage de trois quarts vers la gauche,
+    regard vers le bas ; corps, cigarette et fumée conservés ;
+  - `work/crop-v30-ed4-miroir.png` (« tête très penchée, regard plongeant ») : tête inclinée sur le
+    côté, sourire grimaçant tourné vers nous, écarté.
+  - Collage : silhouette isolée par différence avec l'escalier vide (`work/crop-v29-1024.png`,
+    seuil 20). La fumée est isolée **par sa couleur** (gain de B − R > 12, morceaux ≥ 30 px) et
+    non par simple différence : le fond rendu par l'IA diffère de 6 à 13 niveaux, ce qui faisait
+    des taches autour du filet de fumée.
+  - Zone modifiée depuis la v29 : 800,354,845,409. Contrôle avec la zone `796,350,849,413` :
+    CONFORME (couleurs 99 %, netteté ×1,26, raccord 0,0). Fumée ≤ (165,176,190).
+  - Position inchangée : tête ≈ x 805–840, y 354–385 ; pieds cachés vers (820, 442).
 
 **2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27 → v28, en attente d'avis).**
 
@@ -461,10 +488,10 @@ carte qui devra suivre l'image**, pas l'inverse.
 1. **Résoudre la vision** (§2) — priorité absolue, décidé par l'utilisateur.
 2. **P01 — portail, rampe, porte, trait unique :** faits en v24 → v26 → v27 → v28, en attente de
    l'avis de l'utilisateur.
-3. **P01 — Henri :** fait en v29 (sur le palier, penché sur le muret, fumant, tourné vers la 4L), en
-   attente de l'avis de l'utilisateur.
+3. **P01 — Henri :** sur le palier, penché sur le muret, fumant, en v29. Regard corrigé en v30 :
+   tête baissée vers le bas à gauche, franchement vers la 4L. En attente de l'avis de l'utilisateur.
 4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image
-   (v29 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
+   (v29 / v30 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
 5. **Valider P01**, première image de référence du clip.
 6. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.
 7. Puis P04 → P29.
@@ -473,13 +500,28 @@ carte qui devra suivre l'image**, pas l'inverse.
 
 ## 12. Pièges déjà rencontrés — ne pas les refaire
 
-- **Faire tourner un personnage vers la gauche avec l'IA** (v29) : elle le tourne vers la droite même
-  quand on écrit « gauche » en toutes lettres. Parade qui a marché : obtenir d'abord un Henri dans
-  le bon sens (essai sur le recadrage en miroir, puis remis à l'endroit : `work/henri-pose-v29.png`)
-  et le donner comme **modèle de pose** à l'IA sur le vrai recadrage.
+- **Garder TOUS les essais IA** dans `work/`, y compris ceux qu'on écarte, et les commiter tout de
+  suite. L'utilisateur peut en préférer un : `crop-v29-ed5.png`, son préféré, a été perdu avec une
+  remise à zéro de la session parce qu'il n'avait pas été commité. Quand l'utilisateur ne choisit
+  aucune des deux images proposées au choix, rien n'est enregistré.
+- **Faire tourner un personnage vers la gauche avec l'IA** (v29, v30) : elle le tourne vers la droite
+  même quand on écrit « gauche » en toutes lettres (encore le cas pour `work/crop-v30-ed2.png`).
+  Deux parades ont marché :
+  - v29 : obtenir d'abord un Henri dans le bon sens (essai sur le recadrage en miroir, puis remis à
+    l'endroit : `work/henri-pose-v29.png`) et le donner comme **modèle de pose** à l'IA sur le vrai
+    recadrage ;
+  - v30, plus simple : donner le **recadrage en miroir** avec une consigne courte et « modifie
+    seulement sa tête… tout le reste identique », demander qu'il regarde vers la droite, puis
+    **remettre le résultat à l'endroit**. Le fond n'a bougé que de 6 à 13 niveaux, sans
+    recomposition. Donner une cible visible dans le recadrage (« les marches en bas à droite »)
+    plutôt qu'un objet hors champ.
+- **Trop insister sur « tête très penchée, regard plongeant »** (v30, ed4) : l'IA incline la tête sur
+  le côté, avec un sourire grimaçant tourné vers nous. Il vaut mieux demander une tête tournée et
+  baissée, en trois-quarts face.
 - **Ne jamais citer un objet hors champ dans un prompt** (« il regarde une voiture garée en bas à
-  gauche ») : l'IA recompose toute la scène et dessine la voiture. Idem si l'image d'entrée est en
-  miroir : la scène a été recomposée (inutilisable pour un collage).
+  gauche ») : l'IA recompose toute la scène et dessine la voiture. En v29, un essai sur l'image en
+  miroir a aussi été recomposé (`work/crop-v29-ed4-miroir.png`, inutilisable pour un collage). En
+  v30, avec une consigne courte qui ne cite rien hors champ, le miroir a marché (voir plus haut).
 - **Ne pas retourner un personnage accoudé** pour changer son regard : ses avant-bras suivent un
   rebord incliné (pente ≈ 0,35 sur P01), qui ne correspond plus une fois retourné.
 

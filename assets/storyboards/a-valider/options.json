@@ -587,7 +587,7 @@
      "fichier": "p02-v7-maison-route.png",
      "source": "tools/p02_v7.py — la v6 avec les correctifs 7 et 8 : retouches IA d'après P01 (p02/work/v7-ia-*), collage du seul bout de chez Jeannot (recalé sur la 4L, coupe le long du mur de pierre de l'escalier) et du seul sol de la route ; la 4L, Enji et Jeannot de la v6 sont gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v7-controle.jpg (CONFORME : hors zones 0,00 ; maison couleurs 99 %, netteté ×1,43 ; route couleurs 100 %, netteté ×1,83)",
      "note": "Correctifs 7 et 8 de la liste : 7) le bout de la maison de Jeannot comme dans P01 : le grand pignon aveugle posé sur le trottoir (avec sa gouttière, sa descente d'eau et son toit) devient un haut mur de jardin crème le long du trottoir, avec derrière, en retrait, l'étage d'une maison crème aux fenêtres à encadrement blanc ; 8) la route dessinée comme dans P01 : asphalte lisse, bordures claires et caniveau le long des deux trottoirs. Tout le reste est identique à la v6 au pixel près (la 4L, Jeannot, Enji, la maison du fond, la colline).",
-     "etat": "a-valider",
+     "etat": "a-retoucher",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

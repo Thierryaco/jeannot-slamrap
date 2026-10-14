@@ -345,8 +345,8 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | v29 | `p01-v29-henri-palier.png` | écartée le 14/10 — v28 + Henri sur le palier, penché sur le muret, fumant ; tête droite, il regarde à l'horizontale (vers la façade) |
 | v30 | `p01-v30-henri-regard.png` | écartée le 14/10 — v29 avec la tête d'Henri tournée et baissée vers le bas à gauche (il semble regarder le mur) |
 | v31 | `p01-v31-tete-p08.png` | écartée le 14/10 — v29 avec la tête d'Henri refaite d'après P08 v1, visage de trois quarts face, yeux baissés vers la 4L |
-| v32 | `p01-v32-ed5.png` | **à retoucher** — v29 avec l'Henri de l'essai ed5 (le préféré de l'utilisateur), repris de sa capture d'écran. **Retenue comme base** ; avis : restes de flou autour de Diego |
-| **v33** | `p01-v33-net.png` | à valider — v32 sans les restes de flou de l'ancien contrôle autour de Diego (capot, outils, fond) (**version la plus avancée**) |
+| v32 | `p01-v32-ed5.png` | écartée le 14/10 après la v33 — v29 avec l'Henri de l'essai ed5 (le préféré de l'utilisateur), repris de sa capture d'écran ; avis : restes de flou autour de Diego |
+| **v33** | `p01-v33-net.png` | **RETENUE le 14/10 à 15 h 11** — v32 sans les restes de flou de l'ancien contrôle autour de Diego (capot, outils, fond). **C'est l'image de P01** |
 
 Le 14/10, l'utilisateur a écarté depuis la page, sans commentaire, la v25 à la v28 et la v30, et a
 passé la v29 en « à retoucher ». Le contenu de la v26 à la v28 (rampe, porte, trait unique) reste
@@ -367,7 +367,7 @@ la v24, la v29 et la v31). **La v32, avec l'Henri d'ed5, est donc la base retenu
 
 ### Les deux points qui étaient ouverts (FAITS, en attente d'avis)
 
-**1. Henri sur son palier (Henri d'ed5 retenu : v32, puis v33).**
+**1. Henri sur son palier (Henri d'ed5, v32 → v33 RETENUE).**
 
 Avis v19 de l'utilisateur : *« Henri aura une pose penchée appuyé sur le rebord du muret sur le
 palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. »*
@@ -566,16 +566,17 @@ carte qui devra suivre l'image**, pas l'inverse.
 ## 11. Ce qu'il reste à faire, dans l'ordre
 
 1. **Résoudre la vision** (§2) — priorité absolue, décidé par l'utilisateur.
-2. **P01 — portail, rampe, porte, trait unique :** faits en v24 → v26 → v27 → v28, en attente de
-   l'avis de l'utilisateur.
-3. **P01 — Henri :** l'utilisateur a retenu l'Henri d'ed5 (v32, à retoucher) ; toutes les autres
-   options P01 sont écartées. **v33** = v32 sans les restes de flou autour de Diego, en attente de
-   son avis.
-4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image
-   (v32 / v33 : sur le palier, pieds cachés vers (820, 442) ; la carte suit l'image).
-5. **Valider P01**, première image de référence du clip.
-6. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.
-7. Puis P04 → P29.
+2. **P01 — image : FAIT.** Le 14/10 à 15 h 11, l'utilisateur a passé la **v33 en « retenue »**
+   (portail retiré, rampe couleur façade, trait unique, porte, Henri d'ed5 sur le palier, plus de
+   flou autour de Diego) et la v32 en « écartée ». Toutes les autres options P01 sont écartées.
+   Le seul commentaire de la v32 (zone 1-2-3-4) est traité par la v33 : les autres flous des anciens
+   scripts sont hors de la zone (fenêtre de la sorcière, `p01_v17.FLOU`) ou déjà retirés en v20
+   (Estafette, `estafette(flou=0)`).
+3. **P01 — carte :** recaler le point Henri de `plans.json` sur la position de la v33 (sur le
+   palier, pieds cachés vers (820, 442) ; la carte suit l'image).
+4. **Valider P01** côté carte, première image de référence du clip.
+5. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.
+6. Puis P04 → P29.
 
 ---
 

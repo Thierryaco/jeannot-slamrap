@@ -96,6 +96,12 @@ La v29 avec l'Henri de l'essai ed5, celui que tu préférais, repris de ta captu
 
 <img src="../assets/storyboards/a-valider/p01/p01-v32-ed5.png" width="640" alt="P01 v32">
 
+- 💬 *2026-10-14 14:39* — 📍 pointages sur l'image :
+1. (866, 445) — verifie  la zone intérieur des points 1 2 3 et 4 il y a des reste de flou  de l'ancien controle
+2. (860, 622)
+3. (1119, 625)
+4. (1112, 442)
+
 <details><summary>🗄️ 26 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v18, v19, v20, v24, v25, v26, v27, v28, v29, v30, v31</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png

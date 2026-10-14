@@ -464,7 +464,12 @@
       "plan_rev": 14,
       "lieux_rev": 10
      },
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-14 14:39",
+       "texte": "📍 pointages sur l'image :\n1. (866, 445) — verifie  la zone intérieur des points 1 2 3 et 4 il y a des reste de flou  de l'ancien controle\n2. (860, 622)\n3. (1119, 625)\n4. (1112, 442)"
+      }
+     ]
     }
    ]
   },

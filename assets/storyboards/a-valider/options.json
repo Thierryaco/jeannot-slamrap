@@ -81,7 +81,7 @@
      "fichier": "carte-rue-v7.png",
      "source": "tools/draw_street_map.py base v7 (lieux rév. 9)",
      "note": "Comme la v6, avec la tourelle de la sorcière agrandie (rayon 48 → 56, comme sur l'image P01 v19) et reculée vers la maison : elle s'arrête juste avant le trottoir, sans déborder dessus.",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "avis": []
     },
     {

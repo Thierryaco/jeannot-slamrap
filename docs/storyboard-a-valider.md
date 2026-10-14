@@ -47,17 +47,12 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 > Référence de cohérence pour tous les plans. Une seule rue ouest→est. Côté nord (côté Jeannot), d'ouest en est : maison de Jeannot avec la tourelle de la sorcière (elle vit chez Jeannot, avec Enji), maison d'Henri juste à côté avec son escalier extérieur, voisins, puis maison de Diego et son garage/atelier avec la Coccinelle orange sur parpaings. Côté sud : le narrateur en face de Jeannot, puis des voisins. L'unique 4L, très rouillée, est garée contre le trottoir nord devant chez Jeannot, nez vers l'est (vers Diego) ; l'Estafette est garée devant chez Diego. Chaque plan validé y reçoit sa caméra et son champ de vision.
 
-**CARTE · v7** — ⏳ à valider — tools/draw_street_map.py base v7 (lieux rév. 9)  
-Comme la v6, avec la tourelle de la sorcière agrandie (rayon 48 → 56, comme sur l'image P01 v19) et reculée vers la maison : elle s'arrête juste avant le trottoir, sans déborder dessus.
-
-<img src="../assets/storyboards/a-valider/carte/carte-rue-v7.png" width="640" alt="CARTE v7">
-
 **CARTE · v8** — ⏳ à valider — tools/draw_street_map.py base v8 (lieux rév. 10)  
 Comme la v7, avec l'escalier d'Henri dans le sens de l'image : les marches montent vers le fond de la rue et le palier est en haut, devant l'entrée de la maison (avant, il n'y avait que des marches en haut).
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v8.png" width="640" alt="CARTE v8">
 
-<details><summary>🗄️ 6 option(s) écartée(s) : v1, v2, v3, v4, v5, v6</summary>
+<details><summary>🗄️ 7 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7</summary>
 
 - **v1** — nouveau fil, dessinée par script (tools/draw_street_map.py), version SVG à côté : carte-rue-v1.svg — ../assets/storyboards/a-valider/carte/carte-rue-v1.png
   - 💬 *2026-10-11 11:13* — inverser la position de la maison et du garage de diego .
@@ -70,6 +65,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
   - 💬 *2026-10-13 11:54* — le garage doit être aligné au fond des 2 autres maisons et l ouverture de celui-ci doit être alignée au début du trottoir ou à l escalier d Henri (c est le même résultat). (avis transmis dans le chat : l envoi avait échoué)
 - **v5** — tools/draw_street_map.py base v5 (lieux rév. 7) — ../assets/storyboards/a-valider/carte/carte-rue-v5.png
 - **v6** — tools/draw_street_map.py base v6 (lieux rév. 8) — ../assets/storyboards/a-valider/carte/carte-rue-v6.png
+- **v7** — tools/draw_street_map.py base v7 (lieux rév. 9) — ../assets/storyboards/a-valider/carte/carte-rue-v7.png
 
 </details>
 

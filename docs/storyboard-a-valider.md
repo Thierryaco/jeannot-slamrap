@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 20 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 22 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -119,9 +119,19 @@ On repart de la v20 (v21, v22, v23 supprimées). Ton avis v20 : le portail (deux
 <img src="../assets/storyboards/a-valider/p01/p01-v24-sans-portail.png" width="640" alt="P01 v24">
 
 **P01 · v25** — ⏳ à valider — tools/p01_v24.py B — v24 + porte prise dans work/crop-v24-B-ed.png · contrôle : tools/controle_retouche.py → p01-v25-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
-Comme la v24, plus une porte en bois avec encadrement de pierre et seuil, directement dans le mur de la maison (ton avis v19). Contrôle CONFORME, mais défaut que j'ai repéré au zoom : un liseré plus clair autour de l'encadrement, et la porte déborde sur le pan de mur gris côté garage. Une version corrigée suit (porte redessinée sur la v24).
+Comme la v24, plus une porte en bois avec encadrement de pierre et seuil, directement dans le mur de la maison (ton avis v19). Contrôle CONFORME, mais défaut que j'ai repéré au zoom : un liseré plus clair autour de l'encadrement, et la porte déborde sur le pan de mur gris côté garage. Une version corrigée suit (porte redessinée sur la v24). → Refaite proprement en v27.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v25-porte.png" width="640" alt="P01 v25">
+
+**P01 · v26** — ⏳ à valider — tools/p01_v26.py — part de la v24 · contrôle : tools/controle_retouche.py → p01-v26-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
+Ton avis du 14/10. La rampe en béton blanc (main courante, sa grande face, la bande étroite du dessous, le muret du palier et le petit poteau du bas) a pris la couleur et le léger grain de la façade du garage. Le trait noir du bas en forme d'escalier est remplacé par une ligne droite, au même endroit et de même épaisseur. Portail toujours retiré (comme la v24), sans porte. Seule la rampe change (x 723–842, y 395–603). Contrôle CONFORME (couleurs 100 %, netteté ×0,85 parce que la droite a moins de crans que les dents de scie, raccord 0,0).
+
+<img src="../assets/storyboards/a-valider/p01/p01-v26-rampe.png" width="640" alt="P01 v26">
+
+**P01 · v27** — ⏳ à valider — tools/p01_v27.py — v26 + porte dessinée sur la v26 (work/crop-v27-ed.png) · contrôle : tools/controle_retouche.py → p01-v27-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
+La v26 plus une porte en bois avec encadrement de pierre et marche, directement dans le mur de la maison sous l'escalier (ton avis v19). Elle remplace la porte de la v25 : il n'y a plus de liseré clair. Pour lui faire place, le bord du pan gris côté garage passe de x 819 à x 830, et au-dessus de la porte le mur continue jusqu'au palier. Contrôle CONFORME (couleurs 100 %, netteté ×1,03, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v27-porte.png" width="640" alt="P01 v27">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

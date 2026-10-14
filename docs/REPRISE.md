@@ -251,7 +251,7 @@ tools/                             les scripts
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
-| `p01_v16…p01_v21.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/v21.png`) ; à lancer depuis la racine du dépôt |
+| `p01_v16…p01_v27.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -332,7 +332,9 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | **v20** | `p01-v20-nette.png` | **base sûre** (v19 reconstruite sans flou) — on repart d'elle le 14/10 |
 | v21–v23 | — | **supprimées par l'utilisateur le 14/10** (essais de hauteur d'Henri) |
 | v24 | `p01-v24-sans-portail.png` | à valider — v20 sans le portail ni la clôture (`tools/p01_v24.py A`) |
-| v25 | `p01-v25-porte.png` | à valider — v24 + porte dans le mur ; liseré clair autour de l'encadrement, à refaire |
+| v25 | `p01-v25-porte.png` | à valider — v24 + porte ; liseré clair autour de l'encadrement → remplacée par la v27 |
+| v26 | `p01-v26-rampe.png` | à valider — v24 + rampe couleur façade du garage + trait du bas en ligne droite |
+| **v27** | `p01-v27-porte.png` | à valider — v26 + porte dans le mur sous l'escalier (**version la plus avancée**) |
 
 **v14 et v15 ont été rejetées et supprimées.** Ne jamais les reconstituer.
 
@@ -363,7 +365,7 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
   ⚠️ **La projection de la carte s'est révélée peu fiable dans cette zone.** Ne pas recalculer la
   position depuis la carte : regarder l'image, ou utiliser le pointage de l'utilisateur (§7).
 
-**2. Le portail (FAIT en v24 ; la porte de la v25 est à refaire).**
+**2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27, en attente d'avis).**
 
 Avis v19 : *« Il y a comme un portail avec 2 piliers qui chevauche l'escalier d'Henri en dessous…
 rajoute plutôt une porte directement sur la maison »*. Avis v20 (14/10) : *« retire moi le portail
@@ -376,8 +378,20 @@ avec la clôture qu'il y a sous l'escalier d'henri »*.
   l'image) : c'est la **porte d'entrée de l'étage**, en haut de l'escalier. Ne pas y toucher.
 - v24 : portail et clôture retirés (zone de contrôle `731,484,862,624`, CONFORME).
 - v25 : v24 + porte dans le mur. Le contrôle est CONFORME, mais il reste un liseré clair autour de
-  l'encadrement, et la porte est à cheval sur le pan gris côté garage. **À refaire en redessinant
-  la porte sur la v24.**
+  l'encadrement, et la porte est à cheval sur le pan gris côté garage. → Remplacée par la v27.
+- **v26** (avis du 14/10 : *« tu donneras à la partie main courante (la rampe en béton couleur
+  blanche) la même couleur et texture que la façade du garage. tu remplaceras le trait noir du bas en
+  forme d'escalier par une ligne rectiligne »*) :
+  - les dents de scie sont remplacées par une droite de (813, 449) à (765, 552), juste au-dessus du
+    trait épais déjà droit, de (818, 452) à (771, 548) ;
+  - les surfaces claires de la rampe (main courante, grande face, bande étroite, muret du palier,
+    poteau du bas) prennent la couleur Lab de la façade du garage, mesurée sur son jambage et le
+    dessus de sa porte (≈ 75 / 4 / 11,5), avec un léger grain ; les traits noirs ne bougent pas ;
+  - zone de contrôle depuis la v24 : `719,391,846,607`.
+- **v27** : v26 + porte en bois avec encadrement de pierre et marche (x 799–837, y 493–593),
+  dessinée sur la v26 et recollée au ras de son contour. Le bord du pan gris passe de x 819 à x 830 ;
+  au-dessus de la porte, le mur continue jusqu'au palier avec la teinte du coin de mur voisin.
+  Zone de contrôle depuis la v26 : `795,449,841,597`.
 
 ### Repères numériques utiles sur P01 (image 1920×1080)
 
@@ -417,10 +431,11 @@ carte qui devra suivre l'image**, pas l'inverse.
 ## 11. Ce qu'il reste à faire, dans l'ordre
 
 1. **Résoudre la vision** (§2) — priorité absolue, décidé par l'utilisateur.
-2. **P01 — portail :** fait en v24. Porte dans le mur : v25 à refaire proprement (redessinée sur la
-   v24).
-3. **P01 — Henri :** en partant de v24/v25 (v21–v23 supprimées), le placer sur le palier en haut de
-   son escalier, penché, appuyé au muret, en train de fumer, le visage tourné vers la 4L.
+2. **P01 — portail, rampe, porte :** faits en v24 → v26 → v27, en attente de l'avis de
+   l'utilisateur.
+3. **P01 — Henri :** en partant de la version retenue (v27 a priori ; v21–v23 supprimées), le placer
+   sur le palier en haut de son escalier, penché, appuyé au muret, en train de fumer, le visage tourné
+   vers la 4L.
 4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image.
 5. **Valider P01**, première image de référence du clip.
 6. **Cohérence P02 / P03** : jamais retravaillés, c'est la suite logique annoncée.

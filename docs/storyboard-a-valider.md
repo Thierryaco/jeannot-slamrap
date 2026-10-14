@@ -190,10 +190,11 @@ Correctifs 7 et 8 de la liste : 7) le bout de la maison de Jeannot comme dans P0
 
 <img src="../assets/storyboards/a-valider/p02/p02-v7-maison-route.png" width="640" alt="P02 v7">
 
-**P02 · v8** — ⏳ à valider — tools/p02_v8.py — la v7 avec les correctifs 11 et 12 : retouches IA (p02/work/v8-ia-*, ciel d'après P01), collées par coupe de graphe (la frontière passe sur les contours, là où les deux images sont identiques) ; Jeannot, la 4L, Enji et la route de la v7 gardés au pixel près · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v8-controle.jpg (CONFORME : hors zones 0,00 ; ciel couleurs 100 %, netteté ×1,08 ; escalier 95 %, ×0,98) · 🟢 conforme à la carte actuelle (rév. 2)  
-Correctifs 11 et 12 de la liste : 11) plus de ciel bleu comme dans P01 : la colline boisée est abaissée (toujours raide et boisée) et un grand ciel bleu clair à nuages légers apparaît au-dessus ; 12) l'escalier de la maison du fond monte tout droit jusqu'à la porte de la maison et coupe le jardin surélevé en deux moitiés, chacune avec pelouse et buissons, tenues par le muret de pierre le long du trottoir (le bas de l'escalier, juste à droite du portail, est caché par Jeannot). Le haut mur de pierre a disparu. Tout le reste est identique à la v7 au pixel près. La carte suivra (colline plus basse, escalier).
+<details><summary>🗄️ 1 option(s) écartée(s) : v8</summary>
 
-<img src="../assets/storyboards/a-valider/p02/p02-v8-ciel-escalier.png" width="640" alt="P02 v8">
+- **v8** — tools/p02_v8.py — la v7 avec les correctifs 11 et 12 : retouches IA (p02/work/v8-ia-*, ciel d'après P01), collées par coupe de graphe (la frontière passe sur les contours, là où les deux images sont identiques) ; Jeannot, la 4L, Enji et la route de la v7 gardés au pixel près · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v8-controle.jpg (CONFORME : hors zones 0,00 ; ciel couleurs 100 %, netteté ×1,08 ; escalier 95 %, ×0,98) — ../assets/storyboards/a-valider/p02/p02-v8-ciel-escalier.png
+
+</details>
 
 ## P03
 

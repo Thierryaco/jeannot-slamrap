@@ -595,6 +595,16 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   - Calques P01, P02 et P03 identiques au pixel près ; seules les vues de dessus changent.
   - **Carte générale CARTE v9** (`carte-rue-v9.png`, « à valider ») : la v8 + ces lieux ; le reste est
     identique à la v8 au pixel près. L'utilisateur a écarté les CARTE v5, v6 et v7 le 14/10.
+- **Lieux rév. 12** (message de l'utilisateur, 14/10) : « élargir la maison jusqu'à la limite de la maison
+  de Jeannot », « inverser le garage/terrasse avec le jardin », « un portail d'accès avec des escaliers qui
+  montent à la maison, qui coupe le jardin en 2 ».
+  - `maison-fond` x −235…160 (jusqu'à la parcelle de Jeannot) ; `garage-fond` x −235…−140 (à l'ouest) ;
+    `jardin-fond-ouest` x −140…−10 et `jardin-fond-est` x 30…160 (2,6 m) ; `escalier-fond` x −10…30,
+    y 245–383, `montee` nord, 2,6 m ; `portail-fond` en bas de l'escalier (y 383, x −14…34, 1,6 m).
+  - Outils : escaliers `montee` nord/sud (vue de dessus, calque, vue caméra, hauteur des personnages),
+    étiquette `etiquette` (défaut « escalier d'Henri »), type de détail `portail`.
+  - Calques P01 et P03 identiques au pixel près ; P02 montre le garage à gauche de Jeannot et le portail
+    juste à sa droite. **CARTE v10** « à valider » (seule la parcelle de la maison du fond change).
 - **P02 rév. 2** (`POST /api/carte`, commit serveur d9d20e7) :
   - **Le miroir** : la v1 montre la 4L garée à gauche, Jeannot côté conducteur. La 4L reste à sa
     place de P01 (trottoir nord, avant vers l'est) : le même angle de vue sur la 4L donne donc la v1

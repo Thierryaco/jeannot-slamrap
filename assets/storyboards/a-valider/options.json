@@ -360,27 +360,6 @@
      "note": "Henri reste là où il était dans la v20 (debout sur les marches de son escalier) et il fume : cigarette au coin des lèvres, un seul filet de fumée. Le sens du regard est celui de la v20 (vers la rue) : dans la version précédente je l'avais retourné par erreur, il fixait la façade. C'est la base sûre ; les v22 et v23 le remontent sur les marches, à comparer.",
      "etat": "a-valider",
      "avis": []
-    },
-    {
-     "id": "v23",
-     "fichier": "p01-v23-haut.png",
-     "source": "tools/p01_v21.py : Henri remonté de 109 px sur son escalier (pieds à y 450) + cigarette et fumée",
-     "note": "Henri remonté de 109 px (pieds à y 450), toujours à la verticale de sa position de la v20. Regard vers la rue, cigarette et fumée. Si le palier est encore plus haut, dis-le-moi ou utilise 📍 Pointer pour me donner le pixel exact.",
-     "etat": "a-valider",
-     "avis": [
-      {
-       "date": "2026-10-13 20:40",
-       "texte": "📍 pointages sur l'image :\n1. (819, 440) — c'est l'emplacement des pieds d'henri derriere le muret"
-      },
-      {
-       "date": "2026-10-13 20:47",
-       "texte": "📍 pointages sur l'image :\n1. (777, 614) — c'est le point interieur au niveau du sol du premier poteau du portail\n2. (796, 614) — c'est le point exterieur au niveau du sol du premier poteau du portail\n3. (777, 502) — c'est le point interieur au niveau du haut  du premier poteau du portail\n4. (796, 501) — c'est le point exterieur au niveau du haut du premier poteau du portail\n5. (833, 603) — c'est le point extérieur au niveau du sol du deuxieme  poteau du portail\n6. (833, 502) — c'est le point extérieur au niveau du haut du deuxieme  poteau du portail"
-      },
-      {
-       "date": "2026-10-13 20:49",
-       "texte": "tu penseras a rajouter la porte après avoir retiré le portail et le reste  et rappelle toi la position d'henri qui doit être penché sur le muret en fumant la tête tourné vers la 4l"
-      }
-     ]
     }
    ]
   },

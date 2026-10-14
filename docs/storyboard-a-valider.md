@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 20 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 19 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -115,22 +115,6 @@ La v19 sans le flou des ajouts : Diego et sa caisse à outils, l'Estafette et la
 Henri reste là où il était dans la v20 (debout sur les marches de son escalier) et il fume : cigarette au coin des lèvres, un seul filet de fumée. Le sens du regard est celui de la v20 (vers la rue) : dans la version précédente je l'avais retourné par erreur, il fixait la façade. C'est la base sûre ; les v22 et v23 le remontent sur les marches, à comparer.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v21-fume.png" width="640" alt="P01 v21">
-
-**P01 · v23** — ⏳ à valider — tools/p01_v21.py : Henri remonté de 109 px sur son escalier (pieds à y 450) + cigarette et fumée · ⚪ faite sans carte du plan  
-Henri remonté de 109 px (pieds à y 450), toujours à la verticale de sa position de la v20. Regard vers la rue, cigarette et fumée. Si le palier est encore plus haut, dis-le-moi ou utilise 📍 Pointer pour me donner le pixel exact.
-
-<img src="../assets/storyboards/a-valider/p01/p01-v23-haut.png" width="640" alt="P01 v23">
-
-- 💬 *2026-10-13 20:40* — 📍 pointages sur l'image :
-1. (819, 440) — c'est l'emplacement des pieds d'henri derriere le muret
-- 💬 *2026-10-13 20:47* — 📍 pointages sur l'image :
-1. (777, 614) — c'est le point interieur au niveau du sol du premier poteau du portail
-2. (796, 614) — c'est le point exterieur au niveau du sol du premier poteau du portail
-3. (777, 502) — c'est le point interieur au niveau du haut  du premier poteau du portail
-4. (796, 501) — c'est le point exterieur au niveau du haut du premier poteau du portail
-5. (833, 603) — c'est le point extérieur au niveau du sol du deuxieme  poteau du portail
-6. (833, 502) — c'est le point extérieur au niveau du haut du deuxieme  poteau du portail
-- 💬 *2026-10-13 20:49* — tu penseras a rajouter la porte après avoir retiré le portail et le reste  et rappelle toi la position d'henri qui doit être penché sur le muret en fumant la tête tourné vers la 4l
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

@@ -28,7 +28,7 @@
 
 | Plan | Temps | Paroles | Image, jeu et caméra |
 |---|---:|---|---|
-| P01 | 00:00–00:05 | Instrumental | Plan général maître de la rue, avec avant-plan dégagé. Une 4L vert menthe unique, à échelle réaliste, reste sur l'asphalte au bord du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris est plus loin sur le même côté. [Image-clé révisée](../assets/storyboards/p01-establishing-street.png). |
+| P01 | 00:00–00:05 | Instrumental | Plan général maître de la rue, avec avant-plan dégagé. Une seule 4L vert menthe, en 3/4 avant et nez vers le narrateur, reste à taille réaliste entièrement sur l'asphalte, avec un écart visible du trottoir gauche devant chez Jeannot ; l'Estafette bleu-gris, plus haute et distincte, reste plus loin sur le même côté. Cette géométrie et cette orientation sont le repère fixe des plans larges. [Image-clé révisée](../assets/storyboards/p01-establishing-street.png). |
 | P02 | 00:05–00:10 | Instrumental | Glissement vers la maison de Jeannot et sa 4L vert menthe, rouillée mais intacte. Jeannot respire, décale son poids et tient sa cigarette ; Enji traverse le cadre pour son gag. [Image-clé de travail, à valider](../assets/storyboards/p02-jeannot-enji-v2.png). |
 | P03 | 00:10–00:16,35 | Instrumental | Pan vers la maison voisine et l'escalier d'Henri, puis vers la tourelle de la sorcière et l'autre bout de la rue où se trouve Diego. Finir le mouvement sur Jeannot, prêt pour la première entrée vocale. [Image-clé](../assets/storyboards/p03-street-geography.png). |
 

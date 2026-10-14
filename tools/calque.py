@@ -233,8 +233,15 @@ def calque(plan_id, cam_i=0):
     for dt in L["details"]:
         if dt["type"] == "escalier":
             x0, y0, w, h, hm = dt["x"], dt["y"], dt["w"], dt["h"], dt.get("hauteur", 2.8)
-            for yy in (y0, y0 + h):
-                line((x0, yy, 0), (x0 + w, yy, hm), (200, 255, 200, 230), 3)
+            mo = dt.get("montee", "est")
+            if mo in ("nord", "sud"):  # bas -> haut le long de y
+                yb, yh = (y0 + h, y0) if mo == "nord" else (y0, y0 + h)
+                for xx in (x0, x0 + w):
+                    line((xx, yb, 0), (xx, yh, hm), (200, 255, 200, 230), 3)
+            else:                      # bas -> haut le long de x
+                xb, xh = (x0, x0 + w) if mo == "est" else (x0 + w, x0)
+                for yy in (y0, y0 + h):
+                    line((xb, yy, 0), (xh, yy, hm), (200, 255, 200, 230), 3)
             pa = dt.get("palier")
             if pa:
                 for a, b in box_edges(pa["x"] + pa["w"] / 2, pa["y"] + pa["h"] / 2, pa["w"], pa["h"], 0, hm, hm)[0][:4]:
@@ -252,6 +259,18 @@ def calque(plan_id, cam_i=0):
                 line((xr - 20, yb, 1.1), (xr - 20, yb, 5.0), (255, 60, 60, 255), 3)
             label(cam.proj(xr, ymid, 0.0), "rails", (255, 120, 120, 255))
             label(cam.proj(xr + 40, ymid, 0.0), "↓ la route plonge", (255, 200, 200, 230))
+        elif dt["type"] == "portail":
+            hz = dt.get("hauteur", 1.6)
+            xa, ya = dt["x"], dt["y"]
+            xb, yb = xa + dt.get("w", 0), ya + dt.get("h", 0)
+            col = (255, 190, 120, 240)
+            for px, py in ((xa, ya), (xb, yb)):  # poteaux
+                line((px, py, 0.0), (px, py, hz), col, 3)
+            line((xa, ya, hz), (xb, yb, hz), col, 2)
+            for i in range(1, 6):  # barreaux
+                px, py = xa + i / 6 * (xb - xa), ya + i / 6 * (yb - ya)
+                line((px, py, 0.1), (px, py, hz), col, 1)
+            label(cam.proj((xa + xb) / 2, (ya + yb) / 2, hz + 0.5), "portail · escalier vers la maison", (255, 200, 140, 240))
         elif dt["type"] == "terre_plein":
             hz = dt.get("hauteur", 2.5)
             for a, b in box_edges(dt["x"] + dt["w"] / 2, dt["y"] + dt["h"] / 2, dt["w"], dt["h"], 0, 0, hz)[0]:

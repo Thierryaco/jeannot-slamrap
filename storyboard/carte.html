@@ -134,11 +134,16 @@ function drawBase(){
   for(const d of L.details){
     if(d.type==='tourelle'){el('circle',{cx:d.x,cy:d.y,r:d.r,fill:'#c9b6e8',stroke:'#1b2430','stroke-width':2},g);}
     if(d.type==='escalier'){el('rect',{x:d.x,y:d.y,width:d.w,height:d.h,fill:'#bfb7a8',stroke:'#33404f'},g);
-      for(let i=1;i<9;i++)el('line',{x1:d.x+i*d.w/9,y1:d.y,x2:d.x+i*d.w/9,y2:d.y+d.h,stroke:'#6e6658'},g);
-      {const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+4,'font-size':11,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent=(d.montee||'est')==='est'?'monte →':'← monte';}
+      const vert=d.montee==='nord'||d.montee==='sud';
+      for(let i=1;i<9;i++) el('line',vert?{x1:d.x,y1:d.y+i*d.h/9,x2:d.x+d.w,y2:d.y+i*d.h/9,stroke:'#6e6658'}:{x1:d.x+i*d.w/9,y1:d.y,x2:d.x+i*d.w/9,y2:d.y+d.h,stroke:'#6e6658'},g);
+      if(vert){const a=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+2,'font-size':16,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);a.textContent=d.montee==='nord'?'↑':'↓';
+        const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+16,'font-size':10,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent='monte';}
+      else{const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+4,'font-size':11,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent=(d.montee||'est')==='est'?'monte →':'← monte';}
       if(d.palier){const p=d.palier;el('rect',{x:p.x,y:p.y,width:p.w,height:p.h,fill:'#d8cfbd',stroke:'#33404f','stroke-width':2},g);
         const t=el('text',{x:p.x+p.w/2,y:p.y+p.h/2+4,'font-size':10,'font-weight':'bold','text-anchor':'middle',fill:'#3b352b'},g);t.textContent='palier';}
-      const t=el('text',{x:d.x+d.w/2,y:d.y+d.h+15,'font-size':12,'text-anchor':'middle',fill:'#4a5566'},g);t.textContent="escalier d'Henri";}
+      const et=d.etiquette??"escalier d'Henri"; if(et){const t=el('text',{x:d.x+d.w/2,y:d.y+d.h+15,'font-size':12,'text-anchor':'middle',fill:'#4a5566'},g);t.textContent=et;}}
+    if(d.type==='portail'){el('line',{x1:d.x,y1:d.y,x2:d.x+(d.w||0),y2:d.y+(d.h||0),stroke:'#7a4b2a','stroke-width':5},g);
+      const t=el('text',{x:d.x+(d.w||0)/2,y:d.y+(d.h||0)+15,'font-size':10,'font-weight':'bold','text-anchor':'middle',fill:'#5a3a20'},g);t.textContent='portail';}
     if(d.type==='passage_niveau'){const x=d.x,y=d.y-120,w=d.w,h=d.h+240;
       el('rect',{x,y,width:w,height:h,fill:'#b9ab95'},g);
       for(let yy=y+6;yy<y+h;yy+=14) el('line',{x1:x+4,y1:yy,x2:x+w-4,y2:yy,stroke:'#7a5c3a','stroke-width':4},g);
@@ -250,7 +255,8 @@ function vBox(cx,cy,w,h,ang,z0,z1){const a=ang*Math.PI/180,c=Math.cos(a),s=Math.
   return {E,front:[B[0],B[1],T[1],T[0]]};}
 function vEsc(x,y){for(const d of L.details){ if(d.type==='tourelle'&&d.balcon&&(x-d.x)**2+(y-d.y)**2<=(d.r+4)**2) return {t:`au balcon de la ${d.nom} (à ${(+d.balcon).toFixed(1).replace('.',',')} m du sol)`,h:+d.balcon}; if(d.type!=='escalier') continue; const hm=d.hauteur||2.8,pa=d.palier;
     if(pa&&x>=pa.x-3&&x<=pa.x+pa.w+3&&y>=pa.y-3&&y<=pa.y+pa.h+3) return {t:`sur le palier en haut de l'${d.nom} (à ${hm.toFixed(1).replace('.',',')} m du sol)`,h:hm};
-    if(x>=d.x&&x<=d.x+d.w&&y>=d.y-3&&y<=d.y+d.h+3){const f=(d.montee||'est')==='est'?(x-d.x)/d.w:(d.x+d.w-x)/d.w;
+    const vert=d.montee==='nord'||d.montee==='sud';
+    if(vert?(x>=d.x-3&&x<=d.x+d.w+3&&y>=d.y&&y<=d.y+d.h):(x>=d.x&&x<=d.x+d.w&&y>=d.y-3&&y<=d.y+d.h+3)){const f=vert?(d.montee==='nord'?(d.y+d.h-y)/d.h:(y-d.y)/d.h):((d.montee||'est')==='est'?(x-d.x)/d.w:(d.x+d.w-x)/d.w);
       return {t:`${f<.25?'en bas de':f>.75?'presque en haut de':'au milieu de'} l'${d.nom} (à ${(f*hm).toFixed(1).replace('.',',')} m du sol)`,h:f*hm};}}
   return null;}
 function vStairs(x,y){const e=vEsc(x,y);return e?e.h:0;}
@@ -329,8 +335,11 @@ function drawVue(){
       labels.push([vP(k,cx,y,2.9),'porte du garage','#ffb060',20]);}}
   for(const d of L.details){
     if(d.type==='escalier'){const hm=d.hauteur||2.8;
+      if(d.montee==='nord'||d.montee==='sud'){const yb=d.montee==='nord'?d.y+d.h:d.y,yh=d.montee==='nord'?d.y:d.y+d.h;
+        faces.push({poly:[[d.x,yb,0],[d.x+d.w,yb,0],[d.x+d.w,yh,hm],[d.x,yh,hm]],fill:'#cfc7b6',stroke:'#6b6355'});}
+      else{
       faces.push({poly:[[d.x,d.y,0],[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,hm],[d.x+d.w,d.y,hm]],fill:'#cfc7b6',stroke:'#6b6355'});
-      faces.push({poly:[[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y+d.h,hm]],fill:'#b3ab9a',stroke:'#6b6355'});
+      faces.push({poly:[[d.x,d.y+d.h,0],[d.x+d.w,d.y+d.h,0],[d.x+d.w,d.y+d.h,hm]],fill:'#b3ab9a',stroke:'#6b6355'});}
       if(d.palier){const p=d.palier; addBox(p.x+p.w/2,p.y+p.h/2,p.w,p.h,0,0,hm,'#d8cfbd','#6b6355'); labels.push([vP(k,p.x+p.w/2,p.y+p.h,hm+0.5),'palier','#d8ffd8',18]);}}
     if(d.type==='tourelle') addBox(d.x,d.y,d.r*1.6,d.r*1.6,0,0,9.5,'#c9b6e8','#4a3d63');
     if(d.type==='passage_niveau'){
@@ -338,6 +347,9 @@ function drawVue(){
       [R.chaussee_haut-6,R.chaussee_bas+6].forEach(yb=>{const s1=vSeg(k,[d.x-20,yb,0],[d.x-20,yb,1.1]),s2=vSeg(k,[d.x-20,yb,1.1],[d.x-20,yb,5]),z=vC(k,d.x-20,yb,0)[2];
         if(s1)faces.push({line:s1,stroke:'#eee',sw:5,z});if(s2)faces.push({line:s2,stroke:'#e33',sw:4,z});});
       labels.push([vP(k,d.x+30,ym,0),'↓ la route plonge','#ffd0d0',18]);}
+    if(d.type==='portail'){const hz=d.hauteur||1.6,xb=d.x+(d.w||0),yb=d.y+(d.h||0);
+      faces.push({poly:[[d.x,d.y,0],[xb,yb,0],[xb,yb,hz],[d.x,d.y,hz]],fill:'#6b4a2e',op:.6,stroke:'#3b2a1a',sw:2});
+      labels.push([vP(k,(d.x+xb)/2,(d.y+yb)/2,hz+0.5),'portail · escalier vers la maison','#ffe0c0',18]);}
     if(d.type==='terre_plein'){addBox(d.x+d.w/2,d.y+d.h/2,d.w,d.h,0,0,d.hauteur||2.5,'#a7c48a','#56703f'); labels.push([vP(k,d.x+d.w/2,d.y+d.h,(d.hauteur||2.5)+0.5),'jardin (surélevé)','#d8f5c8',18]);}
     if(d.type==='grillage'){const hz=d.hauteur||1.8,xb=d.x+(d.w||0),yb=d.y+d.h;
       faces.push({poly:[[d.x,d.y,0],[xb,yb,0],[xb,yb,hz],[d.x,d.y,hz]],fill:'#c9d1da',op:.35,stroke:'#59636e',sw:2});

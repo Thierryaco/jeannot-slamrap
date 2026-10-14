@@ -10,7 +10,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
-| [CARTE](#carte) | référence | 🛠️ En cours | 9 | — |
+| [CARTE](#carte) | référence | 🛠️ En cours | 10 | — |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
@@ -56,6 +56,11 @@ Comme la v7, avec l'escalier d'Henri dans le sens de l'image : les marches monte
 Comme la v8, avec les lieux de ta note sur la carte P02 (lieux rév. 11). Au bout ouest, la rue finit en cul-de-sac : un grillage sur toute la largeur, puis juste derrière une colline assez raide couverte de forêt. Sur la parcelle à côté de chez Jeannot : la maison du fond, en hauteur et en retrait, avec devant un jardin surélevé et un garage surmonté d'une terrasse. Tout le reste est identique à la v8 (vérifié au pixel près).
 
 <img src="../assets/storyboards/a-valider/carte/carte-rue-v9.png" width="640" alt="CARTE v9">
+
+**CARTE · v10** — ⏳ à valider — tools/draw_street_map.py base v10 (lieux rév. 12)  
+D'après ton message sur les nouveaux lieux : la maison du fond est élargie jusqu'à la limite de chez Jeannot ; le garage avec la terrasse dessus passe à l'ouest et le jardin surélevé à l'est ; un portail sur le trottoir ouvre sur un escalier qui monte à la maison et coupe le jardin en deux. Tout le reste est identique à la v9 (vérifié au pixel près).
+
+<img src="../assets/storyboards/a-valider/carte/carte-rue-v10.png" width="640" alt="CARTE v10">
 
 <details><summary>🗄️ 7 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7</summary>
 

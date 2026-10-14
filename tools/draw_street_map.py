@@ -109,14 +109,26 @@ def draw_base(c, L):
         elif d["type"] == "escalier":
             c.rect(d["x"], d["y"], d["w"], d["h"], "#bfb7a8")
             n = 9
+            vertical = d.get("montee", "est") in ("nord", "sud")
             for i in range(1, n):
-                c.line(d["x"] + i * d["w"] / n, d["y"], d["x"] + i * d["w"] / n, d["y"] + d["h"], "#6e6658", 1)
-            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 + 5, ("monte →" if d.get("montee", "est") == "est" else "← monte"), 11, "#3b352b", True)
+                if vertical:
+                    c.line(d["x"], d["y"] + i * d["h"] / n, d["x"] + d["w"], d["y"] + i * d["h"] / n, "#6e6658", 1)
+                else:
+                    c.line(d["x"] + i * d["w"] / n, d["y"], d["x"] + i * d["w"] / n, d["y"] + d["h"], "#6e6658", 1)
+            if vertical:
+                c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 - 2, "↑" if d["montee"] == "nord" else "↓", 16, "#3b352b", True)
+                c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 + 13, "monte", 10, "#3b352b", True)
+            else:
+                c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 + 5, ("monte →" if d.get("montee", "est") == "est" else "← monte"), 11, "#3b352b", True)
             pa = d.get("palier")
             if pa:
                 c.rect(pa["x"], pa["y"], pa["w"], pa["h"], "#d8cfbd", "#33404f", 2)
                 c.text(pa["x"] + pa["w"] / 2, pa["y"] + pa["h"] / 2 + 4, "palier", 10, "#3b352b", True)
-            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] + 15, "escalier d'Henri", 12, "#4a5566")
+            if d.get("etiquette", "escalier d'Henri"):
+                c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] + 15, d.get("etiquette", "escalier d'Henri"), 12, "#4a5566")
+        elif d["type"] == "portail":  # portail (segment) en bas d'un escalier
+            c.line(d["x"], d["y"], d["x"] + d.get("w", 0), d["y"] + d.get("h", 0), "#7a4b2a", 5)
+            c.text(d["x"] + d.get("w", 0) / 2, d["y"] + d.get("h", 0) + 15, "portail", 10, "#5a3a20", True)
         elif d["type"] == "passage_niveau":
             x, y, w, h = d["x"], d["y"] - 120, d["w"], d["h"] + 240
             c.rect(x, y, w, h, "#b9ab95", stroke=None, sw=0)
@@ -278,8 +290,14 @@ def sur_escalier(L, x, y):
         pa = d.get("palier")
         if pa and pa["x"] - 3 <= x <= pa["x"] + pa["w"] + 3 and pa["y"] - 3 <= y <= pa["y"] + pa["h"] + 3:
             return f"sur le palier en haut de l'{d['nom']} (à {hmax:.1f} m du sol, devant la porte du 1er étage)".replace(".", ",", 1), hmax
-        if d["x"] <= x <= d["x"] + d["w"] and d["y"] - 3 <= y <= d["y"] + d["h"] + 3:
-            f = (x - d["x"]) / d["w"] if d.get("montee", "est") == "est" else (d["x"] + d["w"] - x) / d["w"]
+        mo = d.get("montee", "est")
+        if mo in ("nord", "sud"):
+            dedans = d["x"] - 3 <= x <= d["x"] + d["w"] + 3 and d["y"] <= y <= d["y"] + d["h"]
+            f = ((d["y"] + d["h"] - y) if mo == "nord" else (y - d["y"])) / d["h"]
+        else:
+            dedans = d["x"] <= x <= d["x"] + d["w"] and d["y"] - 3 <= y <= d["y"] + d["h"] + 3
+            f = (x - d["x"]) / d["w"] if mo == "est" else (d["x"] + d["w"] - x) / d["w"]
+        if dedans:
             quand = "en bas de" if f < 0.25 else ("presque en haut de" if f > 0.75 else "au milieu de")
             return f"{quand} l'{d['nom']} (à {f * hmax:.1f} m du sol)".replace(".", ",", 1), f * hmax
     return None

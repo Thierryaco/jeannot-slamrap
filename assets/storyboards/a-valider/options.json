@@ -99,6 +99,14 @@
      "note": "Comme la v8, avec les lieux de ta note sur la carte P02 (lieux rév. 11). Au bout ouest, la rue finit en cul-de-sac : un grillage sur toute la largeur, puis juste derrière une colline assez raide couverte de forêt. Sur la parcelle à côté de chez Jeannot : la maison du fond, en hauteur et en retrait, avec devant un jardin surélevé et un garage surmonté d'une terrasse. Tout le reste est identique à la v8 (vérifié au pixel près).",
      "etat": "a-valider",
      "avis": []
+    },
+    {
+     "id": "v10",
+     "fichier": "carte-rue-v10.png",
+     "source": "tools/draw_street_map.py base v10 (lieux rév. 12)",
+     "note": "D'après ton message sur les nouveaux lieux : la maison du fond est élargie jusqu'à la limite de chez Jeannot ; le garage avec la terrasse dessus passe à l'ouest et le jardin surélevé à l'est ; un portail sur le trottoir ouvre sur un escalier qui monte à la maison et coupe le jardin en deux. Tout le reste est identique à la v9 (vérifié au pixel près).",
+     "etat": "a-valider",
+     "avis": []
     }
    ]
   },

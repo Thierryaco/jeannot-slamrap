@@ -1,5 +1,5 @@
 {
- "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes. Escalier d'Henri : il longe la façade et monte vers l'ouest (rév. 6, d'après P01 v13) jusqu'au palier du 1er étage (≈ 2,8 m) ; un personnage posé sur l'escalier ou le palier est surélevé d'autant. Rév. 11 (note de l'utilisateur sur P02) : au bout ouest, la rue finit en cul-de-sac — un grillage sur toute la largeur, puis juste derrière une colline assez raide couverte de forêt ; sur la parcelle nord-ouest, à côté de chez Jeannot, la maison du fond, en hauteur et en retrait, avec devant un jardin surélevé et une terrasse au-dessus du garage. Bâtiments : 'sol' = hauteur du rez-de-chaussée (m), 'haut' = hauteur du bâtiment (m).",
+ "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes. Escalier d'Henri : il longe la façade et monte vers l'ouest (rév. 6, d'après P01 v13) jusqu'au palier du 1er étage (≈ 2,8 m) ; un personnage posé sur l'escalier ou le palier est surélevé d'autant. Rév. 11 (note de l'utilisateur sur P02) : au bout ouest, la rue finit en cul-de-sac — un grillage sur toute la largeur, puis juste derrière une colline assez raide couverte de forêt ; sur la parcelle nord-ouest, à côté de chez Jeannot, la maison du fond, en hauteur et en retrait, avec devant un jardin surélevé et une terrasse au-dessus du garage. Bâtiments : 'sol' = hauteur du rez-de-chaussée (m), 'haut' = hauteur du bâtiment (m). Rév. 12 (avis du 14/10) : maison du fond élargie jusqu'à la limite de chez Jeannot (x 160) ; garage avec la terrasse dessus passé à l'ouest, jardin surélevé à l'est, coupé en deux par l'escalier qui monte du portail (sur le trottoir) à la maison. Escaliers : 'montee' = est, ouest, nord ou sud.",
  "taille": [
   1600,
   1000
@@ -190,7 +190,7 @@
    "sous": "en hauteur, en retrait",
    "x": -235,
    "y": 125,
-   "w": 215,
+   "w": 395,
    "h": 120,
    "couleur": "#f3e6cf",
    "sol": 2.6,
@@ -200,7 +200,7 @@
    "id": "garage-fond",
    "nom": "garage",
    "sous": "terrasse",
-   "x": -120,
+   "x": -235,
    "y": 245,
    "w": 95,
    "h": 138,
@@ -257,14 +257,46 @@
    "etat": "ouvert : barrières levées des deux côtés, et les rails de chemin de fer bien visibles qui traversent la chaussée entre les deux barrières"
   },
   {
-   "id": "jardin-fond",
+   "id": "jardin-fond-ouest",
    "type": "terre_plein",
-   "nom": "jardin surélevé de la maison du fond (mur de soutènement côté rue)",
-   "x": -235,
+   "nom": "jardin surélevé de la maison du fond, partie ouest (mur de soutènement côté rue)",
+   "x": -140,
    "y": 245,
-   "w": 115,
+   "w": 130,
    "h": 138,
    "hauteur": 2.6
+  },
+  {
+   "id": "escalier-fond",
+   "type": "escalier",
+   "nom": "escalier qui monte du portail à la maison du fond (il coupe le jardin en deux)",
+   "x": -10,
+   "y": 245,
+   "w": 40,
+   "h": 138,
+   "montee": "nord",
+   "hauteur": 2.6,
+   "etiquette": ""
+  },
+  {
+   "id": "jardin-fond-est",
+   "type": "terre_plein",
+   "nom": "jardin surélevé de la maison du fond, partie est (mur de soutènement côté rue)",
+   "x": 30,
+   "y": 245,
+   "w": 130,
+   "h": 138,
+   "hauteur": 2.6
+  },
+  {
+   "id": "portail-fond",
+   "type": "portail",
+   "nom": "portail d'accès de la maison du fond, en bas de l'escalier, sur le trottoir",
+   "x": -14,
+   "y": 383,
+   "w": 48,
+   "h": 0,
+   "hauteur": 1.6
   },
   {
    "id": "cul-de-sac",
@@ -445,7 +477,7 @@
    }
   }
  },
- "rev": 11,
+ "rev": 12,
  "poses": {
   "perso": [
    "debout",

@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 3 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -81,7 +81,7 @@ et repositionner l'estafette devant la maison. Il faut qu'on puisse avoir une vu
 
 <img src="../assets/storyboards/a-valider/carte/plans/p01.png" width="420" alt="carte P01">
 
-**P01 · v33** — ✅ retenue — tools/p01_v33.py — la v32 ; les collages de la v16 (capot ouvert, outils au sol) et de la v17 (fond autour de Diego) refaits à l'identique mais sans l'adoucissement de l'ancien contrôle, sans IA · contrôle : tools/controle_retouche.py → p01-v33-controle.jpg · 🟠 faite d'après la carte rév. 15 — la carte a changé depuis  
+**P01 · v33** — ✅ retenue — tools/p01_v33.py — la v32 ; les collages de la v16 (capot ouvert, outils au sol) et de la v17 (fond autour de Diego) refaits à l'identique mais sans l'adoucissement de l'ancien contrôle, sans IA · contrôle : tools/controle_retouche.py → p01-v33-controle.jpg · 🟢 conforme à la carte actuelle (rév. 15)  
 La v32 sans les restes de flou que tu as pointés autour de Diego (zone 1-2-3-4). Ils venaient bien de l'ancien contrôle : à l'époque, son critère « grain » faisait adoucir les collages. Le capot ouvert, le compartiment moteur et les outils au sol (v16), puis tout le fond autour de Diego (clôture, piliers, haie, v17) avaient été collés volontairement flous. La v20 avait rendu nets Diego, sa caisse et l'Estafette, mais pas ces deux collages-là. Je les ai refaits à l'identique, avec les mêmes images d'origine, mais sans flou : rien n'est redessiné, seul le flou disparaît. Tout le reste est exactement la v32, Henri d'ed5 compris. Contrôle CONFORME (couleurs 97 %, netteté ×1,05, raccord 0,0).
 
 <img src="../assets/storyboards/a-valider/p01/p01-v33-net.png" width="640" alt="P01 v33">
@@ -164,6 +164,11 @@ Add P02 storyboard keyframe and progress tracker
 Reframe P02 with fixed 4L continuity — version en place dans le storyboard
 
 <img src="../assets/storyboards/a-valider/p02/p02-v2-ancien-fil-06h33.png" width="640" alt="P02 v2">
+
+**P02 · v3** — ⏳ à valider — IA, nouveau fil : 2 propositions, la n° 2 choisie par toi dans la conversation (l'autre n'a pas été enregistrée). Références : P02 v1 retournée (composition), P01 v33 (style, lieux, personnages), fiche d'Enji. Recadrée en 16:9 puis mise en 1920×1080 ; image brute : p02/work/p02-essai-1.png · 🟢 conforme à la carte actuelle (rév. 2)  
+D'après ton avis sur la v1 et la carte P02 rév. 2 : la composition de la v1 vue en miroir (la 4L reste à sa place de P01, donc à droite), Jeannot adossé au flanc de la 4L qui fume, une main dans la poche, Enji couchée à gauche de ses pieds. Au fond : le cul-de-sac avec le grillage sur toute la largeur, la colline boisée raide, le garage avec la terrasse dessus, le portail et l'escalier qui monte à la maison du fond, et le mur de chez Jeannot à droite. Deux défauts repérés : le volant est du côté proche (conduite à droite, alors qu'une 4L française l'a de l'autre côté), et les couleurs sont plus beiges que dans P01 (route beige au lieu de grise, peu de ciel).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v3-cul-de-sac.png" width="640" alt="P02 v3">
 
 ## P03
 

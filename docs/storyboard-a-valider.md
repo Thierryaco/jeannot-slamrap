@@ -111,6 +111,8 @@ La v19 sans le flou des ajouts : Diego et sa caisse à outils, l'Estafette et la
 
 <img src="../assets/storyboards/a-valider/p01/p01-v20-nette.png" width="640" alt="P01 v20">
 
+- 💬 *2026-10-14 10:43* — retire moi le portail avec la cloture qu'il y a sous l'escalier d'henri
+
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png

@@ -1,5 +1,5 @@
 {
- "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes. Escalier d'Henri : il longe la façade et monte vers l'ouest (rév. 6, d'après P01 v13) jusqu'au palier du 1er étage (≈ 2,8 m) ; un personnage posé sur l'escalier ou le palier est surélevé d'autant.",
+ "info": "Lieux fixes de la rue (vue de dessus, unités = pixels de la carte 1600x1000, 100 px ≈ 3,7 m). Angles en degrés : 0 = vers l'est (bout Diego), 90 = vers le sud (côté narrateur), -90 = vers le nord (côté Jeannot), 180 = vers l'ouest (bout Jeannot). 'rev' augmente à chaque changement des lieux fixes. Escalier d'Henri : il longe la façade et monte vers l'ouest (rév. 6, d'après P01 v13) jusqu'au palier du 1er étage (≈ 2,8 m) ; un personnage posé sur l'escalier ou le palier est surélevé d'autant. Rév. 11 (note de l'utilisateur sur P02) : au bout ouest, la rue finit en cul-de-sac — un grillage sur toute la largeur, puis juste derrière une colline assez raide couverte de forêt ; sur la parcelle nord-ouest, à côté de chez Jeannot, la maison du fond, en hauteur et en retrait, avec devant un jardin surélevé et une terrasse au-dessus du garage. Bâtiments : 'sol' = hauteur du rez-de-chaussée (m), 'haut' = hauteur du bâtiment (m).",
  "taille": [
   1600,
   1000
@@ -183,6 +183,31 @@
    "w": 370,
    "h": 165,
    "couleur": "#ebe7df"
+  },
+  {
+   "id": "maison-fond",
+   "nom": "Maison du fond",
+   "sous": "en hauteur, en retrait",
+   "x": -235,
+   "y": 125,
+   "w": 215,
+   "h": 120,
+   "couleur": "#f3e6cf",
+   "sol": 2.6,
+   "haut": 6.0
+  },
+  {
+   "id": "garage-fond",
+   "nom": "garage",
+   "sous": "terrasse",
+   "x": -120,
+   "y": 245,
+   "w": 95,
+   "h": 138,
+   "couleur": "#ddd6ca",
+   "ouverture": "sud",
+   "haut": 2.6,
+   "terrasse": true
   }
  ],
  "details": [
@@ -230,6 +255,38 @@
    "h": 220,
    "apres": "juste après les rails, la route plonge en pente très raide (environ 45°) et disparaît de la vue : on ne la voit plus, ni aucune maison, seulement des collines au loin",
    "etat": "ouvert : barrières levées des deux côtés, et les rails de chemin de fer bien visibles qui traversent la chaussée entre les deux barrières"
+  },
+  {
+   "id": "jardin-fond",
+   "type": "terre_plein",
+   "nom": "jardin surélevé de la maison du fond (mur de soutènement côté rue)",
+   "x": -235,
+   "y": 245,
+   "w": 115,
+   "h": 138,
+   "hauteur": 2.6
+  },
+  {
+   "id": "cul-de-sac",
+   "type": "grillage",
+   "nom": "grillage du cul-de-sac (bout ouest de la rue)",
+   "x": -258,
+   "y": 110,
+   "w": 0,
+   "h": 750,
+   "hauteur": 1.8,
+   "apres": "la rue finit en cul-de-sac : un grillage barre toute la largeur, et juste derrière monte une colline assez raide couverte de forêt"
+  },
+  {
+   "id": "colline-foret",
+   "type": "colline",
+   "nom": "colline boisée (forêt) derrière le cul-de-sac",
+   "x": -262,
+   "y": 60,
+   "w": 0,
+   "h": 850,
+   "pente": 35,
+   "hauteur": 30
   }
  ],
  "catalogue": [
@@ -388,7 +445,7 @@
    }
   }
  },
- "rev": 10,
+ "rev": 11,
  "poses": {
   "perso": [
    "debout",

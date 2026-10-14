@@ -53,7 +53,7 @@
 <line x1="-110.0" y1="383.0" x2="-35.0" y2="383.0" stroke="#ddd6ca" stroke-width="6"/>
 <line x1="-120.0" y1="383.0" x2="-25.0" y2="383.0" stroke="#e04f5f" stroke-width="3" stroke-dasharray="10 6"/>
 <text x="-72.5" y="273.0" font-size="14" fill="#1b2430" text-anchor="middle" font-weight="bold">garage</text>
-<text x="-72.5" y="295.0" font-size="13" fill="#4a5566" text-anchor="middle">terrasse dessus</text>
+<text x="-72.5" y="295.0" font-size="13" fill="#4a5566" text-anchor="middle">terrasse</text>
 <circle cx="330.0" cy="302.0" r="58" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>
 <text x="352.0" y="236.0" font-size="12" fill="#5b3f8c" text-anchor="start">tourelle</text>
 <circle cx="525.0" cy="327.0" r="56" fill="#c9b6e8" stroke="#1b2430" stroke-width="2"/>

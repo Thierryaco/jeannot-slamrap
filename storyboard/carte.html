@@ -125,6 +125,7 @@ function drawBase(){
   for(const p of L.parcelles) el('rect',{x:p.x,y:p.y,width:p.w,height:p.h,fill:'#e9f0dc',stroke:'#9aa58a'},g);
   for(const b of L.batiments){
     el('rect',{x:b.x,y:b.y,width:b.w,height:b.h,fill:b.couleur,stroke:'#33404f','stroke-width':2},g);
+    if(b.terrasse) el('rect',{x:b.x+6,y:b.y+6,width:b.w-12,height:b.h-12,fill:'none',stroke:'#8a7f6a','stroke-width':1,'stroke-dasharray':'4 3'},g);
     let cy=b.y+b.h/2;
     if(b.ouverture==='sud'){el('line',{x1:b.x,y1:b.y+b.h,x2:b.x+b.w,y2:b.y+b.h,stroke:'#e04f5f','stroke-width':4,'stroke-dasharray':'10 6'},g);cy=b.y+28;}
     const t=el('text',{x:b.x+b.w/2,y:cy,'font-size':b.w>150?17:14,'font-weight':'bold','text-anchor':'middle',fill:'#1b2430'},g);t.textContent=b.nom;
@@ -145,6 +146,13 @@ function drawBase(){
       for(const by of [r.chaussee_haut-6,r.chaussee_bas+6]) el('line',{x1:x-4,y1:by,x2:x-38,y2:by,stroke:'#d9363e','stroke-width':6},g);
       [['passage',y-24,12,'#7a1d27','bold'],['à niveau',y-9,12,'#7a1d27','bold'],['puis descente,',y+h+16,11,'#4a5566','normal'],['collines au fond',y+h+30,11,'#4a5566','normal']]
         .forEach(([txt,yy,fs,col,fw])=>{const t=el('text',{x:1596,y:yy,'font-size':fs,'font-weight':fw,'text-anchor':'end',fill:col},g);t.textContent=txt;});}
+    if(d.type==='terre_plein'){el('rect',{x:d.x,y:d.y,width:d.w,height:d.h,fill:'#cfe3b4',stroke:'#6f8a52','stroke-width':2},g);
+      const t=el('text',{x:d.x+d.w/2,y:d.y+d.h/2+4,'font-size':12,'font-weight':'bold','text-anchor':'middle',fill:'#3f5a2a'},g);t.textContent='jardin (surélevé)';}
+    if(d.type==='grillage'){el('line',{x1:d.x,y1:d.y,x2:d.x+(d.w||0),y2:d.y+d.h,stroke:'#3d4652','stroke-width':3,'stroke-dasharray':'7 4'},g);
+      const t=el('text',{x:d.x+6,y:mid-34,'font-size':12,'font-weight':'bold','text-anchor':'start',fill:'#2b323b'},g);t.textContent='grillage (cul-de-sac)';}
+    if(d.type==='colline'){const x0=-300; el('rect',{x:x0,y:d.y,width:d.x-x0,height:d.h,fill:'#7f9c66'},g);
+      for(let yy=d.y+14,i=0;yy<d.y+d.h;yy+=26,i++) el('circle',{cx:(x0+d.x)/2+(i%2?4:-4),cy:yy,r:7,fill:'#557a43',stroke:'#3d5a2f'},g);
+      const t=el('text',{x:(x0+d.x)/2,y:d.y+40,'font-size':10,'font-weight':'bold','text-anchor':'middle',fill:'#1f3316'},g);t.textContent='forêt';}
   }
   {const t=el('text',{x:r.x0-30,y:mid+6,'font-size':22,'font-weight':'bold','text-anchor':'middle',fill:'#4a5566'},g);t.textContent='O';
    const e=el('text',{x:1592,y:100,'font-size':16,'font-weight':'bold','text-anchor':'end',fill:'#4a5566'},g);e.textContent='E →';}
@@ -312,9 +320,10 @@ function drawVue(){
    if(s2){el('line',{x1:s2[0][0],y1:s2[0][1],x2:s2[1][0],y2:s2[1][1],stroke:'#e04f5f','stroke-width':3,'stroke-dasharray':'14 10'},v);
      const pm=vP(k,...at(Dp,0),0); if(pm) labels.push([[pm[0],pm[1]+26],`portée ${DL.toFixed(0)} m — au-delà : flou`,'#ffb3b3',18]);}}
   // bâtiments
-  for(const b of L.batiments){const hb=b.id==='garage-diego'?3.3:6.8;
-    addBox(b.x+b.w/2,b.y+b.h/2,b.w,b.h,0,0,hb,b.couleur||'#ddd','#4a4030');
-    const fy=b.y<495?b.y+b.h:b.y; labels.push([vP(k,b.x+b.w/2,fy,hb+0.7),b.nom.replace("Maison d'",'').replace('Maison de ',''),'#fff3c4',24]);
+  for(const b of L.batiments){const z0=+(b.sol||0),hb=b.haut!=null?+b.haut:(b.id==='garage-diego'?3.3:6.8);
+    addBox(b.x+b.w/2,b.y+b.h/2,b.w,b.h,0,z0,z0+hb,b.couleur||'#ddd','#4a4030');
+    if(b.terrasse){const s=vSeg(k,[b.x,b.y+b.h,z0+hb+1],[b.x+b.w,b.y+b.h,z0+hb+1]); if(s) faces.push({line:s,stroke:'#8a7f6a',sw:2,z:vC(k,b.x+b.w/2,b.y+b.h,0)[2]-0.02});}
+    const fy=b.y<495?b.y+b.h:b.y; labels.push([vP(k,b.x+b.w/2,fy,z0+hb+0.7),b.nom.replace("Maison d'",'').replace('Maison de ','')+(b.terrasse?' · terrasse dessus':''),'#fff3c4',24]);
     if(b.ouverture==='sud'){const cx=b.x+b.w/2,y=b.y+b.h+0.5,dw=1.5/VM;
       faces.push({poly:[[cx-dw,y,0],[cx+dw,y,0],[cx+dw,y,2.4],[cx-dw,y,2.4]],fill:'#1a1d22',stroke:'#ff9a40',sw:4,zbias:-0.05});
       labels.push([vP(k,cx,y,2.9),'porte du garage','#ffb060',20]);}}
@@ -329,6 +338,13 @@ function drawVue(){
       [R.chaussee_haut-6,R.chaussee_bas+6].forEach(yb=>{const s1=vSeg(k,[d.x-20,yb,0],[d.x-20,yb,1.1]),s2=vSeg(k,[d.x-20,yb,1.1],[d.x-20,yb,5]),z=vC(k,d.x-20,yb,0)[2];
         if(s1)faces.push({line:s1,stroke:'#eee',sw:5,z});if(s2)faces.push({line:s2,stroke:'#e33',sw:4,z});});
       labels.push([vP(k,d.x+30,ym,0),'↓ la route plonge','#ffd0d0',18]);}
+    if(d.type==='terre_plein'){addBox(d.x+d.w/2,d.y+d.h/2,d.w,d.h,0,0,d.hauteur||2.5,'#a7c48a','#56703f'); labels.push([vP(k,d.x+d.w/2,d.y+d.h,(d.hauteur||2.5)+0.5),'jardin (surélevé)','#d8f5c8',18]);}
+    if(d.type==='grillage'){const hz=d.hauteur||1.8,xb=d.x+(d.w||0),yb=d.y+d.h;
+      faces.push({poly:[[d.x,d.y,0],[xb,yb,0],[xb,yb,hz],[d.x,d.y,hz]],fill:'#c9d1da',op:.35,stroke:'#59636e',sw:2});
+      labels.push([vP(k,(d.x+xb)/2,(d.y+yb)/2,hz+0.6),'grillage (cul-de-sac)','#e6ecf2',18]);}
+    if(d.type==='colline'){const hc=d.hauteur||30,dp=hc/Math.tan((d.pente||35)*Math.PI/180)/VM,yb=d.y+d.h;
+      faces.push({poly:[[d.x,d.y,0],[d.x,yb,0],[d.x-dp,yb,hc],[d.x-dp,d.y,hc]],fill:'#4f6b3e',stroke:'#2f4325',sw:2});
+      labels.push([vP(k,d.x-dp*0.25,(d.y+yb)/2,hc*0.25+1),'forêt sur la colline (raide)','#d6f5c8',20]);}
   }
   // éléments
   const cat=Object.fromEntries(L.catalogue.map(c=>[c.id,c]));
@@ -349,7 +365,7 @@ function drawVue(){
       el('rect',{x:pb[0]-wp/2,y:pt[1],width:wp,height:hp,rx:wp/2.5,fill:c.couleur,stroke:'#111','stroke-width':2.5},tgt);
       const a=e.angle*Math.PI/180,head=vP(k,e.x,e.y,f.z0+f.hh*0.82),tip=vP(k,e.x+18*Math.cos(a),e.y+18*Math.sin(a),f.z0+f.hh*0.82);
       if(head&&tip) el('line',{x1:head[0],y1:head[1],x2:tip[0],y2:tip[1],stroke:'#111','stroke-width':4,'stroke-linecap':'round'},tgt); return;}
-    if(f.r) el('polygon',{points:f.r.pts.map(p=>p.join(',')).join(' '),fill:f.fill,stroke:f.stroke||'none','stroke-width':f.sw||2,'stroke-linejoin':'round'},tgt);
+    if(f.r) el('polygon',{points:f.r.pts.map(p=>p.join(',')).join(' '),fill:f.fill,'fill-opacity':f.op??1,stroke:f.stroke||'none','stroke-width':f.sw||2,'stroke-linejoin':'round'},tgt);
   });
   for(const [p0,t,col,sz,lo] of labels){ if(p0&&p0[0]>-80&&p0[0]<VW+80&&p0[1]<VH+40){const p=[Math.max(70,Math.min(VW-70,p0[0])),Math.max(sz+6,p0[1])];const e=el('text',{x:p[0],y:p[1],'font-size':sz,'font-family':FF,'font-weight':'bold','text-anchor':'middle',fill:col,stroke:'#000','stroke-width':4,'paint-order':'stroke',opacity:lo?.6:1},v);e.textContent=t;} }
   el('rect',{x:1,y:1,width:VW-2,height:VH-2,fill:'none',stroke:'#e04f5f','stroke-width':3},v);

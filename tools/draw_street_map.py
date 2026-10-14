@@ -92,6 +92,8 @@ def draw_base(c, L):
         c.rect(p["x"], p["y"], p["w"], p["h"], "#e9f0dc", stroke="#9aa58a", sw=1)
     for b in L["batiments"]:
         c.rect(b["x"], b["y"], b["w"], b["h"], b["couleur"])
+        if b.get("terrasse"):  # terrasse sur le toit
+            c.rect(b["x"] + 6, b["y"] + 6, b["w"] - 12, b["h"] - 12, None, stroke="#8a7f6a", sw=1)
         cy = b["y"] + b["h"] / 2
         if b.get("ouverture") == "sud":
             c.line(b["x"] + 10, b["y"] + b["h"], b["x"] + b["w"] - 10, b["y"] + b["h"], b["couleur"], 6)
@@ -128,6 +130,19 @@ def draw_base(c, L):
             c.text(1596, y - 9, "à niveau", 12, "#7a1d27", True, anchor="end")
             c.text(1596, y + h + 16, "puis descente,", 11, "#4a5566", anchor="end")
             c.text(1596, y + h + 30, "collines au fond", 11, "#4a5566", anchor="end")
+        elif d["type"] == "terre_plein":  # jardin surélevé, tenu par un mur
+            c.rect(d["x"], d["y"], d["w"], d["h"], "#cfe3b4", stroke="#6f8a52", sw=2)
+            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 - 2, "jardin", 12, "#3f5a2a", True)
+            c.text(d["x"] + d["w"] / 2, d["y"] + d["h"] / 2 + 13, "surélevé", 10, "#4a5566")
+        elif d["type"] == "grillage":  # clôture grillagée (segment)
+            c.line(d["x"], d["y"], d["x"] + d.get("w", 0), d["y"] + d["h"], "#3d4652", 3, dash=(7, 4))
+            c.text(d["x"] + 6, mid - 34, "grillage (cul-de-sac)", 11, "#2b323b", True, anchor="start")
+        elif d["type"] == "colline":  # colline boisée qui monte au-delà du bord ouest
+            x0 = c.ox
+            c.rect(x0, d["y"], d["x"] - x0, d["h"], "#7f9c66", stroke=None, sw=0)
+            for i, yy in enumerate(range(int(d["y"]) + 14, int(d["y"] + d["h"]), 26)):
+                c.circle((x0 + d["x"]) / 2 + (4 if i % 2 else -4), yy, 7, "#557a43", stroke="#3d5a2f", sw=1)
+            c.text((x0 + d["x"]) / 2, d["y"] + 40, "forêt", 10, "#1f3316", True)
     c.text(r["x0"] - 30, mid + 5, "O", 20, "#4a5566", True)
     c.text(1592, 100, "E →", 16, "#4a5566", True, anchor="end")
 

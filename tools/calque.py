@@ -212,12 +212,17 @@ def calque(plan_id, cam_i=0):
         label((pm[0], pm[1] + 22), f"portée {lim * M:.0f} m — au-delà : flou", (255, 180, 180, 230))
     # bâtiments
     for b in L["batiments"]:
-        hb = H_BAT.get(b["id"], H_MAISON)
-        edges, _ = box_edges(b["x"] + b["w"] / 2, b["y"] + b["h"] / 2, b["w"], b["h"], 0, 0, hb)
+        z0 = float(b.get("sol", 0.0))                       # rez-de-chaussée surélevé (maison en hauteur)
+        hb = float(b.get("haut", H_BAT.get(b["id"], H_MAISON)))
+        edges, _ = box_edges(b["x"] + b["w"] / 2, b["y"] + b["h"] / 2, b["w"], b["h"], 0, z0, z0 + hb)
         for a, c in edges:
             line(a, c, (255, 230, 120, 150), 2)
+        if b.get("terrasse"):  # garde-corps de la terrasse sur le toit
+            for a, c in box_edges(b["x"] + b["w"] / 2, b["y"] + b["h"] / 2, b["w"], b["h"], 0, z0 + hb + 1.0, z0 + hb + 1.0)[0][4:8]:
+                line(a, c, (255, 230, 120, 120), 1)
         face_y = b["y"] + b["h"] if b["y"] < 495 else b["y"]
-        label(cam.proj(b["x"] + b["w"] / 2, face_y, hb + 0.6), b["nom"].replace("Maison d'", "").replace("Maison de ", ""), (255, 230, 120, 230))
+        nom = b["nom"].replace("Maison d'", "").replace("Maison de ", "") + (" · terrasse dessus" if b.get("terrasse") else "")
+        label(cam.proj(b["x"] + b["w"] / 2, face_y, z0 + hb + 0.6), nom, (255, 230, 120, 230))
         if b.get("ouverture") == "sud":
             cx, y = b["x"] + b["w"] / 2, b["y"] + b["h"]
             dw = 3.0 / M / 2
@@ -247,6 +252,32 @@ def calque(plan_id, cam_i=0):
                 line((xr - 20, yb, 1.1), (xr - 20, yb, 5.0), (255, 60, 60, 255), 3)
             label(cam.proj(xr, ymid, 0.0), "rails", (255, 120, 120, 255))
             label(cam.proj(xr + 40, ymid, 0.0), "↓ la route plonge", (255, 200, 200, 230))
+        elif dt["type"] == "terre_plein":
+            hz = dt.get("hauteur", 2.5)
+            for a, b in box_edges(dt["x"] + dt["w"] / 2, dt["y"] + dt["h"] / 2, dt["w"], dt["h"], 0, 0, hz)[0]:
+                line(a, b, (170, 230, 140, 220), 2)
+            label(cam.proj(dt["x"] + dt["w"] / 2, dt["y"] + dt["h"], hz + 0.5), "jardin (surélevé)", (190, 240, 160, 230))
+        elif dt["type"] == "grillage":
+            hz = dt.get("hauteur", 1.8)
+            xa, ya, xb, yb = dt["x"], dt["y"], dt["x"] + dt.get("w", 0), dt["y"] + dt["h"]
+            for z in (0.0, hz):
+                line((xa, ya, z), (xb, yb, z), (200, 210, 225, 230), 2)
+            n = max(2, int(math.hypot(xb - xa, yb - ya) * M / 2.5))   # un poteau tous les 2,5 m
+            for i in range(n + 1):
+                px, py = xa + i / n * (xb - xa), ya + i / n * (yb - ya)
+                line((px, py, 0.0), (px, py, hz), (200, 210, 225, 200), 2)
+            label(cam.proj((xa + xb) / 2, (ya + yb) / 2, hz + 0.6), "grillage (cul-de-sac)", (220, 228, 240, 240))
+        elif dt["type"] == "colline":
+            hc = dt.get("hauteur", 30.0)
+            dpx = hc / math.tan(math.radians(dt.get("pente", 35))) / M   # recul du sommet (px de carte)
+            xa, ya, yb = dt["x"], dt["y"], dt["y"] + dt["h"]
+            col = (120, 200, 110, 220)
+            line((xa, ya, 0.0), (xa, yb, 0.0), col, 3)
+            line((xa - dpx, ya, hc), (xa - dpx, yb, hc), col, 2)
+            for i in range(7):
+                yy = ya + i * (yb - ya) / 6
+                line((xa, yy, 0.0), (xa - dpx, yy, hc), col, 1)
+            label(cam.proj(xa - dpx * 0.25, (ya + yb) / 2, hc * 0.25 + 1.0), "forêt sur la colline (raide)", (150, 230, 140, 240))
     # éléments (du plus loin au plus près)
     cat = {k["id"]: k for k in L["catalogue"]}
     els = [(eid, e) for eid, e in placement.get("elements", {}).items() if e.get("visible", True) and eid in cat]

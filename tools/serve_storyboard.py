@@ -16,6 +16,7 @@ Usage : python3 tools/serve_storyboard.py [port] [--host ADRESSE]
         la page n'est alors visible que depuis ton ordinateur.
 """
 import argparse
+import importlib
 import json
 import os
 import subprocess
@@ -202,6 +203,8 @@ def save_carte(data):
         plans[plan_id] = clean
         plans = dict(sorted(plans.items()))
         PLANS.write_text(json.dumps(plans, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        importlib.reload(draw_street_map)  # outils de dessin à jour sans redémarrer le serveur
+        importlib.reload(calque)
         png = draw_street_map.render_plan(plan_id, lieux, plans, meta.get(plan_id))
         cq = png.with_name(f"{plan_id.lower()}-calque.png")
         calque.calque(plan_id).save(cq)

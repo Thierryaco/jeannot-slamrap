@@ -88,14 +88,14 @@
  "P02": {
   "cameras": [
    {
-    "x": 701.0,
-    "y": 561.0,
-    "angle": -166.0,
-    "fov": 20.0,
-    "portee": 760.0,
+    "x": 493.0,
+    "y": 519.3,
+    "angle": -163.9,
+    "fov": 41.6,
+    "portee": 2000.0,
     "hauteur": "contre-plongée (vue d'en bas)",
-    "oeil": 1.4,
-    "inclinaison": -1.6
+    "oeil": 1.2,
+    "inclinaison": -1.4
    }
   ],
   "elements": {
@@ -120,17 +120,20 @@
     "action": "sort du garage à 90°, capot avant ouvert, le nez s'arrête au bord du trottoir ; outils au sol"
    },
    "jeannot": {
-    "x": 341.0,
-    "y": 481.0,
+    "x": 325.3,
+    "y": 481.1,
     "angle": 13.0,
-    "visible": true
+    "visible": true,
+    "pose": "appuyé",
+    "action": "contre le flanc de la 4L côté chaussée, au niveau du montant entre les portières ; il fume, une main dans la poche (comme sur P02 v1)"
    },
    "enji": {
-    "x": 328.0,
-    "y": 491.0,
+    "x": 325.4,
+    "y": 495.2,
     "angle": 11.0,
     "visible": true,
-    "pose": "couché"
+    "pose": "couché",
+    "action": "par terre, juste à gauche des pieds de Jeannot (vue caméra)"
    },
    "sorciere": {
     "x": 525.0,
@@ -167,9 +170,9 @@
     "visible": false
    }
   },
-  "note": "voilà j'ai placé grossierement tout ça tu feras tout correspondre au plus pres  plus tard .  Il faudra rajouté 1 maison avec un garage sur le fond du co^té de cette rue . la maison est en hauteur  et en retrait devant il y a un jardin et une terrase qui est au dessus du garage. La rue fini en cul de sac de ce côté la avec un grillage  sur toute la largeur  et un foret  sur un colline  assez incliné  juste derrière",
-  "rev": 1,
-  "maj": "2026-10-14 16:23"
+  "note": "voilà j'ai placé grossierement tout ça tu feras tout correspondre au plus pres  plus tard .  Il faudra rajouté 1 maison avec un garage sur le fond du co^té de cette rue . la maison est en hauteur  et en retrait devant il y a un jardin et une terrase qui est au dessus du garage. La rue fini en cul de sac de ce côté la avec un grillage  sur toute la largeur  et un foret  sur un colline  assez incliné  juste derrière\n\nRév. 2 (agent) : caméra recalée sur la vue de P02 v1 par rapport à la 4L. La v1 est vue en miroir puisque la 4L reste à sa place de P01 : la 4L est donc à droite et Jeannot à sa gauche, côté chaussée. Caméra à ≈ 5 m de l'avant de la 4L, 32° de biais côté chaussée, champ 42°, œil bas à 1,2 m ; portée allongée pour que le fond reste net. Jeannot aux pieds de la v1, contre le flanc au niveau du montant central ; Enji couchée à gauche de ses pieds. Lieux rév. 11 : maison du fond (en hauteur, en retrait), jardin surélevé et garage avec la terrasse dessus, grillage du cul-de-sac sur toute la largeur, colline boisée assez raide juste derrière.",
+  "rev": 2,
+  "maj": "2026-10-14 16:39"
  },
  "P03": {
   "cameras": [

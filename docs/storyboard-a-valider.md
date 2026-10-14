@@ -143,12 +143,7 @@ La v28 avec Henri enfin sur son palier (ton avis v19) : penché, les avant-bras 
 
 <img src="../assets/storyboards/a-valider/p01/p01-v29-henri-palier.png" width="640" alt="P01 v29">
 
-**P01 · v30** — ⏳ à valider — tools/p01_v30.py — v28 ; Henri effacé des marches comme pour la v29 (au pixel, sans IA), puis Henri redessiné par IA sur le recadrage du palier présenté en miroir (work/crop-v30-ed3-miroir.png, remis à l'endroit : work/crop-v30-ed3.png) et recollé au ras de sa silhouette et de sa fumée · contrôle : tools/controle_retouche.py → p01-v30-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
-La v29 avec Henri tourné plus franchement vers la 4L, comme tu l'as demandé. Dans la v29, il gardait la tête droite et regardait à l'horizontale, vers la façade. Ici, il baisse la tête : visage de trois quarts vers la gauche, regard vers le bas, du côté de la rue et de la 4L, qui est au premier plan en bas à gauche. Même pose penchée, avant-bras sur le muret, cigarette et filet de fumée. Tout le reste est identique à la v29 (rampe, trait unique, porte, escalier vide). L'essai ed5 que tu préférais a été perdu lors d'une remise à zéro de la session : celui-ci cherche à s'en rapprocher. Contrôle CONFORME (couleurs 99 %, netteté ×1,26, raccord 0,0).
-
-<img src="../assets/storyboards/a-valider/p01/p01-v30-henri-regard.png" width="640" alt="P01 v30">
-
-<details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
+<details><summary>🗄️ 16 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17, v30</summary>
 
 - **v1** — ancien fil, commit f1eccd4 (03h40) — ../assets/storyboards/a-valider/p01/p01-v1-ancien-fil-03h40.png
 - **v2** — ancien fil, commit 068faf0 (03h48) — ../assets/storyboards/a-valider/p01/p01-v2-ancien-fil-03h48.png
@@ -179,6 +174,7 @@ Pour le garage de diego
   - 💬 *2026-10-13 11:54* — la sorcière est trop petite pareil pour l ouverture de sa tourelle et elle doit être en train de fumer aussi. Diego doit être à genou devant sa caisse à outils. (avis transmis dans le chat : l envoi avait échoué)
 - **v17** — tools/p01_v17.py (retouches locales sur v16) · contrôle : tools/controle_retouche.py → p01-v17-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v17-retouche-v16.png
   - 💬 *2026-10-13 12:45* — refaire l'estafette pour quelle ressemble plus à une estafette  et ne pas oublier l'ajout du logo renault devant. Il faut égaleme encore agrandir  la tourelle et la soriciere légerement  et quelle sorte un poll plus la tête
+- **v30** — tools/p01_v30.py — v28 ; Henri effacé des marches comme pour la v29 (au pixel, sans IA), puis Henri redessiné par IA sur le recadrage du palier présenté en miroir (work/crop-v30-ed3-miroir.png, remis à l'endroit : work/crop-v30-ed3.png) et recollé au ras de sa silhouette et de sa fumée · contrôle : tools/controle_retouche.py → p01-v30-controle.jpg — ../assets/storyboards/a-valider/p01/p01-v30-henri-regard.png
 
 </details>
 

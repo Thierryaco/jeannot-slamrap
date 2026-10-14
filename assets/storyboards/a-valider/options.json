@@ -387,7 +387,7 @@
      "fichier": "p01-v26-rampe.png",
      "source": "tools/p01_v26.py — part de la v24 · contrôle : tools/controle_retouche.py → p01-v26-controle.jpg",
      "note": "Ton avis du 14/10. La rampe en béton blanc (main courante, sa grande face, la bande étroite du dessous, le muret du palier et le petit poteau du bas) a pris la couleur et le léger grain de la façade du garage. Le trait noir du bas en forme d'escalier est remplacé par une ligne droite, au même endroit et de même épaisseur. Portail toujours retiré (comme la v24), sans porte. Seule la rampe change (x 723–842, y 395–603). Contrôle CONFORME (couleurs 100 %, netteté ×0,85 parce que la droite a moins de crans que les dents de scie, raccord 0,0).",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 14,
       "lieux_rev": 10

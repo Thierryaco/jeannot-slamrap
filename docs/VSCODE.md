@@ -125,6 +125,8 @@ débogueur et ouvre la page. Ne pas l'utiliser pendant que la tâche du serveur 
 - **La référence est `main`.** Avant de travailler en local, **Synchroniser** pour récupérer ce qui
   a été fait ailleurs. VS Code vérifie régulièrement s'il y a du nouveau sur GitHub.
 - Les avis donnés en local partent automatiquement sur `main`.
+- **Pas d'avis en même temps dans Arena et en local** : les deux modifient `options.json` sur des
+  branches différentes, et il faudrait ensuite fusionner à la main.
 - Dans un nouveau fil Arena, le prompt de `docs/PROMPT-REPRISE.md` demande à l'agent de repartir
   de `main`.
 - Le travail fait dans Arena arrive sur une branche `arena/…`. Pour le retrouver en local, il faut

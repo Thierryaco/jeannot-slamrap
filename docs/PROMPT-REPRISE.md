@@ -16,17 +16,19 @@ AVANT TOUT, lis attentivement ces deux fichiers du dépôt, ils contiennent tout
 Ensuite, dans l'ordre et sans attendre que je te le demande :
 
 1) RÉCUPÉRER LE CODE
-   git fetch -q origin
-   et récupère l'état le plus à jour : la branche "arena/5ddf5758-jeannot-slamrap" et la branche
-   "main" contiennent le même travail (189 commits). Prends celui qui est le plus avancé.
+   git fetch -q origin && git merge origin/main
+   "main" est la branche de référence : elle contient tout, y compris ce que j'ai fait en local
+   sous VS Code. Ne fais JAMAIS de "git reset --hard" vers une autre branche : tu effacerais du
+   travail. Si la fusion signale un conflit, arrête-toi et dis-le moi.
 
 2) RÉINSTALLER LES DÉPENDANCES (les réinitialisations de sandbox les effacent)
-   pip install --break-system-packages pillow numpy scipy opencv-python-headless resvg-py
+   pip install --break-system-packages -r requirements.txt
 
 3) LANCER LE SERVEUR — OBLIGATOIRE ET IMMÉDIAT
    python3 tools/serve_storyboard.py 8000
    (outil de processus en arrière-plan, il doit rester vivant toute la session ;
-   le port est un argument positionnel, il n'y a pas d'option --host, il écoute sur 0.0.0.0)
+   le port est un argument positionnel ; n'ajoute pas --host : par défaut il écoute sur 0.0.0.0,
+   c'est ce qu'il faut ici)
    Vérifie ensuite que http://127.0.0.1:8000/storyboard/a-valider.html répond 200.
    Sans ce serveur je ne peux rien voir ni rien valider. Ne l'arrête jamais, relance-le tout de
    suite s'il tombe.
@@ -55,6 +57,8 @@ RÈGLES DE TRAVAIL (détaillées dans docs/REPRISE.md, à respecter strictement)
 - contrôle obligatoire après chaque retouche : tools/controle_retouche.py (sortie 0 = CONFORME).
 - c'est la carte qui suit l'image, pas l'inverse.
 - tu travailles par petites étapes et tu termines chaque réponse en me disant de taper « continue ».
+- pour que je retrouve ton travail en local (VS Code), fusionne ta branche dans main par une pull
+  request quand je te le demande.
 
 OÙ ON EN EST : le plan P01 (plan général maître de la rue) est le seul en cours de fabrication ;
 c'est le plus long et celui qui donne les bases du reste. La zone de la maison de Jeannot est
@@ -73,6 +77,11 @@ attends que je te dise quelle hauteur d'Henri est la bonne avant de toucher à l
 ```
 
 ---
+
+## Travailler en local plutôt que dans Arena
+
+Tout est prêt pour VS Code : voir [`docs/VSCODE.md`](VSCODE.md). Le serveur démarre seul à
+l'ouverture du dossier, et les avis donnés en local partent directement sur `main`.
 
 ## Si le test de vision échoue dans le nouveau fil
 

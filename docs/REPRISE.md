@@ -256,7 +256,7 @@ tools/                             les scripts
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
-| `p01_v16…p01_v31.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29), `p01_v31.py` (même base, Henri de `work/crop-v31-ed1.png`, tête d'après P08 v1 ; affiche la zone modifiée depuis la v29) |
+| `p01_v16…p01_v32.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA), `p01_v29.py` (à partir de la v28 : Henri effacé des marches, puis recollé sur le palier), `p01_v30.py` (à partir de la v28, même effacement, Henri de `work/crop-v30-ed3.png` ; affiche la zone modifiée depuis la v29), `p01_v31.py` (même base, Henri de `work/crop-v31-ed1.png`, tête d'après P08 v1 ; affiche la zone modifiée depuis la v29), `p01_v32.py [OUT] [--capture CHEMIN]` (même base, Henri repris d'une capture d'écran recalée automatiquement, par défaut `work/ed5-capture.png`) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -445,6 +445,18 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
   - Zone modifiée depuis la v29 : 800,354,845,409. Contrôle avec la zone `796,350,849,413` :
     CONFORME (couleurs 100 %, netteté ×1,22, raccord 0,0). Le script redonne l'image au pixel près.
   - Position inchangée : tête et cheveux ≈ x 800–845, y 354–390 ; pieds cachés vers (820, 442).
+- **v32 (préparée, en attente de la capture)** — `tools/p01_v32.py`. L'utilisateur demande *« une
+  version avec l'intégration du screenshot que je t'ai envoyé »* (capture d'ed5, perdue sur le
+  disque : il doit la renvoyer). Dès réception : la copier dans `p01/work/ed5-capture.png`, la
+  commiter et la pousser AVANT tout le reste, puis lancer `python3 tools/p01_v32.py OUT.png`.
+  - Le script recale la capture sur `work/crop-v29-1024.png` (points SIFT, puis similitude par
+    RANSAC sur le décor), corrige sa teinte (droite par canal sur le décor), isole Henri comme pour
+    la v31 (seuil 22) et le recolle sur `retirer_henri(v28)`.
+  - Testé sur une fausse capture tirée d'ed6 (474×482, recadrée, teinte décalée, JPEG) : échelle
+    et décalage retrouvés (×2,105 ; (14, 6) ; erreur médiane 0,33 px), et le résultat retombe sur
+    la v29. Contrôle avec la zone `796,350,849,413` : CONFORME, netteté ×1,00.
+  - Vérifier au zoom la cigarette, un fin bâtonnet clair sur fond clair : un seuil trop fort la
+    rogne.
 
 **2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27 → v28, en attente d'avis).**
 

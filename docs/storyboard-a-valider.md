@@ -164,6 +164,8 @@ Add P02 storyboard keyframe and progress tracker
 
 <img src="../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png" width="640" alt="P02 v1">
 
+- 💬 *2026-10-14 15:38* — je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin
+
 **P02 · v2** — ⏳ à valider — ancien fil, commit e2a3352 (06h33) · ⚪ faite sans carte du plan  
 Reframe P02 with fixed 4L continuity — version en place dans le storyboard
 

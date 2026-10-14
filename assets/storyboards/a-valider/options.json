@@ -503,7 +503,13 @@
      "fichier": "p02-v1-ancien-fil-03h55.png",
      "source": "ancien fil, commit 2db27a6 (03h55)",
      "note": "Add P02 storyboard keyframe and progress tracker",
-     "etat": "a-retoucher"
+     "etat": "a-retoucher",
+     "avis": [
+      {
+       "date": "2026-10-14 15:38",
+       "texte": "je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin"
+      }
+     ]
     },
     {
      "id": "v2",

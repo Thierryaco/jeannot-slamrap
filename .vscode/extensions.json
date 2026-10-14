@@ -1,0 +1,8 @@
+{
+  // VS Code propose d'installer ces extensions à l'ouverture du dossier : accepter.
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy"
+  ]
+}

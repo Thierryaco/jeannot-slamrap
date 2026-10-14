@@ -25,8 +25,16 @@ ROOT = Path(__file__).resolve().parent.parent
 CARTE = ROOT / "assets/storyboards/a-valider/carte"
 LIEUX = CARTE / "lieux.json"
 PLANS = CARTE / "plans.json"
-FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
-FONT_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+def _police(nom):
+    """Police DejaVu livrée avec le dépôt (assets/fonts) : même rendu sous Linux, Windows et macOS."""
+    for p in (ROOT / "assets/fonts" / nom, Path("/usr/share/fonts/truetype/dejavu") / nom):
+        if p.exists():
+            return str(p)
+    return nom  # dernier recours : Pillow la cherche parmi les polices du système
+
+
+FONT = _police("DejaVuSans.ttf")
+FONT_B = _police("DejaVuSans-Bold.ttf")
 CAM_COLORS = ["#e04f5f", "#2f7fd8"]
 
 

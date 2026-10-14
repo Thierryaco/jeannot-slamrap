@@ -21,6 +21,7 @@ Code de sortie 0 = CONFORME, 1 = À REFAIRE.
 """
 import argparse
 import sys
+from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
@@ -142,7 +143,7 @@ def controle(ref, res, zones, plan=None, sortie=None):
             dr.rectangle(z, outline=(0, 230, 0), width=4)
         tiles = [ref.convert("RGB"), res.convert("RGB"), dv]
         if plan:
-            sys.path.insert(0, "tools")
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
             import calque
             tiles.append(Image.alpha_composite(res.convert("RGBA"), calque.calque(plan)).convert("RGB"))
         w = 720; h = round(H * w / W)
@@ -154,12 +155,15 @@ def controle(ref, res, zones, plan=None, sortie=None):
             x, y = (k % cols) * w, (k // cols) * (h + 30)
             sheet.paste(t.resize((w, h)), (x, y + 30))
             ImageDraw.Draw(sheet).text((x + 8, y + 8), noms[k], fill=(0, 0, 0))
+        Path(sortie).parent.mkdir(parents=True, exist_ok=True)
         sheet.save(sortie, quality=82)
     msgs.append("=> CONFORME" if ok else "=> À REFAIRE (ne pas livrer : recommencer la retouche)")
     return ok, msgs
 
 
 def main():
+    if hasattr(sys.stdout, "reconfigure"):  # console Windows : pas de plantage sur ✓ / ✗
+        sys.stdout.reconfigure(errors="replace")
     ap = argparse.ArgumentParser()
     ap.add_argument("ref"); ap.add_argument("res")
     ap.add_argument("--zones", default="")

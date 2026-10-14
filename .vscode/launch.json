@@ -1,0 +1,51 @@
+{
+  // Panneau « Exécuter et déboguer » (Ctrl+Maj+D) puis F5.
+  // Ne pas lancer le serveur en débogage pendant que la tâche « Lancer le serveur storyboard »
+  // tourne : le port 8000 serait déjà pris (le message l'indique).
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Serveur storyboard (débogage)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tools/serve_storyboard.py",
+      "args": ["8000", "--host", "127.0.0.1"],
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "serverReadyAction": {
+        "pattern": "Storyboard .* : (http://localhost:[0-9]+/\\S+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    },
+    {
+      "name": "Script Python ouvert",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Script Python ouvert, avec arguments",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "args": "${command:pickArgs}",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "python": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

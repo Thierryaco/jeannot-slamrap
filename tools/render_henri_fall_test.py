@@ -59,6 +59,7 @@ def load_plate(size: tuple[int, int]) -> Image.Image:
 
 def font_for(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     for path in (
+        str(ROOT / "assets/fonts/DejaVuSans-Bold.ttf"),
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
         "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf",
     ):

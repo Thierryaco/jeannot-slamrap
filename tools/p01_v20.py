@@ -23,4 +23,5 @@ def build():
 
 
 if __name__ == "__main__":
-    build().save(sys.argv[1] if len(sys.argv) > 1 else "/tmp/w/v20.png")
+    from chemins import sortie_par_defaut
+    build().save(sys.argv[1] if len(sys.argv) > 1 else sortie_par_defaut("v20.png"))

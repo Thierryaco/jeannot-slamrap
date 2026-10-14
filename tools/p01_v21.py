@@ -121,5 +121,6 @@ def build(pieds=PIEDS, pencer=PENCHE, retourner=False, fumer=True):
 
 
 if __name__ == "__main__":
-    build().save(sys.argv[1] if len(sys.argv) > 1 else "/tmp/w/v21.png")
+    from chemins import sortie_par_defaut
+    build().save(sys.argv[1] if len(sys.argv) > 1 else sortie_par_defaut("v21.png"))
     print("ok")

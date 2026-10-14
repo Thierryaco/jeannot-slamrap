@@ -11,7 +11,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 | Plan | Temps | Statut | Options | Choix |
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | 🛠️ En cours | 8 | — |
-| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 22 | — |
+| [P01](#p01) | 00:00–00:05 | 🛠️ En cours | 23 | — |
 | [P02](#p02) | 00:05–00:10 | ⏳ À valider | 2 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
@@ -132,6 +132,11 @@ Ton avis du 14/10. La rampe en béton blanc (main courante, sa grande face, la b
 La v26 plus une porte en bois avec encadrement de pierre et marche, directement dans le mur de la maison sous l'escalier (ton avis v19). Elle remplace la porte de la v25 : il n'y a plus de liseré clair. Pour lui faire place, le bord du pan gris côté garage passe de x 819 à x 830, et au-dessus de la porte le mur continue jusqu'au palier. Contrôle CONFORME (couleurs 100 %, netteté ×1,03, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.
 
 <img src="../assets/storyboards/a-valider/p01/p01-v27-porte.png" width="640" alt="P01 v27">
+
+**P01 · v28** — ⏳ à valider — tools/p01_v28.py — v27 retouchée au pixel (aucune IA) · contrôle : tools/controle_retouche.py → p01-v28-controle.jpg · 🟢 conforme à la carte actuelle (rév. 14)  
+La v27 avec un seul trait sous la rampe, comme tu l'as demandé (« je préfère un seul trait »). Le trait fin, la bande claire et le trait épais sont remplacés par un trait droit unique, du palier jusqu'au pied de l'escalier ; l'ombre douce du mur suit ce nouveau trait. Même chose sous le palier, où le double trait devient un seul contour. Rien d'autre ne bouge : porte, pan gris, marches, Henri. Contrôle CONFORME (couleurs 100 %, netteté ×1,37, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.
+
+<img src="../assets/storyboards/a-valider/p01/p01-v28-trait.png" width="640" alt="P01 v28">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v16, v17</summary>
 

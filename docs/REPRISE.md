@@ -251,7 +251,7 @@ tools/                             les scripts
 | `draw_street_map.py` | — | dessine `carte-rue-vX.svg` depuis `lieux.json` / `plans.json` |
 | `calque.py` | — | produit le calque carte ↔ image d'un plan |
 | `controle_retouche.py` | voir ci-dessous | **contrôle obligatoire** après chaque retouche |
-| `p01_v16…p01_v27.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26) |
+| `p01_v16…p01_v28.py` | `PYTHONPATH=tools python3 tools/p01_v21.py OUT.png` | les retouches locales de P01, une par version (sans `OUT.png` : `_sorties/vNN.png`) ; à lancer depuis la racine du dépôt. Depuis le 14/10 : `p01_v24.py A\|B` (v24 / v25, à partir de la v20), `p01_v26.py` (à partir de la v24), `p01_v27.py` (à partir de la v26), `p01_v28.py` (à partir de la v27, sans IA) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -334,7 +334,8 @@ donc être assez précis et cohérent. » La zone de la maison de Jeannot est **
 | v24 | `p01-v24-sans-portail.png` | à valider — v20 sans le portail ni la clôture (`tools/p01_v24.py A`) |
 | v25 | `p01-v25-porte.png` | à valider — v24 + porte ; liseré clair autour de l'encadrement → remplacée par la v27 |
 | v26 | `p01-v26-rampe.png` | à valider — v24 + rampe couleur façade du garage + trait du bas en ligne droite |
-| **v27** | `p01-v27-porte.png` | à valider — v26 + porte dans le mur sous l'escalier (**version la plus avancée**) |
+| v27 | `p01-v27-porte.png` | à valider — v26 + porte dans le mur sous l'escalier |
+| **v28** | `p01-v28-trait.png` | à valider — v27 + un seul trait sous la rampe et sous le palier (**version la plus avancée, base pour Henri**) |
 
 **v14 et v15 ont été rejetées et supprimées.** Ne jamais les reconstituer.
 
@@ -365,7 +366,7 @@ palier en haut de son escalier en train de fumer, le visage tourné vers la 4L. 
   ⚠️ **La projection de la carte s'est révélée peu fiable dans cette zone.** Ne pas recalculer la
   position depuis la carte : regarder l'image, ou utiliser le pointage de l'utilisateur (§7).
 
-**2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27, en attente d'avis).**
+**2. Le portail, la rampe et la porte (FAITS : v24 → v26 → v27 → v28, en attente d'avis).**
 
 Avis v19 : *« Il y a comme un portail avec 2 piliers qui chevauche l'escalier d'Henri en dessous…
 rajoute plutôt une porte directement sur la maison »*. Avis v20 (14/10) : *« retire moi le portail
@@ -392,6 +393,17 @@ avec la clôture qu'il y a sous l'escalier d'henri »*.
   dessinée sur la v26 et recollée au ras de son contour. Le bord du pan gris passe de x 819 à x 830 ;
   au-dessus de la porte, le mur continue jusqu'au palier avec la teinte du coin de mur voisin.
   Zone de contrôle depuis la v26 : `795,449,841,597`.
+- **v28** (réponse du 14/10 : *« je préfère un seul trait »*) : v27 retouchée au pixel, sans IA.
+  - Sous la rampe, le trait fin, la bande claire et le trait épais deviennent un seul trait droit de
+    2 px, de (818,3, 450,8) au pied de l'escalier (738, 602). Les teintes de face et de mur sont
+    relevées ligne par ligne, avec leur grain.
+  - L'ombre douce que le dessous de l'escalier porte sur le mur suit le nouveau trait : le profil du
+    mur est décalé de l'écart entre l'ancien et le nouveau trait. Sans cela, il reste une bande claire.
+  - Sous le palier, le dessin avait trois traits. Le trait supérieur (814,5, 440)→(841, 448) et le
+    second trait horizontal y ≈ 453, avec leurs bandes claires, sont effacés. Seul le trait inférieur
+    (819, 449)→(839, 453) est gardé. Le bord du pan gris (x 829–830) remonte jusqu'à lui.
+  - Zone de contrôle depuis la v27 : `733,434,845,605` (CONFORME, netteté ×1,37 : la bande floue a
+    disparu ; le cœur du nouveau trait, à 53, est plus doux que celui de la main courante, à 9–35).
 
 ### Repères numériques utiles sur P01 (image 1920×1080)
 
@@ -431,9 +443,9 @@ carte qui devra suivre l'image**, pas l'inverse.
 ## 11. Ce qu'il reste à faire, dans l'ordre
 
 1. **Résoudre la vision** (§2) — priorité absolue, décidé par l'utilisateur.
-2. **P01 — portail, rampe, porte :** faits en v24 → v26 → v27, en attente de l'avis de
-   l'utilisateur.
-3. **P01 — Henri :** en partant de la version retenue (v27 a priori ; v21–v23 supprimées), le placer
+2. **P01 — portail, rampe, porte, trait unique :** faits en v24 → v26 → v27 → v28, en attente de
+   l'avis de l'utilisateur.
+3. **P01 — Henri :** en partant de la version retenue (v28 a priori ; v21–v23 supprimées), le placer
    sur le palier en haut de son escalier, penché, appuyé au muret, en train de fumer, le visage tourné
    vers la 4L.
 4. **P01 — carte :** recaler le point Henri de `plans.json` sur la position retenue dans l'image.

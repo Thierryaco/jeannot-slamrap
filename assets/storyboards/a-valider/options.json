@@ -405,6 +405,18 @@
       "lieux_rev": 10
      },
      "avis": []
+    },
+    {
+     "id": "v28",
+     "fichier": "p01-v28-trait.png",
+     "source": "tools/p01_v28.py — v27 retouchée au pixel (aucune IA) · contrôle : tools/controle_retouche.py → p01-v28-controle.jpg",
+     "note": "La v27 avec un seul trait sous la rampe, comme tu l'as demandé (« je préfère un seul trait »). Le trait fin, la bande claire et le trait épais sont remplacés par un trait droit unique, du palier jusqu'au pied de l'escalier ; l'ombre douce du mur suit ce nouveau trait. Même chose sous le palier, où le double trait devient un seul contour. Rien d'autre ne bouge : porte, pan gris, marches, Henri. Contrôle CONFORME (couleurs 100 %, netteté ×1,37, raccord 0,0). Henri n'a pas encore bougé : c'est l'étape suivante.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 14,
+      "lieux_rev": 10
+     },
+     "avis": []
     }
    ]
   },

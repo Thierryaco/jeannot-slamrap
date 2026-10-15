@@ -264,6 +264,7 @@ tools/                             les scripts
 | `p02_v7.py` | `python3 tools/p02_v7.py [OUT] [--seam IMG]` | P02 v7 = v6 + bout de chez Jeannot (IA recalée sur la 4L par ECC, coupe de coût minimal le long du mur de pierre, 4L par GrabCut + ouverture) + sol de la route (IA, masques du sol de p02_v4, Enji/Jeannot/bottes protégés) ; affiche les zones du contrôle |
 | `p02_v8.py` | `python3 tools/p02_v8.py [OUT] [--coupes IMG]` | P02 v8 = v7 + ciel (colline abaissée, ciel de P01) + escalier tout droit (jardin en deux) : retouches IA collées par **coupe de graphe** (PyMaxflow) entre zones sûres IA / v7 ; Jeannot et la 4L protégés ; affiche les zones du contrôle |
 | `p02_v9.py` | `python3 tools/p02_v9.py [OUT]` | P02 v9 = **v7** + lumière de plein jour : correction de couleur du décor matière par matière sur P01 (végétation, tons moyens, surfaces claires ; `CLARTE` par matière), sol, personnages, 4L et ciel protégés ; affiche la zone du contrôle |
+| `p02_v10.py` | `python3 tools/p02_v10.py [OUT] [--coupes IMG]` | P02 v10 = v9 + colline haute (coin de ciel, bleu ramené à P01, vert à la v9) + jardin plat au niveau de la terrasse (haut mur, escalier tout droit) + pied du mur (ancien portail et pilier retirés, premières marches ; couleurs accordées pierres/trottoir) ; coupes de graphe ; affiche les zones du contrôle |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -698,6 +699,13 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      netteté ×1,07) = point 10, à partir de la **v7**. Mesures du décor (Lab médian, v7 → P01) : végétation
      a −7 → −10, b +15 → +12 ; tons moyens b +12 → +5, L 117 → 127 ; surfaces claires L 224 → 183 (non
      suivi : assombrir irait contre le plein jour). 0 pixel changé sur le sol, les personnages, la 4L.
+   - **v10** (`p02-v10-colline-jardin.png`, `tools/p02_v10.py`, contrôle `--palette` P01 CONFORME : colline
+     98 %, ×1,75 ; jardin 94 %, ×1,23 ; pied du mur 100 %, ×1,45), à partir de la v9. Faite en plusieurs
+     tentatives interrompues (commits 3f3f58b → d382452) puis terminée : recadrages de la v9 (colline
+     x 0–1067, y 0–600 ; jardin x 620–1508, y 0–500 ; ×1,5) et de la composition (pied x 620–1260,
+     y 330–690 ×2). Corrigés au collage : ciel trop saturé (cyan) → bleu de P01 ; pierres du pied plus
+     jaunes → accordées au mur ; trottoir du pied → accordé au trottoir (un accord unique calculé sur les
+     pierres assombrissait le gris). 0 pixel changé sur Jeannot, Enji, la 4L et sous y 565.
    - **Grillage du trottoir de gauche (point 13)** : l'utilisateur le **garde** (14/10). La carte l'ajoutera
      quand elle suivra l'image retenue (le long du terrain vide sud-ouest).
    - **Liste des correctifs P02** (à faire dans l'ordre, une paire par version, base = dernière version) :
@@ -715,15 +723,18 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      9. textures et trait comme P01 (trait net et régulier, aplats doux) — ici trait fin, hachures,
         textures dessinées (pierres, crépi, arbres) ;
      10. ✅ lumière : plein jour comme P01 (v9 = v7 + correction de couleur du décor) ;
-     11. ⚠️ plus de ciel bleu (colline abaissée) — fait dans la v8, **écartée** par l'utilisateur sans commentaire ;
-     12. ⚠️ escalier tout droit, jardin en deux — fait dans la v8, **écartée** ; à reprendre ou abandonner selon
-         l'utilisateur (questions posées le 14/10, sans réponse : il a tapé « continue ») ;
+     11. ✅ colline : la v8 l'avait **beaucoup trop abaissée** (avis du 15/10) → v10 : colline haute, coin de ciel
+         bleu pâle en haut à gauche seulement ;
+     12. ✅ jardin **plat au niveau de la terrasse, juste un poil plus bas** (avis du 15/10 : « le jardin qui fait
+         colline ») tenu par un haut mur de soutènement ; escalier tout droit depuis le trottoir jusqu'à la porte,
+         jardin coupé en deux (v10). ⚠️ plus de portail (l'ancien, coincé sous le nouveau mur, a été retiré) — à
+         rajouter au pied de l'escalier si l'utilisateur le veut ;
      13. ✅ grillage le long du trottoir de gauche (côté narrateur) : **gardé** (réponse du 14/10) ; la carte
          l'ajoutera quand elle suivra l'image retenue.
-     14/10 21:30 : l'utilisateur a mis la **v7 « à retoucher »** et la **v8 « écartée »** (sans commentaire),
-     puis a passé les questions et tapé « continue » → v9 = v7 + lumière (point 10). Reste le **point 9**
-     (trait et textures, toute l'image) : passe de style IA d'après P01 (2 propositions), à comparer à la
-     v9 ; et les points 11-12 à éclaircir avec lui.
+     14/10 21:30 : l'utilisateur a mis la **v7 « à retoucher »** et la **v8 « écartée »** ; v9 = v7 + lumière
+     (point 10). 15/10, avis sur la v8 : « la colline était beaucoup trop basse il va falloir rectifier — le
+     jardin qui fait colline alors qu'il est au même niveau que la terrasse juste un poil plus bas » → v10.
+     Reste le **point 9** (trait et textures, toute l'image) et, si l'utilisateur le veut, le portail.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.

@@ -202,6 +202,8 @@ Base = **la v13**, dont **la maison ne change pas du tout** (gable ouest, porte 
 
 <img src="../assets/storyboards/a-valider/p02/p02-v21-maison-v13-sans-escalier.png" width="640" alt="P02 v21">
 
+- 💬 *2026-10-15 22:23* — brule toi serieux , j'ai dit une maison du style de la v13  mais pour le reste   j'attend toujours une  maison qui s'arrete avant la terrasse  et commence attenante à la facade ouest de la maison de jeannot mais toujours en retrait. la porte d'entrée  est  coté sud  donc face à la rue et les escalier  coupe toujours le jarden 2  de la rue à la maison .
+
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png

@@ -715,7 +715,7 @@
      "fichier": "p02-v15-grillage-prolonge.png",
      "source": "tools/p02_v15.py — la v13 (la maison de la v14 est à refaire) + le grillage de gauche prolongé, sans IA : le dernier panneau est recopié en panneaux de plus en plus étroits qui suivent la perspective (une retouche IA, work/v15-ia-grillage.png, repoussait le grillage du fond au loin : écartée) · contrôle (par rapport à la v13) : p02-v15-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,89)",
      "note": "Point 1 (ton pointage sur la v13 : « il faut prolonger aussi le grillage ») : le grillage de gauche et son muret continuent le long du trottoir redressé jusqu'au grillage du fond (5 panneaux de plus, poteau d'about au coin). Seul ce coin change (6 082 pixels) ; tout le reste est la v13. Point suivant, après ta validation : la maison du fond (droite, escalier à 90°, elle s'arrête avant la terrasse).",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

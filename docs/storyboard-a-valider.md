@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 17 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 18 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -213,6 +213,11 @@ Point 1 (ton pointage sur la v13 : « il faut prolonger aussi le grillage ») : 
 Ton avis sur la v16 : le muret laissait voir le trottoir au travers. Il est refait en muret plein, de la même hauteur exactement que celui de gauche (18 px, y 424–441) : l'angle du coin est net (la face du muret et son trait de pied passent d'un grillage à l'autre sans redan) et il se termine à l'aplomb du garage par un trait de fermeture (x 564–565), sans déborder sur le trottoir. Seul le muret change par rapport à la v16 (x 196–565, y 423–443). Point suivant, après ta validation : la maison du fond (droite, parallèle à la rue, escalier à 90°, elle s'arrête avant la terrasse).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v17-grillage-fond.png" width="640" alt="P02 v17">
+
+**P02 · v18** — ⏳ à valider — tools/p02_v18.py — la v17 avec le pan de toit en biais supprimé, sans IA : la bande de mur crème du pignon (x 1060-1090, sous les tuiles) est recopiée ligne par ligne vers la gauche jusqu'à une arête verticale à x=950, avec un liseré de contour au ton de la maison ; les deux fenêtres de côté, le garde-corps de la terrasse, le toit de tuiles, la porte et l'escalier sont inchangés. Contrôle : p02-v18-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,47, bord 11,7 ; hors zones 0.00) · 🟢 conforme à la carte actuelle (rév. 2)  
+Point 2 : la maison du fond commence à 950 en haut de l'image par un angle droit (arête verticale) et finit à 1337 sur le volume de pierre — plus aucun pan de toit en biais, la façade est droite comme sur la v14.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v18-maison-droite.png" width="640" alt="P02 v18">
 
 <details><summary>🗄️ 9 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v16</summary>
 

@@ -272,6 +272,7 @@ tools/                             les scripts
 | `p02_v15.py` | `python3 tools/p02_v15.py SORTIE` | P02 v15 = **v13** + grillage de gauche prolongé jusqu'au grillage du fond, sans IA (dernier panneau recopié en perspective : `POTEAUX`, `MURET`) |
 | `p02_v16.py` | `python3 tools/p02_v16.py SORTIE` | P02 v16 = v15 + grillage du fond à la hauteur de celui de gauche (lisse haute −9 px, colline étirée) + muret comme celui de gauche ; sans IA — **rejetée** : l'aplat du muret était translucide et laissait voir la bordure du trottoir |
 | `p02_v17.py` | `python3 tools/p02_v17.py SORTIE` | P02 v17 = la v16 (gardée telle quelle) avec le **muret refait opaque** : copie du profil du muret de gauche (v15, colonnes 182–195, lignes 424–441) recopié colonne par colonne + texture propre, face y 424–441 (18 px), trait de pied, fermeture à l'aplomb du garage (x 564–565) ; sans IA |
+| `p02_v18.py` | `python3 tools/p02_v18.py [SORTIE]` | P02 v18 = la v17 avec le **pan de toit en biais supprimé** (point 2) : le mur est prolongé vers la gauche, sans IA, jusqu'à une arête verticale à x=950 (bande de mur crème du pignon recopiée ligne par ligne + grain léger, ton recalé sur le mur voisin) ; fenêtres de côté, garde-corps, toit, porte et escalier inchangés |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -782,9 +783,15 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
         le muret refait en copie **opaque** du muret de gauche (profil du muret de gauche, v15, colonnes 182–195,
         lignes 424–441, recopié colonne par colonne + texture propre ; 18 px de haut = la hauteur du muret de
         gauche au coin, trait de pied sombre, fermeture verticale à l'aplomb du garage x 564–565) ; `p02_v17.py` ;
-     2. ⏳ (avis v14, 15:47) **maison à refaire** : « tu ne m'as pas déplacé la maison, tu l'as simplement élargie
-        à 45° alors que la maison doit être droite et l'escalier à 90° ; elle ne va pas devant la terrasse, elle
-        s'arrête avant » — la v14 (maison élargie) est donc à abandonner ;
+     2. ✅ (v18, en attente de validation) (avis v14, 15:47 : « tu ne m'as pas déplacé la maison, tu l'as
+        simplement élargie à 45° alors que la maison doit être droite et l'escalier à 90° ; elle ne va pas devant
+        la terrasse, elle s'arrête avant ») puis avis sur la v17 : « c'est bien le point 2 : (la maison du fond)
+        elle doit commencer à 950 et finir à 1337 // en haut » + « surtout la façade doit être droite comme la
+        v14 ». La **v18** supprime le **pan de toit en biais** du pignon : la bande de mur crème du pignon
+        (x 1060-1090, sous les tuiles) est recopiée ligne par ligne vers la gauche jusqu'à une **arête verticale
+        à x = 950** (angle droit), liseré de contour au ton de la maison ; les deux fenêtres de côté, le
+        garde-corps de la terrasse, le toit de tuiles (qui finit à 1337 sur le volume de pierre), la porte et
+        l'escalier ne changent pas ; `tools/p02_v18.py`, contrôle CONFORME ;
      3. ⏳ point D (escalier depuis (835, 500), tout droit, même largeur, sans dépasser sur le trottoir) ;
      4. plus tard : la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
@@ -796,6 +803,13 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
 ---
 
 ## 12. Pièges déjà rencontrés — ne pas les refaire
+
+- **Recopier une bande de référence : attention à ce qu'elle contient.** Pour prolonger un mur, il faut prendre
+  une bande de mur **pure** (vérifier les couleurs ligne par ligne) : dans la v18, la bande x 1060-1090 commençait
+  à y=20 alors que les tuiles descendent jusque y≈34 → les premières lignes recopiées étaient des tuiles (des
+  losanges rouges apparus dans le mur). Et recopier une bande **colonne par colonne** fait des coutures
+  verticales tous les 30 px : pour un mur plat, mieux vaut **une couleur médiane par ligne + un grain léger**
+  (c'est aussi la recette du muret de la v17).
 
 - **Restes de flou de l'ancien contrôle** : avant la v20, le critère « grain » du contrôle (retiré)
   faisait adoucir les collages (`FLOU`, `flou_diego`, fond « doux comme v16 », etc.). Quand

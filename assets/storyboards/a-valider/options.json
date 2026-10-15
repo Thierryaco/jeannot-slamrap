@@ -750,6 +750,18 @@
       "lieux_rev": 12
      },
      "avis": []
+    },
+    {
+     "id": "v18",
+     "fichier": "p02-v18-maison-droite.png",
+     "source": "tools/p02_v18.py — la v17 avec le pan de toit en biais supprimé, sans IA : la bande de mur crème du pignon (x 1060-1090, sous les tuiles) est recopiée ligne par ligne vers la gauche jusqu'à une arête verticale à x=950, avec un liseré de contour au ton de la maison ; les deux fenêtres de côté, le garde-corps de la terrasse, le toit de tuiles, la porte et l'escalier sont inchangés. Contrôle : p02-v18-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,47, bord 11,7 ; hors zones 0.00)",
+     "note": "Point 2 : la maison du fond commence à 950 en haut de l'image par un angle droit (arête verticale) et finit à 1337 sur le volume de pierre — plus aucun pan de toit en biais, la façade est droite comme sur la v14.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
     }
    ]
   },

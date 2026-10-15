@@ -275,7 +275,8 @@ tools/                             les scripts
 | `p02_v18.py` | `python3 tools/p02_v18.py [SORTIE]` | P02 v18 = la v17 avec le **pan de toit en biais supprimé** (point 2) : le mur est prolongé vers la gauche, sans IA, jusqu'à une arête verticale à x=950 (bande de mur crème du pignon recopiée ligne par ligne + grain léger, ton recalé sur le mur voisin) ; fenêtres de côté, garde-corps, toit, porte et escalier inchangés |
 
 | `p02_v19.py` | `python3 tools/p02_v19.py [SORTIE]` | P02 v19 = la v18 avec l'**escalier droit** (point 3) : volée qui part de **(835, 500)**, monte tout droit, **largeur constante** (x 835 → 907), **posée sur la ligne de pied du mur** (y 502 → 514, rien sur le trottoir), arrivée sur l'herbe (y 262 → 265) en 15 marches + deux joues de pierre ; palette relevée dans l'image ; sans IA |
-| `p02_v20.py` | `python3 tools/p02_v20.py [SORTIE] [--essai]` | P02 v20 = **la v14** avec la **maison du fond refaite droite** (arête ouest verticale à **x = 1010**, juste avant la terrasse ; même hauteur, même retrait ; porte d'entrée au centre x 1209-1283, deux fenêtres de chaque côté) **et les escaliers supprimés** (escalier du seuil et marches du trottoir remplacés par la pelouse et le mur de pierre continus ; jardin refait, pelouse plate de la v14) ; maison sans IA (façade recomposée par recopie de blocs de la v14), escaliers par deux retouches IA recadrées (`work/v20-ia-sans-escalier-haut.png`, `-bas.png`) collées seulement là où elles diffèrent ; Jeannot et la 4L protégés |
+| `p02_v20.py` | `python3 tools/p02_v20.py [SORTIE] [--essai]` | ⛔ **écartée** : | P02 v20 = **la v14** avec la **maison du fond refaite droite** (arête ouest verticale à **x = 1010**, juste avant la terrasse ; même hauteur, même retrait ; porte d'entrée au centre x 1209-1283, deux fenêtres de chaque côté) **et les escaliers supprimés** (escalier du seuil et marches du trottoir remplacés par la pelouse et le mur de pierre continus ; jardin refait, pelouse plate de la v14) ; maison sans IA (façade recomposée par recopie de blocs de la v14), escaliers par deux retouches IA recadrées (`work/v20-ia-sans-escalier-haut.png`, `-bas.png`) collées seulement là où elles diffèrent ; Jeannot et la 4L protégés |
+| `p02_v21.py` | `python3 tools/p02_v21.py [SORTIE] [--essai]` | P02 v21 = **la v13, sa maison telle quelle** (aucune retouche de la maison) avec **les escaliers supprimés** : escalier du jardin (retouche IA `work/v21-ia-sans-escalier-jardin.png`, recadrage x 1030-1290 / y 140-300) et marches du trottoir (retouche IA `work/v20-ia-sans-escalier-bas.png`) — ton recalé ligne par ligne, seuls les pixels qui changent sont collés, Jeannot et la 4L protégés |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -786,36 +787,30 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
         le muret refait en copie **opaque** du muret de gauche (profil du muret de gauche, v15, colonnes 182–195,
         lignes 424–441, recopié colonne par colonne + texture propre ; 18 px de haut = la hauteur du muret de
         gauche au coin, trait de pied sombre, fermeture verticale à l'aplomb du garage x 564–565) ; `p02_v17.py` ;
-     2. ❌/✅ **reprise du 15/10 après la v19** : l'utilisateur **rejette la démarche des v18/v19** — « t'as
-        strictement rien compris il faut repartir de la v14 là j'ai jamais parlé du toit. Donc tu supprimes la
-        maison du fond et tu refais une maison qui soit alignée avec les façades des autres, elle doit s'arrêter
-        avant la terrasse. La porte d'entrée devant. Les escaliers tu les supprimes aussi. On les refera une fois
-        la maison validée par moi. » puis « je rajoute qu'elle restera à la même hauteur et retrait qu'avant ».
-        Les v15, v17, v18, v19 sont **écartées** ; la **v14** est « à retoucher » (elle est la base, elle n'est
-        plus une candidate). Ses consignes : la maison s'arrête **juste avant la terrasse** (arête ouest
-        x = 1010 ; le garde-corps de la terrasse finit à 1006), **même hauteur et même retrait qu'avant**, et la
-        **porte d'entrée au centre** de la nouvelle façade.
-        ✅ **v20** (`p02-v20-maison-droite.png`, `tools/p02_v20.py`, contrôle CONFORME : hors zones 0,02 ;
-        arête + fond 100 % / ×1,08 / bord 27,0 ; façade 100 % / ×1,16 / bord 13,0 ; marches 100 % / ×1,23 /
-        bord 5,9) = **base v14**, une seule version pour les deux points :
-          - **la maison du fond est refaite** : arête ouest **verticale à x = 1010** (fond de forêt prolongé à
-            l'ouest, garde-corps de la terrasse prolongé jusqu'au mur), **même hauteur et même retrait** (rien ne
-            bouge en hauteur ni en profondeur, l'avant-toit et le toit de la v14 restent tels quels) ; la façade
-            est recomposée à la même hauteur par recopie de blocs de la v14 : **porte au centre** (x 1209-1283)
-            et deux fenêtres de chaque côté (1043-1105 / 1118-1196 à gauche, 1296-1374 / 1387-1449 à droite) ;
-            le bas du mur suit la ligne du sol (mur jusqu'à y 189, pelouse ensuite) ;
-          - **les escaliers sont supprimés** : l'escalier du seuil et ses deux rampes (x 1006-1342) et les
-            marches posées sur le trottoir (x 835-1005) sont retirés à partir de deux retouches IA
-            (`work/v20-ia-sans-escalier-haut.png`, `work/v20-ia-sans-escalier-bas.png`), recadrées et collées
-            **uniquement là où elles diffèrent de la v14**, Jeannot et la 4L protégés au pixel près ;
-          - le **jardin** est refait (pelouse **plate** de la v14, au niveau de la terrasse, recopiée de la bande
-            intacte x 1262-1330) et le **mur de pierre est continu**, sans plus aucune marche ;
-          - ⚠️ méthode à retenir : le recollement d'une retouche IA doit être **fondu sur son bord** et son
-            **ton recalculé ligne par ligne** contre la v14, sinon les rectangles se voient (4 essais ratés
-            avant d'y arriver ; ne pas recoller la retouche IA « en bloc »).
-     3. ✅ **les escaliers seront refaits après validation de la maison** (consigne explicite) : ils repartiront
-        de (835, 500), monteront tout droit jusqu'à la porte de la maison, largeur constante (base v19, mais
-        **seulement après validation de la v20**).
+     2. 🚩 **LA REFERENCE DE LA MAISON, c'est la v13.** Avis du 15/10 après la v20 : « elle est bizarre ta maison,
+        c'est pas ce que je t'ai demandé… tu reprends la maison bizarre, je veux une maison comme dans la **v13**, pas
+        tes versions difformes de maison de barjo ». Donc :
+          - la **v14** (maison élargie par l'IA) et la **v20** (maison recomposée sans IA à partir de blocs de la v14,
+            comme un mur plat à 5 ouvertures) sont **écartées** : ne plus repartir ni de l'une ni de l'autre ;
+          - la maison de la **v13** (`p02-v13-rue-droite.png`) est **la bonne** : gable ouest avec ses deux fenêtres,
+            porte d'entrée face à nous, buissons, toit, jardin, mur de pierre. **On n'y touche plus.**
+          - ⚠️ leçon de méthode : pour la maison, **l'IA dessine** (c'est comme ça qu'est née celle de la v13) ; quand
+            on a recomposé une façade « à la main » en recopiant des blocs (v20), le résultat a été jugé difforme.
+            Ne pas recommencer.
+        ✅ **v21** (`p02-v21-maison-v13-sans-escalier.png`, `tools/p02_v21.py`, contrôle CONFORME : hors zones 0,00 ;
+        marches du trottoir 100 % / ×0,86 / bord 2,0 ; escalier du jardin 100 % / ×0,95 / bord 5,5) = **la v13, sa
+        maison telle quelle**, avec **les escaliers en moins** (consigne « Les escaliers tu les supprimes aussi. On les
+        refera une fois la maison validée par moi ») :
+          - escalier du jardin, devant la porte → retouche IA `work/v21-ia-sans-escalier-jardin.png` (recadrage
+            x 1030-1290 / y 140-300) : la pelouse continue jusqu'au pied de la porte, le petit muret de pierre du bas
+            du jardin continue tout droit ;
+          - marches posées sur le trottoir → retouche IA `work/v20-ia-sans-escalier-bas.png` (recadrage x 840-1050 /
+            y 395-575, région identique dans la v13) : le mur de pierre descend droit jusqu'au trottoir ;
+          - le ton des deux retouches est recalé **ligne par ligne** sur la v13 (témoins de part et d'autre de la
+            zone), seuls les pixels qui changent sont collés (fondu 5 px, jamais de couture sur le bord du recadrage),
+            Jeannot et la 4L protégés au pixel près.
+     3. ⏳ **les escaliers seront refaits après validation de la maison** : ils repartiront du trottoir vers la porte,
+        tout droit et à 90° (base de dessin `tools/p02_v19.py`, à reprendre seulement après validation).
      4. plus tard : la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.

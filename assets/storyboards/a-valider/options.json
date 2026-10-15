@@ -779,7 +779,19 @@
      "id": "v20",
      "fichier": "p02-v20-maison-droite.png",
      "source": "tools/p02_v20.py — la v14 sans IA pour la maison (arête ouest ramenée à x = 1010, façade recomposée à la même hauteur : porte au centre, deux fenêtres de part et d'autre) ; pour les escaliers, deux retouches IA (work/v20-ia-sans-escalier-haut.png, work/v20-ia-sans-escalier-bas.png) recadrées, recalées et collées uniquement là où elles diffèrent de la v14, Jeannot et la 4L protégés au pixel près. Contrôle : p02-v20-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,08 à ×1,23, bords 27,0 / 13,0 / 5,9 ; hors zones 0.01)",
-     "note": "La maison du fond est refaite (base v14, sans IA) : son arête ouest devient verticale à x = 1010, juste avant la terrasse (le garde-corps de la terrasse finit à x = 1006) — la maison est donc droite et alignée sur les façades des autres. Même hauteur et même retrait qu'avant (rien ne bouge en hauteur ni en profondeur). La porte d'entrée est au centre de la nouvelle façade (x 1209-1283), avec deux fenêtres de chaque côté. Les escaliers sont supprimés : l'escalier du seuil et les marches du trottoir sont remplacés par la pelouse et le mur de pierre continus, et le jardin est refait (pelouse plate de la v14, au niveau de la terrasse). Les escaliers seront refaits après validation de la maison.",
+     "note": "La maison du fond est refaite (base v14, sans IA) : son arête ouest devient verticale à x = 1010, juste avant la terrasse (le garde-corps de la terrasse finit à x = 1006) — la maison est donc droite et alignée sur les façades des autres. Même hauteur et même retrait qu'avant (rien ne bouge en hauteur ni en profondeur). La porte d'entrée est au centre de la nouvelle façade (x 1209-1283), avec deux fenêtres de chaque côté. Les escaliers sont supprimés : l'escalier du seuil et les marches du trottoir sont remplacés par la pelouse et le mur de pierre continus, et le jardin est refait (pelouse plate de la v14, au niveau de la terrasse). Les escaliers seront refaits après validation de la maison. REJETÉE (15/10) : « elle est bizarre ta maison… je veux une maison comme dans la v13, pas tes versions difformes » — la maison avait été recomposée sans IA à partir de blocs de la v14 ; on ne garde ni la méthode ni le résultat.",
+     "etat": "ecartee",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
+    },
+    {
+     "id": "v21",
+     "fichier": "p02-v21-maison-v13-sans-escalier.png",
+     "source": "tools/p02_v21.py — la v13 telle quelle pour la maison (aucune retouche), deux retouches IA pour les escaliers : work/v21-ia-sans-escalier-jardin.png (escalier du jardin) et work/v20-ia-sans-escalier-bas.png (marches du trottoir, région identique dans la v13). Contrôle p02-v21-controle.jpg (CONFORME : hors zones 0.00 ; marches couleurs 100 %, netteté ×0,86, bord 2,0 ; jardin 100 %, ×0,95, bord 5,5)",
+     "note": "Base = **la v13**, dont **la maison ne change pas du tout** (gable ouest, porte d'entrée face à nous, fenêtres, buissons, toit, jardin, mur de pierre, grillage, rue : tout est recopié au pixel de la v13). Seuls les **escaliers sont supprimés**, comme demandé : l'escalier du jardin devant la porte (retouche IA recadrée x 1030-1290 / y 140-300) et les marches posées sur le trottoir (retouche IA recadrée x 840-1050 / y 395-575). À la place : la pelouse continue jusqu'au pied de la porte et le mur de pierre descend droit jusqu'au trottoir, sans aucune marche. Ton des retouches recalé ligne par ligne sur la v13, seuls les pixels qui changent sont collés (fondu 5 px), Jeannot et la 4L protégés. Les escaliers seront refaits après validation de la maison.",
      "etat": "a-valider",
      "carte": {
       "plan_rev": 2,

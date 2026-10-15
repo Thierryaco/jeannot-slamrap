@@ -278,6 +278,8 @@ tools/                             les scripts
 | `p02_v20.py` | `python3 tools/p02_v20.py [SORTIE] [--essai]` | ⛔ **écartée le 15/10**. P02 v20 = **la v14** avec la **maison du fond refaite droite** (arête ouest verticale à **x = 1010**, juste avant la terrasse ; même hauteur, même retrait ; porte d'entrée au centre x 1209-1283, deux fenêtres de chaque côté) **et les escaliers supprimés** (escalier du seuil et marches du trottoir remplacés par la pelouse et le mur de pierre continus ; jardin refait, pelouse plate de la v14) ; maison sans IA (façade recomposée par recopie de blocs de la v14), escaliers par deux retouches IA recadrées (`work/v20-ia-sans-escalier-haut.png`, `-bas.png`) collées seulement là où elles diffèrent ; Jeannot et la 4L protégés |
 | `p02_v21.py` | `python3 tools/p02_v21.py [SORTIE] [--essai]` | P02 v21 = **la v13, sa maison telle quelle** (aucune retouche de la maison) avec **les escaliers supprimés** : escalier du jardin (retouche IA `work/v21-ia-sans-escalier-jardin.png`, recadrage x 1030-1290 / y 140-300) et marches du trottoir (retouche IA `work/v20-ia-sans-escalier-bas.png`) — ton recalé ligne par ligne, seuls les pixels qui changent sont collés, Jeannot et la 4L protégés |
 | `p02_v22.py` | `python3 tools/p02_v22.py [SORTIE] [--essai]` | P02 v22 = **la v14** avec **l'extrémité ouest de la maison déplacée par l'IA** (`work/v22-ia-ouest-decalee.png`, recadrage x 840-1200 / y 0-260) : mur à angle droit vertical à x ≈ 1000, juste après la grille de la terrasse, forêt à gauche ; tout le reste recopié au pixel de la v14 |
+| `p02_v23.py` | `python3 tools/p02_v23.py [SORTIE] [--essai]` | P02 v23 = la v22 avec **la maison redessinée vue de face par l'IA** (`work/v23-ia-maison-face.png`, recadrage x 900-1560 / y 0-260) : façade parallèle au bas de l'image, angle droit vertical à x ≈ 1000 (limite avant la terrasse), mince retour de pignon ; tout le reste recopié au pixel de la v22 |
+| `p02_v24.py` | `python3 tools/p02_v24.py [SORTIE] [--essai]` | P02 v24 = la v23 + **les deux escaliers redressés à 90° par l'IA** (`work/v23-ia-escalier-jardin-droit.png`, `work/v23-ia-escalier-bas-droit.png`) : marches horizontales, volées perpendiculaires à la rue, porte et mur de la maison jamais touchés |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -788,27 +790,35 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
         le muret refait en copie **opaque** du muret de gauche (profil du muret de gauche, v15, colonnes 182–195,
         lignes 424–441, recopié colonne par colonne + texture propre ; 18 px de haut = la hauteur du muret de
         gauche au coin, trait de pied sombre, fermeture verticale à l'aplomb du garage x 564–565) ; `p02_v17.py` ;
-     2. 🚩 **CE QUE DOIT ÊTRE LA MAISON DU FOND** (avis du 15/10 22:23 sur la v21, à respecter à la lettre) :
+     2. 🚩 **LA MAISON DU FOND — CONSIGNES (avis du 15/10 22:23 puis du soir)** :
         « une maison du style de la v13 **mais** une maison qui **s'arrête avant la terrasse** et **commence attenante
         à la façade ouest de la maison de Jeannot**, **toujours en retrait** ; **la porte d'entrée est côté sud donc
-        face à la rue** ; **les escaliers coupent toujours le jardin en 2 de la rue à la maison** ». Donc :
-          - étendue : de **x ≈ 1000** (juste après le dernier poteau de la grille de la terrasse, x 984) jusqu'à la
-            **façade ouest de la maison de Jeannot** (x ≈ 1470) ; **façade droite** (ni biais, ni « élargie à 45° ») ;
-            **en retrait** ; **porte au sud, face à la rue** (v14 : x 1150-1203) ; **escaliers conservés**, ils coupent
-            le jardin en deux depuis la rue ;
-          - la **v13 seule est trop petite** (donc « à retoucher ») ; la **v14** avait la bonne étendue mais son
-            extrémité ouest partait en biais devant la terrasse ; la **v20** (façade recomposée sans IA à partir de
-            blocs) est **écartée** : jugée difforme ;
-          - ⚠️ **leçon de méthode, à ne pas oublier : pour la maison, c'est l'IA qui dessine** (c'est comme ça qu'est
-            née celle de la v13). Ne plus recomposer une façade en recopiant des blocs de mur.
-        ✅ **v22** (`p02-v22-maison-ouest-decalee.png`, `tools/p02_v22.py`, contrôle CONFORME : hors zones 0,00 ;
-        zone 100 % de couleurs connues, netteté ×1,16, bord 0,1) = **la v14** avec **l'extrémité ouest de la maison
-        déplacée par l'IA** (`work/v22-ia-ouest-decalee.png`, recadrage x 840-1200 / y 0-260) : pignon, rive de toit et
-        égout reportés vers la droite, **mur à angle droit vertical à x ≈ 1000**, forêt dans l'espace libéré à gauche.
-        Tout le reste est recopié au pixel de la v14 (façade, fenêtres, porte au sud, toit, jardin, escaliers qui
-        coupent le jardin en deux, mur de pierre, grillage, rue, Jeannot, Enji, la 4L).
-     3. ⏳ **à valider par l'utilisateur** : la v22. Ensuite, ce qui reste connu : éventuellement réduire le débord de
-        toit (la rive descend encore jusqu'à x ≈ 965 au-dessus de la terrasse), puis la maison de Jeannot (point 4).
+        face à la rue** ; **les escaliers coupent toujours le jardin en 2 de la rue à la maison** », puis « **la
+        maison et une partie de l'escalier reste encore à 45°**, c'est pas ce que j'ai dit… tu fais en sorte qu'elle
+        respecte toujours sa limite par rapport à la terrasse ». Donc, à respecter à la lettre :
+          - **rien à 45°** : la maison est **vue de face** (façade parallèle au bas de l'image sur toute sa longueur,
+            plus aucun pan de mur en biais) et **les escaliers montent à 90°** (perpendiculaires à la rue, marches
+            horizontales, côtés verticaux) ;
+          - étendue : de **x ≈ 1000** (juste après le dernier poteau de la grille de la terrasse, x 985) à la
+            **façade ouest de la maison de Jeannot** (x ≈ 1470-1490) ; **en retrait** ; **porte au sud, face à la rue**
+            (x 1155-1201) ; **escaliers conservés**, ils coupent le jardin en deux depuis la rue ;
+          - ⚠️ **c'est l'IA qui dessine la maison et les escaliers** (v13, v23, v24) : ne plus jamais recomposer une
+            façade ou un escalier en recopiant des blocs à la main (v20 = écartée, jugée difforme).
+        ✅ **v22** (`p02-v22-maison-ouest-decalee.png`, `tools/p02_v22.py`) = la v14 avec l'extrémité ouest déplacée
+        par l'IA (mur à angle droit à x ≈ 1000) — **à retoucher** : il restait le pan de mur en biais.
+        ✅ **v23** (`p02-v23-maison-de-face.png`, `tools/p02_v23.py`, contrôle CONFORME : hors zones 0,01 ; zone
+        100 % / ×0,99 / bord 10,0) = la v22 avec **la maison redessinée vue de face par l'IA**
+        (`work/v23-ia-maison-face.png`, recadrage x 900-1560 / y 0-260) : façade parallèle au bas de l'image, angle
+        droit vertical à x ≈ 1000, mince retour de pignon, même hauteur, même avant-toit, porte au même endroit.
+        ✅ **v24** (`p02-v24-maison-face-escaliers-droits.png`, `tools/p02_v24.py`, contrôle CONFORME : hors zones 0,00 ;
+        jardin 100 % / ×1,29 / bord 16,2 ; trottoir 100 % / ×1,17 / bord 2,5) = la v23 + **les deux escaliers
+        redressés à 90° par l'IA** (`work/v23-ia-escalier-jardin-droit.png`, `work/v23-ia-escalier-bas-droit.png`) :
+        marches horizontales, volées perpendiculaires à la rue.
+        ⚠️ **piège corrigé le 15/10** : dans `retouche_ia`, `plein` doit être initialisé à `src.copy()` (et pas à des
+        zéros) — sinon le fondu du masque assombrit une bande de pixels **juste à l'extérieur du recadrage** et le
+        contrôle échoue (« hors zones » 99,9e centile 37). Corrigé dans `p02_v23.py` et `p02_v24.py`.
+     3. ⏳ **à valider par l'utilisateur** : la v24 (maison de face + escaliers à 90°). Après validation : la maison
+        de Jeannot (point 4), puis la suite.
      4. plus tard : la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.

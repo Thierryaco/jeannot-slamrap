@@ -563,7 +563,7 @@
      "fichier": "p02-v5-plaque-rouille.png",
      "source": "tools/p02_v5.py — la v4 avec les correctifs 3 et 4, sans IA · contrôle : tools/controle_retouche.py → p02-v5-controle.jpg (CONFORME : hors zones 0,00 ; carrosserie : couleurs 98 %, netteté ×1,40 ; arrière de la 4L derrière Jeannot : couleurs 96 %, netteté ×1,75)",
      "note": "Correctifs 3 et 4 de la liste : 3) la plaque avant devient noire avec « 1_ 67 » en caractères fins gris clair, comme la plaque arrière de la 4L dans P01 ; 4) la peinture prend la teinte de la 4L de P01 (vert amande plus jaune et plus sourd que le menthe de la v4, ombres et reflets gardés), la rouille existante passe au brun plus sombre de P01, et 16 taches de rouille brunes (quelques coulures courtes, quelques points) sont ajoutées sur les portières, l'aile, le capot et la face avant. Tout le reste est identique à la v4 au pixel près (Jeannot, Enji, les lieux, le volant, le sol).",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

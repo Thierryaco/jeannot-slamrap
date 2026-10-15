@@ -153,13 +153,6 @@ Il y a comme un portail avec 2 pilier qui chevauche l'escalier d'Henri en dessou
 
 <img src="../assets/storyboards/a-valider/carte/plans/p02.png" width="420" alt="carte P02">
 
-**P02 · v1** — 🔁 à retoucher — ancien fil, commit 2db27a6 (03h55) · ⚪ faite sans carte du plan  
-Add P02 storyboard keyframe and progress tracker
-
-<img src="../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png" width="640" alt="P02 v1">
-
-- 💬 *2026-10-14 15:38* — je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin
-
 **P02 · v2** — ⏳ à valider — ancien fil, commit e2a3352 (06h33) · ⚪ faite sans carte du plan  
 Reframe P02 with fixed 4L continuity — version en place dans le storyboard
 
@@ -200,8 +193,10 @@ Point 9, 2e paire : 1) le grillage de gauche : ses panneaux étaient remplis de 
 
 <img src="../assets/storyboards/a-valider/p02/p02-v12-grillage-mur.png" width="640" alt="P02 v12">
 
-<details><summary>🗄️ 3 option(s) écartée(s) : v7, v8, v9</summary>
+<details><summary>🗄️ 4 option(s) écartée(s) : v1, v7, v8, v9</summary>
 
+- **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png
+  - 💬 *2026-10-14 15:38* — je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin
 - **v7** — tools/p02_v7.py — la v6 avec les correctifs 7 et 8 : retouches IA d'après P01 (p02/work/v7-ia-*), collage du seul bout de chez Jeannot (recalé sur la 4L, coupe le long du mur de pierre de l'escalier) et du seul sol de la route ; la 4L, Enji et Jeannot de la v6 sont gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v7-controle.jpg (CONFORME : hors zones 0,00 ; maison couleurs 99 %, netteté ×1,43 ; route couleurs 100 %, netteté ×1,83) — ../assets/storyboards/a-valider/p02/p02-v7-maison-route.png
 - **v8** — tools/p02_v8.py — la v7 avec les correctifs 11 et 12 : retouches IA (p02/work/v8-ia-*, ciel d'après P01), collées par coupe de graphe (la frontière passe sur les contours, là où les deux images sont identiques) ; Jeannot, la 4L, Enji et la route de la v7 gardés au pixel près · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v8-controle.jpg (CONFORME : hors zones 0,00 ; ciel couleurs 100 %, netteté ×1,08 ; escalier 95 %, ×0,98) — ../assets/storyboards/a-valider/p02/p02-v8-ciel-escalier.png
   - 💬 *2026-10-15 11:57* — (message dans la conversation) la colline était beaucoup trop basse il va falloir rectifier   le jardin qui fait colline alors qu'il est au même niveau que la terras juste un poil plus bas

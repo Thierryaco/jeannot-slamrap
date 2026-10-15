@@ -174,6 +174,14 @@ Point 9, 2e paire : 1) le grillage de gauche : ses panneaux étaient remplis de 
 <img src="../assets/storyboards/a-valider/p02/p02-v12-grillage-mur.png" width="640" alt="P02 v12">
 
 - 💬 *2026-10-15 14:55* — l'aspect des murs étaient mieux avant c'est lisse . Ce qui  ne  va tout les changement après la v10 sauf le grillage de gauche.   La forêt   elle était très bien   sur la P10 le mur aussi.  Ce qui  ne va toujours pas  c'est la position de la maison du fond qui doit se situer  dans l'axe  de l'escalier qui coupe le jardin en 2 . La porte d'entrée de la maison est  dans l'axe de l'escalier aussi  les fenetres sur le coté. L'escalier est monte donc perpendiculairement à la route  et ne dépasse pas sur le trottoir.  La maison est donc  quasiment collé à celle de jeannot  Il y a un bout de batiment à droite de l'escalier actuel v12  je ne sais pas à quoi il correspond mais il n'a rien à . Pour bien comprendre regarde la carte  tu verra c'est clair le plan des maisons n'est pas respecté sur ce point là . Il faudra refaire une partie de la maison de  Jeannot mais on ferra ça après.
+- 💬 *2026-10-15 14:57* — 📍 pointages sur l'image :
+1. (1335, 35) —  point 1à 7 zone du  batiment qui ne correspond à rien
+2. (1331, 138)
+3. (1307, 146)
+4. (1317, 206)
+5. (1474, 260)
+6. (1508, 112) — ne pas tenir compte de cepoint
+7. (1506, 2)
 
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 

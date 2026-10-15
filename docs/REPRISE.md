@@ -266,6 +266,7 @@ tools/                             les scripts
 | `p02_v9.py` | `python3 tools/p02_v9.py [OUT]` | P02 v9 = **v7** + lumière de plein jour : correction de couleur du décor matière par matière sur P01 (végétation, tons moyens, surfaces claires ; `CLARTE` par matière), sol, personnages, 4L et ciel protégés ; affiche la zone du contrôle |
 | `p02_v10.py` | `python3 tools/p02_v10.py [OUT] [--coupes IMG]` | P02 v10 = v9 + colline haute (coin de ciel, bleu ramené à P01, vert à la v9) + jardin plat au niveau de la terrasse (haut mur, escalier tout droit) + pied du mur (ancien portail et pilier retirés, premières marches ; couleurs accordées pierres/trottoir) ; coupes de graphe ; affiche les zones du contrôle |
 | `p02_v11.py` | `python3 tools/p02_v11.py [OUT] [--coupes IMG]` | P02 v11 = v10 + point 9 paire 1 : colline en masses à contours nets (verts de la v10) + mur entier en pierres régulières à joints nets (pied relevé au ×4, 4L calculée sur la v9) ; coupes de graphe ; affiche les zones du contrôle |
+| `p02_v12.py` | `python3 tools/p02_v12.py [OUT] [--coupes IMG]` | P02 v12 = v11 + point 9 paire 2 : grillage de gauche à mailles nettes + mur de jardin de Jeannot comme dans P01 (joints, chaperon) ; coupes de graphe ; affiche les zones du contrôle |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -745,8 +746,11 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      passée par l'utilisateur (« retry ») → essai 2 : **le style de P01 = aplats doux MAIS contours nets et
      foncés** (colline-2 : masses cernées d'un trait net ; mur-4 : pierres régulières, joints fins nets). Les
      sapins sont devenus des masses arrondies. 0 pixel changé sur Jeannot, Enji, la 4L et sous y 580.
-     Prochaine paire du point 9 proposée : façades crépies (maison du fond, garage, mur de Jeannot) et
-     grillages, si l'utilisateur la juge utile.
+     **v12** (`p02-v12-grillage-mur.png`, `tools/p02_v12.py`, contrôle CONFORME sans option : grillage 100 %,
+     ×0,86 ; mur 100 %, ×1,50) = point 9, paire 2, à partir de la v11 : grillage de gauche (gribouillis →
+     mailles nettes comme le grillage du fond) + mur de jardin de Jeannot comme dans P01 (joints verticaux,
+     chaperon). Maison du fond, garage : déjà en aplats à contours nets, non retouchés. **Point 9 fait.**
+     Reste : la version retenue par l'utilisateur, le portail (s'il le veut), puis la carte suit l'image.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.

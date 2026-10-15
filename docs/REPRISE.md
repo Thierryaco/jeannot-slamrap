@@ -269,6 +269,7 @@ tools/                             les scripts
 | `p02_v12.py` | `python3 tools/p02_v12.py [OUT] [--coupes IMG]` | P02 v12 = v11 + point 9 paire 2 : grillage de gauche à mailles nettes + mur de jardin de Jeannot comme dans P01 (joints, chaperon) ; coupes de graphe ; affiche les zones du contrôle |
 | `p02_v13.py` | `python3 tools/p02_v13.py SORTIE [--base-seule] [--coupes IMG]` | P02 v13 = **v10** + grillage de gauche de la v12 (recollé sur la v10) + fond de la rue redressé (v13-ia-rue-3.png) ; ⚠️ donner SORTIE avant `--coupes` (sinon la sortie prend le chemin des coupes) |
 | `p02_v14.py` | `python3 tools/p02_v14.py SORTIE [--coupes IMG]` | P02 v14 = v13 + point C : maison du fond large jusqu'au mur de Jeannot, bout de bâtiment supprimé, porte en haut de l'escalier (IA d'après croquis, recalée ECC, coupe de graphe) |
+| `p02_v15.py` | `python3 tools/p02_v15.py SORTIE` | P02 v15 = **v13** + grillage de gauche prolongé jusqu'au grillage du fond, sans IA (dernier panneau recopié en perspective : `POTEAUX`, `MURET`) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -771,8 +772,8 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      E. plus tard : refaire une partie de la maison de Jeannot.
    - **Avis du 15/10 après la v14** (commentaires sur la page) : « fais ça point par point, 1 à 1, à chaque point
      je valide, sinon tu satures la mémoire » → **un seul point par version, puis attendre la validation**.
-     1. ⏳ (avis v13, 15:35, points (164, 439) et (186, 425)) **prolonger le grillage de gauche** (et son muret)
-        jusqu'au grillage du fond, le long du trottoir redressé — base **v13** ;
+     1. ✅ (v15, en attente de validation) (avis v13, 15:35, points (164, 439) et (186, 425)) **prolonger le
+        grillage de gauche** (et son muret) jusqu'au grillage du fond, le long du trottoir redressé — base **v13** ;
      2. ⏳ (avis v14, 15:47) **maison à refaire** : « tu ne m'as pas déplacé la maison, tu l'as simplement élargie
         à 45° alors que la maison doit être droite et l'escalier à 90° ; elle ne va pas devant la terrasse, elle
         s'arrête avant » — la v14 (maison élargie) est donc à abandonner ;

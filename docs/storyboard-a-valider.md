@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 14 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 15 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -203,6 +203,11 @@ Point C : la maison du fond devient une seule maison large qui va jusqu'au mur d
 <img src="../assets/storyboards/a-valider/p02/p02-v14-maison-escalier.png" width="640" alt="P02 v14">
 
 - 💬 *2026-10-15 15:47* — tu ne m'a pas déplacé la maison  tu l'as simplement élargie à 45° alors que la maison doit être droite  et l'escalier à 90° donc c'est à refaire elle ne va pas devant la terrasse elle s'arrete avant
+
+**P02 · v15** — ⏳ à valider — tools/p02_v15.py — la v13 (la maison de la v14 est à refaire) + le grillage de gauche prolongé, sans IA : le dernier panneau est recopié en panneaux de plus en plus étroits qui suivent la perspective (une retouche IA, work/v15-ia-grillage.png, repoussait le grillage du fond au loin : écartée) · contrôle (par rapport à la v13) : p02-v15-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,89) · 🟢 conforme à la carte actuelle (rév. 2)  
+Point 1 (ton pointage sur la v13 : « il faut prolonger aussi le grillage ») : le grillage de gauche et son muret continuent le long du trottoir redressé jusqu'au grillage du fond (5 panneaux de plus, poteau d'about au coin). Seul ce coin change (6 082 pixels) ; tout le reste est la v13. Point suivant, après ta validation : la maison du fond (droite, escalier à 90°, elle s'arrête avant la terrasse).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v15-grillage-prolonge.png" width="640" alt="P02 v15">
 
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 

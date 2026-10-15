@@ -6,9 +6,10 @@ doit être dans l'axe de l'escalier, et l'escalier monter jusqu'à cette porte) 
      bout de bâtiment pointé à droite de l'escalier (x 1307–1506, y 0–260) est supprimé ; porte d'entrée en haut
      de l'escalier, fenêtres de part et d'autre (retouche p02/work/v14-ia-maison-escalier.png, faite d'après le
      croquis v14-croquis.png ; recalée sur la v13 par ECC) ;
-  D. l'escalier part du pied du mur à (835, 500), même largeur, entaillé dans le mur (il ne dépasse plus sur le
-     trottoir) et monte tout droit jusqu'à la porte ; les anciennes marches devant le mur disparaissent (étape D :
-     voir ESCALIER ci-dessous).
+  D. (étape suivante, v15) l'escalier part du pied du mur à (835, 500), même largeur, entaillé dans le mur, et
+     monte tout droit jusqu'à la porte (x 1144–1194, bas y ≈ 209). Deux retouches IA (v14-ia-maison-escalier.png,
+     v14-ia-escalier.png sur l'entrée peinte v14-entree-escalier-peint.png) ont gardé l'ancien escalier : à
+     dessiner sans IA.
 
 Jeannot, Enji et la 4L restent ceux de la v13 au pixel près.
 
@@ -34,7 +35,7 @@ DOSSIER = ROOT / "assets/storyboards/a-valider/p02"
 TRAVAIL = DOSSIER / "work"
 SRC = DOSSIER / "p02-v13-rue-droite.png"
 V9 = DOSSIER / "p02-v9-lumiere.png"
-SORTIE = DOSSIER / "p02-v14-maison-escalier.png"
+SORTIE = DOSSIER / "p02-v14-maison-escalier.png"   # (point C seul)
 
 CM = (600, 0, 1520, 518)       # recadrage « maison + escalier »
 

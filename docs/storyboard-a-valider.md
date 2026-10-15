@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 13 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 14 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -196,6 +196,11 @@ D'après ton avis sur la v12, points A et B : A) on repart de la v10 (sa forêt,
 - 💬 *2026-10-15 15:35* — 📍 pointages sur l'image :
 1. (164, 439) — point 1 et 2 il faut prolonger aussi le grillage 
 2. (186, 425)
+
+**P02 · v14** — ⏳ à valider — tools/p02_v14.py — la v13 avec le point C de ton avis sur la v12 : retouche IA de la maison du fond (p02/work/v14-ia-maison-escalier.png, faite d'après le croquis v14-croquis.png), recalée et collée par coupe de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle (par rapport à la v13) : p02-v14-controle.jpg (CONFORME sans option : couleurs 97 %, netteté ×1,03) · 🟢 conforme à la carte actuelle (rév. 2)  
+Point C : la maison du fond devient une seule maison large qui va jusqu'au mur de chez Jeannot (presque collée) ; le bout de bâtiment que tu as pointé à droite de l'escalier est supprimé ; la porte d'entrée est en haut de l'escalier, avec des fenêtres de part et d'autre. Tout le reste est celui de la v13. Point suivant (D) : l'escalier depuis (835, 500), tout droit jusqu'à la porte, sans dépasser sur le trottoir.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v14-maison-escalier.png" width="640" alt="P02 v14">
 
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 

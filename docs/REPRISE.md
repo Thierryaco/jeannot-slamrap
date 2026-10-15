@@ -268,6 +268,7 @@ tools/                             les scripts
 | `p02_v11.py` | `python3 tools/p02_v11.py [OUT] [--coupes IMG]` | P02 v11 = v10 + point 9 paire 1 : colline en masses à contours nets (verts de la v10) + mur entier en pierres régulières à joints nets (pied relevé au ×4, 4L calculée sur la v9) ; coupes de graphe ; affiche les zones du contrôle |
 | `p02_v12.py` | `python3 tools/p02_v12.py [OUT] [--coupes IMG]` | P02 v12 = v11 + point 9 paire 2 : grillage de gauche à mailles nettes + mur de jardin de Jeannot comme dans P01 (joints, chaperon) ; coupes de graphe ; affiche les zones du contrôle |
 | `p02_v13.py` | `python3 tools/p02_v13.py SORTIE [--base-seule] [--coupes IMG]` | P02 v13 = **v10** + grillage de gauche de la v12 (recollé sur la v10) + fond de la rue redressé (v13-ia-rue-3.png) ; ⚠️ donner SORTIE avant `--coupes` (sinon la sortie prend le chemin des coupes) |
+| `p02_v14.py` | `python3 tools/p02_v14.py SORTIE [--coupes IMG]` | P02 v14 = v13 + point C : maison du fond large jusqu'au mur de Jeannot, bout de bâtiment supprimé, porte en haut de l'escalier (IA d'après croquis, recalée ECC, coupe de graphe) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -759,11 +760,13 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      A. ✅ base = **v10 + grillage de gauche de la v12** (v13) ;
      B. ✅ la rue ne tourne plus à gauche au fond : bordure, caniveau et trottoir de gauche droits jusqu'au
         grillage du fond, grillage de gauche et muret inchangés (v13, `p02-v13-rue-droite.png`, CONFORME) ;
-     C. ⏳ **maison du fond dans l'axe de l'escalier**, porte d'entrée dans l'axe, fenêtres sur les côtés,
+     C. ✅ (v14 : maison large jusqu'au mur de Jeannot, bout de bâtiment supprimé, porte en haut de l'escalier
+        actuel, fenêtres de part et d'autre ; porte x 1144–1194, bas y ≈ 209) **maison du fond dans l'axe de l'escalier**, porte d'entrée dans l'axe, fenêtres sur les côtés,
         maison presque collée à celle de Jeannot (voir la carte : maison-fond x −235..160, escalier
         x −10..30) ; supprimer le **bout de bâtiment à droite de l'escalier** (pointé : (1335, 35), (1331, 138),
         (1307, 146), (1317, 206), (1474, 260), (1506, 2) — ignorer (1508, 112)) ;
-     D. ⏳ **escalier** : part de **(835, 500)** et monte **tout droit** (perpendiculaire à la route) jusqu'à
+     D. ⏳ (prochaine étape ; l'IA revient deux fois à l'ancien escalier → le dessiner sans IA, derrière Jeannot,
+        en gardant la cigarette et la fumée devant) **escalier** : part de **(835, 500)** et monte **tout droit** (perpendiculaire à la route) jusqu'à
         la nouvelle place de la maison, **même largeur**, **sans dépasser sur le trottoir** ;
      E. plus tard : refaire une partie de la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —

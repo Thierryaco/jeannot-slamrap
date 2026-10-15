@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 8 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 9 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -189,6 +189,11 @@ Correctifs 5 et 6 de la liste : 5) Jeannot comme dans P01 : barbe poivre et sel,
 Correctifs 7 et 8 de la liste : 7) le bout de la maison de Jeannot comme dans P01 : le grand pignon aveugle posé sur le trottoir (avec sa gouttière, sa descente d'eau et son toit) devient un haut mur de jardin crème le long du trottoir, avec derrière, en retrait, l'étage d'une maison crème aux fenêtres à encadrement blanc ; 8) la route dessinée comme dans P01 : asphalte lisse, bordures claires et caniveau le long des deux trottoirs. Tout le reste est identique à la v6 au pixel près (la 4L, Jeannot, Enji, la maison du fond, la colline).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v7-maison-route.png" width="640" alt="P02 v7">
+
+**P02 · v9** — ⏳ à valider — tools/p02_v9.py — la v7 (« à retoucher » ; la v8 est écartée) avec le correctif 10 : correction de couleur seule, sans IA · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v9-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,07) · 🟢 conforme à la carte actuelle (rév. 2)  
+Correctif 10 de la liste : la lumière passe du chaud et sépia de fin d'après-midi au plein jour de P01. Rien ne bouge (formes, traits, personnages) : le décor est recoloré matière par matière sur celui de P01 — végétation (colline, buissons, grillage) plus verte et moins jaune ; pierres, béton et ombres beaucoup moins jaunes et un peu plus clairs ; murs crème un peu moins jaunes. Jeannot, Enji, la 4L, la route et le ciel restent ceux de la v7 au pixel près. Faite à partir de la v7 : le ciel et l'escalier de la v8 (écartée) n'y sont pas.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v9-lumiere.png" width="640" alt="P02 v9">
 
 <details><summary>🗄️ 1 option(s) écartée(s) : v8</summary>
 

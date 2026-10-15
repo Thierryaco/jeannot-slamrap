@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 18 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 19 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -218,6 +218,11 @@ Ton avis sur la v16 : le muret laissait voir le trottoir au travers. Il est refa
 Point 2 : la maison du fond commence à 950 en haut de l'image par un angle droit (arête verticale) et finit à 1337 sur le volume de pierre — plus aucun pan de toit en biais, la façade est droite comme sur la v14.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v18-maison-droite.png" width="640" alt="P02 v18">
+
+**P02 · v19** — ⏳ à valider — tools/p02_v19.py — la v18 avec l'escalier de jardin redessiné sans IA : la volée part du point (835, 500), monte tout droit (contremarches horizontales, on monte vers le fond), de largeur constante (x 835 → 907), posée sur la ligne de pied du mur de pierre (y 502 → 514 : rien ne descend sur le trottoir) et arrive sur l'herbe du jardin (y 262 → 265) en 15 marches, encadrée de deux joues de pierre de 6 px ; palette relevée dans l'image (contremarche (186,168,140), marche (203,191,172), nez/traits (36,29,23)). Contrôle (par rapport à la v18) : p02-v19-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,14, bord 0.0 ; hors zones 0.00) · 🟢 conforme à la carte actuelle (rév. 2)  
+Point 3 : l'escalier part de (835, 500) et monte tout droit, même largeur, sans dépasser sur le trottoir (sa ligne de base suit le pied du mur). Seule cette zone change par rapport à la v18 (x 835–907, y 262–514). Deux questions : l'escalier existant en biais à droite (x 907–1000), qui descend jusqu'au trottoir — je le supprime et je remets le mur, ou je le garde ? Et la volée doit-elle monter jusqu'à l'herbe du jardin (fait) ou plus haut, jusqu'à la porte de la maison ?
+
+<img src="../assets/storyboards/a-valider/p02/p02-v19-escalier-droit.png" width="640" alt="P02 v19">
 
 <details><summary>🗄️ 9 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v16</summary>
 

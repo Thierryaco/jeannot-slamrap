@@ -274,6 +274,8 @@ tools/                             les scripts
 | `p02_v17.py` | `python3 tools/p02_v17.py SORTIE` | P02 v17 = la v16 (gardée telle quelle) avec le **muret refait opaque** : copie du profil du muret de gauche (v15, colonnes 182–195, lignes 424–441) recopié colonne par colonne + texture propre, face y 424–441 (18 px), trait de pied, fermeture à l'aplomb du garage (x 564–565) ; sans IA |
 | `p02_v18.py` | `python3 tools/p02_v18.py [SORTIE]` | P02 v18 = la v17 avec le **pan de toit en biais supprimé** (point 2) : le mur est prolongé vers la gauche, sans IA, jusqu'à une arête verticale à x=950 (bande de mur crème du pignon recopiée ligne par ligne + grain léger, ton recalé sur le mur voisin) ; fenêtres de côté, garde-corps, toit, porte et escalier inchangés |
 
+| `p02_v19.py` | `python3 tools/p02_v19.py [SORTIE]` | P02 v19 = la v18 avec l'**escalier droit** (point 3) : volée qui part de **(835, 500)**, monte tout droit, **largeur constante** (x 835 → 907), **posée sur la ligne de pied du mur** (y 502 → 514, rien sur le trottoir), arrivée sur l'herbe (y 262 → 265) en 15 marches + deux joues de pierre ; palette relevée dans l'image ; sans IA |
+
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
 ```bash
@@ -792,7 +794,16 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
         à x = 950** (angle droit), liseré de contour au ton de la maison ; les deux fenêtres de côté, le
         garde-corps de la terrasse, le toit de tuiles (qui finit à 1337 sur le volume de pierre), la porte et
         l'escalier ne changent pas ; `tools/p02_v18.py`, contrôle CONFORME ;
-     3. ⏳ point D (escalier depuis (835, 500), tout droit, même largeur, sans dépasser sur le trottoir) ;
+     3. ⏳ (v19, en attente de validation) point D : **escalier** dessiné **sans IA** — la **v19** part de
+        **(835, 500)**, monte **tout droit** (contremarches horizontales, on monte vers le fond), de
+        **largeur constante** (x 835 → 907), **posée sur la ligne de pied du mur** (y 502 → 514 : rien ne
+        descend sur le trottoir) et arrive sur **l'herbe du jardin** (y 262 → 265) en **15 marches**,
+        encadrée de deux joues de pierre de 6 px ; palette prise dans l'image (contremarche (186,168,140),
+        marche (203,191,172), nez/traits (36,29,23)) ; `tools/p02_v19.py`, contrôle CONFORME (couleurs
+        100 %, netteté ×1,14, bord 0.0 ; hors zones 0.00) ;
+        ⚠️ deux questions en attente : (a) l'escalier **existant en biais** (x 907–1000, qui, lui, descend
+        jusqu'au trottoir) — à supprimer et remettre le mur, ou à garder ? (b) la volée doit-elle monter
+        jusqu'à l'herbe du jardin (fait) ou plus haut, jusqu'à la porte de la maison ? ;
      4. plus tard : la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.

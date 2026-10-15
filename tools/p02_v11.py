@@ -7,10 +7,11 @@ passe de style sur toute l'image a été refusée par l'utilisateur le 15/10) :
   b. le haut mur de soutènement : de grandes pierres taillées à joints fins et clairs, ombre peinte douce (comme
      les murs de P01) au lieu d'un gros trait noir autour de chaque pierre ; même forme, même beige.
 
-Méthode : retouches IA sur des recadrages de la v10 (p02/work/v11-ia-colline.png ; v11-ia-mur-2.png — le 1er essai
-du mur, v11-ia-mur.png, avait recopié P01 entière : écarté) ; déjà alignées (décalage < 0,25 px) ; collage par coupe
-de graphe (p02_v8.coupe_graphe) ; Jeannot, Enji, la 4L, la route et les marches du pied du mur restent ceux de la
-v10 au pixel près.
+Méthode : retouches IA sur des recadrages de la v10 (p02/work/v11-ia-colline.png ; v11-ia-mur-3.png, mur entier —
+1er essai v11-ia-mur.png écarté : il avait recopié P01 entière ; 2e essai v11-ia-mur-2.png : bon style mais ne
+couvrait pas la partie droite du mur, il sert d'échantillon de pierres, ref-v11-pierres.png) ; déjà alignées
+(décalage < 0,25 px) ; collage par coupe de graphe (p02_v8.coupe_graphe) ; Jeannot, Enji, la 4L, la route et
+l'escalier qui monte derrière Jeannot restent ceux de la v10 au pixel près.
 
 Contrôle obligatoire :
   python3 tools/controle_retouche.py p02-v10-colline-jardin.png p02-v11-style-colline-mur.png \\
@@ -33,15 +34,17 @@ ROOT = Path(__file__).resolve().parents[1]
 DOSSIER = ROOT / "assets/storyboards/a-valider/p02"
 TRAVAIL = DOSSIER / "work"
 SRC = DOSSIER / "p02-v10-colline-jardin.png"
+V9 = DOSSIER / "p02-v9-lumiere.png"   # silhouette de la 4L : calculée sur la v9 (mur crème au-dessus du toit) ; dans
+                                      # la v10 le mur de pierre touche le toit et GrabCut l'englobait dans la 4L
 SORTIE = DOSSIER / "p02-v11-style-colline-mur.png"
 
 CC = (0, 0, 1067, 600)          # recadrage « colline »
-CM = (500, 170, 1300, 620)      # recadrage « mur »
+CM = (560, 150, 1480, 668)      # recadrage « mur » (les deux parties du mur et les marches du pied)
 
 
 def base_mur(x):
-    """Pied du mur (y image) dans sa partie gauche, mesuré sur la v10 : (670, 460) → (900, 505)."""
-    return 460 + 0.196 * (np.asarray(x, np.float32) - 670)
+    """Pied de la partie gauche du mur (y image), mesuré sur la v10 : (700, 445) → (900, 505)."""
+    return 445 + 0.3 * (np.asarray(x, np.float32) - 700)
 
 
 def graines_mur(H, W, jeannot, car):
@@ -49,10 +52,14 @@ def graines_mur(H, W, jeannot, car):
     def boite(x0, y0, x1, y1):
         return (xx >= x0) & (xx < x1) & (yy >= y0) & (yy < y1)
     pied = base_mur(xx)
-    ia = (boite(578, 238, 878, H) & (yy < pied - 8)) | boite(1012, 226, 1200, 372)
+    # partie gauche (du garage au pied de l'escalier), marches du pied, partie droite (au-dessus de la 4L)
+    ia = ((boite(690, 292, 905, H) & (yy < pied - 8)) | boite(905, 292, 1003, 420) | boite(905, 432, 1003, 552)
+          | boite(1212, 282, 1468, 400)      # partie droite jusqu'au toit de la 4L (protégée) et au bout du mur
+          | boite(1165, 330, 1212, 400))     # pied du pilier de gauche de la partie droite
     j = cv2.dilate(jeannot.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
-    garde = (j | car | boite(0, 0, 560, H) | boite(0, 0, W, 206) | ((yy > pied + 6) & (xx < 890))
-             | boite(885, 425, 1012, H) | boite(1205, 0, W, H) | boite(0, 575, W, H))
+    garde = (j | car | boite(0, 0, 662, H) | boite(0, 0, 1010, 262) | boite(1010, 0, 1160, H)
+             | boite(1160, 0, W, 250) | ((yy > pied + 8) & (xx < 905)) | boite(905, 572, 1010, H)
+             | boite(1475, 0, W, H) | boite(0, 590, W, H))
     return ia & ~garde, garde
 
 
@@ -66,11 +73,12 @@ def main():
     sortie = Path(args[0]) if args else SORTIE
     v10 = np.asarray(Image.open(SRC).convert("RGB"))
     H, W = v10.shape[:2]
-    jeannot, car = p02_v10.silhouettes(v10)
+    v9 = np.asarray(Image.open(V9).convert("RGB"))
+    jeannot, car = p02_v10.silhouettes(v9)          # Jeannot et la 4L sont identiques au pixel près depuis la v6
     protege = jeannot | car
     res = v10.astype(np.float32)
     zones, infos, masques = [], [], []
-    for nom, fichier, rc in (("colline", "v11-ia-colline.png", CC), ("mur", "v11-ia-mur-2.png", CM)):
+    for nom, fichier, rc in (("colline", "v11-ia-colline.png", CC), ("mur", "v11-ia-mur-3.png", CM)):
         x0, y0, x1, y1 = rc
         ia = charger(fichier, rc)
         cur = np.clip(np.rint(res), 0, 255).astype(np.uint8)

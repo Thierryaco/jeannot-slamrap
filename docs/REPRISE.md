@@ -738,6 +738,14 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      15/10 : passe de style IA sur toute la v10 d'après P01 (2 propositions) → **aucune retenue** par
      l'utilisateur (« continu ») : ne pas la refaire sur toute l'image. Point 9 fait **zone par zone, 2 par
      2** (colline boisée + haut mur de pierre d'abord, puis murs crépis), Jeannot, Enji et la 4L intacts.
+     v11 (en cours, `tools/p02_v11.py`, non livrée) : colline en masses douces (v11-ia-colline.png) + mur entier
+     en pierres taillées à joints clairs (v11-ia-mur-3.png ; mur-1 avait recopié P01, mur-2 ne couvrait pas la
+     partie droite). Assemblage propre (0 pixel sur Jeannot, Enji, la 4L ; 4L calculée sur la v9). **Contrôle :
+     netteté sous le seuil** (colline ×0,79, mur ×0,65) — le critère compare la force des traits à la v10 et
+     juge « moins net » tout trait plus fin (pas de flou : retouches réduites). Comparé au décor de P01 :
+     colline ×0,85, mur ×0,75. Joints foncés essayés : mur plus chargé et sale → abandonné. Question posée à
+     l'utilisateur : comparer la netteté des zones restylées au décor de P01 ? mur en pierres taillées à joints
+     clairs, en crépi lisse comme P01, ou pierres de la v10 ?
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.

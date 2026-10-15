@@ -686,7 +686,12 @@
       "plan_rev": 2,
       "lieux_rev": 12
      },
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-15 15:35",
+       "texte": "📍 pointages sur l'image :\n1. (164, 439) — point 1 et 2 il faut prolonger aussi le grillage \n2. (186, 425)"
+      }
+     ]
     }
    ]
   },

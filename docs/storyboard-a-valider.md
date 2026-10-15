@@ -193,6 +193,10 @@ D'après ton avis sur la v12, points A et B : A) on repart de la v10 (sa forêt,
 
 <img src="../assets/storyboards/a-valider/p02/p02-v13-rue-droite.png" width="640" alt="P02 v13">
 
+- 💬 *2026-10-15 15:35* — 📍 pointages sur l'image :
+1. (164, 439) — point 1 et 2 il faut prolonger aussi le grillage 
+2. (186, 425)
+
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png

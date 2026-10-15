@@ -204,11 +204,6 @@ Point C : la maison du fond devient une seule maison large qui va jusqu'au mur d
 
 - 💬 *2026-10-15 15:47* — tu ne m'a pas déplacé la maison  tu l'as simplement élargie à 45° alors que la maison doit être droite  et l'escalier à 90° donc c'est à refaire elle ne va pas devant la terrasse elle s'arrete avant
 
-**P02 · v17** — ⏳ à valider — tools/p02_v17.py — la v16 avec le muret refait proprement, sans IA : la v16 est gardée telle quelle (lisse haute du grillage du fond −9 px, colline étirée) et seul le muret change ; il est maintenant la copie opaque du muret de gauche (profil du muret de gauche relevé sur la v15, colonnes 182–195, lignes 424–441, recopié colonne par colonne avec une texture propre — jamais le contenu du dessous) · contrôle (par rapport à la v15) : p02-v17-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,83) · 🟢 conforme à la carte actuelle (rév. 2)  
-Ton avis sur la v16 : le muret laissait voir le trottoir au travers. Il est refait en muret plein, de la même hauteur exactement que celui de gauche (18 px, y 424–441) : l'angle du coin est net (la face du muret et son trait de pied passent d'un grillage à l'autre sans redan) et il se termine à l'aplomb du garage par un trait de fermeture (x 564–565), sans déborder sur le trottoir. Seul le muret change par rapport à la v16 (x 196–565, y 423–443). Point suivant, après ta validation : la maison du fond (droite, parallèle à la rue, escalier à 90°, elle s'arrête avant la terrasse).
-
-<img src="../assets/storyboards/a-valider/p02/p02-v17-grillage-fond.png" width="640" alt="P02 v17">
-
 **P02 · v18** — ⏳ à valider — tools/p02_v18.py — la v17 avec le pan de toit en biais supprimé, sans IA : la bande de mur crème du pignon (x 1060-1090, sous les tuiles) est recopiée ligne par ligne vers la gauche jusqu'à une arête verticale à x=950, avec un liseré de contour au ton de la maison ; les deux fenêtres de côté, le garde-corps de la terrasse, le toit de tuiles, la porte et l'escalier sont inchangés. Contrôle : p02-v18-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,47, bord 11,7 ; hors zones 0.00) · 🟢 conforme à la carte actuelle (rév. 2)  
 Point 2 : la maison du fond commence à 950 en haut de l'image par un angle droit (arête verticale) et finit à 1337 sur le volume de pierre — plus aucun pan de toit en biais, la façade est droite comme sur la v14.
 
@@ -219,7 +214,7 @@ Point 3 : l'escalier part de (835, 500) et monte tout droit, même largeur, sans
 
 <img src="../assets/storyboards/a-valider/p02/p02-v19-escalier-droit.png" width="640" alt="P02 v19">
 
-<details><summary>🗄️ 10 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v15, v16</summary>
+<details><summary>🗄️ 11 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v15, v16, v17</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png
   - 💬 *2026-10-14 15:38* — je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin
@@ -234,6 +229,7 @@ Point 3 : l'escalier part de (835, 500) et monte tout droit, même largeur, sans
 - **v15** — tools/p02_v15.py — la v13 (la maison de la v14 est à refaire) + le grillage de gauche prolongé, sans IA : le dernier panneau est recopié en panneaux de plus en plus étroits qui suivent la perspective (une retouche IA, work/v15-ia-grillage.png, repoussait le grillage du fond au loin : écartée) · contrôle (par rapport à la v13) : p02-v15-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,89) — ../assets/storyboards/a-valider/p02/p02-v15-grillage-prolonge.png
 - **v16** — tools/p02_v16.py — la v15 + ton avis sur la v15, sans IA : lisse haute du grillage du fond descendue au niveau de celle de gauche (colline étirée au-dessus), socle remplacé par un muret comme celui de gauche · contrôle (par rapport à la v15) : p02-v16-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,86) — ../assets/storyboards/a-valider/p02/p02-v16-grillage-fond.png
   - 💬 *2026-10-15 17:05* — c'est raté : le muret est un aplat gris translucide qui laisse voir les bordures du trottoir au travers
+- **v17** — tools/p02_v17.py — la v16 avec le muret refait proprement, sans IA : la v16 est gardée telle quelle (lisse haute du grillage du fond −9 px, colline étirée) et seul le muret change ; il est maintenant la copie opaque du muret de gauche (profil du muret de gauche relevé sur la v15, colonnes 182–195, lignes 424–441, recopié colonne par colonne avec une texture propre — jamais le contenu du dessous) · contrôle (par rapport à la v15) : p02-v17-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,83) — ../assets/storyboards/a-valider/p02/p02-v17-grillage-fond.png
 
 </details>
 

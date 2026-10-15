@@ -744,7 +744,7 @@
      "fichier": "p02-v17-grillage-fond.png",
      "source": "tools/p02_v17.py — la v16 avec le muret refait proprement, sans IA : la v16 est gardée telle quelle (lisse haute du grillage du fond −9 px, colline étirée) et seul le muret change ; il est maintenant la copie opaque du muret de gauche (profil du muret de gauche relevé sur la v15, colonnes 182–195, lignes 424–441, recopié colonne par colonne avec une texture propre — jamais le contenu du dessous) · contrôle (par rapport à la v15) : p02-v17-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,83)",
      "note": "Ton avis sur la v16 : le muret laissait voir le trottoir au travers. Il est refait en muret plein, de la même hauteur exactement que celui de gauche (18 px, y 424–441) : l'angle du coin est net (la face du muret et son trait de pied passent d'un grillage à l'autre sans redan) et il se termine à l'aplomb du garage par un trait de fermeture (x 564–565), sans déborder sur le trottoir. Seul le muret change par rapport à la v16 (x 196–565, y 423–443). Point suivant, après ta validation : la maison du fond (droite, parallèle à la rue, escalier à 90°, elle s'arrête avant la terrasse).",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

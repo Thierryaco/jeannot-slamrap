@@ -10,9 +10,10 @@
    en pierre le long du trottoir ; l'escalier part du trottoir, monte tout droit jusqu'à la porte de la maison et
    coupe le jardin en deux moitiés (pelouse et arbustes).
 
-Méthode : retouches IA sur des recadrages de la v9 (p02/work/v10-ia-colline.png ; v10-ia-jardin-2.png, faite avec
-la disposition de l'escalier de la v8 comme modèle — v10-ia-jardin.png, 1er essai écarté : escalier en biais tout à
-droite, jardin pas coupé en deux) ; le jardin est recalé sur la v9 (ECC, agrandissement de 0,9 %) ; collage par
+Méthode : retouches IA sur des recadrages de la v9 (p02/work/v10-ia-colline-2.png — v10-ia-colline.png, 1er essai
+écarté : crête encore trop basse à gauche, jusqu'au grillage ; v10-ia-jardin-2.png, faite avec la disposition de
+l'escalier de la v8 comme modèle — v10-ia-jardin.png, 1er essai écarté : escalier en biais tout à droite, jardin pas
+coupé en deux) ; le jardin est recalé sur la v9 (ECC, agrandissement de 0,9 %) ; collage par
 coupe de graphe (p02_v8.coupe_graphe) ; Jeannot et la 4L de la v9 restent au pixel près.
 
 Contrôle obligatoire (bleu du ciel de P01 : --palette P01) :
@@ -83,9 +84,11 @@ def graines_jardin(H, W, jeannot, car):
         return (xx >= x0) & (xx < x1) & (yy >= y0) & (yy < y1)
     porte = boite(*PORTE)
     ia = boite(660, 238, 1485, 468) | porte
-    j = cv2.dilate(jeannot.astype(np.uint8), np.ones((9, 9), np.uint8)).astype(bool)
+    # marge de 1 px seulement autour de Jeannot : le nouveau mur vient jusqu'à son contour (pas de halo de l'ancien
+    # escalier clair autour du bob et des épaules)
+    j = cv2.dilate(jeannot.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
     garde = (j | car | boite(0, 0, 968, 232) | boite(0, 0, 655, H)
-             | (boite(968, 0, 1310, 176) & ~porte) | boite(1310, 0, 1488, 95) | boite(1488, 0, W, H)
+             | (boite(968, 0, 1240, 150) & ~porte) | boite(1240, 0, 1488, 95) | boite(1488, 0, W, H)
              | boite(0, 496, W, H) | boite(0, 472, 958, H))
     return ia & ~garde, garde
 
@@ -101,7 +104,7 @@ def main():
     zones, infos, masques = [], [], []
     # 1. colline (déjà alignée)
     x0, y0, x1, y1 = CC
-    col = charger("v10-ia-colline.png", CC)
+    col = charger("v10-ia-colline-2.png", CC)
     gi, gg = p02_v8.graines_ciel(H, W)
     lab = p02_v8.coupe_graphe(v9[y0:y1, x0:x1], col, gi[y0:y1, x0:x1], gg[y0:y1, x0:x1])
     m1 = np.zeros((H, W), bool); m1[y0:y1, x0:x1] = lab

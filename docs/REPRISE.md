@@ -270,7 +270,8 @@ tools/                             les scripts
 | `p02_v13.py` | `python3 tools/p02_v13.py SORTIE [--base-seule] [--coupes IMG]` | P02 v13 = **v10** + grillage de gauche de la v12 (recollé sur la v10) + fond de la rue redressé (v13-ia-rue-3.png) ; ⚠️ donner SORTIE avant `--coupes` (sinon la sortie prend le chemin des coupes) |
 | `p02_v14.py` | `python3 tools/p02_v14.py SORTIE [--coupes IMG]` | P02 v14 = v13 + point C : maison du fond large jusqu'au mur de Jeannot, bout de bâtiment supprimé, porte en haut de l'escalier (IA d'après croquis, recalée ECC, coupe de graphe) |
 | `p02_v15.py` | `python3 tools/p02_v15.py SORTIE` | P02 v15 = **v13** + grillage de gauche prolongé jusqu'au grillage du fond, sans IA (dernier panneau recopié en perspective : `POTEAUX`, `MURET`) |
-| `p02_v16.py` | `python3 tools/p02_v16.py SORTIE` | P02 v16 = v15 + grillage du fond à la hauteur de celui de gauche (lisse haute −9 px, colline étirée) + muret comme celui de gauche ; sans IA |
+| `p02_v16.py` | `python3 tools/p02_v16.py SORTIE` | P02 v16 = v15 + grillage du fond à la hauteur de celui de gauche (lisse haute −9 px, colline étirée) + muret comme celui de gauche ; sans IA — **rejetée** : l'aplat du muret était translucide et laissait voir la bordure du trottoir |
+| `p02_v17.py` | `python3 tools/p02_v17.py SORTIE` | P02 v17 = la v16 (gardée telle quelle) avec le **muret refait opaque** : copie du profil du muret de gauche (v15, colonnes 182–195, lignes 424–441) recopié colonne par colonne + texture propre, face y 424–441 (18 px), trait de pied, fermeture à l'aplomb du garage (x 564–565) ; sans IA |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -775,8 +776,12 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      je valide, sinon tu satures la mémoire » → **un seul point par version, puis attendre la validation**.
      1. ✅ (v15, en attente de validation) (avis v13, 15:35, points (164, 439) et (186, 425)) **prolonger le
         grillage de gauche** (et son muret) jusqu'au grillage du fond, le long du trottoir redressé — base **v13** ;
-     1b. ✅ (v16, en attente de validation) avis sur la v15 : « angle propre ; remplacer celui du fond pour qu'il
-        ait le même aspect avec le petit muret et la même hauteur » ;
+     1b. ✅ (v17, en attente de validation) avis sur la v15 : « angle propre ; remplacer celui du fond pour qu'il
+        ait le même aspect avec le petit muret et la même hauteur ». La **v16 est rejetée** (« c'est raté : le
+        muret est un aplat gris translucide qui laisse voir les bordures du trottoir ») → **v17** = la v16 avec
+        le muret refait en copie **opaque** du muret de gauche (profil du muret de gauche, v15, colonnes 182–195,
+        lignes 424–441, recopié colonne par colonne + texture propre ; 18 px de haut = la hauteur du muret de
+        gauche au coin, trait de pied sombre, fermeture verticale à l'aplomb du garage x 564–565) ; `p02_v17.py` ;
      2. ⏳ (avis v14, 15:47) **maison à refaire** : « tu ne m'as pas déplacé la maison, tu l'as simplement élargie
         à 45° alors que la maison doit être droite et l'escalier à 90° ; elle ne va pas devant la terrasse, elle
         s'arrête avant » — la v14 (maison élargie) est donc à abandonner ;
@@ -923,6 +928,11 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   v10, GrabCut englobait le bas du mur de pierre dans la 4L (zone protégée à tort).
 - Pied d'un mur : relever le trait sur un agrandissement ×4 ; les mesures automatiques (couleur, trottoir)
   se trompent (pierres délavées, double trait de bordure).
+- **Remplir une bande en gardant un peu du dessous rend le remplissage translucide** : la v16 mélangeait
+  15 % du grain du socle dans la face du muret ; les traits sombres de la bordure du trottoir restaient
+  visibles au travers (l'utilisateur l'a vu, le contrôle non). Pour un muret, ne jamais mélanger : recopier
+  le **profil opaque** du muret de référence, colonne par colonne, et le contrôler au zoom ×4 sur les trois
+  zones (coin, milieu, bout) avant de livrer.
 
 ---
 

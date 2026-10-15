@@ -791,8 +791,8 @@
      "id": "v21",
      "fichier": "p02-v21-maison-v13-sans-escalier.png",
      "source": "tools/p02_v21.py — la v13 telle quelle pour la maison (aucune retouche), deux retouches IA pour les escaliers : work/v21-ia-sans-escalier-jardin.png (escalier du jardin) et work/v20-ia-sans-escalier-bas.png (marches du trottoir, région identique dans la v13). Contrôle p02-v21-controle.jpg (CONFORME : hors zones 0.00 ; marches couleurs 100 %, netteté ×0,86, bord 2,0 ; jardin 100 %, ×0,95, bord 5,5)",
-     "note": "Base = **la v13**, dont **la maison ne change pas du tout** (gable ouest, porte d'entrée face à nous, fenêtres, buissons, toit, jardin, mur de pierre, grillage, rue : tout est recopié au pixel de la v13). Seuls les **escaliers sont supprimés**, comme demandé : l'escalier du jardin devant la porte (retouche IA recadrée x 1030-1290 / y 140-300) et les marches posées sur le trottoir (retouche IA recadrée x 840-1050 / y 395-575). À la place : la pelouse continue jusqu'au pied de la porte et le mur de pierre descend droit jusqu'au trottoir, sans aucune marche. Ton des retouches recalé ligne par ligne sur la v13, seuls les pixels qui changent sont collés (fondu 5 px), Jeannot et la 4L protégés. Les escaliers seront refaits après validation de la maison.",
-     "etat": "a-valider",
+     "note": "Base = **la v13**, dont **la maison ne change pas du tout** (gable ouest, porte d'entrée face à nous, fenêtres, buissons, toit, jardin, mur de pierre, grillage, rue : tout est recopié au pixel de la v13). Seuls les **escaliers sont supprimés**, comme demandé : l'escalier du jardin devant la porte (retouche IA recadrée x 1030-1290 / y 140-300) et les marches posées sur le trottoir (retouche IA recadrée x 840-1050 / y 395-575). À la place : la pelouse continue jusqu'au pied de la porte et le mur de pierre descend droit jusqu'au trottoir, sans aucune marche. Ton des retouches recalé ligne par ligne sur la v13, seuls les pixels qui changent sont collés (fondu 5 px), Jeannot et la 4L protégés. Les escaliers seront refaits après validation de la maison. À RETOUCHER (avis du 15/10 22:23) : la maison de la v13 est trop petite — il faut une maison du style de la v13, mais qui s'arrête avant la terrasse et commence attenante à la façade ouest de la maison de Jeannot, toujours en retrait ; porte d'entrée côté sud face à la rue, escaliers coupant le jardin en 2 de la rue à la maison (refaite dans la v22).",
+     "etat": "a-retoucher",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12
@@ -803,6 +803,18 @@
        "texte": "brule toi serieux , j'ai dit une maison du style de la v13  mais pour le reste   j'attend toujours une  maison qui s'arrete avant la terrasse  et commence attenante à la facade ouest de la maison de jeannot mais toujours en retrait. la porte d'entrée  est  coté sud  donc face à la rue et les escalier  coupe toujours le jarden 2  de la rue à la maison ."
       }
      ]
+    },
+    {
+     "id": "v22",
+     "fichier": "p02-v22-maison-ouest-decalee.png",
+     "source": "tools/p02_v22.py — la v14 telle quelle, sauf l'extrémité ouest de la maison, redessinée **par l'IA** (work/v22-ia-ouest-decale.png, recadrage x 840-1200 / y 0-260) : pignon, rive de toit et égout déplacés vers la droite, mur à angle droit. Ton recalé ligne par ligne sur la v14, seuls les pixels qui changent sont collés (fondu 5 px), la grille de la terrasse et le jardin restent ceux de la v14, Jeannot et la 4L protégés. Contrôle p02-v22-controle.jpg (CONFORME : hors zones 0.00 ; zone 100 % de couleurs connues, netteté ×1,16, bord 0,1)",
+     "note": "La maison de la **v14**, avec son **extrémité ouest déplacée** (c'est ce qui n'allait pas : le pignon et sa rive de toit dépassaient devant la terrasse, et le mur partait en biais). L'**IA** a redessiné cette extrémité (`work/v22-ia-ouest-decale.png`) : le mur commence maintenant à **x ≈ 1000**, par un **angle droit vertical**, juste après le dernier poteau de la grille de la terrasse (x 984), et la forêt remplit l'espace libéré à gauche. La maison est donc **droite** et **s'arrête avant la terrasse**, elle **commence contre la façade ouest de la maison de Jeannot** (son extrémité est reste à x ≈ 1470, contre le mur de Jeannot), toujours **en retrait**, avec la **porte d'entrée côté sud, face à la rue** (x 1150-1203) et les **escaliers qui coupent le jardin en 2 de la rue à la maison**. Tout le reste de la v14 est recopié au pixel : façade, fenêtres, toit, jardin, escaliers, mur de pierre, grillage, rue, Jeannot, Enji et la 4L.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
     }
    ]
   },

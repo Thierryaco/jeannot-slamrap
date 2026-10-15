@@ -5,8 +5,9 @@ grillage de gauche ; la forêt et le mur étaient très bien sur la v10 ») + le
   A. base = v10 + le grillage de gauche de la v12 (mailles nettes, retouche p02/work/v12-ia-grillage.png, recollée
      directement sur la v10 par coupe de graphe — pas de reste de la colline de la v11 au bord du grillage) ;
   B. la rue « tourne à gauche » au fond (pointé : (226, 460), (164, 442)) : la bordure et le trottoir de gauche
-     filent tout droit jusqu'au grillage du fond (retouche p02/work/v13-ia-rue.png sur le recadrage x 0–480,
-     y 360–630 ×2,67 de la base A).
+     filent tout droit jusqu'au grillage du fond ; le grillage de gauche et son muret ne changent pas (retouche
+     p02/work/v13-ia-rue-3.png sur le recadrage x 0–480, y 360–630 ×2,67 de la base A — essais écartés :
+     v13-ia-rue.png prolongeait le grillage dans un recadrage trop court, v13-ia-rue-2.png gardait la courbe).
 
 Jeannot, Enji et la 4L restent ceux de la v10 au pixel près.
 
@@ -56,6 +57,14 @@ def base_a(v10, protege, car):
     return res, a, m
 
 
+def graines_rue(H, W):
+    """B. le coin de la bordure (côté IA) ; grillages, muret, chaussée loin de la bordure, bas (côté base)."""
+    yy, xx = np.mgrid[0:H, 0:W]
+    ia = (xx >= 165) & (xx < 290) & (yy >= 430) & (yy < 495)
+    garde = (yy < 424) | (xx < 150) | (xx > 340) | (yy > 610)
+    return ia & ~garde, garde
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     sortie = Path(args[0]) if args else SORTIE
@@ -68,7 +77,15 @@ def main():
     zones, masques, infos = [], [m1], [f"grillage {int(m1.sum())} px"]
     alphas = [a1]
     if "--base-seule" not in sys.argv:
-        pass   # B. rue droite : ajouté quand la retouche v13-ia-rue.png existe
+        x0, y0, x1, y1 = CR
+        cur = np.clip(np.rint(res), 0, 255).astype(np.uint8)
+        ia = charger("v13-ia-rue-3.png", CR)
+        gi, gg = graines_rue(H, W)
+        lab = p02_v8.coupe_graphe(cur[y0:y1, x0:x1], ia, gi[y0:y1, x0:x1], gg[y0:y1, x0:x1])
+        m2 = np.zeros((H, W), bool); m2[y0:y1, x0:x1] = lab
+        full = cur.copy(); full[y0:y1, x0:x1] = ia
+        res, a2 = p02_v8.coller(res, full, m2, protege)
+        alphas.append(a2); masques.append(m2); infos.append(f"rue {int(m2.sum())} px")
     out = np.clip(np.rint(res), 0, 255).astype(np.uint8)
     Image.fromarray(out).save(sortie, optimize=True)
     for a in alphas:

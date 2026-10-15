@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 12 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 13 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -187,6 +187,11 @@ Point 9, 2e paire : 1) le grillage de gauche : ses panneaux étaient remplis de 
 - 💬 *2026-10-15 15:00* — 📍 pointages sur l'image :
 1. (226, 460) — Point 1 et 2  c'est  pour situé un autre point qui ne va pas on dirait que la rue tourne à gauche  alors que c'est tout droit jusqu'au fond du grillage  donc refaire ce point aussi
 2. (164, 442)
+
+**P02 · v13** — ⏳ à valider — tools/p02_v13.py — retour à la v10 (avis du 15/10 sur la v12) + grillage de gauche de la v12 (recollé sur la v10) + fond de la rue redressé (retouche IA p02/work/v13-ia-rue-3.png ; essais écartés : rue-1 prolongeait le grillage coupé, rue-2 gardait la courbe) ; coupes de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle (par rapport à la v10) : p02-v13-controle.jpg (CONFORME sans option : grillage 100 %, ×0,87 ; rue 100 %, ×1,51) · 🟢 conforme à la carte actuelle (rév. 2)  
+D'après ton avis sur la v12, points A et B : A) on repart de la v10 (sa forêt, son mur de pierre, le mur crème de Jeannot) en gardant seulement le grillage de gauche de la v12 ; B) la rue ne tourne plus à gauche au fond : la bordure, le caniveau et le trottoir de gauche filent tout droit jusqu'au grillage du fond, le grillage de gauche et son muret ne changent pas. Prochains points : la maison du fond dans l'axe de l'escalier (et le bout de bâtiment à supprimer), puis l'escalier depuis (835, 500).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v13-rue-droite.png" width="640" alt="P02 v13">
 
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 

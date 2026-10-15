@@ -675,6 +675,18 @@
        "texte": "📍 pointages sur l'image :\n1. (226, 460) — Point 1 et 2  c'est  pour situé un autre point qui ne va pas on dirait que la rue tourne à gauche  alors que c'est tout droit jusqu'au fond du grillage  donc refaire ce point aussi\n2. (164, 442)"
       }
      ]
+    },
+    {
+     "id": "v13",
+     "fichier": "p02-v13-rue-droite.png",
+     "source": "tools/p02_v13.py — retour à la v10 (avis du 15/10 sur la v12) + grillage de gauche de la v12 (recollé sur la v10) + fond de la rue redressé (retouche IA p02/work/v13-ia-rue-3.png ; essais écartés : rue-1 prolongeait le grillage coupé, rue-2 gardait la courbe) ; coupes de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle (par rapport à la v10) : p02-v13-controle.jpg (CONFORME sans option : grillage 100 %, ×0,87 ; rue 100 %, ×1,51)",
+     "note": "D'après ton avis sur la v12, points A et B : A) on repart de la v10 (sa forêt, son mur de pierre, le mur crème de Jeannot) en gardant seulement le grillage de gauche de la v12 ; B) la rue ne tourne plus à gauche au fond : la bordure, le caniveau et le trottoir de gauche filent tout droit jusqu'au grillage du fond, le grillage de gauche et son muret ne changent pas. Prochains points : la maison du fond dans l'axe de l'escalier (et le bout de bâtiment à supprimer), puis l'escalier depuis (835, 500).",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
     }
    ]
   },

@@ -604,7 +604,12 @@
       "plan_rev": 2,
       "lieux_rev": 12
      },
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-15 11:57",
+       "texte": "(message dans la conversation) la colline était beaucoup trop basse il va falloir rectifier   le jardin qui fait colline alors qu'il est au même niveau que la terras juste un poil plus bas"
+      }
+     ]
     },
     {
      "id": "v9",

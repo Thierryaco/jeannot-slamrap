@@ -198,6 +198,7 @@ Correctif 10 de la liste : la lumière passe du chaud et sépia de fin d'après-
 <details><summary>🗄️ 1 option(s) écartée(s) : v8</summary>
 
 - **v8** — tools/p02_v8.py — la v7 avec les correctifs 11 et 12 : retouches IA (p02/work/v8-ia-*, ciel d'après P01), collées par coupe de graphe (la frontière passe sur les contours, là où les deux images sont identiques) ; Jeannot, la 4L, Enji et la route de la v7 gardés au pixel près · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v8-controle.jpg (CONFORME : hors zones 0,00 ; ciel couleurs 100 %, netteté ×1,08 ; escalier 95 %, ×0,98) — ../assets/storyboards/a-valider/p02/p02-v8-ciel-escalier.png
+  - 💬 *2026-10-15 11:57* — (message dans la conversation) la colline était beaucoup trop basse il va falloir rectifier   le jardin qui fait colline alors qu'il est au même niveau que la terras juste un poil plus bas
 
 </details>
 

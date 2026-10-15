@@ -265,6 +265,7 @@ tools/                             les scripts
 | `p02_v8.py` | `python3 tools/p02_v8.py [OUT] [--coupes IMG]` | P02 v8 = v7 + ciel (colline abaissée, ciel de P01) + escalier tout droit (jardin en deux) : retouches IA collées par **coupe de graphe** (PyMaxflow) entre zones sûres IA / v7 ; Jeannot et la 4L protégés ; affiche les zones du contrôle |
 | `p02_v9.py` | `python3 tools/p02_v9.py [OUT]` | P02 v9 = **v7** + lumière de plein jour : correction de couleur du décor matière par matière sur P01 (végétation, tons moyens, surfaces claires ; `CLARTE` par matière), sol, personnages, 4L et ciel protégés ; affiche la zone du contrôle |
 | `p02_v10.py` | `python3 tools/p02_v10.py [OUT] [--coupes IMG]` | P02 v10 = v9 + colline haute (coin de ciel, bleu ramené à P01, vert à la v9) + jardin plat au niveau de la terrasse (haut mur, escalier tout droit) + pied du mur (ancien portail et pilier retirés, premières marches ; couleurs accordées pierres/trottoir) ; coupes de graphe ; affiche les zones du contrôle |
+| `p02_v11.py` | `python3 tools/p02_v11.py [OUT] [--coupes IMG]` | P02 v11 = v10 + point 9 paire 1 : colline en masses à contours nets (verts de la v10) + mur entier en pierres régulières à joints nets (pied relevé au ×4, 4L calculée sur la v9) ; coupes de graphe ; affiche les zones du contrôle |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -738,14 +739,14 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      15/10 : passe de style IA sur toute la v10 d'après P01 (2 propositions) → **aucune retenue** par
      l'utilisateur (« continu ») : ne pas la refaire sur toute l'image. Point 9 fait **zone par zone, 2 par
      2** (colline boisée + haut mur de pierre d'abord, puis murs crépis), Jeannot, Enji et la 4L intacts.
-     v11 (en cours, `tools/p02_v11.py`, non livrée) : colline en masses douces (v11-ia-colline.png) + mur entier
-     en pierres taillées à joints clairs (v11-ia-mur-3.png ; mur-1 avait recopié P01, mur-2 ne couvrait pas la
-     partie droite). Assemblage propre (0 pixel sur Jeannot, Enji, la 4L ; 4L calculée sur la v9). **Contrôle :
-     netteté sous le seuil** (colline ×0,79, mur ×0,65) — le critère compare la force des traits à la v10 et
-     juge « moins net » tout trait plus fin (pas de flou : retouches réduites). Comparé au décor de P01 :
-     colline ×0,85, mur ×0,75. Joints foncés essayés : mur plus chargé et sale → abandonné. Question posée à
-     l'utilisateur : comparer la netteté des zones restylées au décor de P01 ? mur en pierres taillées à joints
-     clairs, en crépi lisse comme P01, ou pierres de la v10 ?
+     **v11** (`p02-v11-style-colline-mur.png`, `tools/p02_v11.py`, contrôle CONFORME **sans option** : colline
+     100 %, ×0,84 ; mur 100 %, ×0,95) = point 9, paire 1, à partir de la v10. Essai 1 (colline en masses
+     molles, mur à joints clairs) refusé par le contrôle sur la netteté (×0,79 / ×0,65) ; question posée,
+     passée par l'utilisateur (« retry ») → essai 2 : **le style de P01 = aplats doux MAIS contours nets et
+     foncés** (colline-2 : masses cernées d'un trait net ; mur-4 : pierres régulières, joints fins nets). Les
+     sapins sont devenus des masses arrondies. 0 pixel changé sur Jeannot, Enji, la 4L et sous y 580.
+     Prochaine paire du point 9 proposée : façades crépies (maison du fond, garage, mur de Jeannot) et
+     grillages, si l'utilisateur la juge utile.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.
@@ -878,6 +879,15 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   qu'une limite tracée à la main — la frontière passe là où l'ancienne et la nouvelle image sont
   identiques. Si elle suit en ligne droite le bord d'une zone sûre, c'est que rien n'y est identique :
   vérifier au zoom. Éléments ajourés (rambarde, grillage) : les prendre entiers d'un seul côté.
+
+- Style « comme P01 » : aplats doux mais **contours nets, foncés, réguliers** — demander des traits fins et
+  clairs (joints clairs, masses molles) fait échouer le contrôle de netteté et s'éloigne de P01.
+- Donner P01 entière comme modèle à une retouche de recadrage : l'IA peut recopier P01 (v11-ia-mur.png) →
+  donner un petit échantillon (p02/work/ref-p01-facades.png, ref-v11-pierres.png) et le dire « style seul ».
+- Silhouette de la 4L : la calculer sur une version où le décor au-dessus du toit est clair (v9) ; sur la
+  v10, GrabCut englobait le bas du mur de pierre dans la 4L (zone protégée à tort).
+- Pied d'un mur : relever le trait sur un agrandissement ×4 ; les mesures automatiques (couleur, trottoir)
+  se trompent (pierres délavées, double trait de bordure).
 
 ---
 

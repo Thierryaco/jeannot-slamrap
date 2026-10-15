@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 10 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 11 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -199,6 +199,11 @@ Correctif 10 de la liste : la lumière passe du chaud et sépia de fin d'après-
 D'après ton avis sur la v8 : 1) la colline est nettement plus haute que dans la v8 — elle remplit de nouveau le fond, il ne reste qu'un coin de ciel bleu pâle (comme P01) en haut à gauche ; 2) le jardin est plat, au niveau de la terrasse du garage (juste un peu plus bas), tenu par un haut mur de soutènement en pierre le long du trottoir ; l'escalier part du trottoir (à gauche de Jeannot) et monte tout droit jusqu'à la porte de la maison en coupant le jardin en deux. Le portail n'y est plus (l'ancien restait coincé sous le nouveau mur) : à rajouter au pied de l'escalier si tu veux. Lumière de la v9 gardée.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v10-colline-jardin.png" width="640" alt="P02 v10">
+
+**P02 · v11** — ⏳ à valider — tools/p02_v11.py — la v10 avec la 1re paire du point 9 (trait et textures comme P01), zone par zone : retouches IA (p02/work/v11-ia-colline-2.png, v11-ia-mur-4.png) collées par coupe de graphe ; verts de la colline ramenés à ceux de la v10 ; Jeannot, Enji, la 4L, la route et l'escalier gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v11-controle.jpg (CONFORME sans option : colline couleurs 100 %, netteté ×0,84 ; mur 100 %, ×0,95) · essai 1 (masses molles, joints clairs) refusé par le contrôle sur la netteté : work/v11-essai1-* · 🟢 conforme à la carte actuelle (rév. 2)  
+Point 9, 1re paire, comme dans P01 (aplats doux, contours nets et réguliers) : 1) la colline : au lieu d'un trait noir autour de chaque sapin et d'un remplissage moucheté, quelques grandes masses de feuillage en aplats doux, chacune cernée d'un contour net (les sapins deviennent des masses arrondies) ; même crête, même coin de ciel ; 2) le haut mur de soutènement (ses deux parties et les marches) : au lieu d'un gros trait noir autour de chaque petite pierre irrégulière, de grandes pierres régulières en aplats beiges doux avec des joints fins et nets. Tout le reste est identique à la v10 au pixel près.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v11-style-colline-mur.png" width="640" alt="P02 v11">
 
 <details><summary>🗄️ 1 option(s) écartée(s) : v8</summary>
 

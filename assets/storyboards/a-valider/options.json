@@ -634,6 +634,18 @@
       "lieux_rev": 12
      },
      "avis": []
+    },
+    {
+     "id": "v11",
+     "fichier": "p02-v11-style-colline-mur.png",
+     "source": "tools/p02_v11.py — la v10 avec la 1re paire du point 9 (trait et textures comme P01), zone par zone : retouches IA (p02/work/v11-ia-colline-2.png, v11-ia-mur-4.png) collées par coupe de graphe ; verts de la colline ramenés à ceux de la v10 ; Jeannot, Enji, la 4L, la route et l'escalier gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v11-controle.jpg (CONFORME sans option : colline couleurs 100 %, netteté ×0,84 ; mur 100 %, ×0,95) · essai 1 (masses molles, joints clairs) refusé par le contrôle sur la netteté : work/v11-essai1-*",
+     "note": "Point 9, 1re paire, comme dans P01 (aplats doux, contours nets et réguliers) : 1) la colline : au lieu d'un trait noir autour de chaque sapin et d'un remplissage moucheté, quelques grandes masses de feuillage en aplats doux, chacune cernée d'un contour net (les sapins deviennent des masses arrondies) ; même crête, même coin de ciel ; 2) le haut mur de soutènement (ses deux parties et les marches) : au lieu d'un gros trait noir autour de chaque petite pierre irrégulière, de grandes pierres régulières en aplats beiges doux avec des joints fins et nets. Tout le reste est identique à la v10 au pixel près.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
     }
    ]
   },

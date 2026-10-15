@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 15 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 16 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -208,6 +208,11 @@ Point C : la maison du fond devient une seule maison large qui va jusqu'au mur d
 Point 1 (ton pointage sur la v13 : « il faut prolonger aussi le grillage ») : le grillage de gauche et son muret continuent le long du trottoir redressé jusqu'au grillage du fond (5 panneaux de plus, poteau d'about au coin). Seul ce coin change (6 082 pixels) ; tout le reste est la v13. Point suivant, après ta validation : la maison du fond (droite, escalier à 90°, elle s'arrête avant la terrasse).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v15-grillage-prolonge.png" width="640" alt="P02 v15">
+
+**P02 · v16** — ⏳ à valider — tools/p02_v16.py — la v15 + ton avis sur la v15, sans IA : lisse haute du grillage du fond descendue au niveau de celle de gauche (colline étirée au-dessus), socle remplacé par un muret comme celui de gauche · contrôle (par rapport à la v15) : p02-v16-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,86) · 🟢 conforme à la carte actuelle (rév. 2)  
+Ton avis sur la v15 : « faire un angle propre et remplacer celui du fond pour qu'il ait le même aspect avec le petit muret et la même hauteur ». Le grillage du fond a maintenant la même hauteur que celui de gauche (sa lisse haute dépassait au-dessus du coin), il repose sur le même petit muret clair jusqu'au garage, et l'angle est net : lisses hautes, lisses basses et murets se rejoignent au même niveau. Seul le fond de la rue change. Point suivant, après ta validation : la maison du fond.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v16-grillage-fond.png" width="640" alt="P02 v16">
 
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 

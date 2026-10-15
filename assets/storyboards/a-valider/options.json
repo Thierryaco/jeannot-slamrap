@@ -721,6 +721,18 @@
       "lieux_rev": 12
      },
      "avis": []
+    },
+    {
+     "id": "v16",
+     "fichier": "p02-v16-grillage-fond.png",
+     "source": "tools/p02_v16.py — la v15 + ton avis sur la v15, sans IA : lisse haute du grillage du fond descendue au niveau de celle de gauche (colline étirée au-dessus), socle remplacé par un muret comme celui de gauche · contrôle (par rapport à la v15) : p02-v16-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,86)",
+     "note": "Ton avis sur la v15 : « faire un angle propre et remplacer celui du fond pour qu'il ait le même aspect avec le petit muret et la même hauteur ». Le grillage du fond a maintenant la même hauteur que celui de gauche (sa lisse haute dépassait au-dessus du coin), il repose sur le même petit muret clair jusqu'au garage, et l'angle est net : lisses hautes, lisses basses et murets se rejoignent au même niveau. Seul le fond de la rue change. Point suivant, après ta validation : la maison du fond.",
+     "etat": "a-valider",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
     }
    ]
   },

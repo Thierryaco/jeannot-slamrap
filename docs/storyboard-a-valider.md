@@ -202,6 +202,8 @@ Point C : la maison du fond devient une seule maison large qui va jusqu'au mur d
 
 <img src="../assets/storyboards/a-valider/p02/p02-v14-maison-escalier.png" width="640" alt="P02 v14">
 
+- 💬 *2026-10-15 15:47* — tu ne m'a pas déplacé la maison  tu l'as simplement élargie à 45° alors que la maison doit être droite  et l'escalier à 90° donc c'est à refaire elle ne va pas devant la terrasse elle s'arrete avant
+
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png

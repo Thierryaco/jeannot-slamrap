@@ -182,6 +182,8 @@ Point 9, 2e paire : 1) le grillage de gauche : ses panneaux étaient remplis de 
 5. (1474, 260)
 6. (1508, 112) — ne pas tenir compte de cepoint
 7. (1506, 2)
+- 💬 *2026-10-15 14:58* — 📍 pointages sur l'image :
+1. (835, 500) — les marches devraient être déplacé à partir de ce point et remonté tout droit jusqu'au nouvel emplacement de la maison. La largeur ne change pas
 
 <details><summary>🗄️ 8 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9</summary>
 

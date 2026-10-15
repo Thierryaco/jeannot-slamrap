@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 19 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 20 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -197,14 +197,12 @@ D'après ton avis sur la v12, points A et B : A) on repart de la v10 (sa forêt,
 1. (164, 439) — point 1 et 2 il faut prolonger aussi le grillage 
 2. (186, 425)
 
-**P02 · v14** — 🔁 à retoucher — tools/p02_v14.py — la v13 avec le point C de ton avis sur la v12 : retouche IA de la maison du fond (p02/work/v14-ia-maison-escalier.png, faite d'après le croquis v14-croquis.png), recalée et collée par coupe de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle (par rapport à la v13) : p02-v14-controle.jpg (CONFORME sans option : couleurs 97 %, netteté ×1,03) · 🟢 conforme à la carte actuelle (rév. 2)  
-Point C : la maison du fond devient une seule maison large qui va jusqu'au mur de chez Jeannot (presque collée) ; le bout de bâtiment que tu as pointé à droite de l'escalier est supprimé ; la porte d'entrée est en haut de l'escalier, avec des fenêtres de part et d'autre. Tout le reste est celui de la v13. Point suivant (D) : l'escalier depuis (835, 500), tout droit jusqu'à la porte, sans dépasser sur le trottoir.
+**P02 · v20** — ⏳ à valider — tools/p02_v20.py — la v14 sans IA pour la maison (arête ouest ramenée à x = 1010, façade recomposée à la même hauteur : porte au centre, deux fenêtres de part et d'autre) ; pour les escaliers, deux retouches IA (work/v20-ia-sans-escalier-haut.png, work/v20-ia-sans-escalier-bas.png) recadrées, recalées et collées uniquement là où elles diffèrent de la v14, Jeannot et la 4L protégés au pixel près. Contrôle : p02-v20-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,08 à ×1,23, bords 27,0 / 13,0 / 5,9 ; hors zones 0.01) · 🟢 conforme à la carte actuelle (rév. 2)  
+La maison du fond est refaite (base v14, sans IA) : son arête ouest devient verticale à x = 1010, juste avant la terrasse (le garde-corps de la terrasse finit à x = 1006) — la maison est donc droite et alignée sur les façades des autres. Même hauteur et même retrait qu'avant (rien ne bouge en hauteur ni en profondeur). La porte d'entrée est au centre de la nouvelle façade (x 1209-1283), avec deux fenêtres de chaque côté. Les escaliers sont supprimés : l'escalier du seuil et les marches du trottoir sont remplacés par la pelouse et le mur de pierre continus, et le jardin est refait (pelouse plate de la v14, au niveau de la terrasse). Les escaliers seront refaits après validation de la maison.
 
-<img src="../assets/storyboards/a-valider/p02/p02-v14-maison-escalier.png" width="640" alt="P02 v14">
+<img src="../assets/storyboards/a-valider/p02/p02-v20-maison-droite.png" width="640" alt="P02 v20">
 
-- 💬 *2026-10-15 15:47* — tu ne m'a pas déplacé la maison  tu l'as simplement élargie à 45° alors que la maison doit être droite  et l'escalier à 90° donc c'est à refaire elle ne va pas devant la terrasse elle s'arrete avant
-
-<details><summary>🗄️ 13 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v15, v16, v17, v18, v19</summary>
+<details><summary>🗄️ 14 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png
   - 💬 *2026-10-14 15:38* — je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin
@@ -216,6 +214,8 @@ Point C : la maison du fond devient une seule maison large qui va jusqu'au mur d
 - **v8** — tools/p02_v8.py — la v7 avec les correctifs 11 et 12 : retouches IA (p02/work/v8-ia-*, ciel d'après P01), collées par coupe de graphe (la frontière passe sur les contours, là où les deux images sont identiques) ; Jeannot, la 4L, Enji et la route de la v7 gardés au pixel près · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v8-controle.jpg (CONFORME : hors zones 0,00 ; ciel couleurs 100 %, netteté ×1,08 ; escalier 95 %, ×0,98) — ../assets/storyboards/a-valider/p02/p02-v8-ciel-escalier.png
   - 💬 *2026-10-15 11:57* — (message dans la conversation) la colline était beaucoup trop basse il va falloir rectifier   le jardin qui fait colline alors qu'il est au même niveau que la terras juste un poil plus bas
 - **v9** — tools/p02_v9.py — la v7 (« à retoucher » ; la v8 est écartée) avec le correctif 10 : correction de couleur seule, sans IA · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v9-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,07) — ../assets/storyboards/a-valider/p02/p02-v9-lumiere.png
+- **v14** — tools/p02_v14.py — la v13 avec le point C de ton avis sur la v12 : retouche IA de la maison du fond (p02/work/v14-ia-maison-escalier.png, faite d'après le croquis v14-croquis.png), recalée et collée par coupe de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle (par rapport à la v13) : p02-v14-controle.jpg (CONFORME sans option : couleurs 97 %, netteté ×1,03) — ../assets/storyboards/a-valider/p02/p02-v14-maison-escalier.png
+  - 💬 *2026-10-15 15:47* — tu ne m'a pas déplacé la maison  tu l'as simplement élargie à 45° alors que la maison doit être droite  et l'escalier à 90° donc c'est à refaire elle ne va pas devant la terrasse elle s'arrete avant
 - **v15** — tools/p02_v15.py — la v13 (la maison de la v14 est à refaire) + le grillage de gauche prolongé, sans IA : le dernier panneau est recopié en panneaux de plus en plus étroits qui suivent la perspective (une retouche IA, work/v15-ia-grillage.png, repoussait le grillage du fond au loin : écartée) · contrôle (par rapport à la v13) : p02-v15-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,89) — ../assets/storyboards/a-valider/p02/p02-v15-grillage-prolonge.png
 - **v16** — tools/p02_v16.py — la v15 + ton avis sur la v15, sans IA : lisse haute du grillage du fond descendue au niveau de celle de gauche (colline étirée au-dessus), socle remplacé par un muret comme celui de gauche · contrôle (par rapport à la v15) : p02-v16-controle.jpg (CONFORME sans option : couleurs 100 %, netteté ×0,86) — ../assets/storyboards/a-valider/p02/p02-v16-grillage-fond.png
   - 💬 *2026-10-15 17:05* — c'est raté : le muret est un aplat gris translucide qui laisse voir les bordures du trottoir au travers

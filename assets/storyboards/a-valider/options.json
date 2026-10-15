@@ -697,8 +697,8 @@
      "id": "v14",
      "fichier": "p02-v14-maison-escalier.png",
      "source": "tools/p02_v14.py — la v13 avec le point C de ton avis sur la v12 : retouche IA de la maison du fond (p02/work/v14-ia-maison-escalier.png, faite d'après le croquis v14-croquis.png), recalée et collée par coupe de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle (par rapport à la v13) : p02-v14-controle.jpg (CONFORME sans option : couleurs 97 %, netteté ×1,03)",
-     "note": "Point C : la maison du fond devient une seule maison large qui va jusqu'au mur de chez Jeannot (presque collée) ; le bout de bâtiment que tu as pointé à droite de l'escalier est supprimé ; la porte d'entrée est en haut de l'escalier, avec des fenêtres de part et d'autre. Tout le reste est celui de la v13. Point suivant (D) : l'escalier depuis (835, 500), tout droit jusqu'à la porte, sans dépasser sur le trottoir.",
-     "etat": "a-retoucher",
+     "note": "Point C : la maison du fond devient une seule maison large qui va jusqu'au mur de chez Jeannot (presque collée) ; le bout de bâtiment que tu as pointé à droite de l'escalier est supprimé ; la porte d'entrée est en haut de l'escalier, avec des fenêtres de part et d'autre. Tout le reste est celui de la v13. Point suivant (D) : l'escalier depuis (835, 500), tout droit jusqu'à la porte, sans dépasser sur le trottoir. REJETÉE (15/10, après la v19) : la maison doit être droite, à la même hauteur et au même retrait, elle s'arrête avant la terrasse, la porte d'entrée devant, et les escaliers sont supprimés — refaite dans la v20.",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12
@@ -769,6 +769,18 @@
      "source": "tools/p02_v19.py — la v18 avec l'escalier de jardin redessiné sans IA : la volée part du point (835, 500), monte tout droit (contremarches horizontales, on monte vers le fond), de largeur constante (x 835 → 907), posée sur la ligne de pied du mur de pierre (y 502 → 514 : rien ne descend sur le trottoir) et arrive sur l'herbe du jardin (y 262 → 265) en 15 marches, encadrée de deux joues de pierre de 6 px ; palette relevée dans l'image (contremarche (186,168,140), marche (203,191,172), nez/traits (36,29,23)). Contrôle (par rapport à la v18) : p02-v19-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,14, bord 0.0 ; hors zones 0.00)",
      "note": "Point 3 : l'escalier part de (835, 500) et monte tout droit, même largeur, sans dépasser sur le trottoir (sa ligne de base suit le pied du mur). Seule cette zone change par rapport à la v18 (x 835–907, y 262–514). Deux questions : l'escalier existant en biais à droite (x 907–1000), qui descend jusqu'au trottoir — je le supprime et je remets le mur, ou je le garde ? Et la volée doit-elle monter jusqu'à l'herbe du jardin (fait) ou plus haut, jusqu'à la porte de la maison ?",
      "etat": "ecartee",
+     "carte": {
+      "plan_rev": 2,
+      "lieux_rev": 12
+     },
+     "avis": []
+    },
+    {
+     "id": "v20",
+     "fichier": "p02-v20-maison-droite.png",
+     "source": "tools/p02_v20.py — la v14 sans IA pour la maison (arête ouest ramenée à x = 1010, façade recomposée à la même hauteur : porte au centre, deux fenêtres de part et d'autre) ; pour les escaliers, deux retouches IA (work/v20-ia-sans-escalier-haut.png, work/v20-ia-sans-escalier-bas.png) recadrées, recalées et collées uniquement là où elles diffèrent de la v14, Jeannot et la 4L protégés au pixel près. Contrôle : p02-v20-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,08 à ×1,23, bords 27,0 / 13,0 / 5,9 ; hors zones 0.01)",
+     "note": "La maison du fond est refaite (base v14, sans IA) : son arête ouest devient verticale à x = 1010, juste avant la terrasse (le garde-corps de la terrasse finit à x = 1006) — la maison est donc droite et alignée sur les façades des autres. Même hauteur et même retrait qu'avant (rien ne bouge en hauteur ni en profondeur). La porte d'entrée est au centre de la nouvelle façade (x 1209-1283), avec deux fenêtres de chaque côté. Les escaliers sont supprimés : l'escalier du seuil et les marches du trottoir sont remplacés par la pelouse et le mur de pierre continus, et le jardin est refait (pelouse plate de la v14, au niveau de la terrasse). Les escaliers seront refaits après validation de la maison.",
+     "etat": "a-valider",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

@@ -768,7 +768,7 @@
      "fichier": "p02-v19-escalier-droit.png",
      "source": "tools/p02_v19.py — la v18 avec l'escalier de jardin redessiné sans IA : la volée part du point (835, 500), monte tout droit (contremarches horizontales, on monte vers le fond), de largeur constante (x 835 → 907), posée sur la ligne de pied du mur de pierre (y 502 → 514 : rien ne descend sur le trottoir) et arrive sur l'herbe du jardin (y 262 → 265) en 15 marches, encadrée de deux joues de pierre de 6 px ; palette relevée dans l'image (contremarche (186,168,140), marche (203,191,172), nez/traits (36,29,23)). Contrôle (par rapport à la v18) : p02-v19-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,14, bord 0.0 ; hors zones 0.00)",
      "note": "Point 3 : l'escalier part de (835, 500) et monte tout droit, même largeur, sans dépasser sur le trottoir (sa ligne de base suit le pied du mur). Seule cette zone change par rapport à la v18 (x 835–907, y 262–514). Deux questions : l'escalier existant en biais à droite (x 907–1000), qui descend jusqu'au trottoir — je le supprime et je remets le mur, ou je le garde ? Et la volée doit-elle monter jusqu'à l'herbe du jardin (fait) ou plus haut, jusqu'à la porte de la maison ?",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

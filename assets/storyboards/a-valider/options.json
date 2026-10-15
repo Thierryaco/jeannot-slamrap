@@ -698,7 +698,7 @@
      "fichier": "p02-v14-maison-escalier.png",
      "source": "tools/p02_v14.py — la v13 avec le point C de ton avis sur la v12 : retouche IA de la maison du fond (p02/work/v14-ia-maison-escalier.png, faite d'après le croquis v14-croquis.png), recalée et collée par coupe de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle (par rapport à la v13) : p02-v14-controle.jpg (CONFORME sans option : couleurs 97 %, netteté ×1,03)",
      "note": "Point C : la maison du fond devient une seule maison large qui va jusqu'au mur de chez Jeannot (presque collée) ; le bout de bâtiment que tu as pointé à droite de l'escalier est supprimé ; la porte d'entrée est en haut de l'escalier, avec des fenêtres de part et d'autre. Tout le reste est celui de la v13. Point suivant (D) : l'escalier depuis (835, 500), tout droit jusqu'à la porte, sans dépasser sur le trottoir.",
-     "etat": "a-valider",
+     "etat": "a-retoucher",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

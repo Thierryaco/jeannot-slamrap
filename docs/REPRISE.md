@@ -735,6 +735,9 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      (point 10). 15/10, avis sur la v8 : « la colline était beaucoup trop basse il va falloir rectifier — le
      jardin qui fait colline alors qu'il est au même niveau que la terrasse juste un poil plus bas » → v10.
      Reste le **point 9** (trait et textures, toute l'image) et, si l'utilisateur le veut, le portail.
+     15/10 : passe de style IA sur toute la v10 d'après P01 (2 propositions) → **aucune retenue** par
+     l'utilisateur (« continu ») : ne pas la refaire sur toute l'image. Point 9 fait **zone par zone, 2 par
+     2** (colline boisée + haut mur de pierre d'abord, puis murs crépis), Jeannot, Enji et la 4L intacts.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.

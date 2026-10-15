@@ -205,7 +205,7 @@ Point 9, 1re paire, comme dans P01 (aplats doux, contours nets et réguliers) : 
 
 <img src="../assets/storyboards/a-valider/p02/p02-v11-style-colline-mur.png" width="640" alt="P02 v11">
 
-**P02 · v12** — ⏳ à valider — tools/p02_v12.py — la v11 avec la 2e paire du point 9 : retouches IA (p02/work/v12-ia-grillage.png, v12-ia-mur-jeannot.png ; modèle du mur : ref-p01-mur-jeannot.png) collées par coupe de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v12-controle.jpg (CONFORME sans option : grillage 100 %, netteté ×0,86 ; mur 100 %, ×1,50) · 🟢 conforme à la carte actuelle (rév. 2)  
+**P02 · v12** — 🔁 à retoucher — tools/p02_v12.py — la v11 avec la 2e paire du point 9 : retouches IA (p02/work/v12-ia-grillage.png, v12-ia-mur-jeannot.png ; modèle du mur : ref-p01-mur-jeannot.png) collées par coupe de graphe ; Jeannot, Enji et la 4L gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v12-controle.jpg (CONFORME sans option : grillage 100 %, netteté ×0,86 ; mur 100 %, ×1,50) · 🟢 conforme à la carte actuelle (rév. 2)  
 Point 9, 2e paire : 1) le grillage de gauche : ses panneaux étaient remplis de gribouillis (hachures) ; ils ont maintenant les mêmes mailles en losange, nettes et régulières, que le grillage du fond ; 2) le mur de jardin de Jeannot (à droite, derrière la 4L) : ce n'est plus un aplat crème vide mais le même mur que dans P01 — crépi crème, joints verticaux fins entre de larges panneaux, chaperon le long du haut. Tout le reste est identique à la v11 au pixel près.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v12-grillage-mur.png" width="640" alt="P02 v12">

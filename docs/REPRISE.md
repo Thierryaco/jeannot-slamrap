@@ -751,6 +751,20 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
      mailles nettes comme le grillage du fond) + mur de jardin de Jeannot comme dans P01 (joints verticaux,
      chaperon). Maison du fond, garage : déjà en aplats à contours nets, non retouchés. **Point 9 fait.**
      Reste : la version retenue par l'utilisateur, le portail (s'il le veut), puis la carte suit l'image.
+   - **Avis du 15/10 (14:55–15:00) sur la v12** — v10 et v12 « à retoucher », v1–v3, v5–v7, v9 écartées :
+     « l'aspect des murs étaient mieux avant… tous les changements après la v10 ne vont pas sauf le
+     grillage de gauche ; la forêt et le mur étaient très bien sur la v10 ». **Liste à faire point par point**
+     (une étape par point, « pour ne pas saturer la mémoire ») :
+     A. ⏳ base = **v10 + grillage de gauche de la v12** (annuler colline et murs des v11/v12) ;
+     B. ⏳ la rue « tourne à gauche » au fond (points (226, 460) et (164, 442)) : elle va **tout droit**
+        jusqu'au grillage → bordure et trottoir de gauche droits ;
+     C. ⏳ **maison du fond dans l'axe de l'escalier**, porte d'entrée dans l'axe, fenêtres sur les côtés,
+        maison presque collée à celle de Jeannot (voir la carte : maison-fond x −235..160, escalier
+        x −10..30) ; supprimer le **bout de bâtiment à droite de l'escalier** (pointé : (1335, 35), (1331, 138),
+        (1307, 146), (1317, 206), (1474, 260), (1506, 2) — ignorer (1508, 112)) ;
+     D. ⏳ **escalier** : part de **(835, 500)** et monte **tout droit** (perpendiculaire à la route) jusqu'à
+        la nouvelle place de la maison, **même largeur**, **sans dépasser sur le trottoir** ;
+     E. plus tard : refaire une partie de la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.

@@ -185,11 +185,6 @@ Correctifs 5 et 6 de la liste : 5) Jeannot comme dans P01 : barbe poivre et sel,
 
 <img src="../assets/storyboards/a-valider/p02/p02-v6-jeannot-enji.png" width="640" alt="P02 v6">
 
-**P02 · v7** — 🔁 à retoucher — tools/p02_v7.py — la v6 avec les correctifs 7 et 8 : retouches IA d'après P01 (p02/work/v7-ia-*), collage du seul bout de chez Jeannot (recalé sur la 4L, coupe le long du mur de pierre de l'escalier) et du seul sol de la route ; la 4L, Enji et Jeannot de la v6 sont gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v7-controle.jpg (CONFORME : hors zones 0,00 ; maison couleurs 99 %, netteté ×1,43 ; route couleurs 100 %, netteté ×1,83) · 🟢 conforme à la carte actuelle (rév. 2)  
-Correctifs 7 et 8 de la liste : 7) le bout de la maison de Jeannot comme dans P01 : le grand pignon aveugle posé sur le trottoir (avec sa gouttière, sa descente d'eau et son toit) devient un haut mur de jardin crème le long du trottoir, avec derrière, en retrait, l'étage d'une maison crème aux fenêtres à encadrement blanc ; 8) la route dessinée comme dans P01 : asphalte lisse, bordures claires et caniveau le long des deux trottoirs. Tout le reste est identique à la v6 au pixel près (la 4L, Jeannot, Enji, la maison du fond, la colline).
-
-<img src="../assets/storyboards/a-valider/p02/p02-v7-maison-route.png" width="640" alt="P02 v7">
-
 **P02 · v9** — ⏳ à valider — tools/p02_v9.py — la v7 (« à retoucher » ; la v8 est écartée) avec le correctif 10 : correction de couleur seule, sans IA · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v9-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,07) · 🟢 conforme à la carte actuelle (rév. 2)  
 Correctif 10 de la liste : la lumière passe du chaud et sépia de fin d'après-midi au plein jour de P01. Rien ne bouge (formes, traits, personnages) : le décor est recoloré matière par matière sur celui de P01 — végétation (colline, buissons, grillage) plus verte et moins jaune ; pierres, béton et ombres beaucoup moins jaunes et un peu plus clairs ; murs crème un peu moins jaunes. Jeannot, Enji, la 4L, la route et le ciel restent ceux de la v7 au pixel près. Faite à partir de la v7 : le ciel et l'escalier de la v8 (écartée) n'y sont pas.
 
@@ -210,8 +205,9 @@ Point 9, 2e paire : 1) le grillage de gauche : ses panneaux étaient remplis de 
 
 <img src="../assets/storyboards/a-valider/p02/p02-v12-grillage-mur.png" width="640" alt="P02 v12">
 
-<details><summary>🗄️ 1 option(s) écartée(s) : v8</summary>
+<details><summary>🗄️ 2 option(s) écartée(s) : v7, v8</summary>
 
+- **v7** — tools/p02_v7.py — la v6 avec les correctifs 7 et 8 : retouches IA d'après P01 (p02/work/v7-ia-*), collage du seul bout de chez Jeannot (recalé sur la 4L, coupe le long du mur de pierre de l'escalier) et du seul sol de la route ; la 4L, Enji et Jeannot de la v6 sont gardés au pixel près · contrôle : tools/controle_retouche.py → p02-v7-controle.jpg (CONFORME : hors zones 0,00 ; maison couleurs 99 %, netteté ×1,43 ; route couleurs 100 %, netteté ×1,83) — ../assets/storyboards/a-valider/p02/p02-v7-maison-route.png
 - **v8** — tools/p02_v8.py — la v7 avec les correctifs 11 et 12 : retouches IA (p02/work/v8-ia-*, ciel d'après P01), collées par coupe de graphe (la frontière passe sur les contours, là où les deux images sont identiques) ; Jeannot, la 4L, Enji et la route de la v7 gardés au pixel près · contrôle : tools/controle_retouche.py --palette p01-v33-net.png → p02-v8-controle.jpg (CONFORME : hors zones 0,00 ; ciel couleurs 100 %, netteté ×1,08 ; escalier 95 %, ×0,98) — ../assets/storyboards/a-valider/p02/p02-v8-ciel-escalier.png
   - 💬 *2026-10-15 11:57* — (message dans la conversation) la colline était beaucoup trop basse il va falloir rectifier   le jardin qui fait colline alors qu'il est au même niveau que la terras juste un poil plus bas
 

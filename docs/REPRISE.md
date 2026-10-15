@@ -769,6 +769,15 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
         en gardant la cigarette et la fumée devant) **escalier** : part de **(835, 500)** et monte **tout droit** (perpendiculaire à la route) jusqu'à
         la nouvelle place de la maison, **même largeur**, **sans dépasser sur le trottoir** ;
      E. plus tard : refaire une partie de la maison de Jeannot.
+   - **Avis du 15/10 après la v14** (commentaires sur la page) : « fais ça point par point, 1 à 1, à chaque point
+     je valide, sinon tu satures la mémoire » → **un seul point par version, puis attendre la validation**.
+     1. ⏳ (avis v13, 15:35, points (164, 439) et (186, 425)) **prolonger le grillage de gauche** (et son muret)
+        jusqu'au grillage du fond, le long du trottoir redressé — base **v13** ;
+     2. ⏳ (avis v14, 15:47) **maison à refaire** : « tu ne m'as pas déplacé la maison, tu l'as simplement élargie
+        à 45° alors que la maison doit être droite et l'escalier à 90° ; elle ne va pas devant la terrasse, elle
+        s'arrête avant » — la v14 (maison élargie) est donc à abandonner ;
+     3. ⏳ point D (escalier depuis (835, 500), tout droit, même largeur, sans dépasser sur le trottoir) ;
+     4. plus tard : la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.

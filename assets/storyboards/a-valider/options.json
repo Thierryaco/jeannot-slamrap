@@ -539,7 +539,7 @@
      "fichier": "p02-v3-cul-de-sac.png",
      "source": "IA, nouveau fil : 2 propositions, la n° 2 choisie par toi dans la conversation (l'autre n'a pas été enregistrée). Références : P02 v1 retournée (composition), P01 v33 (style, lieux, personnages), fiche d'Enji. Recadrée en 16:9 puis mise en 1920×1080 ; image brute : p02/work/p02-essai-1.png",
      "note": "D'après ton avis sur la v1 et la carte P02 rév. 2 : la composition de la v1 vue en miroir (la 4L reste à sa place de P01, donc à droite), Jeannot adossé au flanc de la 4L qui fume, une main dans la poche, Enji couchée à gauche de ses pieds. Au fond : le cul-de-sac avec le grillage sur toute la largeur, la colline boisée raide, le garage avec la terrasse dessus, le portail et l'escalier qui monte à la maison du fond, et le mur de chez Jeannot à droite. Deux défauts repérés : le volant est du côté proche (conduite à droite, alors qu'une 4L française l'a de l'autre côté), et les couleurs sont plus beiges que dans P01 (route beige au lieu de grise, peu de ciel).",
-     "etat": "a-valider",
+     "etat": "ecartee",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

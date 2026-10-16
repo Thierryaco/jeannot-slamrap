@@ -280,6 +280,7 @@ tools/                             les scripts
 | `p02_v22.py` | `python3 tools/p02_v22.py [SORTIE] [--essai]` | P02 v22 = **la v14** avec **l'extrémité ouest de la maison déplacée par l'IA** (`work/v22-ia-ouest-decalee.png`, recadrage x 840-1200 / y 0-260) : mur à angle droit vertical à x ≈ 1000, juste après la grille de la terrasse, forêt à gauche ; tout le reste recopié au pixel de la v14 |
 | `p02_v23.py` | `python3 tools/p02_v23.py [SORTIE] [--essai]` | P02 v23 = la v22 avec **la maison redessinée vue de face par l'IA** (`work/v23-ia-maison-face.png`, recadrage x 900-1560 / y 0-260) : façade parallèle au bas de l'image, angle droit vertical à x ≈ 1000 (limite avant la terrasse), mince retour de pignon ; tout le reste recopié au pixel de la v22 |
 | `p02_v24.py` | `python3 tools/p02_v24.py [SORTIE] [--essai]` | P02 v24 = la v23 + **les deux escaliers redressés à 90° par l'IA** (`work/v23-ia-escalier-jardin-droit.png`, `work/v23-ia-escalier-bas-droit.png`) : marches horizontales, volées perpendiculaires à la rue, porte et mur de la maison jamais touchés |
+| `p02_v25.py` | `python3 tools/p02_v25.py [SORTIE] [--essai]` | P02 v25 = la v24 avec le **pan de mur oblique ouest supprimé** (IA `work/v25-ia-bout-ouest.png` : mur terminé par un angle droit vertical, forêt derrière) et l'**escalier du jardin remis de trois-quarts** (IA `work/v25-ia-escalier.png`) — « de face » et « 90° » = **par rapport à la rue**, pas à la caméra. Ton recalé sur les seuls pixels inchangés de chaque ligne, écart lissé (25 lignes) et borné à ±8 |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -817,9 +818,29 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
         ⚠️ **piège corrigé le 15/10** : dans `retouche_ia`, `plein` doit être initialisé à `src.copy()` (et pas à des
         zéros) — sinon le fondu du masque assombrit une bande de pixels **juste à l'extérieur du recadrage** et le
         contrôle échoue (« hors zones » 99,9e centile 37). Corrigé dans `p02_v23.py` et `p02_v24.py`.
-     3. ⏳ **à valider par l'utilisateur** : la v24 (maison de face + escaliers à 90°). Après validation : la maison
+     3. 🚩 **« DE FACE » ET « 90° » = PAR RAPPORT À LA RUE, PAS À LA CAMÉRA** (avis du 16/10 05:07 : « quand je dis
+        de face et 90° pour la maison et les escaliers c'est par rapport à la rue pas à la caméra, et pourtant je
+        l'ai déjà dit clairement 25 fois »). Conséquence, **règle à appliquer partout** : la scène est vue de
+        trois-quarts depuis la rue ; une façade **parallèle à la rue** doit donc apparaître **de biais** (lignes
+        doucement montantes vers la droite, comme le mur de soutènement ≈ −2°) et un escalier **perpendiculaire à la
+        rue** apparaît **de trois-quarts**, sa volée montant en diagonale. Redresser une façade ou un escalier « face
+        caméra » est **faux**.
+        ✅ **v25** (`p02-v25-maison-rue.png`, `tools/p02_v25.py`, contrôle CONFORME : hors zones 0,00 ; bout ouest
+        99 % / ×1,09 / bord 10,3 ; escalier 99 % / ×1,29 / bord 12,9) = la v24 avec : le **pan de mur oblique ouest
+        supprimé** (retouche IA `work/v25-ia-bout-ouest.png` : mur terminé par un angle droit vertical, forêt
+        derrière) et l'**escalier du jardin remis de trois-quarts** (`work/v25-ia-escalier.png`).
+        ⚠️ **pièges de méthode trouvés ce jour-là** : (a) recalader le ton **ligne par ligne** avec des témoins
+        étroits produit des **stries horizontales** et un **halo clair** sur le mur → recaler sur les **seuls pixels
+        inchangés** de chaque ligne, **lisser l'écart sur ~25 lignes** et le **borner à ±8** ;
+        (b) le contrôle automatique peut dire CONFORME sur une planche fausse → **toujours relire une planche**.
+     4. ⏳ **à valider par l'utilisateur** : la v25. Questions posées pour ne plus tourner en rond :
+        (a) les **marches du trottoir** (x 790-1090 / y 380-600) sont **identiques à la v13** : à garder telles quelles
+        ou à refaire aussi ?
+        (b) la **largeur** de la maison du fond : la carte dit x −140 → 160 (la terrasse au garage) ; la v25 va de
+        x ≈ 1000 à ≈ 1490 dans l'image (jusqu'à la maison de Jeannot). Si ce n'est pas la bonne largeur, dire
+        laquelle (pointée sur l'image).
         de Jeannot (point 4), puis la suite.
-     4. plus tard : la maison de Jeannot.
+     5. plus tard : la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —
      à décider avec l'utilisateur quand on y arrivera.
 5. **Cohérence P03**, puis P04 → P29.

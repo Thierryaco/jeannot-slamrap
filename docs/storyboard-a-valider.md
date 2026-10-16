@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 24 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 25 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -221,6 +221,14 @@ La **v23** + les **deux escaliers redressés à 90°** par l'IA : la volée du j
 
 - 💬 *2026-10-16 05:07* — tu n'as toujours pas compris que  quand je dis de face et 90° pour la maison  et les escaliers c'est par rapport à la rue pas à la caméra, et pourtant je l'ai déjà dit clairement 25 fois .
 - 💬 *2026-10-16 05:07* — tu n'as toujours pas compris que  quand je dis de face et 90° pour la maison  et les escaliers c'est par rapport à la rue pas à la caméra, et pourtant je l'ai déjà dit clairement 25 fois .
+
+**P02 · v25** — ⏳ à valider — tools/p02_v25.py — la v24 + deux retouches IA (work/v25-ia-bout-ouest.png, work/v25-ia-escalier.png). Ton recalé sur les seuls pixels inchangés de chaque ligne, écart lissé sur 25 lignes et borné à ±8 (un recalage ligne à ligne brut faisait des stries et un halo sur le mur). Contrôle p02-v25-controle.jpg (CONFORME : hors zones 0,00 ; bout ouest 99 % de couleurs connues, netteté ×1,09, bord 10,3 ; escalier 99 %, ×1,29, bord 12,9) · 🟢 conforme à la carte actuelle (rév. 2)  
+**Reprise de l'avis du 16/10 05:07** : « quand je dis de face et 90° pour la maison et les escaliers c'est **par rapport à la RUE**, pas à la caméra ». Depuis cette caméra, qui regarde la rue de biais, une façade **parallèle à la rue** se voit donc **de trois-quarts** : ses lignes montent doucement vers la droite, comme le mur de soutènement (≈ −2°) — et un escalier **perpendiculaire à la rue** se voit lui aussi de trois-quarts, sa volée montant en diagonale vers la droite. La v24 les avait redressés « face caméra », ce qui était faux. Ici :
+• le **pan de mur oblique** qui restait à l'ouest (≈ 45°, avec sa fenêtre en perspective) est **supprimé** (retouche IA `work/v25-ia-bout-ouest.png`) : le mur se termine par un **angle droit vertical**, la forêt apparaît derrière, et l'oblique principale de la maison disparaît ;
+• l'**escalier du jardin** est remis **de trois-quarts** (retouche IA `work/v25-ia-escalier.png`) : la volée monte en diagonale vers la droite, comme un escalier vu depuis la rue, perpendiculaire à la rue ;
+• tout le reste est recopié au pixel de la v24 : façade, porte (x 1155-1201, face à la rue), fenêtres, toit, jardin, mur de pierre, marches du trottoir (identiques à celles de la v13), grillage, rue, Jeannot, Enji, la 4L.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v25-maison-rue.png" width="640" alt="P02 v25">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

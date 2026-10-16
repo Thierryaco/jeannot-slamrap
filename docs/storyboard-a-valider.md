@@ -245,6 +245,7 @@ Repère mesuré : dans la v13 (validée), l'écart entre le bas du mur et le bor
 2. (1470, 217)
 3. (498, 429) — 3à 4  la ligne de la route   dis moi en quoi ces lignes sont parralèles sérieux?
 4. (993, 619)
+- 💬 *2026-10-16 06:59* — 3 version  et la maison n'a pas bougé d'un pouce toujours mal orienté c'est incroyable . est ce que tu as regarde le plan de la carte interactive  est ce que tu crois que sur le plan la maison est orienté comme ça  et ne me parle plus de toit je te parle de la maison.Regzrde cette carte interactive regarde regarde bien la maison comment elle est sur le plan  rien  de compliqué pourtant.
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

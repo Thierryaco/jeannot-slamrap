@@ -893,6 +893,21 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
           netteté ×0,96 / ×1,04). `p02-v27-maison-pente-route.png` et sa planche sont passées en « à retoucher » (piste
           conservée pour mémoire).
 
+          🔨 **v30 — le haut du mur de soutènement suit la ligne pointée (16/10)** — avis : « le mur de soutènement
+          continu jusqu'au mur de chez Jeannot, pareil pour le haut du mur tu suivras la ligne du haut du mur que je
+          t'avais pointé, l'escalier coupera le mur en 2 jusqu'à la porte ». `tools/p02_v30.py` part de la **v29** (le
+          sens « remontée » est celui qui est retenu) et remonte le parement du mur, de **x 765** (l'angle du garage)
+          à **x 1490** (le mur de la maison de Jeannot), sur la ligne pointée (1000,212)->(1470,217) : le haut du mur
+          de la v29 est relevé colonne par colonne (transition herbe -> pierre) puis lu sur 11 ancres mesurées
+          (272 px à x 765, 262 à x 1000, 233 à x 1245, 207 à x 1490) ; les pixels du **chaperon** et des rangs de
+          pierre situés SOUS l'ancien haut sont recopiés vers le haut — **393 colonnes, +13 à +66 px, 19 396 px
+          changés**, aucun rééchantillonnage, aucun flou, aucune couleur nouvelle. L'**escalier (x 1082-1245) n'est
+          pas touché** : le mur reste coupé en deux tronçons qui se raccordent à la même ligne, et la volée monte à la
+          porte. Contrôle `p02-v30-controle.jpg` : **CONFORME** (hors zones 0,00 ; zone 755,195-1500,290 : couleurs
+          100 %, netteté ×1,16, bord 0,0). Planche de décision `p02-v30-choix-mur.png` (v29 / v30, la ligne pointée
+          tracée en rouge sur les deux). Restent ouvertes les deux questions de la v25 : (a) les **marches du trottoir**
+          (x 790-1090 / y 380-600) identiques à la v13 ; (b) la **largeur** de la maison du fond (x ≈ 1000 → ≈ 1490).
+
 
 ---
 

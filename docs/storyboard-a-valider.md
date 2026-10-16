@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 31 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 33 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -273,14 +273,30 @@ Planche de la piste abandonnée (le bas du mur y plongeait). Conservée pour mé
 3. (120, 692)
 
 **P02 · v29** — ⏳ à valider — tools/p02_v27.py --variante C · ⚪ faite sans carte du plan  
+Le sens « remontée » est retenu (avis du 16/10 : « c'est presque ça on corrigera plus tard »). Reste à faire (avis suivant) : le **haut du mur de soutènement** doit suivre la ligne pointée (1000,212)->(1470,217), le mur doit être continu jusqu'au mur de la maison de Jeannot et l'escalier doit le couper en 2 jusqu'à la porte -> voir la **v30**.
+
 La maison REMONTE vers la droite (−12,0 %), dans le sens de la rue qui s'éloigne vers le point de fuite (330,364) — l'inverse de la v27 qui la faisait plonger. Le jardin s'ouvre et le mur de soutènement suit ; Jeannot, Enji, la 4L, la rue et les pierres du soutènement n'ont pas bougé (contrôle CONFORME : hors zones 0,00 ; couleurs 100 % ; netteté ×1,04). À comparer avec la v28 (−4,4 %, la pente du mur de soutènement).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v29-maison-remontee-rue.png" width="640" alt="P02 v29">
+
+**P02 · v30** — ⏳ à valider — tools/p02_v30.py — la v29 + le haut du mur de soutènement relevé sur la ligne pointée (pas de rééchantillonnage : les rangs de pierre et le chaperon situés sous l'ancien haut sont recopiés vers le haut, aucun flou) ; l'escalier n'est pas touché. Contrôle p02-v30-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×1,16, bord 0,0). · ⚪ faite sans carte du plan  
+Exactement ta demande du 16/10 : « le mur de soutènement continu jusqu'au mur de chez Jeannot, pareil pour le haut du mur tu suivras la ligne du haut du mur que je t'avais pointé, l'escalier coupera le mur en 2 jusqu'à la porte ».
+
+- **le haut du mur suit la ligne** (1000,212)->(1470,217) : entre x 765 (l'angle du garage) et x 1490 (le mur de la maison de Jeannot), le parement est remonté de +13 à +66 px ; à droite de x 1320 le mur était déjà sur la ligne (écart < 8 px), rien n'est touché.
+- **le mur est continu** de bout en bout, sans trou ni décrochement — sauf la coupe de l'escalier (x 1082-1245) qui reste intacte : les marches montent à la porte et les deux tronçons se raccordent à la même ligne.
+- **rien d'autre ne bouge** : Jeannot, la 4L, la rue, le jardin, le garage et le voisin sont au pixel (hors zones : écart 0,00).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v30-mur-continu-haut-ligne.png" width="640" alt="P02 v30">
 
 **P02 · v29-choix** — ⏳ à valider — tools/p02_v27.py --variante B et C · ⚪ faite sans carte du plan  
 Planche de décision : v26 (plat) / v28 (−4,4 %) / v29 (−12,0 %) — même découpe, ta ligne de route en vert, le bas du mur en rouge. Le point de fuite de la rue est en (330,364) : au-dessus de l'horizon, une ligne parallèle à la rue REMONTE vers la droite — c'est ce que fait la P01 validée (bas du mur à −28 %).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v29-choix-montee.png" width="640" alt="P02 v29-choix">
+
+**P02 · v30-choix** — ⏳ à valider — planche de comparaison (même découpe ×1,75, agrandissements identiques) · ⚪ faite sans carte du plan  
+v29 (avant) / v30 (après), avec ta ligne du haut du mur (1000,212)->(1470,217) tracée en rouge sur les deux : en haut le mur tombe vers la gauche (~263 px à x 1000), en bas son haut est sur la ligne et le parement court jusqu'au mur de Jeannot.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v30-choix-mur.png" width="640" alt="P02 v30-choix">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

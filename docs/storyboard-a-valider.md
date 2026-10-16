@@ -220,6 +220,7 @@ La **v23** + les **deux escaliers redressés à 90°** par l'IA : la volée du j
 <img src="../assets/storyboards/a-valider/p02/p02-v24-maison-face-escaliers-droits.png" width="640" alt="P02 v24">
 
 - 💬 *2026-10-16 05:07* — tu n'as toujours pas compris que  quand je dis de face et 90° pour la maison  et les escaliers c'est par rapport à la rue pas à la caméra, et pourtant je l'ai déjà dit clairement 25 fois .
+- 💬 *2026-10-16 05:07* — tu n'as toujours pas compris que  quand je dis de face et 90° pour la maison  et les escaliers c'est par rapport à la rue pas à la caméra, et pourtant je l'ai déjà dit clairement 25 fois .
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

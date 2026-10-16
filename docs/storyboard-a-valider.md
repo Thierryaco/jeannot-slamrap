@@ -257,7 +257,7 @@ Repère mesuré : dans la v13 (validée), l'écart entre le bas du mur et le bor
 
 <img src="../assets/storyboards/a-valider/p02/p02-v28-maison-pente-mur-soutenement.png" width="640" alt="P02 v28">
 
-**P02 · v27-preuve** — ⏳ à valider — planche de contrôle : les deux lignes de l'avis tracées sur la v26 (en haut) et sur la v27 (en bas) — ligne de façade pointée (1000,212)->(1470,217) en jaune, ligne de route pointée (498,429)->(993,619) en vert, et sur la v27 le bas du mur de la maison en cyan (1000,192)->(1470,372) · 🟢 conforme à la carte actuelle (rév. 2)  
+**P02 · v27-preuve** — 🔁 à retoucher — planche de contrôle : les deux lignes de l'avis tracées sur la v26 (en haut) et sur la v27 (en bas) — ligne de façade pointée (1000,212)->(1470,217) en jaune, ligne de route pointée (498,429)->(993,619) en vert, et sur la v27 le bas du mur de la maison en cyan (1000,192)->(1470,372) · 🟢 conforme à la carte actuelle (rév. 2)  
 **Le contrôle de recette que tu as demandé** : en haut (v26), tes deux lignes se croisent — elles ne sont pas parallèles. En bas (v27), le **bas du mur de la maison a la même pente que ta ligne de route** (+38,4 %, écart 0,0°) : les deux lignes sont parallèles.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v27-preuve-parallele.png" width="640" alt="P02 v27-preuve">

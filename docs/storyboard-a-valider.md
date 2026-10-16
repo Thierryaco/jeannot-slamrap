@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 35 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 36 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -293,6 +293,11 @@ la zone redessinée d'un seul tenant : un seul mur continu, marches régulières
 la zone propre + la maison du fond plus étroite (du début de la terrasse à presque la maison de Jeannot) + l'escalier qui descend jusqu'à la rue
 
 <img src="../assets/storyboards/a-valider/p02/p02-v32-maison-etroite.png" width="640" alt="P02 v32">
+
+**P02 · v32-choix** — ⏳ à valider — planche de comparaison (v31 / v32) · ⚪ faite sans carte du plan  
+la zone : v31 en haut, v32 en bas (maison du fond plus étroite + escalier qui descend jusqu'à la rue)
+
+<img src="../assets/storyboards/a-valider/p02/p02-v32-choix-zone.png" width="640" alt="P02 v32-choix">
 
 <details><summary>🗄️ 17 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20, v30, v30-choix</summary>
 

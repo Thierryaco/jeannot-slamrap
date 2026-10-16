@@ -977,6 +977,13 @@
      "source": "tools/p02_v31.py + retouche IA (work/v33-ia.png)",
      "note": "la zone propre + la maison du fond plus étroite (du début de la terrasse à presque la maison de Jeannot) + l'escalier qui descend jusqu'à la rue",
      "etat": "a-valider"
+    },
+    {
+     "id": "v32-choix",
+     "fichier": "p02-v32-choix-zone.png",
+     "source": "planche de comparaison (v31 / v32)",
+     "note": "la zone : v31 en haut, v32 en bas (maison du fond plus étroite + escalier qui descend jusqu'à la rue)",
+     "etat": "a-valider"
     }
    ]
   },

@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 25 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 26 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -226,11 +226,19 @@ La **v23** + les **deux escaliers redressés à 90°** par l'IA : la volée du j
 **Reprise de l'avis du 16/10 05:07** : « quand je dis de face et 90° pour la maison et les escaliers c'est **par rapport à la RUE**, pas à la caméra ». Depuis cette caméra, qui regarde la rue de biais, une façade **parallèle à la rue** se voit donc **de trois-quarts** : ses lignes montent doucement vers la droite, comme le mur de soutènement (≈ −2°) — et un escalier **perpendiculaire à la rue** se voit lui aussi de trois-quarts, sa volée montant en diagonale vers la droite. La v24 les avait redressés « face caméra », ce qui était faux. Ici :
 • le **pan de mur oblique** qui restait à l'ouest (≈ 45°, avec sa fenêtre en perspective) est **supprimé** (retouche IA `work/v25-ia-bout-ouest.png`) : le mur se termine par un **angle droit vertical**, la forêt apparaît derrière, et l'oblique principale de la maison disparaît ;
 • l'**escalier du jardin** est remis **de trois-quarts** (retouche IA `work/v25-ia-escalier.png`) : la volée monte en diagonale vers la droite, comme un escalier vu depuis la rue, perpendiculaire à la rue ;
-• tout le reste est recopié au pixel de la v24 : façade, porte (x 1155-1201, face à la rue), fenêtres, toit, jardin, mur de pierre, marches du trottoir (identiques à celles de la v13), grillage, rue, Jeannot, Enji, la 4L.
+• tout le reste est recopié au pixel de la v24 : façade, porte (x 1155-1201, face à la rue), fenêtres, toit, jardin, mur de pierre, marches du trottoir (identiques à celles de la v13), grillage, rue, Jeannot, Enji, la 4L. À RETOUCHER (avis 06:22) : « la maison est toujours mal orientée, à 45° par rapport à la route ; il faut qu'elle soit parallèle à la route ». Mesures de l'image : le bord de chaussée LE LONG DU MUR descend à +9,5°, celui DEVANT la maison monte à −8,5° (vers le point de fuite), le chaperon du mur de pierre à −3° et l'égout de la maison à −1,2° : la perspective de l'image est incohérente, donc l'orientation attendue doit être confirmée (planche work/v26-choix-orientation.png).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v25-maison-rue.png" width="640" alt="P02 v25">
 
 - 💬 *2026-10-16 06:22* — 15 iteration et laa maison est toujours mal orienté c'est à dire 45° par rapport a la route . donc je vais le dire autrement  il faut quelle soit parralèle a la route.
+
+**P02 · v26** — ⏳ à valider — tools/p02_v26.py — la v25 telle quelle, sauf la maison : (1) bande de toit ouest x 1000-1090 remplacée par les tuiles du toit principal (x 1090-1180, fondu au raccord), about vertical à l'ouest ; (2) cisaillement vertical par colonne pour ramener le bas du mur et la gouttière à la pente de la v13 (0,055 / 0,004), ancré sur la porte (x 1155), lignes non déplacées laissées au pixel (hors zone : 0,00). Contrôle p02-v26-controle.jpg (CONFORME : hors zones 0,00 ; zone 99 % de couleurs connues, netteté ×0,95, bord 6,6) · 🟢 conforme à la carte actuelle (rév. 2)  
+**Avis du 16/10** (« la maison reste mal orientée, à 45° par rapport à la route ; il faut qu'elle soit **parallèle à la route** ») — deux causes trouvées et corrigées :
+1. **le toit** : au bord ouest (x 1000-1090), il restait un **pan de pignon dont les tuiles montaient en biais à ~45°** — c'est ça qui faisait lire la maison de travers. Cette bande est maintenant remplacée par les **tuiles du toit principal** (rangées parallèles à la gouttière), le toit est **d'un seul tenant** et se termine à l'ouest par une **coupe verticale** nette ;
+2. **la pente** : la maison reprend celle de la **v13** (que tu valides) : bas du mur et gouttière **parallèles au trottoir qui passe devant** (≈ 3-4°, ancrés sur la porte pour que rien ne bouge là).
+Repère mesuré : dans la v13 (validée), l'écart entre le bas du mur et le bord du trottoir devant la maison est de ~1° ; dans ma v25 il était de 10° — d'où l'impression de « 45° ».
+
+<img src="../assets/storyboards/a-valider/p02/p02-v26-maison-parallele.png" width="640" alt="P02 v26">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

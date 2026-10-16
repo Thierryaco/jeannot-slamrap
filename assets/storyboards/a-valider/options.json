@@ -891,7 +891,7 @@
      "id": "v27",
      "fichier": "p02-v27-maison-pente-route.png",
      "source": "tools/p02_v27.py --variante A — la v26 telle quelle, sauf la maison, le jardin et la terrasse : cisaillement vertical par colonne à décalage ENTIER (aucun rééchantillonnage : les pixels sont recopiés tels quels, les verticales restent verticales, les angles entre les lignes sont conservés — c'est le style « projection cavalière » déjà utilisé par la v26), ancré à l'ouest (x 1000 : rien ne bouge) et arrêté à x 1505 (le mur de la maison voisine ne bouge pas). Le bas du mur passe de +5,5 % (v26) à **+38,38 %**, la pente exacte de la ligne de route pointée (498,429)->(993,619). Le bandeau libéré au-dessus du toit est comblé par la forêt voisine copiée en miroir 2D (aucun flou, aucune couleur nouvelle). Jeannot, la 4L et la rue ne sont jamais touchés : le cisaillement s'arrête à leur contour. Contrôle p02-v27-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×0,94, bord 17,4)",
-     "note": "**Réponse directe à l'avis du 16/10 06:58** (« dis-moi en quoi ces lignes sont parallèles ? »). Mesure de tes pointages : ta ligne de façade (1000,212)->(1470,217) est à **+1,1 %** et ta ligne de route (498,429)->(993,619) à **+38,4 %** — elles se croisent en (−98 ; 200) : tu as raison, elles n'étaient pas parallèles. Ici **le bas du mur de la maison prend exactement la pente de ta ligne de route** : les deux droites sont donc parallèles (voir la planche de contrôle **P02 · v27-preuve** : les deux lignes se superposent). Effet : la maison descend vers la droite à 21°, comme la rue ; le toit, la gouttière, le jardin, le chaperon du mur et les marches de l'escalier du jardin suivent le même angle (les angles entre eux sont inchangés).",
+     "note": "CORRIGÉE le 16/10 : le bas du mur est calé sur la PENTE DE LA LIGNE DE ROUTE pointée (+38,38 % = 21,0°) — écart 0,0° avec ton pointage. Le mur, la porte, les fenêtres, le jardin et les marches basculent dans le sens de la rue (cisaillement vertical par colonne, pixels recopiés tels quels, décalage max 193 px à l'est). Personnages, 4L, rue et pierres du soutènement intacts (contrôle retouche CONFORME : hors zones 0,00). Voir la planche de preuve, refaite elle aussi.",
      "etat": "a-valider",
      "carte": {
       "plan_rev": 2,
@@ -903,7 +903,7 @@
      "id": "v28",
      "fichier": "p02-v28-maison-pente-mur-soutenement.png",
      "source": "tools/p02_v27.py --variante B — même méthode (cisaillement vertical par colonne, décalage entier, même zone), mais la façade prend la pente du **mur de soutènement** (−4,43 %), qui est l'autre ligne « parallèle à la rue » de l'image ; le bas du mur passe de +5,5 % à −4,43 % : il monte doucement vers la droite. Le bandeau libéré est comblé par la maçonnerie du mur (copie décalée d'un rang de pierres, 40 px : aucun flou). Contrôle p02-v28-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×1,01, bord 5,6)",
-     "note": "**Autre lecture du même avis** : la règle que tu as donnée le 16/10 à 05:07 (« de face et 90°, c'est par rapport à la rue, pas à la caméra ») dit qu'une façade parallèle à la rue apparaît **de biais, doucement montante vers la droite, comme le mur de soutènement ≈ −2°**. Ici le bas du mur prend exactement la pente du mur de soutènement de la terrasse : la maison monte donc doucement vers la droite, et la ligne de façade est parallèle aux pierres de la terrasse (et non à la ligne de route pointée). Changement discret par rapport à la v26. À comparer avec la v27 : même méthode, pente opposée.",
+     "note": "Autre lecture : le bas du mur prend la pente du MUR DE SOUTÈNEMENT (−4,43 % ≈ −2,5°) — la maison reste quasi d'aplomb, comme la v26 mais calée sur la terrasse. Même méthode, contrôle CONFORME (hors zones 0,00).",
      "etat": "a-valider",
      "carte": {
       "plan_rev": 2,
@@ -915,8 +915,8 @@
      "id": "v27-preuve",
      "fichier": "p02-v27-preuve-parallele.png",
      "source": "planche de contrôle : les deux lignes de l'avis tracées sur la v26 (en haut) et sur la v27 (en bas) — ligne de façade pointée (1000,212)->(1470,217) en jaune, ligne de route pointée (498,429)->(993,619) en vert, et sur la v27 le bas du mur de la maison en cyan (1000,192)->(1470,372)",
-     "note": "**Le contrôle de recette que tu as demandé** : en haut (v26), tes deux lignes se croisent — elles ne sont pas parallèles. En bas (v27), le **bas du mur de la maison a la même pente que ta ligne de route** (+38,4 %, écart 0,0°) : les deux lignes sont parallèles.",
-     "etat": "a-retoucher",
+     "note": "PLANCHE CORRIGÉE : la ligne cyan est tracée sur le bas du mur réellement peint (le jardin, les marches, le mur), la ligne verte est ta ligne de route recopiée à l'identique juste dessous, en gris ton ancienne ligne de façade. Échelle 1:1 (aucune déformation) + zoom x2.",
+     "etat": "a-valider",
      "carte": {
       "plan_rev": 2,
       "lieux_rev": 12

@@ -44,7 +44,10 @@ DOSSIER = RACINE / "assets/storyboards/a-valider/p02"
 SRC = DOSSIER / "p02-v26-maison-parallele.png"
 
 X0, X1, RAMPE = 1000, 1505, 30
-PENTE_V26 = 0.0553                  # bas du mur de la v26 (pente de la v13)
+PENTE_V26 = 0.0016                  # bas du mur RÉELLEMENT peint dans la v26 (mesuré colonne par colonne :
+                                    # 248 colonnes, x 1200-1470, y ≈ 205 : +0,16 %).  L'ancienne valeur 0,0553
+                                    # (pente de la v13) donnait un bas du mur à 18,4° au lieu de 21,0° : la ligne
+                                    # de la planche dérivait donc de 24 px — c'était la cause du refus du 16/10.
 PENTE_ROUTE = 0.3838                # ligne de route pointée (498,429)->(993,619)
 PENTE_MURET = -0.0443               # base du mur de soutènement (la terrasse), v13/v26
 PAS_PIERRES = 40                    # hauteur d'un rang de pierres (variante B)

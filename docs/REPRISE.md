@@ -872,6 +872,18 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
 5. **Cohérence P03**, puis P04 → P29.
 6. **À la toute fin du storyboard** (avis v33) : agrandir toutes les images retenues pour faire du
    vrai 1080p, en augmentant la qualité et les détails **sans changer l'image**.
+          ⚠️ **Correction du 16/10 (07h)** — l'avis « *ta ligne bleu n'est pas parallèle à la ligne verte* » était
+          fondé. La v27 était calée sur `PENTE_V26 = 0,0553` (pente de la v13) alors que le bas du mur
+          **peint** de la v26 est à **+0,16 %** (mesuré colonne par colonne : 248 colonnes, x 1200-1470,
+          y ≈ 205, pente +0,0016) : le bas du mur sortait donc à **18,4°** au lieu de **21,0°**, et la ligne
+          tracée sur la planche (21,0°) dérivait de ~25 px le long de la façade — d'où le refus. `tools/p02_v27.py`
+          porte désormais `PENTE_V26 = 0,0016` : le bas du mur obtenu vaut **+38,38 % (21,0°)** exactement comme
+          la ligne de route pointée (écart 0,0°). v27 et v28 régénérées, contrôles CONFORME (hors zones 0,00 ;
+          netteté ×0,94 / ×1,01 ; bord 18,6 / 4,4), et `p02-v27-preuve-parallele.png` refaite à l'**échelle 1:1**
+          (la ligne cyan est tracée sur le bas du mur *peint*, la verte est la ligne de route recopiée juste
+          dessous, la grise est l'ancienne ligne de façade plate) avec un zoom x2. Leçon : une ligne de preuve
+          doit être tracée sur le contour **mesuré** dans l'image, jamais sur des coordonnées construites.
+
 
 ---
 

@@ -281,6 +281,7 @@ tools/                             les scripts
 | `p02_v23.py` | `python3 tools/p02_v23.py [SORTIE] [--essai]` | P02 v23 = la v22 avec **la maison redessinée vue de face par l'IA** (`work/v23-ia-maison-face.png`, recadrage x 900-1560 / y 0-260) : façade parallèle au bas de l'image, angle droit vertical à x ≈ 1000 (limite avant la terrasse), mince retour de pignon ; tout le reste recopié au pixel de la v22 |
 | `p02_v24.py` | `python3 tools/p02_v24.py [SORTIE] [--essai]` | P02 v24 = la v23 + **les deux escaliers redressés à 90° par l'IA** (`work/v23-ia-escalier-jardin-droit.png`, `work/v23-ia-escalier-bas-droit.png`) : marches horizontales, volées perpendiculaires à la rue, porte et mur de la maison jamais touchés |
 | `p02_v25.py` | `python3 tools/p02_v25.py [SORTIE] [--essai]` | P02 v25 = la v24 avec le **pan de mur oblique ouest supprimé** (IA `work/v25-ia-bout-ouest.png` : mur terminé par un angle droit vertical, forêt derrière) et l'**escalier du jardin remis de trois-quarts** (IA `work/v25-ia-escalier.png`) — « de face » et « 90° » = **par rapport à la rue**, pas à la caméra. Ton recalé sur les seuls pixels inchangés de chaque ligne, écart lissé (25 lignes) et borné à ±8 |
+| `p02_v27.py` | `python3 tools/p02_v27.py [--variante A\|B\|AB] [--essai]` | P02 **v27** (variante A) et **v28** (variante B) = la v26 avec la maison, le jardin et la terrasse **cisaillés par colonne** (décalage **entier** : aucun rééchantillonnage, les verticales restent verticales et les angles entre les lignes sont conservés) pour que le **bas du mur** soit parallèle à la route : **A** = pente de la **ligne de route pointée** par l'utilisateur (+38,38 %), **B** = pente du **mur de soutènement** (−4,43 %). Ancré à x 1000, arrêté à x 1505, bandeau libéré comblé par la forêt (A) ou la maçonnerie (B, décalage d'un rang de pierres) ; Jeannot, la 4L et la rue ne sont jamais touchés. Contrôles `p02-v27-controle.jpg` et `p02-v28-controle.jpg` (CONFORME, hors zones 0,00) |
 
 **Contrôle obligatoire** (sortie 0 = CONFORME) :
 
@@ -833,12 +834,37 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
         étroits produit des **stries horizontales** et un **halo clair** sur le mur → recaler sur les **seuls pixels
         inchangés** de chaque ligne, **lisser l'écart sur ~25 lignes** et le **borner à ±8** ;
         (b) le contrôle automatique peut dire CONFORME sur une planche fausse → **toujours relire une planche**.
-     4. ⏳ **à valider par l'utilisateur** : la v25. Questions posées pour ne plus tourner en rond :
-        (a) les **marches du trottoir** (x 790-1090 / y 380-600) sont **identiques à la v13** : à garder telles quelles
-        ou à refaire aussi ?
-        (b) la **largeur** de la maison du fond : la carte dit x −140 → 160 (la terrasse au garage) ; la v25 va de
-        x ≈ 1000 à ≈ 1490 dans l'image (jusqu'à la maison de Jeannot). Si ce n'est pas la bonne largeur, dire
-        laquelle (pointée sur l'image).
+        ✅ **v26** (`p02-v26-maison-parallele.png`, `tools/p02_v26.py`, contrôle CONFORME : hors zones 0,00 ; zone
+        99 % / ×0,95 / bord 6,6) = la v25 avec le toit ouest d'un seul tenant (bande x 1000-1090 remplacée par
+        les tuiles du toit principal) et la maison remise à la pente de la v13 (+5,5 %, ancrée sur la porte
+        x 1155). **Rejetée par l'utilisateur le 16/10 à 06:58-06:59** (« 3 versions et la maison n'a pas bougé
+        d'un pouce, toujours mal orienté », « ne me parle plus de toit, je te parle de la maison », « regarde
+        bien la maison comment elle est sur le plan ») : ses **pointages** — façade (1000,212)->(1470,217)
+        (+1,1 %) et route (498,429)->(993,619) (+38,4 %) — montrent que la façade ne pouvait pas se lire
+        parallèle à la route.
+     4. 🚩 **ORIENTATION DE LA MAISON DU FOND — les deux options publiées le 16/10 (à trancher)** : la règle
+        « de face / 90° = par rapport à la rue » (05:07) et l'avis « il faut qu'elle soit parallèle à la route »
+        (06:22) butent sur ceci : **l'image contient plusieurs lignes « parallèles à la rue » qui ne sont pas
+        parallèles entre elles** — mur de soutènement ≈ −2,5 % (mesuré −0,0443), ligne blanche de la chaussée
+        +0,1018, bord nord de la chaussée +0,2905, ligne de route pointée par l'utilisateur +0,3838, et la
+        façade de la v26 à +0,0553.
+          ✅ **v27** (`p02-v27-maison-pente-route.png`, `tools/p02_v27.py --variante A`, contrôle CONFORME :
+            hors zones 0,00 ; couleurs 100 %, netteté ×0,94, bord 17,4) = le **bas du mur prend la pente de la
+            ligne de route pointée** (+38,38 %) : la façade est strictement parallèle à cette ligne (planche
+            `p02-v27-preuve-parallele.png`, publiée aussi sur la page) ; la maison descend vers la droite à 21°,
+            comme la rue ; le toit, la gouttière, le jardin et le chaperon du mur suivent le même angle.
+          ✅ **v28** (`p02-v28-maison-pente-mur-soutenement.png`, `tools/p02_v27.py --variante B`, contrôle
+            CONFORME : hors zones 0,00 ; couleurs 100 %, netteté ×1,01, bord 5,6) = le **bas du mur prend la
+            pente du mur de soutènement** (−4,43 %) : la façade monte doucement vers la droite, comme les
+            pierres de la terrasse (c'est la lecture littérale de la règle du 05:07).
+        Méthode commune : **cisaillement vertical par colonne à décalage entier** (aucun rééchantillonnage,
+        aucun flou, les angles entre les lignes sont conservés), ancré à x 1000 (rien ne bouge à l'ouest),
+        arrêté à x 1505 (le mur de la maison voisine ne bouge pas), le bandeau libéré est comblé par la forêt
+        voisine (A, copie en miroir 2D) ou par la maçonnerie du mur (B, décalage d'un rang de pierres) ;
+        **Jeannot, la 4L et la rue ne sont jamais touchés** (le cisaillement s'arrête à leur contour).
+        Restent aussi posées les deux questions de la v25 : (a) les **marches du trottoir** (x 790-1090 /
+        y 380-600), identiques à la v13 : à garder telles quelles ou à refaire ? (b) la **largeur** de la maison
+        du fond : x ≈ 1000 → ≈ 1490 dans l'image — si ce n'est pas la bonne, dire laquelle (pointée sur l'image).
         de Jeannot (point 4), puis la suite.
      5. plus tard : la maison de Jeannot.
      Les points 9 et 10 touchent toute l'image : retouche globale ou nouvelle génération guidée par P01 —

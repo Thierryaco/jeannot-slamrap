@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 26 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 29 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -232,7 +232,7 @@ La **v23** + les **deux escaliers redressés à 90°** par l'IA : la volée du j
 
 - 💬 *2026-10-16 06:22* — 15 iteration et laa maison est toujours mal orienté c'est à dire 45° par rapport a la route . donc je vais le dire autrement  il faut quelle soit parralèle a la route.
 
-**P02 · v26** — ⏳ à valider — tools/p02_v26.py — la v25 telle quelle, sauf la maison : (1) bande de toit ouest x 1000-1090 remplacée par les tuiles du toit principal (x 1090-1180, fondu au raccord), about vertical à l'ouest ; (2) cisaillement vertical par colonne pour ramener le bas du mur et la gouttière à la pente de la v13 (0,055 / 0,004), ancré sur la porte (x 1155), lignes non déplacées laissées au pixel (hors zone : 0,00). Contrôle p02-v26-controle.jpg (CONFORME : hors zones 0,00 ; zone 99 % de couleurs connues, netteté ×0,95, bord 6,6) · 🟢 conforme à la carte actuelle (rév. 2)  
+**P02 · v26** — 🔁 à retoucher — tools/p02_v26.py — la v25 telle quelle, sauf la maison : (1) bande de toit ouest x 1000-1090 remplacée par les tuiles du toit principal (x 1090-1180, fondu au raccord), about vertical à l'ouest ; (2) cisaillement vertical par colonne pour ramener le bas du mur et la gouttière à la pente de la v13 (0,055 / 0,004), ancré sur la porte (x 1155), lignes non déplacées laissées au pixel (hors zone : 0,00). Contrôle p02-v26-controle.jpg (CONFORME : hors zones 0,00 ; zone 99 % de couleurs connues, netteté ×0,95, bord 6,6) · 🟢 conforme à la carte actuelle (rév. 2)  
 **Avis du 16/10** (« la maison reste mal orientée, à 45° par rapport à la route ; il faut qu'elle soit **parallèle à la route** ») — deux causes trouvées et corrigées :
 1. **le toit** : au bord ouest (x 1000-1090), il restait un **pan de pignon dont les tuiles montaient en biais à ~45°** — c'est ça qui faisait lire la maison de travers. Cette bande est maintenant remplacée par les **tuiles du toit principal** (rangées parallèles à la gouttière), le toit est **d'un seul tenant** et se termine à l'ouest par une **coupe verticale** nette ;
 2. **la pente** : la maison reprend celle de la **v13** (que tu valides) : bas du mur et gouttière **parallèles au trottoir qui passe devant** (≈ 3-4°, ancrés sur la porte pour que rien ne bouge là).
@@ -246,6 +246,21 @@ Repère mesuré : dans la v13 (validée), l'écart entre le bas du mur et le bor
 3. (498, 429) — 3à 4  la ligne de la route   dis moi en quoi ces lignes sont parralèles sérieux?
 4. (993, 619)
 - 💬 *2026-10-16 06:59* — 3 version  et la maison n'a pas bougé d'un pouce toujours mal orienté c'est incroyable . est ce que tu as regarde le plan de la carte interactive  est ce que tu crois que sur le plan la maison est orienté comme ça  et ne me parle plus de toit je te parle de la maison.Regzrde cette carte interactive regarde regarde bien la maison comment elle est sur le plan  rien  de compliqué pourtant.
+
+**P02 · v27** — ⏳ à valider — tools/p02_v27.py --variante A — la v26 telle quelle, sauf la maison, le jardin et la terrasse : cisaillement vertical par colonne à décalage ENTIER (aucun rééchantillonnage : les pixels sont recopiés tels quels, les verticales restent verticales, les angles entre les lignes sont conservés — c'est le style « projection cavalière » déjà utilisé par la v26), ancré à l'ouest (x 1000 : rien ne bouge) et arrêté à x 1505 (le mur de la maison voisine ne bouge pas). Le bas du mur passe de +5,5 % (v26) à **+38,38 %**, la pente exacte de la ligne de route pointée (498,429)->(993,619). Le bandeau libéré au-dessus du toit est comblé par la forêt voisine copiée en miroir 2D (aucun flou, aucune couleur nouvelle). Jeannot, la 4L et la rue ne sont jamais touchés : le cisaillement s'arrête à leur contour. Contrôle p02-v27-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×0,94, bord 17,4) · 🟢 conforme à la carte actuelle (rév. 2)  
+**Réponse directe à l'avis du 16/10 06:58** (« dis-moi en quoi ces lignes sont parallèles ? »). Mesure de tes pointages : ta ligne de façade (1000,212)->(1470,217) est à **+1,1 %** et ta ligne de route (498,429)->(993,619) à **+38,4 %** — elles se croisent en (−98 ; 200) : tu as raison, elles n'étaient pas parallèles. Ici **le bas du mur de la maison prend exactement la pente de ta ligne de route** : les deux droites sont donc parallèles (voir la planche de contrôle **P02 · v27-preuve** : les deux lignes se superposent). Effet : la maison descend vers la droite à 21°, comme la rue ; le toit, la gouttière, le jardin, le chaperon du mur et les marches de l'escalier du jardin suivent le même angle (les angles entre eux sont inchangés).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v27-maison-pente-route.png" width="640" alt="P02 v27">
+
+**P02 · v28** — ⏳ à valider — tools/p02_v27.py --variante B — même méthode (cisaillement vertical par colonne, décalage entier, même zone), mais la façade prend la pente du **mur de soutènement** (−4,43 %), qui est l'autre ligne « parallèle à la rue » de l'image ; le bas du mur passe de +5,5 % à −4,43 % : il monte doucement vers la droite. Le bandeau libéré est comblé par la maçonnerie du mur (copie décalée d'un rang de pierres, 40 px : aucun flou). Contrôle p02-v28-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×1,01, bord 5,6) · 🟢 conforme à la carte actuelle (rév. 2)  
+**Autre lecture du même avis** : la règle que tu as donnée le 16/10 à 05:07 (« de face et 90°, c'est par rapport à la rue, pas à la caméra ») dit qu'une façade parallèle à la rue apparaît **de biais, doucement montante vers la droite, comme le mur de soutènement ≈ −2°**. Ici le bas du mur prend exactement la pente du mur de soutènement de la terrasse : la maison monte donc doucement vers la droite, et la ligne de façade est parallèle aux pierres de la terrasse (et non à la ligne de route pointée). Changement discret par rapport à la v26. À comparer avec la v27 : même méthode, pente opposée.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v28-maison-pente-mur-soutenement.png" width="640" alt="P02 v28">
+
+**P02 · v27-preuve** — ⏳ à valider — planche de contrôle : les deux lignes de l'avis tracées sur la v26 (en haut) et sur la v27 (en bas) — ligne de façade pointée (1000,212)->(1470,217) en jaune, ligne de route pointée (498,429)->(993,619) en vert, et sur la v27 le bas du mur de la maison en cyan (1000,192)->(1470,372) · 🟢 conforme à la carte actuelle (rév. 2)  
+**Le contrôle de recette que tu as demandé** : en haut (v26), tes deux lignes se croisent — elles ne sont pas parallèles. En bas (v27), le **bas du mur de la maison a la même pente que ta ligne de route** (+38,4 %, écart 0,0°) : les deux lignes sont parallèles.
+
+<img src="../assets/storyboards/a-valider/p02/p02-v27-preuve-parallele.png" width="640" alt="P02 v27-preuve">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

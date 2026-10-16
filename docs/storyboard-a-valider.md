@@ -214,10 +214,12 @@ L'**avis du 15/10 au soir** (« la maison et une partie de l'escalier reste enco
 
 <img src="../assets/storyboards/a-valider/p02/p02-v23-maison-de-face.png" width="640" alt="P02 v23">
 
-**P02 · v24** — ⏳ à valider — tools/p02_v24.py — la v23 + deux retouches IA pour les escaliers (work/v23-ia-escalier-jardin-droit.png, work/v23-ia-escalier-bas-droit.png). Ton recalé ligne par ligne, seuls les pixels qui changent sont collés, la porte et le mur de la maison ne sont jamais touchés, Jeannot et la 4L protégés. Contrôle p02-v24-controle.jpg (CONFORME : hors zones 0,00 ; jardin 100 % / ×1,29 / bord 16,2 ; trottoir 100 % / ×1,17 / bord 2,5) · 🟢 conforme à la carte actuelle (rév. 2)  
+**P02 · v24** — 🔁 à retoucher — tools/p02_v24.py — la v23 + deux retouches IA pour les escaliers (work/v23-ia-escalier-jardin-droit.png, work/v23-ia-escalier-bas-droit.png). Ton recalé ligne par ligne, seuls les pixels qui changent sont collés, la porte et le mur de la maison ne sont jamais touchés, Jeannot et la 4L protégés. Contrôle p02-v24-controle.jpg (CONFORME : hors zones 0,00 ; jardin 100 % / ×1,29 / bord 16,2 ; trottoir 100 % / ×1,17 / bord 2,5) · 🟢 conforme à la carte actuelle (rév. 2)  
 La **v23** + les **deux escaliers redressés à 90°** par l'IA : la volée du jardin devant la porte (`work/v23-ia-escalier-jardin-droit.png`) monte **tout droit dans l'axe de la porte**, **marches horizontales**, côtés verticaux et murets droits ; les **marches du trottoir** (`work/v23-ia-escalier-bas-droit.png`) montent **tout droit vers le mur de pierre**, marches horizontales, sans déborder sur le trottoir. Plus rien à 45° : maison vue de face, escaliers perpendiculaires à la rue, limite avant la terrasse conservée.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v24-maison-face-escaliers-droits.png" width="640" alt="P02 v24">
+
+- 💬 *2026-10-16 05:07* — tu n'as toujours pas compris que  quand je dis de face et 90° pour la maison  et les escaliers c'est par rapport à la rue pas à la caméra, et pourtant je l'ai déjà dit clairement 25 fois .
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

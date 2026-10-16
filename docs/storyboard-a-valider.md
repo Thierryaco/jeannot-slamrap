@@ -267,6 +267,10 @@ PLANCHE CORRIGÉE : la ligne cyan est tracée sur le bas du mur réellement pein
 2. (678, 244)
 3. (372, 963)
 4. (686, 949)
+- 💬 *2026-10-16 08:12* — 📍 pointages sur l'image :
+1. (244, 156) — trace moi cette ligne  1et 2 et  tu l'a reporte en partant de la ligne 3  la maison doit suivre cette lligne  , t'as un souci de vision ta maison est completement affaissé et deformé là 0 cohérence 
+2. (551, 148)
+3. (120, 692)
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

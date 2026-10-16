@@ -969,20 +969,52 @@
      "fichier": "p02-v31-zone-propre.png",
      "source": "tools/p02_v31.py",
      "note": "la zone redessinée d'un seul tenant : un seul mur continu, marches régulières et continues, un seul muret, rien de recollé (maison du fond inchangée)",
-     "etat": "a-valider"
+     "etat": "ecartee",
+     "avis": [
+      {
+       "date": "2026-10-16 12:20",
+       "texte": "c'est quoi ça c'est la version fini? tu rigoles regénère tout en suivant stricto senso le plan 2d de la carte interactive il manque la moitié de la 4L les escaliers sont diformes le mur j'en parle même pas"
+      }
+     ]
     },
     {
      "id": "v32",
      "fichier": "p02-v32-maison-etroite.png",
      "source": "tools/p02_v31.py + retouche IA (work/v33-ia.png)",
      "note": "la zone propre + la maison du fond plus étroite (du début de la terrasse à presque la maison de Jeannot) + l'escalier qui descend jusqu'à la rue",
-     "etat": "a-valider"
+     "etat": "ecartee",
+     "avis": [
+      {
+       "date": "2026-10-16 12:20",
+       "texte": "c'est quoi ça c'est la version fini? tu rigoles regénère tout en suivant stricto senso le plan 2d de la carte interactive il manque la moitié de la 4L les escaliers sont diformes le mur j'en parle même pas"
+      }
+     ]
     },
     {
      "id": "v32-choix",
      "fichier": "p02-v32-choix-zone.png",
      "source": "planche de comparaison (v31 / v32)",
      "note": "la zone : v31 en haut, v32 en bas (maison du fond plus étroite + escalier qui descend jusqu'à la rue)",
+     "etat": "ecartee",
+     "avis": [
+      {
+       "date": "2026-10-16 12:20",
+       "texte": "c'est quoi ça c'est la version fini? tu rigoles regénère tout en suivant stricto senso le plan 2d de la carte interactive il manque la moitié de la 4L les escaliers sont diformes le mur j'en parle même pas"
+      }
+     ]
+    },
+    {
+     "id": "v34",
+     "fichier": "p02-v34-plan-2d.png",
+     "source": "génération IA d'après carte/plans/p02.png",
+     "note": "régénérée d'un bout à l'autre d'après le plan 2D de la carte interactive (mêmes lieux, même caméra que la carte P02 rév. 2) : la 4L entière au premier plan (45 % -> bord droit), Jeannot à 43 %, Enji couchée à sa gauche, la rue dans l'axe avec le cul-de-sac et la colline, la maison de Jeannot avec ses tourelles à droite, la terrasse du fond avec son escalier droit",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v34",
+     "fichier": "p02-v34-choix-plan.png",
+     "source": "génération IA d'après carte/plans/p02.png",
+     "note": "la planche : le plan 2D P02 en haut, l'image régénérée en bas, avec les repères (Jeannot 43 %, Enji 32 %, la 4L à partir de 45 %)",
      "etat": "a-valider"
     }
    ]

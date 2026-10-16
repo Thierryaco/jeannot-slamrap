@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 36 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 38 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -284,22 +284,17 @@ Planche de décision : v26 (plat) / v28 (−4,4 %) / v29 (−12,0 %) — même d
 
 <img src="../assets/storyboards/a-valider/p02/p02-v29-choix-montee.png" width="640" alt="P02 v29-choix">
 
-**P02 · v31** — ⏳ à valider — tools/p02_v31.py · ⚪ faite sans carte du plan  
-la zone redessinée d'un seul tenant : un seul mur continu, marches régulières et continues, un seul muret, rien de recollé (maison du fond inchangée)
+**P02 · v34** — ⏳ à valider — génération IA d'après carte/plans/p02.png · ⚪ faite sans carte du plan  
+régénérée d'un bout à l'autre d'après le plan 2D de la carte interactive (mêmes lieux, même caméra que la carte P02 rév. 2) : la 4L entière au premier plan (45 % -> bord droit), Jeannot à 43 %, Enji couchée à sa gauche, la rue dans l'axe avec le cul-de-sac et la colline, la maison de Jeannot avec ses tourelles à droite, la terrasse du fond avec son escalier droit
 
-<img src="../assets/storyboards/a-valider/p02/p02-v31-zone-propre.png" width="640" alt="P02 v31">
+<img src="../assets/storyboards/a-valider/p02/p02-v34-plan-2d.png" width="640" alt="P02 v34">
 
-**P02 · v32** — ⏳ à valider — tools/p02_v31.py + retouche IA (work/v33-ia.png) · ⚪ faite sans carte du plan  
-la zone propre + la maison du fond plus étroite (du début de la terrasse à presque la maison de Jeannot) + l'escalier qui descend jusqu'à la rue
+**P02 · v34** — ⏳ à valider — génération IA d'après carte/plans/p02.png · ⚪ faite sans carte du plan  
+la planche : le plan 2D P02 en haut, l'image régénérée en bas, avec les repères (Jeannot 43 %, Enji 32 %, la 4L à partir de 45 %)
 
-<img src="../assets/storyboards/a-valider/p02/p02-v32-maison-etroite.png" width="640" alt="P02 v32">
+<img src="../assets/storyboards/a-valider/p02/p02-v34-choix-plan.png" width="640" alt="P02 v34">
 
-**P02 · v32-choix** — ⏳ à valider — planche de comparaison (v31 / v32) · ⚪ faite sans carte du plan  
-la zone : v31 en haut, v32 en bas (maison du fond plus étroite + escalier qui descend jusqu'à la rue)
-
-<img src="../assets/storyboards/a-valider/p02/p02-v32-choix-zone.png" width="640" alt="P02 v32-choix">
-
-<details><summary>🗄️ 17 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20, v30, v30-choix</summary>
+<details><summary>🗄️ 20 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20, v30, v30-choix, v31, v32, v32-choix</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png
   - 💬 *2026-10-14 15:38* — je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin
@@ -322,6 +317,12 @@ la zone : v31 en haut, v32 en bas (maison du fond plus étroite + escalier qui d
 - **v20** — tools/p02_v20.py — la v14 sans IA pour la maison (arête ouest ramenée à x = 1010, façade recomposée à la même hauteur : porte au centre, deux fenêtres de part et d'autre) ; pour les escaliers, deux retouches IA (work/v20-ia-sans-escalier-haut.png, work/v20-ia-sans-escalier-bas.png) recadrées, recalées et collées uniquement là où elles diffèrent de la v14, Jeannot et la 4L protégés au pixel près. Contrôle : p02-v20-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,08 à ×1,23, bords 27,0 / 13,0 / 5,9 ; hors zones 0.01) — ../assets/storyboards/a-valider/p02/p02-v20-maison-droite.png
 - **v30** — tools/p02_v30.py — la v29 + le haut du mur de soutènement relevé sur la ligne pointée (pas de rééchantillonnage : les rangs de pierre et le chaperon situés sous l'ancien haut sont recopiés vers le haut, aucun flou) ; l'escalier n'est pas touché. Contrôle p02-v30-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×1,16, bord 0,0). — ../assets/storyboards/a-valider/p02/p02-v30-mur-continu-haut-ligne.png
 - **v30-choix** — planche de comparaison (même découpe ×1,75, agrandissements identiques) — ../assets/storyboards/a-valider/p02/p02-v30-choix-mur.png
+- **v31** — tools/p02_v31.py — ../assets/storyboards/a-valider/p02/p02-v31-zone-propre.png
+  - 💬 *2026-10-16 12:20* — c'est quoi ça c'est la version fini? tu rigoles regénère tout en suivant stricto senso le plan 2d de la carte interactive il manque la moitié de la 4L les escaliers sont diformes le mur j'en parle même pas
+- **v32** — tools/p02_v31.py + retouche IA (work/v33-ia.png) — ../assets/storyboards/a-valider/p02/p02-v32-maison-etroite.png
+  - 💬 *2026-10-16 12:20* — c'est quoi ça c'est la version fini? tu rigoles regénère tout en suivant stricto senso le plan 2d de la carte interactive il manque la moitié de la 4L les escaliers sont diformes le mur j'en parle même pas
+- **v32-choix** — planche de comparaison (v31 / v32) — ../assets/storyboards/a-valider/p02/p02-v32-choix-zone.png
+  - 💬 *2026-10-16 12:20* — c'est quoi ça c'est la version fini? tu rigoles regénère tout en suivant stricto senso le plan 2d de la carte interactive il manque la moitié de la 4L les escaliers sont diformes le mur j'en parle même pas
 
 </details>
 

@@ -938,6 +938,25 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
           « écartées ». Reste de la question (a) de la v25 : les **marches du trottoir** (x 790-1090 / y 380-600)
           — la v32 les remplace par la volée qui monte à la porte : à valider ou à rétablir.
 
+          ❌ **v31 et v32 REJETÉES le 16/10 (avis : « c'est quoi ça c'est la version fini ? tu rigoles, régénère tout
+          en suivant stricto senso le plan 2d de la carte interactive ; il manque la moitié de la 4L, les escaliers
+          sont difformes, le mur j'en parle même pas »)**. Leçon : retoucher une zone de la v29 ne suffit pas — la
+          composition (ce qui est dans le cadre et à quelle échelle) doit venir du **plan 2D**.
+
+          ✅ **v34 — régénération complète d'après le plan 2D** (`p02-v34-plan-2d.png` + planche
+          `p02-v34-choix-plan.png`, qui met le plan 2D au-dessus de l'image avec les repères du calque). Méthode
+          désormais imposée : on lit le plan P02 de la carte interactive (`carte/plans/p02.png`, caméra rév. 2 :
+          (493,0 ; 519,3), −163,9°, fov 41,6°, œil 1,2 m) et le calque (`tools/calque.py P02 --texte`), qui donne
+          les positions en **pourcentage du cadre** — puis on génère l'image sur cette base, en gardant la P01
+          validée (`p01/p01-v33-net.png`) comme référence de style et de lieux. Cadre attendu : **la 4L entière au
+          premier plan, de x 45 % au bord droit (toit 26-35 %, roues 78 %) ; Jeannot à 43 % de la largeur (pieds
+          88 %, chapeau 24 %) ; Enji couchée à 32 %**. La v34 les tient à quelques pourcents près, avec la rue dans
+          l'axe (cul-de-sac + colline à gauche), la maison de Jeannot et ses tourelles à droite et la terrasse du
+          fond avec son escalier droit. Contrôle `tools/controle_retouche.py` : **c'est une génération complète, pas
+          une retouche** — les critères « hors zones » et « bord » n'ont pas de sens ici (tout le cadre change) ;
+          seule la **netteté ×1,30** est vérifiable et bonne (aucun flou). Reste à corriger au prochain passage :
+          **Jeannot doit toucher la 4L** (il est debout à côté) et Enji à 32 %.
+
 
 ---
 

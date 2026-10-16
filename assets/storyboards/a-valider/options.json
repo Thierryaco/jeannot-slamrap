@@ -859,7 +859,12 @@
       "plan_rev": 2,
       "lieux_rev": 12
      },
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-16 06:22",
+       "texte": "15 iteration et laa maison est toujours mal orienté c'est à dire 45° par rapport a la route . donc je vais le dire autrement  il faut quelle soit parralèle a la route."
+      }
+     ]
     }
    ]
   },

@@ -230,6 +230,8 @@ La **v23** + les **deux escaliers redressés à 90°** par l'IA : la volée du j
 
 <img src="../assets/storyboards/a-valider/p02/p02-v25-maison-rue.png" width="640" alt="P02 v25">
 
+- 💬 *2026-10-16 06:22* — 15 iteration et laa maison est toujours mal orienté c'est à dire 45° par rapport a la route . donc je vais le dire autrement  il faut quelle soit parralèle a la route.
+
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png

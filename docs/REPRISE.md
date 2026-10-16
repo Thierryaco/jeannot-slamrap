@@ -908,6 +908,36 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
           tracée en rouge sur les deux). Restent ouvertes les deux questions de la v25 : (a) les **marches du trottoir**
           (x 790-1090 / y 380-600) identiques à la v13 ; (b) la **largeur** de la maison du fond (x ≈ 1000 → ≈ 1490).
 
+          ❌ **v30 REJETÉE le 16/10 (« c'est tout bugué », « des bidouillages horribles » : muret en doublons,
+          bouts de chapeau, talus d'herbe au bas des marches)** — la recopie de bandes de parement est proscrite
+          sur cette zone. À la place, la demande : « rendre la zone complète et propre d'un seul tenant :
+          marches d'escalier continues et droites, la première marche commence au début du muret (pas avant),
+          la largeur de la maison du fond va du début de la terrasse jusqu'à quasiment la maison de Jeannot ».
+
+          ✅ **v31 — la zone redessinée d'un seul tenant** (`p02-v31-zone-propre.png`, outil `tools/p02_v31.py`).
+          Méthode (c'est l'IA qui dessine) : on part de la **v29** (le sens « remontée » retenu) ; on envoie à l'IA
+          un **recadrage** de la zone — crop (700,0)-(1400,580), choisi pour **s'arrêter avant la 4L** — dans lequel
+          **Jeannot est effacé** (très gros flou local, 74 736 px) et le haut du mur **pré-étiré** sur la ligne
+          pointée ; l'IA redessine la zone (1136×941) avec la consigne « aucun personnage, aucun véhicule : dessine
+          le mur et l'escalier derrière » ; au retour, le dessin IA est remis au crop, le **scanner vertical** calé
+          sur le **chapeau** et le **rectangle de la tête** (union des chapeaux v29 + IA) protègent Jeannot, et la
+          silhouette de la 4L (x ≥ 1330, y ≥ 300) est réservée. Résultat : **un seul mur continu, marches régulières
+          et continues, un seul muret, rien de recollé**, le haut du mur sur la ligne pointée (1000,212)->(1470,217).
+          Contrôle `p02-v31-controle.jpg` : **CONFORME**. Planche `p02-v31-choix-zone.png` (v29 / v31).
+
+          ✅ **v32 — la v31 avec la maison du fond plus étroite** (`p02-v32-maison-etroite.png`), la demande de
+          l'utilisateur : la façade crème passe de x ≈ 1000→1490 à **x ≈ 1170→1460** (du début de la terrasse à
+          presque la maison de Jeannot), la colline et les arbres remplacent l'ancienne partie ouest de la maison,
+          et l'**escalier descend maintenant jusqu'à la rue** (volée longue à marches régulières, du trottoir à la
+          porte). Méthode : deuxième passe IA sur le recadrage (850,0)-(1570,620) (consigne : la maison plus
+          étroite, les hauteurs, le mur, l'escalier, le garde-corps et le trottoir inchangés), puis **collage au
+          masque** avec fondu de 12 px et **protections au pixel de Jeannot et de la 4L** de la v31. Contrôle
+          `p02-v32-controle.jpg` : **CONFORME** (hors zones 0,00 ; zone 850,0-1570,620 : couleurs 94 %, netteté
+          ×1,17, bord 13,3). Planche de comparaison : `/tmp/p02/v32-compare.png`.
+          Les deux options sont publiées sur la page « à valider » (v31 et v32) ; la v30 et sa planche passent en
+          « écartées ». Reste de la question (a) de la v25 : les **marches du trottoir** (x 790-1090 / y 380-600)
+          — la v32 les remplace par la volée qui monte à la porte : à valider ou à rétablir.
+
 
 ---
 
@@ -967,6 +997,18 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
   v30, avec une consigne courte qui ne cite rien hors champ, le miroir a marché (voir plus haut).
 - **Ne pas retourner un personnage accoudé** pour changer son regard : ses avant-bras suivent un
   rebord incliné (pente ≈ 0,35 sur P01), qui ne correspond plus une fois retourné.
+- **Recopier des bandes de parement pour retoucher une zone ⇒ « bouts de chapeau », murets en doublons,
+  talus d'herbe au bas des marches (v30, rejetée : « des bidouillages horribles »).** La parade : faire
+  **redessiner la zone entière par l'IA sur un recadrage** — en **effaçant d'abord le personnage**
+  qu'on recollera au pixel — puis recoller **au masque** (fondu + protections). **Jamais** de recopie
+  de bandes sur cette zone. Recadrage utile : (700,0)-(1400,580), qui s'arrête **avant la 4L**.
+- **Une retouche IA « plein cadre » élargit la maison du fond et déplace la terrasse** : toujours
+  passer par un **recadrage** de la zone visée.
+- **`_chapeau_peau` (chapeau + peau larges) est inutilisable** : 0 px sur le recadrage de l'IA (filtre
+  en coordonnées locales) et 226 189 px sur la v29, où les **pierres beiges** passent pour de la peau.
+  Prendre un **chapeau strict** (R>185, G>145, B<150, R−B>85) et le **rectangle de la tête** (enveloppe
+  des chapeaux de la v29 **et** de l'IA, élargie de 12 px) : c'est ce qui empêche le rééchantillonnage
+  vertical d'étirer le chapeau.
 
 - **Ne pas tenter de « voir » une image** en insistant : le test de 30 s (§2) suffit.
 - **Le miroir retourne tout le personnage** : pour tourner Henri, ne pas utiliser

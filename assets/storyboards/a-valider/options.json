@@ -944,8 +944,8 @@
      "id": "v30",
      "fichier": "p02-v30-mur-continu-haut-ligne.png",
      "source": "tools/p02_v30.py — la v29 + le haut du mur de soutènement relevé sur la ligne pointée (pas de rééchantillonnage : les rangs de pierre et le chaperon situés sous l'ancien haut sont recopiés vers le haut, aucun flou) ; l'escalier n'est pas touché. Contrôle p02-v30-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×1,16, bord 0,0).",
-     "note": "Exactement ta demande du 16/10 : « le mur de soutènement continu jusqu'au mur de chez Jeannot, pareil pour le haut du mur tu suivras la ligne du haut du mur que je t'avais pointé, l'escalier coupera le mur en 2 jusqu'à la porte ».\n\n- **le haut du mur suit la ligne** (1000,212)->(1470,217) : entre x 765 (l'angle du garage) et x 1490 (le mur de la maison de Jeannot), le parement est remonté de +13 à +66 px ; à droite de x 1320 le mur était déjà sur la ligne (écart < 8 px), rien n'est touché.\n- **le mur est continu** de bout en bout, sans trou ni décrochement — sauf la coupe de l'escalier (x 1082-1245) qui reste intacte : les marches montent à la porte et les deux tronçons se raccordent à la même ligne.\n- **rien d'autre ne bouge** : Jeannot, la 4L, la rue, le jardin, le garage et le voisin sont au pixel (hors zones : écart 0,00).",
-     "etat": "a-valider",
+     "note": "rejetée le 16/10 : « tout bugué », « bidouillages horribles » (muret en doublons, bouts de chapeau)",
+     "etat": "ecartee",
      "avis": []
     },
     {
@@ -960,9 +960,23 @@
      "id": "v30-choix",
      "fichier": "p02-v30-choix-mur.png",
      "source": "planche de comparaison (même découpe ×1,75, agrandissements identiques)",
-     "note": "v29 (avant) / v30 (après), avec ta ligne du haut du mur (1000,212)->(1470,217) tracée en rouge sur les deux : en haut le mur tombe vers la gauche (~263 px à x 1000), en bas son haut est sur la ligne et le parement court jusqu'au mur de Jeannot.",
-     "etat": "a-valider",
+     "note": "rejetée (planche de la v30)",
+     "etat": "ecartee",
      "avis": []
+    },
+    {
+     "id": "v31",
+     "fichier": "p02-v31-zone-propre.png",
+     "source": "tools/p02_v31.py",
+     "note": "la zone redessinée d'un seul tenant : un seul mur continu, marches régulières et continues, un seul muret, rien de recollé (maison du fond inchangée)",
+     "etat": "a-valider"
+    },
+    {
+     "id": "v32",
+     "fichier": "p02-v32-maison-etroite.png",
+     "source": "tools/p02_v31.py + retouche IA (work/v33-ia.png)",
+     "note": "la zone propre + la maison du fond plus étroite (du début de la terrasse à presque la maison de Jeannot) + l'escalier qui descend jusqu'à la rue",
+     "etat": "a-valider"
     }
    ]
   },

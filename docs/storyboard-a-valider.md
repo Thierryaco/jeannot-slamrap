@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 33 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 35 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -279,26 +279,22 @@ La maison REMONTE vers la droite (−12,0 %), dans le sens de la rue qui s'éloi
 
 <img src="../assets/storyboards/a-valider/p02/p02-v29-maison-remontee-rue.png" width="640" alt="P02 v29">
 
-**P02 · v30** — ⏳ à valider — tools/p02_v30.py — la v29 + le haut du mur de soutènement relevé sur la ligne pointée (pas de rééchantillonnage : les rangs de pierre et le chaperon situés sous l'ancien haut sont recopiés vers le haut, aucun flou) ; l'escalier n'est pas touché. Contrôle p02-v30-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×1,16, bord 0,0). · ⚪ faite sans carte du plan  
-Exactement ta demande du 16/10 : « le mur de soutènement continu jusqu'au mur de chez Jeannot, pareil pour le haut du mur tu suivras la ligne du haut du mur que je t'avais pointé, l'escalier coupera le mur en 2 jusqu'à la porte ».
-
-- **le haut du mur suit la ligne** (1000,212)->(1470,217) : entre x 765 (l'angle du garage) et x 1490 (le mur de la maison de Jeannot), le parement est remonté de +13 à +66 px ; à droite de x 1320 le mur était déjà sur la ligne (écart < 8 px), rien n'est touché.
-- **le mur est continu** de bout en bout, sans trou ni décrochement — sauf la coupe de l'escalier (x 1082-1245) qui reste intacte : les marches montent à la porte et les deux tronçons se raccordent à la même ligne.
-- **rien d'autre ne bouge** : Jeannot, la 4L, la rue, le jardin, le garage et le voisin sont au pixel (hors zones : écart 0,00).
-
-<img src="../assets/storyboards/a-valider/p02/p02-v30-mur-continu-haut-ligne.png" width="640" alt="P02 v30">
-
 **P02 · v29-choix** — ⏳ à valider — tools/p02_v27.py --variante B et C · ⚪ faite sans carte du plan  
 Planche de décision : v26 (plat) / v28 (−4,4 %) / v29 (−12,0 %) — même découpe, ta ligne de route en vert, le bas du mur en rouge. Le point de fuite de la rue est en (330,364) : au-dessus de l'horizon, une ligne parallèle à la rue REMONTE vers la droite — c'est ce que fait la P01 validée (bas du mur à −28 %).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v29-choix-montee.png" width="640" alt="P02 v29-choix">
 
-**P02 · v30-choix** — ⏳ à valider — planche de comparaison (même découpe ×1,75, agrandissements identiques) · ⚪ faite sans carte du plan  
-v29 (avant) / v30 (après), avec ta ligne du haut du mur (1000,212)->(1470,217) tracée en rouge sur les deux : en haut le mur tombe vers la gauche (~263 px à x 1000), en bas son haut est sur la ligne et le parement court jusqu'au mur de Jeannot.
+**P02 · v31** — ⏳ à valider — tools/p02_v31.py · ⚪ faite sans carte du plan  
+la zone redessinée d'un seul tenant : un seul mur continu, marches régulières et continues, un seul muret, rien de recollé (maison du fond inchangée)
 
-<img src="../assets/storyboards/a-valider/p02/p02-v30-choix-mur.png" width="640" alt="P02 v30-choix">
+<img src="../assets/storyboards/a-valider/p02/p02-v31-zone-propre.png" width="640" alt="P02 v31">
 
-<details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
+**P02 · v32** — ⏳ à valider — tools/p02_v31.py + retouche IA (work/v33-ia.png) · ⚪ faite sans carte du plan  
+la zone propre + la maison du fond plus étroite (du début de la terrasse à presque la maison de Jeannot) + l'escalier qui descend jusqu'à la rue
+
+<img src="../assets/storyboards/a-valider/p02/p02-v32-maison-etroite.png" width="640" alt="P02 v32">
+
+<details><summary>🗄️ 17 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20, v30, v30-choix</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png
   - 💬 *2026-10-14 15:38* — je verrais plutot se genre de  position et de pose pour jeannot. Enji je la verrai plutôt couché à la gauche des pieds de jeannot. La 4l ne bouge de sa position P01 par contre les lieux seront la P01 je vais placer tout ça comme je peux sur la carte interactive . Il faut que la caméra soit placé  de façon à avoir le même angle et la même vue que sur ce plan  par rapport à la 4L seulement.  Tu corrigera la carte interactive si besoin
@@ -319,6 +315,8 @@ v29 (avant) / v30 (après), avec ta ligne du haut du mur (1000,212)->(1470,217) 
 - **v18** — tools/p02_v18.py — la v17 avec le pan de toit en biais supprimé, sans IA : la bande de mur crème du pignon (x 1060-1090, sous les tuiles) est recopiée ligne par ligne vers la gauche jusqu'à une arête verticale à x=950, avec un liseré de contour au ton de la maison ; les deux fenêtres de côté, le garde-corps de la terrasse, le toit de tuiles, la porte et l'escalier sont inchangés. Contrôle : p02-v18-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,47, bord 11,7 ; hors zones 0.00) — ../assets/storyboards/a-valider/p02/p02-v18-maison-droite.png
 - **v19** — tools/p02_v19.py — la v18 avec l'escalier de jardin redessiné sans IA : la volée part du point (835, 500), monte tout droit (contremarches horizontales, on monte vers le fond), de largeur constante (x 835 → 907), posée sur la ligne de pied du mur de pierre (y 502 → 514 : rien ne descend sur le trottoir) et arrive sur l'herbe du jardin (y 262 → 265) en 15 marches, encadrée de deux joues de pierre de 6 px ; palette relevée dans l'image (contremarche (186,168,140), marche (203,191,172), nez/traits (36,29,23)). Contrôle (par rapport à la v18) : p02-v19-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,14, bord 0.0 ; hors zones 0.00) — ../assets/storyboards/a-valider/p02/p02-v19-escalier-droit.png
 - **v20** — tools/p02_v20.py — la v14 sans IA pour la maison (arête ouest ramenée à x = 1010, façade recomposée à la même hauteur : porte au centre, deux fenêtres de part et d'autre) ; pour les escaliers, deux retouches IA (work/v20-ia-sans-escalier-haut.png, work/v20-ia-sans-escalier-bas.png) recadrées, recalées et collées uniquement là où elles diffèrent de la v14, Jeannot et la 4L protégés au pixel près. Contrôle : p02-v20-controle.jpg (CONFORME : couleurs 100 %, netteté ×1,08 à ×1,23, bords 27,0 / 13,0 / 5,9 ; hors zones 0.01) — ../assets/storyboards/a-valider/p02/p02-v20-maison-droite.png
+- **v30** — tools/p02_v30.py — la v29 + le haut du mur de soutènement relevé sur la ligne pointée (pas de rééchantillonnage : les rangs de pierre et le chaperon situés sous l'ancien haut sont recopiés vers le haut, aucun flou) ; l'escalier n'est pas touché. Contrôle p02-v30-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×1,16, bord 0,0). — ../assets/storyboards/a-valider/p02/p02-v30-mur-continu-haut-ligne.png
+- **v30-choix** — planche de comparaison (même découpe ×1,75, agrandissements identiques) — ../assets/storyboards/a-valider/p02/p02-v30-choix-mur.png
 
 </details>
 

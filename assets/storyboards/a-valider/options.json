@@ -921,7 +921,12 @@
       "plan_rev": 2,
       "lieux_rev": 12
      },
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-16 07:48",
+       "texte": "📍 pointages sur l'image :\n1. (372, 254) — 1à2 ligne du haut du mur v26 et 3et 4 sur la v27 c'est ligne là sont parallèle à la ligne verte mais l'horreur de la   bleu  ne l'est pas  c'est quand même fou que tu le vois pas \n2. (678, 244)\n3. (372, 963)\n4. (686, 949)"
+      }
+     ]
     }
    ]
   },

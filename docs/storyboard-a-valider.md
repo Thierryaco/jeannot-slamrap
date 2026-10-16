@@ -262,6 +262,12 @@ Repère mesuré : dans la v13 (validée), l'écart entre le bas du mur et le bor
 
 <img src="../assets/storyboards/a-valider/p02/p02-v27-preuve-parallele.png" width="640" alt="P02 v27-preuve">
 
+- 💬 *2026-10-16 07:48* — 📍 pointages sur l'image :
+1. (372, 254) — 1à2 ligne du haut du mur v26 et 3et 4 sur la v27 c'est ligne là sont parallèle à la ligne verte mais l'horreur de la   bleu  ne l'est pas  c'est quand même fou que tu le vois pas 
+2. (678, 244)
+3. (372, 963)
+4. (686, 949)
+
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 
 - **v1** — ancien fil, commit 2db27a6 (03h55) — ../assets/storyboards/a-valider/p02/p02-v1-ancien-fil-03h55.png

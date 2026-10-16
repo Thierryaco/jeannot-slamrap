@@ -12,7 +12,7 @@ Tri plan par plan. **Toutes les options sont conservées ici** (anciennes versio
 |---|---:|---|---:|---|
 | [CARTE](#carte) | référence | ✅ Validé | 10 | v10 |
 | [P01](#p01) | 00:00–00:05 | ✅ Validé | 28 | v33 |
-| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 29 | — |
+| [P02](#p02) | 00:05–00:10 | ⏳ À valider | 31 | — |
 | [P03](#p03) | 00:10–00:16,35 | ⏳ À valider | 2 | — |
 | [P04](#p04) | 00:16,35–00:18,88 | ⏳ À valider | 1 | — |
 | [P05](#p05) | 00:18,88–00:21,42 | ⏳ À valider | 3 | — |
@@ -247,8 +247,8 @@ Repère mesuré : dans la v13 (validée), l'écart entre le bas du mur et le bor
 4. (993, 619)
 - 💬 *2026-10-16 06:59* — 3 version  et la maison n'a pas bougé d'un pouce toujours mal orienté c'est incroyable . est ce que tu as regarde le plan de la carte interactive  est ce que tu crois que sur le plan la maison est orienté comme ça  et ne me parle plus de toit je te parle de la maison.Regzrde cette carte interactive regarde regarde bien la maison comment elle est sur le plan  rien  de compliqué pourtant.
 
-**P02 · v27** — ⏳ à valider — tools/p02_v27.py --variante A — la v26 telle quelle, sauf la maison, le jardin et la terrasse : cisaillement vertical par colonne à décalage ENTIER (aucun rééchantillonnage : les pixels sont recopiés tels quels, les verticales restent verticales, les angles entre les lignes sont conservés — c'est le style « projection cavalière » déjà utilisé par la v26), ancré à l'ouest (x 1000 : rien ne bouge) et arrêté à x 1505 (le mur de la maison voisine ne bouge pas). Le bas du mur passe de +5,5 % (v26) à **+38,38 %**, la pente exacte de la ligne de route pointée (498,429)->(993,619). Le bandeau libéré au-dessus du toit est comblé par la forêt voisine copiée en miroir 2D (aucun flou, aucune couleur nouvelle). Jeannot, la 4L et la rue ne sont jamais touchés : le cisaillement s'arrête à leur contour. Contrôle p02-v27-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×0,94, bord 17,4) · 🟢 conforme à la carte actuelle (rév. 2)  
-CORRIGÉE le 16/10 : le bas du mur est calé sur la PENTE DE LA LIGNE DE ROUTE pointée (+38,38 % = 21,0°) — écart 0,0° avec ton pointage. Le mur, la porte, les fenêtres, le jardin et les marches basculent dans le sens de la rue (cisaillement vertical par colonne, pixels recopiés tels quels, décalage max 193 px à l'est). Personnages, 4L, rue et pierres du soutènement intacts (contrôle retouche CONFORME : hors zones 0,00). Voir la planche de preuve, refaite elle aussi.
+**P02 · v27** — 🔁 à retoucher — tools/p02_v27.py --variante A — la v26 telle quelle, sauf la maison, le jardin et la terrasse : cisaillement vertical par colonne à décalage ENTIER (aucun rééchantillonnage : les pixels sont recopiés tels quels, les verticales restent verticales, les angles entre les lignes sont conservés — c'est le style « projection cavalière » déjà utilisé par la v26), ancré à l'ouest (x 1000 : rien ne bouge) et arrêté à x 1505 (le mur de la maison voisine ne bouge pas). Le bas du mur passe de +5,5 % (v26) à **+38,38 %**, la pente exacte de la ligne de route pointée (498,429)->(993,619). Le bandeau libéré au-dessus du toit est comblé par la forêt voisine copiée en miroir 2D (aucun flou, aucune couleur nouvelle). Jeannot, la 4L et la rue ne sont jamais touchés : le cisaillement s'arrête à leur contour. Contrôle p02-v27-controle.jpg (CONFORME : hors zones 0,00 ; zone couleurs 100 %, netteté ×0,94, bord 17,4) · 🟢 conforme à la carte actuelle (rév. 2)  
+ABANDONNÉE le 16/10 : la maison PLONGE vers la droite (jusqu'à 193 px) — « on s'enfonce de plus ». La ligne de route pointée (498,429)->(993,619) est SOUS l'horizon (le point de fuite des bords de rue est en (330,364)) : une ligne parallèle à la rue AU-DESSUS de l'horizon remonte au contraire vers la droite. Voir la v28 (−4,4 %) et la v29 (−12,0 %).
 
 <img src="../assets/storyboards/a-valider/p02/p02-v27-maison-pente-route.png" width="640" alt="P02 v27">
 
@@ -257,8 +257,8 @@ Autre lecture : le bas du mur prend la pente du MUR DE SOUTÈNEMENT (−4,43 % �
 
 <img src="../assets/storyboards/a-valider/p02/p02-v28-maison-pente-mur-soutenement.png" width="640" alt="P02 v28">
 
-**P02 · v27-preuve** — ⏳ à valider — planche de contrôle : les deux lignes de l'avis tracées sur la v26 (en haut) et sur la v27 (en bas) — ligne de façade pointée (1000,212)->(1470,217) en jaune, ligne de route pointée (498,429)->(993,619) en vert, et sur la v27 le bas du mur de la maison en cyan (1000,192)->(1470,372) · 🟢 conforme à la carte actuelle (rév. 2)  
-PLANCHE CORRIGÉE : la ligne cyan est tracée sur le bas du mur réellement peint (le jardin, les marches, le mur), la ligne verte est ta ligne de route recopiée à l'identique juste dessous, en gris ton ancienne ligne de façade. Échelle 1:1 (aucune déformation) + zoom x2.
+**P02 · v27-preuve** — 🔁 à retoucher — planche de contrôle : les deux lignes de l'avis tracées sur la v26 (en haut) et sur la v27 (en bas) — ligne de façade pointée (1000,212)->(1470,217) en jaune, ligne de route pointée (498,429)->(993,619) en vert, et sur la v27 le bas du mur de la maison en cyan (1000,192)->(1470,372) · 🟢 conforme à la carte actuelle (rév. 2)  
+Planche de la piste abandonnée (le bas du mur y plongeait). Conservée pour mémoire — la nouvelle planche est p02-v29-choix-montee.png.
 
 <img src="../assets/storyboards/a-valider/p02/p02-v27-preuve-parallele.png" width="640" alt="P02 v27-preuve">
 
@@ -271,6 +271,16 @@ PLANCHE CORRIGÉE : la ligne cyan est tracée sur le bas du mur réellement pein
 1. (244, 156) — trace moi cette ligne  1et 2 et  tu l'a reporte en partant de la ligne 3  la maison doit suivre cette lligne  , t'as un souci de vision ta maison est completement affaissé et deformé là 0 cohérence 
 2. (551, 148)
 3. (120, 692)
+
+**P02 · v29** — ⏳ à valider — tools/p02_v27.py --variante C · ⚪ faite sans carte du plan  
+La maison REMONTE vers la droite (−12,0 %), dans le sens de la rue qui s'éloigne vers le point de fuite (330,364) — l'inverse de la v27 qui la faisait plonger. Le jardin s'ouvre et le mur de soutènement suit ; Jeannot, Enji, la 4L, la rue et les pierres du soutènement n'ont pas bougé (contrôle CONFORME : hors zones 0,00 ; couleurs 100 % ; netteté ×1,04). À comparer avec la v28 (−4,4 %, la pente du mur de soutènement).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v29-maison-remontee-rue.png" width="640" alt="P02 v29">
+
+**P02 · v29-choix** — ⏳ à valider — tools/p02_v27.py --variante B et C · ⚪ faite sans carte du plan  
+Planche de décision : v26 (plat) / v28 (−4,4 %) / v29 (−12,0 %) — même découpe, ta ligne de route en vert, le bas du mur en rouge. Le point de fuite de la rue est en (330,364) : au-dessus de l'horizon, une ligne parallèle à la rue REMONTE vers la droite — c'est ce que fait la P01 validée (bas du mur à −28 %).
+
+<img src="../assets/storyboards/a-valider/p02/p02-v29-choix-montee.png" width="640" alt="P02 v29-choix">
 
 <details><summary>🗄️ 15 option(s) écartée(s) : v1, v2, v3, v5, v6, v7, v8, v9, v14, v15, v16, v17, v18, v19, v20</summary>
 

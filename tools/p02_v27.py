@@ -54,6 +54,8 @@ PAS_PIERRES = 40                    # hauteur d'un rang de pierres (variante B)
 VARIANTES = {
     "A": dict(fichier="p02-v27-maison-pente-route.png", cible=PENTE_ROUTE,
               quoi="pente de la ligne de route pointée (+21,0°)"),
+    "C": dict(fichier="p02-v29-maison-remontee-rue.png", cible=-0.12,
+              quoi="remontée vers le point de fuite de la rue (330,364) — la maison suit la rue qui s'éloigne"),
     "B": dict(fichier="p02-v28-maison-pente-mur-soutenement.png", cible=PENTE_MURET,
               quoi="pente du mur de soutènement (−2,5°)"),
 }
@@ -114,7 +116,7 @@ def comble_foret(src, out, s):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--variante", default="AB", choices=["A", "B", "AB"])
+    ap.add_argument("--variante", default="AB", choices=["A", "B", "C", "AB", "C"])
     ap.add_argument("--essai", action="store_true")
     a = ap.parse_args()
 

@@ -884,6 +884,15 @@ rév. 15, puisque c'est la carte qui a été recalée sur elle.
           dessous, la grise est l'ancienne ligne de façade plate) avec un zoom x2. Leçon : une ligne de preuve
           doit être tracée sur le contour **mesuré** dans l'image, jamais sur des coordonnées construites.
 
+          ↩️ **Inversion de sens (16/10, avis « on s'enfonce de plus là chef »)** — la piste du bas du mur qui *plongeait*
+          vers la droite est ABANDONNÉE : le point de fuite des bords de rue est en **(330,364)**, donc une ligne
+          parallèle à la rue située **au-dessus de l'horizon REMONTE** vers la droite (c'est aussi ce que fait la P01
+          validée : bas du mur −28 %). Deux options remontantes sont publiées : **v28** (`--variante B`, −4,43 %, la pente
+          du mur de soutènement) et **v29** (`--variante C`, −12,0 %, la maison suit la rue qui s'éloigne) + la planche de
+          décision `p02-v29-choix-montee.png` (v26 / v28 / v29). Contrôles CONFORME pour les deux (hors zones 0,00 ;
+          netteté ×0,96 / ×1,04). `p02-v27-maison-pente-route.png` et sa planche sont passées en « à retoucher » (piste
+          conservée pour mémoire).
+
 
 ---
 

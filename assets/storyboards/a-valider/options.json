@@ -876,7 +876,12 @@
       "plan_rev": 2,
       "lieux_rev": 12
      },
-     "avis": []
+     "avis": [
+      {
+       "date": "2026-10-16 06:58",
+       "texte": "📍 pointages sur l'image :\n1. (1000, 212) — 1à 2 la ligne de la façade  de la maison \n2. (1470, 217)\n3. (498, 429) — 3à 4  la ligne de la route   dis moi en quoi ces lignes sont parralèles sérieux?\n4. (993, 619)"
+      }
+     ]
     }
    ]
   },
